@@ -6,8 +6,17 @@ import { Component } from '@angular/core';
   // standalone: true,
 
   templateUrl: './categoria.component.html',
-  styleUrl: './categoria.component.css'
+  styleUrl: './categoria.component.css',
+
 })
+
 export class CategoriaComponent {
+categorias: any;
+eliminar(_t17: any) {
+throw new Error('Method not implemented.');
+}
+editar(_t17: any) {
+throw new Error('Method not implemented.');
+}
 
 }

@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(to right,#EE696B, #523A78); /* Agrega un gradiente de fondo */
+
+
+}
+
+.table {
+  width: 50%;
+  padding: 20px;
+  border-color: aliceblue;
+  border-radius: 15%;
+
+  box-shadow: inset;
+}

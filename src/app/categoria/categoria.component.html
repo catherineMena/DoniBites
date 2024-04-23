@@ -1,2 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<h1>Categoria works</h1>
+
+
+
+</head>
+<body>
+
+  <title>Categoria</title>
+  <table class="tabla-categoria table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Categoria</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td></td>
+      </tr>
+    </tbody>
+      <tr *ngFor="let categoria of categorias">
+        <td>{{categoria.id}}</td>
+        <td>{{categoria.nombre}}</td>
+        <td>{{categoria.descripcion}}</td>
+        <td>
+          <button class="btn btn-primary" (click)="editar(categoria)">Editar</button>
+          <button class="btn btn-danger" (click)="eliminar(categoria)">Eliminar</button>
+        </td>
+      </tr>
+
+  </table>
+
+</body>
+</html>
