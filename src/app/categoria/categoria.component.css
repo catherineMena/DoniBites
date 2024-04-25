@@ -1,19 +1,46 @@
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+
+}
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  background: linear-gradient(to right,#EE696B, #523A78); /* Agrega un gradiente de fondo */
+  background: linear-gradient(to right, #EE696B, #523A78); /* Gradiente de fondo */
+}
 
+.header {
+  padding-top: -12%;
+  padding-bottom: 10%;
+  display: flex;
+  justify-content: space-between; /* Alinea los elementos de forma equitativa */
+  align-items: center;
+  color: aliceblue;
 
 }
 
 .table {
-  width: 50%;
-  padding: 20px;
-  border-color: aliceblue;
-  border-radius: 15%;
+  width: 50%; /* Asegúrate de que la tabla no sea demasiado ancha */
+  padding: 20px; /* Espacio interno para la tabla */
+  border: 1px solid aliceblue; /* Añade un borde sólido */
+  border-radius: 15px; /* Usa px para una proporción constante */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Efecto de sombra sutil */
+}
 
-  box-shadow: inset;
+.actions {
+  display: flex;
+  justify-content: space-between; /* Alinea los elementos de forma equitativa */
+  margin-bottom: 3px; /* Espacio entre los botones y la tabla */
+}
+.fas {
+  background: none;
 }

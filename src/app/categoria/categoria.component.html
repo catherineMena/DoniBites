@@ -3,15 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 
 
 
 </head>
 <body>
+<div class="wrapper">
+  <div class="header">
+    <h1>Tabla de Categorías</h1>
+  </div>
 
-  <title>Categoria</title>
   <table class="tabla-categoria table table-striped table-hover">
+
     <thead>
       <tr>
         <th>Id</th>
@@ -23,12 +28,34 @@
       <tr>
         <th scope="row">1</th>
         <td>Mark</td>
-        <td></td>
+        <td>
+          <div class="actions">
+          <a href="#" class="btn btn-primary btn-view">
+            <i class="fas fa-eye"></i>
+          </a>
+          <a href="#" class="btn btn-primary btn-edit">
+            <i class="fas fa-pencil"></i>
+          </a>
+          <a href="#" class="btn btn-danger btn-delete">
+            <i class="fas fa-trash"></i>
+          </a>
+        </div>
+        </td>
       </tr>
       <tr>
         <th scope="row">2</th>
         <td>Jacob</td>
-        <td></td>
+        <div class="actions">
+          <a href="#" class="btn btn-primary btn-view">
+            <i class="fas fa-eye"></i>
+          </a>
+          <a href="#" class="btn btn-primary btn-edit">
+            <i class="fas fa-pencil"></i>
+          </a>
+          <a href="#" class="btn btn-danger btn-delete">
+            <i class="fas fa-trash"></i>
+          </a>
+        </div>
       </tr>
     </tbody>
       <tr *ngFor="let categoria of categorias">
@@ -42,6 +69,7 @@
       </tr>
 
   </table>
+</div>
 
 </body>
 </html>

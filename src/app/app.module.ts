@@ -14,7 +14,8 @@ import { MenuComponent } from './menu/menu.component';
     CategoriaComponent,
     ProductosComponent,
     UsuarioComponent,
-    MenuComponent
+    MenuComponent,
+
     // Remove AppComponent from declarations array
   ],
   imports: [
