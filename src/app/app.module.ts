@@ -5,6 +5,9 @@ import { CategoriaComponent } from './categoria/categoria.component';
 import { ProductosComponent } from './productos/productos.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { MenuComponent } from './menu/menu.component';
+import { AgregarCategoriaComponent } from './Add/agregar-categoria/agregar-categoria.component';
+import { AgregarProductoComponent } from './Add/agregar-producto/agregar-producto.component';
+import { VisualizarCategoriaComponent } from './read/visualizar-categoria/visualizar-categoria.component';
 
 
 
@@ -15,6 +18,9 @@ import { MenuComponent } from './menu/menu.component';
     ProductosComponent,
     UsuarioComponent,
     MenuComponent,
+    AgregarCategoriaComponent,
+    AgregarProductoComponent,
+    VisualizarCategoriaComponent
 
     // Remove AppComponent from declarations array
   ],
