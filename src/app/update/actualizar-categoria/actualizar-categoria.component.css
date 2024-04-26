@@ -1,7 +1,6 @@
-/* Fondo con gradiente y configuración básica para el cuerpo */
 body {
   background: linear-gradient(to right, #EE696B, #523A78); /* Fondo con gradiente */
-
+  height: 100vh; /* Cubrir toda la altura del viewport */
   margin: 0; /* Eliminar márgenes predeterminados */
   display: flex; /* Usar Flexbox para centrar */
   justify-content: center; /* Centrar horizontalmente */

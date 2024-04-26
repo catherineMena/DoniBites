@@ -35,12 +35,14 @@ h1 {
 }
 
 input {
+  background-color: #f0f0f073; /* Fondo gris claro */
+  color: #888888c5; /* Texto gris oscuro */
   width: 15rem; /* Ancho del campo de entrada */
-  height: 1.5rem; /* Altura del campo de entrada */
+  height: 2rem; /* Altura del campo de entrada */
   padding: 5px; /* Espaciado interno */
-  font-size: 60%; /* Tamaño del texto */
+  font-size: 80%; /* Tamaño del texto */
   border-radius: 5px; /* Bordes redondeados */
-  border: 1px sólido #ccc; /* Borde sólido */
+  border: 1px solid #ccc; /* Borde sólido */
 }
 
 .form-label {

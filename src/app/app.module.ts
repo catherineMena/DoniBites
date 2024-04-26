@@ -8,6 +8,13 @@ import { MenuComponent } from './menu/menu.component';
 import { AgregarCategoriaComponent } from './Add/agregar-categoria/agregar-categoria.component';
 import { AgregarProductoComponent } from './Add/agregar-producto/agregar-producto.component';
 import { VisualizarCategoriaComponent } from './read/visualizar-categoria/visualizar-categoria.component';
+import { EliminarCategoriaComponent } from './delete/eliminar-categoria/eliminar-categoria.component';
+import { VisualizarProductosComponent } from './read/visualizar-productos/visualizar-productos.component';
+import { ActualizarCategoriaComponent } from './update/actualizar-categoria/actualizar-categoria.component';
+import { ActualizarProductoComponent } from './update/actualizar-producto/actualizar-producto.component';
+import { EliminarProductosComponent } from './delete/eliminar-productos/eliminar-productos.component';
+import { RouterModule, Routes } from '@angular/router';
+import { appRoutes } from './app.routes';
 
 
 
@@ -20,12 +27,17 @@ import { VisualizarCategoriaComponent } from './read/visualizar-categoria/visual
     MenuComponent,
     AgregarCategoriaComponent,
     AgregarProductoComponent,
-    VisualizarCategoriaComponent
+    VisualizarCategoriaComponent,
+    EliminarCategoriaComponent,
+    VisualizarProductosComponent,
+    ActualizarCategoriaComponent,
+    ActualizarProductoComponent,
+    EliminarProductosComponent
 
-    // Remove AppComponent from declarations array
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(appRoutes),
     // Add AppComponent to imports array
 
 
