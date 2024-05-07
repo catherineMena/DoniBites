@@ -15,7 +15,10 @@ import { ActualizarProductoComponent } from './update/actualizar-producto/actual
 import { EliminarProductosComponent } from './delete/eliminar-productos/eliminar-productos.component';
 import { RouterModule, Routes } from '@angular/router';
 import { appRoutes } from './app.routes';
-
+import { AgregarUsuarioComponent } from './agregar-usuario/agregar-usuario.component';
+import { VisualizarUsuarioComponent } from './read/visualizar-usuario/visualizar-usuario.component';
+import { EliminarUsuarioComponent } from './delete/eliminar-usuario/eliminar-usuario.component';
+import { ActualizarUsuarioComponent } from './update/actualizar-usuario/actualizar-usuario.component';
 
 
 @NgModule({
@@ -32,7 +35,11 @@ import { appRoutes } from './app.routes';
     VisualizarProductosComponent,
     ActualizarCategoriaComponent,
     ActualizarProductoComponent,
-    EliminarProductosComponent
+    EliminarProductosComponent,
+    AgregarUsuarioComponent,
+    VisualizarUsuarioComponent,
+    EliminarUsuarioComponent,
+    ActualizarUsuarioComponent,
 
   ],
   imports: [

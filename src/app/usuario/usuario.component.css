@@ -1,0 +1,70 @@
+/* Body centrado y con fondo de gradiente */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #EE696B, #523A78); /* Gradiente de fondo */
+  }
+  
+  /* Contenedor principal con alineación centrada */
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Cabecera con alineación entre elementos y color */
+  .header {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between; /* Alineación equitativa */
+    align-items: center;
+    justify-content: center;
+    color: aliceblue;
+    padding: 5% 0; /* Se eliminó el valor negativo para el padding-top */
+  
+  }
+  
+  .header button {
+    background-color: black;
+    color: white;
+    font-size: 0.8rem; /* Usar rem para consistencia */
+    position: relative;
+    top: 16px; /* Posición fija en relación a su contenedor */
+    margin-left: 62%; /* Empuja el botón hacia el borde derecho */
+    margin-bottom: 3%;
+  
+  }
+  
+  /* Estilo para la tabla */
+  .table {
+    width: 60%; /* Ancho del 60% del contenedor */
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid aliceblue; /* Borde claro */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    font-size: 0.8rem; /* Consistente con los botones */
+    padding-top: 2%;
+  }
+  
+  /* Contenedor para acciones con alineación y espaciado */
+  .actions {
+    display: flex;
+    justify-content: space-between; /* Alineación equitativa */
+    gap: 5px; /* Espaciado entre elementos */
+  }
+  
+  /* Botón para agregar elementos con estilo flotante */
+  .bt-add {
+    background-color: black;
+    color: white;
+    font-size: 0.8rem; /* Usar rem para consistencia */
+    margin-top: 0; /* Eliminar el valor negativo */
+    margin-bottom: 2%; /* Margen inferior para espaciado */
+    float: right; /* Posiciona a la derecha */
+  }
+  

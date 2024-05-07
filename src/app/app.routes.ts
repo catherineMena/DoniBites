@@ -6,6 +6,12 @@ import { AgregarCategoriaComponent } from './Add/agregar-categoria/agregar-categ
 import { VisualizarCategoriaComponent } from './read/visualizar-categoria/visualizar-categoria.component';
 import { ActualizarCategoriaComponent } from './update/actualizar-categoria/actualizar-categoria.component';
 import { EliminarCategoriaComponent } from './delete/eliminar-categoria/eliminar-categoria.component';
+import { AgregarUsuarioComponent } from './agregar-usuario/agregar-usuario.component';
+import { VisualizarUsuarioComponent } from './read/visualizar-usuario/visualizar-usuario.component';
+import { ActualizarUsuarioComponent } from './update/actualizar-usuario/actualizar-usuario.component';
+import { EliminarUsuarioComponent } from './delete/eliminar-usuario/eliminar-usuario.component';
+
+
 
 
  export const appRoutes: Routes = [
@@ -17,6 +23,15 @@ import { EliminarCategoriaComponent } from './delete/eliminar-categoria/eliminar
   { path: 'agregar-categoria', component: AgregarCategoriaComponent },
   { path: 'visualizar-categoria', component: VisualizarCategoriaComponent },
   { path: 'actualizar-categoria', component: ActualizarCategoriaComponent},
-  {path:'eliminar-categoria', component: EliminarCategoriaComponent},
+  { path: 'eliminar-categoria', component: EliminarCategoriaComponent},
+
+   /////////////////////////////////////////////////////////////////////
+  { path: 'usuario', component: UsuarioComponent },
+  { path: 'agregar-usuario', component: AgregarUsuarioComponent },
+  { path: 'visualizar-usuario', component: VisualizarUsuarioComponent},
+  { path: 'actualizar-usuario', component: ActualizarUsuarioComponent},
+  { path: 'eliminar-usuario', component: EliminarUsuarioComponent}
+
+
   // Agrega aquí más rutas según sea necesario
 ];

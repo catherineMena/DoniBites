@@ -1,0 +1,55 @@
+/* Fondo con gradiente y configuración básica para el cuerpo */
+body {
+    background: linear-gradient(to right, #EE696B, #523A78); /* Fondo con gradiente */
+    height: 100vh; /* Cubrir toda la altura del viewport */
+    margin: 0; /* Eliminar márgenes predeterminados */
+    display: flex; /* Usar Flexbox para centrar */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+  }
+  
+  h1 {
+    font-size: 1em; /* Tamaño del texto */
+    margin-bottom: 2rem;
+    text-align: center; /* Alineación del texto */
+    color: aliceblue; /* Color del texto */
+  }
+  
+  /* Contenedor principal centrado */
+  .wrapper {
+    display: flex;
+    flex-direction: column; /* Organizar elementos en columna */
+    justify-content: center; /* Centrar los elementos internos */
+    align-items: center; /* Centrar horizontalmente */
+    background: rgba(255, 255, 255, 0.12); /* Fondo semitransparente */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(20, 20, 20, 0.1); /* Sombra sutil */
+    padding: 3%; /* Espaciado interno */
+    width: fit-content /* Ancho del contenedor */
+  }
+  
+  /* Estilos para el formulario */
+  .form-group {
+    color: aliceblue; /* Color del texto */
+    font-size: 80%; /* Tamaño del texto */
+  }
+  
+  input {
+    width: 15rem; /* Ancho del campo de entrada */
+    height: 2rem; /* Altura del campo de entrada */
+    padding: 5px; /* Espaciado interno */
+    font-size: 80%; /* Tamaño del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px sólido #ccc; /* Borde sólido */
+  }
+  
+  /* Estilo para el botón */
+  button {
+    background-color: black; /* Fondo negro */
+    color: aliceblue; /* Color del texto */
+    font-size: 80%; /* Tamaño del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Eliminar borde por defecto */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  

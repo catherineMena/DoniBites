@@ -8,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrl: './usuario.component.css'
 })
 export class UsuarioComponent {
-
+  usuarios: any;
+  eliminar(_t17: any) {
+  throw new Error('Method not implemented.');
+  }
+  editar(_t17: any) {
+  throw new Error('Method not implemented.');
+  }
 }
+
+
