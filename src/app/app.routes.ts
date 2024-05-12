@@ -6,7 +6,7 @@ import { AgregarCategoriaComponent } from './Add/agregar-categoria/agregar-categ
 import { VisualizarCategoriaComponent } from './read/visualizar-categoria/visualizar-categoria.component';
 import { ActualizarCategoriaComponent } from './update/actualizar-categoria/actualizar-categoria.component';
 import { EliminarCategoriaComponent } from './delete/eliminar-categoria/eliminar-categoria.component';
-import { AgregarUsuarioComponent } from './agregar-usuario/agregar-usuario.component';
+import { AgregarUsuarioComponent } from './Add/agregar-usuario/agregar-usuario.component';
 import { VisualizarUsuarioComponent } from './read/visualizar-usuario/visualizar-usuario.component';
 import { ActualizarUsuarioComponent } from './update/actualizar-usuario/actualizar-usuario.component';
 import { EliminarUsuarioComponent } from './delete/eliminar-usuario/eliminar-usuario.component';

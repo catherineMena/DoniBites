@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { ProductosComponent } from './productos/productos.component';
@@ -15,10 +16,12 @@ import { ActualizarProductoComponent } from './update/actualizar-producto/actual
 import { EliminarProductosComponent } from './delete/eliminar-productos/eliminar-productos.component';
 import { RouterModule, Routes } from '@angular/router';
 import { appRoutes } from './app.routes';
-import { AgregarUsuarioComponent } from './agregar-usuario/agregar-usuario.component';
+import { AgregarUsuarioComponent } from './Add/agregar-usuario/agregar-usuario.component';
 import { VisualizarUsuarioComponent } from './read/visualizar-usuario/visualizar-usuario.component';
 import { EliminarUsuarioComponent } from './delete/eliminar-usuario/eliminar-usuario.component';
 import { ActualizarUsuarioComponent } from './update/actualizar-usuario/actualizar-usuario.component';
+
+import { CategoriaService } from './services/categoria.service';
 
 
 @NgModule({
@@ -40,17 +43,21 @@ import { ActualizarUsuarioComponent } from './update/actualizar-usuario/actualiz
     VisualizarUsuarioComponent,
     EliminarUsuarioComponent,
     ActualizarUsuarioComponent,
+    
 
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
+    HttpClientModule,
     // Add AppComponent to imports array
 
 
 
   ],
-  providers: [],
+  providers: [
+    CategoriaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
