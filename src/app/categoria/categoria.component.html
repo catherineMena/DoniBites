@@ -29,35 +29,48 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">id</th>
-        <td>categoria</td>
+      <tr *ngFor="let categoria of categorias">
+        <td>{{categoria.id}}</td>
+        <td>{{categoria.name}}</td>
+
         <td>
+
           <div class="actions">
-            <a routerLink="/visualizar-categoria" href="#" class="btn btn-primary btn-view">
-              <i class="fas fa-eye fa-12xs" aria-hidden="true" ></i>
+            <!-- Botón para ver la categoría -->
+            <a [routerLink]="['/visualizar-categoria', categoria.id]" class="btn btn-primary btn-view">
+              <i class="fas fa-eye fa-12xs" aria-hidden="true"></i>
             </a>
-            <a routerLink="/actualizar-categoria" href="#" class="btn btn-primary btn-edit">
+
+            <!-- Botón para editar la categoría -->
+            <a [routerLink]="['/actualizar-categoria', categoria.id]" class="btn btn-primary btn-edit">
               <i class="fas fa-pencil fa-12xs"></i>
             </a>
-            <a routerLink="/eliminar-categoria" href="#" class="btn btn-danger btn-delete">
+
+            <!-- Botón para eliminar la categoría -->
+            <a [routerLink]="['/eliminar-categoria', categoria.id]" class="btn btn-danger btn-delete">
               <i class="fas fa-trash fa-12xs"></i>
             </a>
           </div>
-        </td>
-      </tr>
-      
-    </tbody>
-      <tr *ngFor="let categoria of categorias">
-        <td>{{categoria.id}}</td>
-        <td>{{categoria.nombre}}</td>
-      
-        <td>
-          <button class="btn btn-primary" (click)="editar(categoria.id)">Editar</button>
-          <button class="btn btn-danger" (click)="eliminar(categoria.id)">Eliminar</button>
+
+<!--
+          <a routerLink="/visualizar-categoria" href="#" class="btn btn-primary btn-view">
+            <i class="fas fa-eye fa-12xs" aria-hidden="true" ></i>
+          </a>
+          <a routerLink="/actualizar-categoria" href="#" class="btn btn-primary btn-edit">
+            <i class="fas fa-pencil fa-12xs"></i>
+          </a>
+          <a routerLink="/eliminar-categoria" href="#" class="btn btn-danger btn-delete">
+            <i class="fas fa-trash fa-12xs"></i>
+          </a> -->
+
+        <!-- <button class="btn btn-primary" (click)="editar(categoria.id)">Editar</button>
+        <button class="btn btn-danger" (click)="eliminar(categoria.id)">Eliminar</button> -->
+          <!-- <button class="btn btn-primary" (click)="editar(categoria.id)">Editar</button>
+          <button class="btn btn-danger" (click)="eliminar(categoria.id)">Eliminar</button> -->
         </td>
       </tr>
 
+    </tbody>
   </table>
 </div>
 

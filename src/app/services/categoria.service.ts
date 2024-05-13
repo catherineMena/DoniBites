@@ -13,18 +13,8 @@ export class CategoriaService {
 
    getAllCategorias() {
     return this.http.get(this.apiUrl);
-  }  
+  }
 
-  // getAllCategorias(): Observable<any[]> {
-  //   console.log('Llamando a getAllCategorias()');
-  //   return this.http.get<any[]>(this.apiUrl).pipe(
-  //     map(response => response.map(categoria => ({
-  //       id: categoria.id,
-  //       nombre: categoria.name
-  //     })))
-  //   );
-  // }  
-  
   getCategoriaById(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/find/${id}`);
   }
@@ -41,4 +31,5 @@ export class CategoriaService {
   eliminarCategoria(id: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
   }
+
 }

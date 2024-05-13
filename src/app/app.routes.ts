@@ -25,6 +25,10 @@ import { EliminarUsuarioComponent } from './delete/eliminar-usuario/eliminar-usu
   { path: 'actualizar-categoria', component: ActualizarCategoriaComponent},
   { path: 'eliminar-categoria', component: EliminarCategoriaComponent},
 
+  { path: 'visualizar-categoria/:id', component: VisualizarCategoriaComponent },
+  { path: 'actualizar-categoria/:id', component: ActualizarCategoriaComponent },
+  { path: 'eliminar-categoria/:id', component: EliminarCategoriaComponent },
+
    /////////////////////////////////////////////////////////////////////
   { path: 'usuario', component: UsuarioComponent },
   { path: 'agregar-usuario', component: AgregarUsuarioComponent },

@@ -22,6 +22,7 @@ import { EliminarUsuarioComponent } from './delete/eliminar-usuario/eliminar-usu
 import { ActualizarUsuarioComponent } from './update/actualizar-usuario/actualizar-usuario.component';
 
 import { CategoriaService } from './services/categoria.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -43,21 +44,26 @@ import { CategoriaService } from './services/categoria.service';
     VisualizarUsuarioComponent,
     EliminarUsuarioComponent,
     ActualizarUsuarioComponent,
-    
+
 
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
+    FormsModule,
     // Add AppComponent to imports array
 
 
 
   ],
+
+  exports: [RouterModule],
+
   providers: [
     CategoriaService
   ],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }

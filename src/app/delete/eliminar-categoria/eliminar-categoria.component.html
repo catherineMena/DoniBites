@@ -1,34 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Eliminar Categoría</title>
 </head>
 <body>
 
-
-  <div class="wrapper">
-  <form>
-
-    <h1 class="text-center">¿Seguro que desea eliminar?</h1>
-    <!-- Campo para el primer input con margen inferior -->
+<div class="wrapper">
+  <form (ngSubmit)="eliminarCategoria()">
+    <h1 class="text-center">Eliminar Categoría</h1>
+    <!-- Mostrar los datos de la categoría a eliminar -->
     <div class="form-group mb-3">
-      <label for="exampleInput1" class="form-label">Id</label>
-      <input type="text" class="form-control" id="exampleInput1" placeholder="1,2...">
+      <label for="idInput" class="form-label">ID</label>
+      <input type="text" class="form-control" id="idInput" name="id" [value]="categoria?.id" readonly>
     </div>
-
-    <!-- Campo para el segundo input con margen inferior -->
     <div class="form-group mb-3">
-      <label for="exampleInput2" class="form-label">Categoria</label>
-      <input type="text" class="form-control" id="exampleInput2" placeholder="Glaseadas, simples....">
+      <label for="nombreInput" class="form-label">Nombre de la categoría</label>
+      <input type="text" class="form-control" id="nombreInput" name="nombre" [value]="categoria?.name" readonly>
     </div>
-
-    <!-- Botón de envío centrado -->
-    <div class="text-center ">
-      <button type="submit" class="btn btn-primary routerLink=/categoria">Eliminar</button>
-      <button type="submit" class="btn btn-primary" routerLink="/categoria">Cancelar</button>
+    <!-- Botón para confirmar la eliminación -->
+    <div class="text-center">
+      <button type="submit" class="btn btn-danger" routerLink="/categoria">Eliminar</button>
     </div>
   </form>
 </div>
