@@ -34,9 +34,9 @@ body {
   color: white;
   font-size: 0.8rem; /* Usar rem para consistencia */
   position: relative;
-  top: 20px; /* Posición fija en relación a su contenedor */
-  margin-left: 155%; /* Empuja el botón hacia el borde derecho */
-  margin-bottom: 1%;
+  top: 16px; /* Posición fija en relación a su contenedor */
+  margin-left: 62%; /* Empuja el botón hacia el borde derecho */
+  margin-bottom: 3%;
 
 }
 

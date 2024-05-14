@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CategoriaComponent } from "./categoria/categoria.component";
-import { ProductosComponent } from "./productos/productos.component";
+import { ProductoComponent } from "./producto/producto.component";
 import { UsuarioComponent } from "./usuario/usuario.component";
 import { MenuComponent } from './menu/menu.component';
 

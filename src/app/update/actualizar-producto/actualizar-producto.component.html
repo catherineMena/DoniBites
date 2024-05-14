@@ -3,48 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Actualizar Producto</title>
 </head>
 <body>
 
-
-  <div class="wrapper">
-  <form>
-
+<div class="wrapper">
+  <form (ngSubmit)="actualizarProducto()">
     <h1 class="text-center">Actualizar Producto</h1>
-    <!-- Campo para el primer input con margen inferior -->
+    <!-- Campo para mostrar el ID del producto -->
     <div class="form-group mb-3">
-      <label for="exampleInput1" class="form-label">Producto</label>
-      <input type="text" class="form-control" id="exampleInput1" placeholder="Nombre del producto">
+      <label for="idInput" class="form-label">ID</label>
+      <input type="text" class="form-control" id="idInput" name="id" [value]="id" readonly>
     </div>
 
-    <!-- Campo para el segundo input con margen inferior -->
+    <!-- Campo para editar el nombre del producto -->
     <div class="form-group mb-3">
-      <label for="exampleInput2" class="form-label">Descripcion</label>
-      <input type="text" class="form-control" id="exampleInput1" placeholder="Nombre del producto">
+      <label for="nombreInput" class="form-label">Nombre del producto</label>
+      <input type="text" class="form-control" id="nombreInput" name="nombre" [(ngModel)]="nombre" required>
     </div>
 
-
+    <!-- Campo para editar la descripción del producto -->
     <div class="form-group mb-3">
-      <label for="exampleInput2" class="form-label">Categoria</label>
-      <input type="number" class="form-control" id="descripcion" placeholder="Precio del producto">
+      <label for="descripcionInput" class="form-label">Descripción del producto</label>
+      <input type="text" class="form-control" id="descripcionInput" name="descripcion" [(ngModel)]="descripcion" required>
     </div>
 
+    <!-- Campo para editar la existencia del producto -->
     <div class="form-group mb-3">
-      <label for="exampleInput2" class="form-label">Proveedor</label>
-      <input type="number" class="form-control" id="descripcion" placeholder="Precio del producto">
+      <label for="existenciaInput" class="form-label">Existencia del producto</label>
+      <input type="number" class="form-control" id="existenciaInput" name="existencia" [(ngModel)]="existencia" required>
     </div>
 
+    <!-- Campo para editar la categoría del producto -->
     <div class="form-group mb-3">
-      <label for="exampleInput2" class="form-label">Stock</label>
-      <input type="text" class="form-control" id="exampleInput1" placeholder="Nombre del producto">
+      <label for="categoriaInput" class="form-label">Categoría del producto</label>
+      <input type="text" class="form-control" id="categoriaInput" name="categoria" [(ngModel)]="categoriaId" required>
     </div>
 
+    <!-- Campo para editar el precio del producto -->
+    <div class="form-group mb-3">
+      <label for="precioInput" class="form-label">Precio del producto</label>
+      <input type="number" class="form-control" id="precioInput" name="precio" [(ngModel)]="precio" required>
+    </div>
 
-    <!-- Botón de envío centrado -->
+    <!-- Botón para guardar los cambios -->
     <div class="text-center">
-      <button  type="submit" class="btn btn-primary" routerLink="/producto">ACTUALIZAR</button>
-     </div>
+      <button type="submit" class="btn btn-primary btn-update" routerLink="/producto">Actualizar</button>
+    </div>
   </form>
 </div>
 
