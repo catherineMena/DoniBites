@@ -64,7 +64,7 @@ export class AgregarUsuarioComponent implements OnInit {
     this.usuarioService.crearUsuario(nuevoUsuario).subscribe(
       (response: any) => {
         console.log('Usuario guardado con éxito:', response);
-        this.router.navigate(['/usuarios']);
+        this.router.navigate(['/usuario']);
       },
       (error: any) => {
         console.error('Error al guardar el usuario:', error);

@@ -37,7 +37,9 @@
     <!-- Campo para editar el rol del usuario -->
     <div class="form-group mb-3">
       <label for="rolInput" class="form-label">Rol</label>
-      <input type="text" class="form-control" id="rolInput" name="rol" [(ngModel)]="rol" required>
+      <select class="form-control" id="rolInput" name="rolId" [(ngModel)]="rolId" required (change)="onRoleChange($event)">
+        <option *ngFor="let rol of roles" [value]="rol.id">{{ rol.name }}</option>
+      </select>
     </div>
 
     <!-- Campo para editar el nombre completo del usuario -->
@@ -66,7 +68,7 @@
 
     <!-- Botón para guardar los cambios -->
     <div class="text-center">
-      <button type="submit" class="btn btn-primary btn-update" routerLink="/usuario">Actualizar</button>
+      <button type="button" class="btn btn-primary btn-add" (click)="actualizarUsuario()">Guardar</button>
     </div>
   </form>
 </div>

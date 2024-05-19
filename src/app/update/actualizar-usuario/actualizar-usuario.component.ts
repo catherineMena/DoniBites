@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-actualizar-usuario',
@@ -12,15 +12,38 @@ export class ActualizarUsuarioComponent implements OnInit {
   username: string = '';
   password: string = '';
   email: string = '';
-  rol: string = '';
+  rolId: number = 0;
+  rolName: string = '';
   completeName: string = '';
   address: string = '';
   phone: string = '';
   status: string = '';
 
-  constructor(private usuarioService: UsuarioService, private route: ActivatedRoute, private router: Router) { }
+  roles: any[] = [];
 
-  ngOnInit() {
+  constructor(
+    private usuarioService: UsuarioService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit(): void {
+    this.cargarRoles();
+    this.obtenerUsuario();
+  }
+
+  cargarRoles(): void {
+    this.usuarioService.getAllRoles().subscribe(
+      (data: any[]) => {
+        this.roles = data;
+      },
+      (error: any) => {
+        console.error('Error al cargar los roles:', error);
+      }
+    );
+  }
+
+  obtenerUsuario(): void {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
       this.usuarioService.getUsuarioById(this.id).subscribe(
@@ -28,7 +51,8 @@ export class ActualizarUsuarioComponent implements OnInit {
           this.username = res.username;
           this.password = res.password;
           this.email = res.email;
-          this.rol = res.rol.id;
+          this.rolId = res.rol.id;
+          this.rolName = res.rol.name;
           this.completeName = res.completeName;
           this.address = res.address;
           this.phone = res.phone;
@@ -40,21 +64,19 @@ export class ActualizarUsuarioComponent implements OnInit {
   }
 
   actualizarUsuario(): void {
-    if (
-      this.username.trim() === '' || this.password.trim() === '' || this.email.trim() === '' ||
-      this.rol.trim() === '' || this.completeName.trim() === '' || this.address.trim() === '' ||
-      this.phone.trim() === '' || this.status.trim() === ''
-    ) {
-      alert('Por favor, completa todos los campos correctamente.');
+    if (this.username.trim() === '' || this.password.trim() === '' || this.email.trim() === '' || this.rolId <= 0) {
+      alert('Por favor, completa todos los campos.');
       return;
     }
-
     const usuarioActualizado = {
       id: this.id,
       username: this.username,
       password: this.password,
       email: this.email,
-      rol: this.rol,
+      rol: {
+        id: this.rolId,
+        name: this.rolName
+      },
       completeName: this.completeName,
       address: this.address,
       phone: this.phone,
@@ -71,5 +93,12 @@ export class ActualizarUsuarioComponent implements OnInit {
         alert('Error al actualizar el usuario. Por favor, inténtalo de nuevo.');
       }
     );
+  }
+
+  onRoleChange(event: any): void {
+    const selectedRole = this.roles.find(rol => rol.id === +event.target.value);
+    if (selectedRole) {
+      this.rolName = selectedRole.name;
+    }
   }
 }

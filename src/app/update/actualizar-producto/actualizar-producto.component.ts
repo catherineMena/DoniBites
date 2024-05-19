@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoService } from '../../services/producto.service';
+import { CategoriaService } from '../../services/categoria.service';
 
 @Component({
   selector: 'app-actualizar-producto',
@@ -15,10 +16,17 @@ export class ActualizarProductoComponent implements OnInit {
   categoriaId: number = 0;
   categoriaName: string = '';
   precio: number = 0;
+  categorias: any[] = [];
 
-  constructor(private productoService: ProductoService, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private productoService: ProductoService,
+    private categoriaService: CategoriaService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.cargarCategorias();
     this.route.params.subscribe(params => {
       this.id = +params['id'];
       this.productoService.getProductoById(this.id).subscribe(
@@ -33,6 +41,17 @@ export class ActualizarProductoComponent implements OnInit {
         err => console.error(err)
       );
     });
+  }
+
+  cargarCategorias(): void {
+    this.categoriaService.getAllCategorias().subscribe(
+      (data: any) => {
+        this.categorias = data;
+      },
+      (error: any) => {
+        console.error('Error al cargar las categorías:', error);
+      }
+    );
   }
 
   actualizarProducto(): void {
@@ -63,5 +82,12 @@ export class ActualizarProductoComponent implements OnInit {
         alert('Error al actualizar el producto. Por favor, inténtalo de nuevo.');
       }
     );
+  }
+
+  onCategoryChange(event: any): void {
+    const selectedCategory = this.categorias.find(categoria => categoria.id === +event.target.value);
+    if (selectedCategory) {
+      this.categoriaName = selectedCategory.name;
+    }
   }
 }

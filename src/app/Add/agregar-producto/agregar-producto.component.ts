@@ -60,7 +60,7 @@ export class AgregarProductoComponent implements OnInit {
     this.productService.crearProducto(nuevoProducto).subscribe(
       (response: any) => {
         console.log('Producto guardado con éxito:', response);
-        this.router.navigate(['/productos']);
+        this.router.navigate(['/producto']);
       },
       (error: any) => {
         console.error('Error al guardar el producto:', error);

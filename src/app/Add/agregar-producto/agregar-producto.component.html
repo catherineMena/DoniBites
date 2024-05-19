@@ -11,10 +11,10 @@
   <form #productoForm="ngForm" (ngSubmit)="guardarProducto()">
     <h1 class="text-center">Agregar Producto</h1>
     <!-- Campo para el primer input con margen inferior -->
-    <div class="form-group mb-3">
+    <!-- <div class="form-group mb-3">
       <label for="idInput" class="form-label">ID</label>
       <input type="text" class="form-control" id="idInput" placeholder="1, 2..." name="id" [(ngModel)]="id" required>
-    </div>
+    </div> -->
 
     <!-- Campo para el segundo input con margen inferior -->
     <div class="form-group mb-3">
@@ -50,7 +50,8 @@
 
     <!-- Botón de envío centrado -->
     <div class="text-center">
-      <button type="submit" class="btn btn-primary btn-add" routerLink="/producto">Guardar</button>
+      <button type="button" class="btn btn-primary btn-add" (click)="guardarProducto()">Guardar</button>
+
     </div>
   </form>
 </div>
