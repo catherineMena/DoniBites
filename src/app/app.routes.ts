@@ -17,12 +17,13 @@ import { EliminarProductoComponent } from './delete/eliminar-producto/eliminar-p
 import { LoginComponent } from './login/login.component';
 import { ProveedoresComponent } from './proveedores/proveedores.component';
 import { AgregarProveedorComponent } from './Add/agregar-proveedor/agregar-proveedor.component';
-
+import { MenuComponent } from './menu/menu.component';
 
 
 
  export const appRoutes: Routes = [
 
+  { path: 'menu', component: MenuComponent },
   /////////////////////////////////////////////////////////////////////
   { path: 'producto', component: ProductoComponent },
   { path: 'agregar-producto', component: AgregarProductoComponent },
@@ -52,6 +53,10 @@ import { AgregarProveedorComponent } from './Add/agregar-proveedor/agregar-prove
   { path: 'eliminar-usuario/:id', component: EliminarUsuarioComponent},
 ///////////////////////////////////////////////////////////////////
   {path:'login', component: LoginComponent},
+
+
+  { path: 'proveedores', component: ProveedoresComponent },
+  { path: 'agregar-proveedor', component: AgregarProveedorComponent },
 
 ///////////////////////////////////////////////////////////////////
 

@@ -1,8 +1,11 @@
-body{
-  background: linear-gradient(to right,#EE696B, #523A78); /* Agrega un gradiente de fondo */
-
+/* Estilos para el cuerpo */
+body {
+  background: linear-gradient(to right, #EE696B, #523A78); /* Agrega un gradiente de fondo */
+  margin: 0; /* Elimina el margen predeterminado del cuerpo */
+  font-family: Arial, sans-serif; /* Usa una fuente de respaldo */
 }
 
+/* Contenedor principal con alineación centrada */
 .container {
   display: flex;
   justify-content: center;
@@ -10,6 +13,7 @@ body{
   height: 100vh;
 }
 
+/* Grupo de botones verticales */
 .btn-group-vertical {
   display: flex;
   flex-direction: column;
@@ -18,16 +22,55 @@ body{
   height: 50vh;
   width: 70vh;
   gap: 1rem;
-
-
 }
 
-.btn-primary{
-  background-color: rgba(239, 240, 240, 0.5); /* Agrega transparencia a los botones */
-border-color: aliceblue;
-
+/* Estilos para los botones */
+.btn {
+  font-family: 'Parisienne', cursive;
+  font-size: 25px;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #6a46a5;
+  color: #fff;
+  transition: background-color 0.3s ease;
 }
 
+.btn:hover {
+  background-color: #f04f84;
+}
+
+h1 {
+  font-family: 'Parisienne', cursive;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+
+/* Estilos específicos para el botón primario */
 .btn-primary {
-  padding: 1rem 2rem;
+  background-color: rgba(239, 240, 240, 0.5); /* Agrega transparencia a los botones */
+  border-color: aliceblue;
+  padding: 1rem 2rem; /* Ajusta el relleno de los botones */
+}
+
+/* Estilos para la letra "o" */
+/* .letter-o {
+  background-image: url('');
+  background-size: cover;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-indent: -9999px;
+} */
+
+/* Estilos para el contenedor de las mini donas */
+.minidonas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
