@@ -26,6 +26,10 @@ import { ProductoService } from './services/producto.service';
 import { UsuarioService } from './services/usuario.service';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { AuthenticationService } from './services/authentication.service';
+import { ProveedoresService } from './services/proveedores.service';
+import { ProveedoresComponent } from './proveedores/proveedores.component';
+import { AgregarProveedorComponent } from './Add/agregar-proveedor/agregar-proveedor.component';
 
 
 @NgModule({
@@ -36,6 +40,9 @@ import { LoginComponent } from './login/login.component';
     UsuarioComponent,
     MenuComponent,
     LoginComponent,
+    ProductoComponent,
+    ProveedoresComponent,
+    AgregarProveedorComponent,
     AgregarCategoriaComponent,
     AgregarProductoComponent,
     VisualizarCategoriaComponent,
@@ -68,6 +75,8 @@ import { LoginComponent } from './login/login.component';
     CategoriaService,
     ProductoService,
     UsuarioService,
+    AuthenticationService,
+    ProveedoresService
   ],
   bootstrap: [AppComponent]
 

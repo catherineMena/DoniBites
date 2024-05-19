@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla de productos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+  <div class="header">
+    <div class="title">
+      <h1>Tabla de proveedores</h1>
+    </div>
+    <button class="btn btn-primary btn-add" routerLink="/agregar-proveedor">AGREGAR</button>
+  </div>
+
+  <table class="tabla-producto table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Proveedor</th>
+        <th>Direccion</th>
+        <th>Telefono</th>
+        <th>Correo electronico</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let proveedor of proveedores">
+        <td>{{proveedor.id}}</td>
+        <td>{{proveedor.name}}</td>
+        <td>{{proveedor.address}}</td>
+        <td>{{proveedor.phone}}</td>
+        <td>{{proveedor.email}}</td>
+        <td>{{proveedor.status}}</td>
+
+
+
+
+        <td>
+          <div class="actions">
+            <a [routerLink]="['/visualizar-proveedor', proveedor.id]" class="btn btn-primary btn-view">
+              <i class="fas fa-eye fa-12xs" aria-hidden="true"></i>
+            </a>
+            <a [routerLink]="['/actualizar-proveedor', proveedor.id]" class="btn btn-primary btn-edit">
+              <i class="fas fa-pencil fa-12xs"></i>
+            </a>
+            <a [routerLink]="['/eliminar-proveedor', proveedor.id]" class="btn btn-danger btn-delete">
+              <i class="fas fa-trash fa-12xs"></i>
+            </a>
+
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

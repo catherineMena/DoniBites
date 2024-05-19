@@ -15,6 +15,8 @@ import { VisualizarProductoComponent } from './read/visualizar-producto/visualiz
 import { ActualizarProductoComponent } from './update/actualizar-producto/actualizar-producto.component';
 import { EliminarProductoComponent } from './delete/eliminar-producto/eliminar-producto.component';
 import { LoginComponent } from './login/login.component';
+import { ProveedoresComponent } from './proveedores/proveedores.component';
+import { AgregarProveedorComponent } from './Add/agregar-proveedor/agregar-proveedor.component';
 
 
 
@@ -45,12 +47,16 @@ import { LoginComponent } from './login/login.component';
   { path: 'visualizar-usuario', component: VisualizarUsuarioComponent},
   { path: 'actualizar-usuario', component: ActualizarUsuarioComponent},
   { path: 'eliminar-usuario', component: EliminarUsuarioComponent},
-
   { path: 'visualizar-usuario/:id', component: VisualizarUsuarioComponent},
   { path: 'actualizar-usuario/:id', component: ActualizarUsuarioComponent},
   { path: 'eliminar-usuario/:id', component: EliminarUsuarioComponent},
-
+///////////////////////////////////////////////////////////////////
   {path:'login', component: LoginComponent},
+
+///////////////////////////////////////////////////////////////////
+
+{ path: 'proveedores', component: ProveedoresComponent },
+{ path: 'agregar-proveedor', component: AgregarProveedorComponent },
 
 
   // Agrega aquí más rutas según sea necesario
