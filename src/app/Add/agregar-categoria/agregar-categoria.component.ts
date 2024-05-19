@@ -26,7 +26,7 @@ export class AgregarCategoriaComponent {
     this.categoriaService.crearCategoria(nuevaCategoria).subscribe(
       (response: any) => {
         console.log('Categoría guardada con éxito:', response);
-        this.router.navigate(['/categorias']);
+        this.router.navigate(['/categoria']);
       },
       (error: any) => {
         console.error('Error al guardar la categoría:', error);

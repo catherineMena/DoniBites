@@ -39,7 +39,7 @@ export class ActualizarCategoriaComponent implements OnInit {
     this.categoriaService.actualizarCategoria(this.id, categoriaActualizada).subscribe(
       (response: any) => {
         console.log('Categoría actualizada con éxito:', response);
-        this.router.navigate(['/categorias']);
+        this.router.navigate(['/categoria']);
       },
       (error: any) => {
         console.error('Error al actualizar la categoría:', error);

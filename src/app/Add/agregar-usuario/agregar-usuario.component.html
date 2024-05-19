@@ -3,40 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Agregar Usuario</title>
 </head>
 <body>
 
-
-  <div class="wrapper">
-  <form>
-
+<div class="wrapper">
+  <form #usuarioForm="ngForm" (ngSubmit)="guardarUsuario()">
     <h1 class="text-center">Agregar Usuario</h1>
-    <!-- Campo para el primer input con margen inferior -->
+    <!-- Campo para el ID -->
+    <!-- <div class="form-group mb-3">
+      <label for="idInput" class="form-label">ID</label>
+      <input type="number" class="form-control" id="idInput" placeholder="ID del usuario" name="id" [(ngModel)]="id" required>
+    </div> -->
+
+    <!-- Campo para el nombre de usuario -->
     <div class="form-group mb-3">
-      <label for="exampleInput1" class="form-label">Id</label>
-      <input type="text" class="form-control" id="exampleInput1" placeholder="1,2...">
+      <label for="usernameInput" class="form-label">Nombre de Usuario</label>
+      <input type="text" class="form-control" id="usernameInput" placeholder="Nombre de usuario" name="username" [(ngModel)]="username" required>
     </div>
 
-    <!-- Campo para el segundo input con margen inferior -->
-
+    <!-- Campo para la contraseña -->
     <div class="form-group mb-3">
-        <label for="exampleInput1" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="exampleInput1" placeholder="Nombre...">
-      </div>
+      <label for="passwordInput" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="passwordInput" placeholder="Contraseña" name="password" [(ngModel)]="password" required>
+    </div>
 
-      <div class="form-group mb-3">
-        <label for="exampleInput1" class="form-label">Correo</label>
-        <input type="text" class="form-control" id="exampleInput1" placeholder="Correo...">
-      </div>
+    <!-- Campo para el correo electrónico -->
+    <div class="form-group mb-3">
+      <label for="emailInput" class="form-label">Correo Electrónico</label>
+      <input type="email" class="form-control" id="emailInput" placeholder="Correo electrónico" name="email" [(ngModel)]="email" required>
+    </div>
 
-      <label for="exampleInput1" class="form-label">Id Rol</label>
-      <input type="text" class="form-control" id="exampleInput1" placeholder="Id Rol...">
+    <!-- Campo para seleccionar el rol -->
+    <div class="form-group mb-3">
+      <label for="rolInput" class="form-label">Rol</label>
+      <select class="form-control" id="rolInput" name="rolId" [(ngModel)]="rolId" required (change)="onRoleChange($event)">
+        <option *ngFor="let rol of roles" [value]="rol.id">{{ rol.name }}</option>
+      </select>
+    </div>
+
+    <!-- Campo para el nombre completo -->
+    <div class="form-group mb-3">
+      <label for="completeNameInput" class="form-label">Nombre Completo</label>
+      <input type="text" class="form-control" id="completeNameInput" placeholder="Nombre completo" name="completeName" [(ngModel)]="completeName">
+    </div>
+
+    <!-- Campo para la dirección -->
+    <div class="form-group mb-3">
+      <label for="addressInput" class="form-label">Dirección</label>
+      <input type="text" class="form-control" id="addressInput" placeholder="Dirección" name="address" [(ngModel)]="address">
+    </div>
+
+    <!-- Campo para el teléfono -->
+    <div class="form-group mb-3">
+      <label for="phoneInput" class="form-label">Teléfono</label>
+      <input type="text" class="form-control" id="phoneInput" placeholder="Teléfono" name="phone" [(ngModel)]="phone">
+    </div>
+
+    <!-- Campo para el estado -->
+    <div class="form-group mb-3">
+      <label for="statusInput" class="form-label">Estado</label>
+      <input type="text" class="form-control" id="statusInput" placeholder="Estado" name="status" [(ngModel)]="status">
+    </div>
 
     <!-- Botón de envío centrado -->
     <div class="text-center">
-      <button  type="submit" class="btn btn-primary btn-add" routerLink="/usuario">Guardar</button>
-     </div>
+      <button type="button" class="btn btn-primary btn-add" (click)="guardarUsuario()">Guardar</button>
+
+    </div>
   </form>
 </div>
 
