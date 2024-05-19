@@ -23,6 +23,7 @@ import { ActualizarUsuarioComponent } from './update/actualizar-usuario/actualiz
 
 import { CategoriaService } from './services/categoria.service';
 import { ProductoService } from './services/producto.service';
+import { UsuarioService } from './services/usuario.service';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 
@@ -66,6 +67,7 @@ import { LoginComponent } from './login/login.component';
   providers: [
     CategoriaService,
     ProductoService,
+    UsuarioService,
   ],
   bootstrap: [AppComponent]
 

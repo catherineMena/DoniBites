@@ -3,39 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Actualizar Usuario</title>
 </head>
 <body>
 
-
-  <div class="wrapper">
-  <form>
-
+<div class="wrapper">
+  <form (ngSubmit)="actualizarUsuario()">
     <h1 class="text-center">Actualizar Usuario</h1>
-    <!-- Campo para el primer input con margen inferior -->
+    <!-- Campo para mostrar el ID del usuario -->
     <div class="form-group mb-3">
-      <label for="exampleInput1" class="form-label">1</label>
-      <input type="text" class="form-control" id="exampleInput1" placeholder="1,2...">
+      <label for="idInput" class="form-label">ID</label>
+      <input type="text" class="form-control" id="idInput" name="id" [value]="id" readonly>
     </div>
 
-    <!-- Campo para el segundo input con margen inferior -->
+    <!-- Campo para editar el nombre de usuario -->
     <div class="form-group mb-3">
-        <label for="exampleInput1" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="exampleInput1" placeholder="Nombre...">
-      </div>
+      <label for="usernameInput" class="form-label">Nombre de usuario</label>
+      <input type="text" class="form-control" id="usernameInput" name="username" [(ngModel)]="username" required>
+    </div>
 
-      <div class="form-group mb-3">
-        <label for="exampleInput1" class="form-label">Correo</label>
-        <input type="text" class="form-control" id="exampleInput1" placeholder="Correo...">
-      </div>
+    <!-- Campo para editar la contraseña del usuario -->
+    <div class="form-group mb-3">
+      <label for="passwordInput" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="passwordInput" name="password" [(ngModel)]="password" required>
+    </div>
 
-      <label for="exampleInput1" class="form-label">Id Rol</label>
-      <input type="text" class="form-control" id="exampleInput1" placeholder="Id Rol...">
+    <!-- Campo para editar el email del usuario -->
+    <div class="form-group mb-3">
+      <label for="emailInput" class="form-label">Email</label>
+      <input type="email" class="form-control" id="emailInput" name="email" [(ngModel)]="email" required>
+    </div>
 
-    <!-- Botón de envío centrado -->
+    <!-- Campo para editar el rol del usuario -->
+    <div class="form-group mb-3">
+      <label for="rolInput" class="form-label">Rol</label>
+      <input type="text" class="form-control" id="rolInput" name="rol" [(ngModel)]="rol" required>
+    </div>
+
+    <!-- Campo para editar el nombre completo del usuario -->
+    <div class="form-group mb-3">
+      <label for="completeNameInput" class="form-label">Nombre completo</label>
+      <input type="text" class="form-control" id="completeNameInput" name="completeName" [(ngModel)]="completeName" required>
+    </div>
+
+    <!-- Campo para editar la dirección del usuario -->
+    <div class="form-group mb-3">
+      <label for="addressInput" class="form-label">Dirección</label>
+      <input type="text" class="form-control" id="addressInput" name="address" [(ngModel)]="address" required>
+    </div>
+
+    <!-- Campo para editar el teléfono del usuario -->
+    <div class="form-group mb-3">
+      <label for="phoneInput" class="form-label">Teléfono</label>
+      <input type="tel" class="form-control" id="phoneInput" name="phone" [(ngModel)]="phone" required>
+    </div>
+
+    <!-- Campo para editar el estado del usuario -->
+    <div class="form-group mb-3">
+      <label for="statusInput" class="form-label">Estado</label>
+      <input type="text" class="form-control" id="statusInput" name="status" [(ngModel)]="status" required>
+    </div>
+
+    <!-- Botón para guardar los cambios -->
     <div class="text-center">
-      <button  type="submit" class="btn btn-primary" routerLink="/usuario">ACTUALIZAR</button>
-     </div>
+      <button type="submit" class="btn btn-primary btn-update" routerLink="/usuario">Actualizar</button>
+    </div>
   </form>
 </div>
 

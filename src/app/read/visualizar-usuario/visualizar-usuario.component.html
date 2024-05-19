@@ -3,38 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Visualizar Usuario</title>
 </head>
 <body>
 
-
-  <div class="wrapper">
+<div class="wrapper">
   <form>
-
     <h1 class="text-center">Visualizar Usuario</h1>
     <!-- Campo para el primer input con margen inferior -->
     <div class="form-group mb-3">
-      <label for="exampleInput1" class="form-label">Id</label>
-      <input type="text" class="form-control" id="exampleInput1" placeholder="1,2...">
+      <label for="idInput" class="form-label">ID</label>
+      <input type="text" class="form-control" id="idInput" [value]="usuario?.id" readonly>
     </div>
 
     <!-- Campo para el segundo input con margen inferior -->
     <div class="form-group mb-3">
-        <label for="exampleInput1" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="exampleInput1" placeholder="Nombre...">
-      </div>
+      <label for="usernameInput" class="form-label">Nombre de usuario</label>
+      <input type="text" class="form-control" id="usernameInput" [value]="usuario?.username" readonly>
+    </div>
 
-      <div class="form-group mb-3">
-        <label for="exampleInput1" class="form-label">Correo</label>
-        <input type="text" class="form-control" id="exampleInput1" placeholder="Correo...">
-      </div>
+    <!-- Campo para el tercer input con margen inferior -->
+    <div class="form-group mb-3">
+      <label for="passwordInput" class="form-label">Contraseña</label>
+      <input type="text" class="form-control" id="passwordInput" [value]="usuario?.password" readonly>
+    </div>
 
-      <label for="exampleInput1" class="form-label">Id Rol</label>
-      <input type="text" class="form-control" id="exampleInput1" placeholder="Id Rol...">
+    <!-- Campo para el cuarto input con margen inferior -->
+    <div class="form-group mb-3">
+      <label for="emailInput" class="form-label">Email</label>
+      <input type="text" class="form-control" id="emailInput" [value]="usuario?.email" readonly>
+    </div>
 
-    <!-- Botón de envío centrado -->
+    <!-- Campo para el quinto input con margen inferior -->
+    <div class="form-group mb-3">
+      <label for="rolInput" class="form-label">Rol Id</label>
+      <input type="text" class="form-control" id="rolInput" [value]="usuario?.rol.id" readonly>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="rolInput" class="form-label">Nombre del Rol</label>
+      <input type="text" class="form-control" id="rolInput" [value]="usuario?.rol.name" readonly>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="rolInput" class="form-label">Descripción</label>
+      <input type="text" class="form-control" id="rolInput" [value]="usuario?.rol.description" readonly>
+    </div>
+
+    <!-- Campo para el sexto input con margen inferior -->
+    <div class="form-group mb-3">
+      <label for="completeNameInput" class="form-label">Nombre completo</label>
+      <input type="text" class="form-control" id="completeNameInput" [value]="usuario?.completeName" readonly>
+    </div>
+
+    <!-- Campo para el séptimo input con margen inferior -->
+    <div class="form-group mb-3">
+      <label for="addressInput" class="form-label">Dirección</label>
+      <input type="text" class="form-control" id="addressInput" [value]="usuario?.address" readonly>
+    </div>
+
+    <!-- Campo para el octavo input con margen inferior -->
+    <div class="form-group mb-3">
+      <label for="phoneInput" class="form-label">Teléfono</label>
+      <input type="text" class="form-control" id="phoneInput" [value]="usuario?.phone" readonly>
+    </div>
+
+    <!-- Campo para el noveno input con margen inferior -->
+    <div class="form-group mb-3">
+      <label for="statusInput" class="form-label">Estado</label>
+      <input type="text" class="form-control" id="statusInput" [value]="usuario?.status" readonly>
+    </div>
+
+    <!-- Botón de cierre centrado -->
     <div class="text-center">
-      <button type="submit" class="btn btn-primary">Cerrar</button>
+      <button type="button" class="btn btn-primary" routerLink="/usuario">Cerrar</button>
     </div>
   </form>
 </div>

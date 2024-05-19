@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductoService {
-  apiUrl = 'http://45.79.199.80:8080/minidonas/products'; // URL de tu API
+  apiUrl = 'http://45.79.199.80:8080/minidonas/products';
 
   constructor(private http: HttpClient) { }
 
