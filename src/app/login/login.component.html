@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<div class="wrapper">
+  <form #categoriaForm="ngForm" >
+    <h1 class="text-center">Bienvenido</h1>
+
+<!-- Campo para el primer input con margen inferior -->
+<div class="form-group mb-3">
+  <label for="usernameInput" class="form-label">Nombre de usuario</label>
+  <input type="text" class="form-control" id="usernameInput" placeholder="Ingrese su nombre de usuario" name="username" >
+</div>
+
+<!-- Campo para el segundo input con margen inferior -->
+<div class="form-group mb-3">
+  <label for="passwordInput" class="form-label">Contraseña</label>
+  <input type="password" class="form-control" id="passwordInput" placeholder="Ingrese la contraseña" name="password">
+</div>
+
+
+
+<!-- Botón de envío centrado -->
+<div class="text-center">
+  <button type="submit" class="btn btn-primary btn-add" routerLink="/categoria">Login</button>
+</div>
+
+<!-- Hipervínculos -->
+<br>
+<div class="log2">
+  <a href="#" class="link-light">Regístrese</a>
+  <br>
+  <a href="#" class="link-light">¿Ha olvidado su contraseña?</a>
+</div>
+
+
+
+</form>
+</div>
+</body>
+</html>
+
+
+
+

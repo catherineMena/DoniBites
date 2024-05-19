@@ -24,6 +24,7 @@ import { ActualizarUsuarioComponent } from './update/actualizar-usuario/actualiz
 import { CategoriaService } from './services/categoria.service';
 import { ProductoService } from './services/producto.service';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { FormsModule } from '@angular/forms';
     ProductoComponent,
     UsuarioComponent,
     MenuComponent,
+    LoginComponent,
     AgregarCategoriaComponent,
     AgregarProductoComponent,
     VisualizarCategoriaComponent,

@@ -14,6 +14,7 @@ import { AgregarProductoComponent } from './Add/agregar-producto/agregar-product
 import { VisualizarProductoComponent } from './read/visualizar-producto/visualizar-producto.component';
 import { ActualizarProductoComponent } from './update/actualizar-producto/actualizar-producto.component';
 import { EliminarProductoComponent } from './delete/eliminar-producto/eliminar-producto.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -44,7 +45,11 @@ import { EliminarProductoComponent } from './delete/eliminar-producto/eliminar-p
   { path: 'agregar-usuario', component: AgregarUsuarioComponent },
   { path: 'visualizar-usuario', component: VisualizarUsuarioComponent},
   { path: 'actualizar-usuario', component: ActualizarUsuarioComponent},
-  { path: 'eliminar-usuario', component: EliminarUsuarioComponent}
+  { path: 'eliminar-usuario', component: EliminarUsuarioComponent},
+  /////////////////////////////////////////////////////////////////////
+  {path:'login', component: LoginComponent},
+
+
 
 
   // Agrega aquí más rutas según sea necesario
