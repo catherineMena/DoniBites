@@ -3,89 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla de usuarios</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
 </head>
 <body>
 
-  <div class="wrapper">
+<div class="wrapper">
 
-    <div class="header">
-      <div class="title">
-        <h1>Tabla de Usuarios</h1>
+  <div class="header">
+    <div class="title">
+      <h1>Tabla de usuarios</h1>
+    </div>
+    <button class="btn btn-primary btn-add" routerLink="/agregar-usuario">AGREGAR</button>
+  </div>
 
-      </div>
-      <button class="btn btn-primary btn-add" routerLink="/agregar-usuario">AGREGAR</button>
-     </div>
-
-
-  <table class="tabla-categoria table table-striped table-hover">
-
+  <table class="tabla-usuario table table-striped table-hover">
     <thead>
       <tr>
         <th>Id</th>
-        <th>Usuario</th>
-        <th>Correo</th>
-        <th>Id Rol</th>
+        <th>Nombre de usuario</th>
+        <th>Email</th>
+        <th>Rol ID</th>
+        <th>Nombre del Rol</th>
+        <th>Descripción</th>
+        <th>Nombre completo</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
         <th>Estado</th>
         <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>mark</td>
-        <td>1</td>
-        <td>1</td>
-        <td>
-          <div class="actions">
-            <a routerLink="/visualizar-usuario" href="#" class="btn btn-primary btn-view">
-              <i class="fas fa-eye fa-12xs" aria-hidden="true" ></i>
-            </a>
-            <a routerLink="/actualizar-usuario" href="#" class="btn btn-primary btn-edit">
-              <i class="fas fa-pencil fa-12xs"></i>
-            </a>
-            <a routerLink="/eliminar-usuario" href="#" class="btn btn-danger btn-delete">
-              <i class="fas fa-trash fa-12xs"></i>
-            </a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>jacob</td>
-        <td>2</td>
-        <td>1</td>
-        <td>
-          <div class="actions">
-            <a routerLink="/visualizar-usuario" href="#" class="btn btn-primary btn-view">
-              <i class="fas fa-eye fa-12xs" aria-hidden="true" ></i>
-            </a>
-            <a routerLink="/actualizar-usuario" href="#" class="btn btn-primary btn-edit">
-              <i class="fas fa-pencil fa-12xs"></i>
-            </a>
-            <a routerLink="/eliminar-usuario" href="#" class="btn btn-danger btn-delete">
-              <i class="fas fa-trash fa-12xs"></i>
-               </a>
-          </div>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{usuario.id}}</td>
+        <td>{{usuario.username}}</td>
+        <td>{{usuario.email}}</td>
+        <td>{{usuario.rol.id}}</td>
+        <td>{{usuario.rol.name}}</td>
+        <td>{{usuario.rol.description}}</td>
+        <td>{{usuario.completeName}}</td>
+        <td>{{usuario.address}}</td>
+        <td>{{usuario.phone}}</td>
+        <td>{{usuario.status}}</td>
 
+        <td>
+          <div class="actions">
+            <a [routerLink]="['/visualizar-usuario', usuario.id]" class="btn btn-primary btn-view">
+              <i class="fas fa-eye fa-12xs" aria-hidden="true"></i>
+            </a>
+            <a [routerLink]="['/actualizar-usuario', usuario.id]" class="btn btn-primary btn-edit">
+              <i class="fas fa-pencil fa-12xs"></i>
+            </a>
+            <a [routerLink]="['/eliminar-usuario', usuario.id]" class="btn btn-danger btn-delete">
+              <i class="fas fa-trash fa-12xs"></i>
+            </a>
+          </div>
         </td>
       </tr>
     </tbody>
-      <tr *ngFor="let usuario of usuarios">
-        <td>{{usuario.id}}</td>
-        <td>{{usuario.nombre}}</td>
-        <td>{{usuario.correo}}</td>
-        <td>{{usuario.idRol}}</td>
-        <td>{{usuario.estado}}</td>
-        <td>
-          <button class="btn btn-primary" (click)="editar(usuario)">Editar</button>
-          <button class="btn btn-danger" (click)="eliminar(usuario)">Eliminar</button>
-        </td>
-      </tr>
-
   </table>
 </div>
 

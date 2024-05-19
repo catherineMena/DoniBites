@@ -20,7 +20,6 @@ import { LoginComponent } from './login/login.component';
 
 
  export const appRoutes: Routes = [
-  { path: 'usuario', component: UsuarioComponent },
 
   /////////////////////////////////////////////////////////////////////
   { path: 'producto', component: ProductoComponent },
@@ -46,10 +45,12 @@ import { LoginComponent } from './login/login.component';
   { path: 'visualizar-usuario', component: VisualizarUsuarioComponent},
   { path: 'actualizar-usuario', component: ActualizarUsuarioComponent},
   { path: 'eliminar-usuario', component: EliminarUsuarioComponent},
-  /////////////////////////////////////////////////////////////////////
+
+  { path: 'visualizar-usuario/:id', component: VisualizarUsuarioComponent},
+  { path: 'actualizar-usuario/:id', component: ActualizarUsuarioComponent},
+  { path: 'eliminar-usuario/:id', component: EliminarUsuarioComponent},
+
   {path:'login', component: LoginComponent},
-
-
 
 
   // Agrega aquí más rutas según sea necesario

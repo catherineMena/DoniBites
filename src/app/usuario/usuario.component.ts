@@ -1,20 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../services/usuario.service';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-usuario',
-  // standalone: true,
-  // imports: [],
   templateUrl: './usuario.component.html',
-  styleUrl: './usuario.component.css'
+  styleUrls: ['./usuario.component.css']
 })
-export class UsuarioComponent {
-  usuarios: any;
-  eliminar(_t17: any) {
-  throw new Error('Method not implemented.');
+export class UsuarioComponent implements OnInit {
+  usuarios: any = [];
+
+  constructor(private router: Router, private usuarioService: UsuarioService) { }
+
+  ngOnInit() {
+    this.obtenerUsuarios();
   }
-  editar(_t17: any) {
-  throw new Error('Method not implemented.');
+
+  obtenerUsuarios(): void {
+    this.usuarioService.getAllUsuarios().subscribe(
+      res => {
+        this.usuarios = res;
+      },
+      err => console.error(err)
+    );
+  }
+
+  verUsuario(id: number): void {
+    this.router.navigate(['/visualizar-usuario', id]);
+  }
+
+  editarUsuario(id: number): void {
+    this.router.navigate(['/actualizar-usuario', id]);
+  }
+
+  eliminarUsuario(id: number): void {
+    this.router.navigate(['/eliminar-usuario', id]);
   }
 }
 
