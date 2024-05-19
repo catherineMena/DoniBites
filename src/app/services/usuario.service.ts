@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 export class UsuarioService {
   apiUrl = 'http://45.79.199.80:8080/minidonas/users';
 
+  roles: any[] = [];
+
   constructor(private http: HttpClient) { }
 
   getAllUsuarios(): Observable<any> {
@@ -29,5 +31,25 @@ export class UsuarioService {
 
   eliminarUsuario(id: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
+  }
+
+  getAllRoles(): Observable<any[]> {
+    return new Observable<any[]>(observer => {
+      if (this.roles.length === 0) {
+        this.http.get<any[]>('http://45.79.199.80:8080/minidonas/roles').subscribe(
+          (roles: any[]) => {
+            this.roles = roles;
+            observer.next(this.roles);
+            observer.complete();
+          },
+          error => {
+            observer.error(error);
+          }
+        );
+      } else {
+        observer.next(this.roles);
+        observer.complete();
+      }
+    });
   }
 }

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../services/usuario.service';
 import { Router } from '@angular/router';
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-usuario',
@@ -15,6 +18,7 @@ export class UsuarioComponent implements OnInit {
 
   ngOnInit() {
     this.obtenerUsuarios();
+<<<<<<< Updated upstream
   }
 
   obtenerUsuarios(): void {
@@ -26,6 +30,19 @@ export class UsuarioComponent implements OnInit {
     );
   }
 
+=======
+  }
+
+  obtenerUsuarios(): void {
+    this.usuarioService.getAllUsuarios().subscribe(
+      res => {
+        this.usuarios = res;
+      },
+      err => console.error(err)
+    );
+  }
+
+>>>>>>> Stashed changes
   verUsuario(id: number): void {
     this.router.navigate(['/visualizar-usuario', id]);
   }

@@ -36,14 +36,10 @@
 
     <!-- Campo para seleccionar la categoría -->
     <div class="form-group mb-3">
-      <label for="categoriaInput" class="form-label">Categoría ID</label>
-      <input type="text" class="form-control" id="categoriaInput" placeholder="ID de la categoría" name="categoriaId" [(ngModel)]="categoriaId" required>
-    </div>
-
-     <!-- Campo para seleccionar el nombre de categoría -->
-     <div class="form-group mb-3">
-      <label for="categoriaInput" class="form-label">Categoría Nombre</label>
-      <input type="text" class="form-control" id="categoriaInput" placeholder="Nombre de la categoría" name="categoriaName" [(ngModel)]="categoriaName" required>
+      <label for="categoriaInput" class="form-label">Categoría</label>
+      <select class="form-control" id="categoriaInput" name="categoriaId" [(ngModel)]="categoriaId" required (change)="onCategoryChange($event)">
+        <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.name }}</option>
+      </select>
     </div>
 
     <!-- Campo para el quinto input con margen inferior -->
