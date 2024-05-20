@@ -8,7 +8,7 @@
 <body>
 
 <div class="wrapper">
-  <form (ngSubmit)="eliminarCategoria()">
+  <form (ngSubmit)="desactivarCategoria()">
     <h1 class="text-center">Eliminar Categoría</h1>
     <!-- Mostrar los datos de la categoría a eliminar -->
     <div class="form-group mb-3">
@@ -21,7 +21,8 @@
     </div>
     <!-- Botón para confirmar la eliminación -->
     <div class="text-center">
-      <button type="submit" class="btn btn-danger" routerLink="/categoria">Eliminar</button>
+      <button type="submit" class="btn-danger" (click)="desactivarCategoria()" routerLink="/categoria">Eliminar</button>
+      <button type="button" class="btn-cancelar" routerLink="/categoria">Cancelar</button>
     </div>
   </form>
 </div>

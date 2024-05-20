@@ -17,8 +17,10 @@ import { EliminarProductoComponent } from './delete/eliminar-producto/eliminar-p
 import { LoginComponent } from './login/login.component';
 import { ProveedoresComponent } from './proveedores/proveedores.component';
 import { AgregarProveedorComponent } from './Add/agregar-proveedor/agregar-proveedor.component';
+import { VisualizarProveedorComponent } from './read/visualizar-proveedor/visualizar-proveedor.component';
+import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actualizar-proveedor.component';
+import { EliminarProveedorComponent } from './delete/eliminar-proveedor/eliminar-proveedor.component';
 import { MenuComponent } from './menu/menu.component';
-
 
 
  export const appRoutes: Routes = [
@@ -58,10 +60,19 @@ import { MenuComponent } from './menu/menu.component';
   { path: 'proveedores', component: ProveedoresComponent },
   { path: 'agregar-proveedor', component: AgregarProveedorComponent },
 
+  { path: 'visualizar-proveedor', component: VisualizarProveedorComponent},
+  { path: 'actualizar-proveedor', component: ActualizarProveedorComponent},
+  { path: 'eliminar-proveedor', component: EliminarProveedorComponent},
+  { path: 'visualizar-proveedor/:id', component: VisualizarProveedorComponent},
+  { path: 'actualizar-proveedor/:id', component: ActualizarProveedorComponent},
+  { path: 'eliminar-proveedor/:id', component: EliminarProveedorComponent},
+
 ///////////////////////////////////////////////////////////////////
 
-{ path: 'proveedores', component: ProveedoresComponent },
-{ path: 'agregar-proveedor', component: AgregarProveedorComponent },
+{ path: '', redirectTo: '/login', pathMatch: 'full' },
+{ path: 'login', component: LoginComponent },
+{ path: 'dashboard', component: MenuComponent },
+{ path: '**', redirectTo: '/login' }
 
 
   // Agrega aquí más rutas según sea necesario

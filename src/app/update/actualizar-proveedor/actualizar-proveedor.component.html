@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualizar Proveedor</title>
+</head>
+<body>
+
+<div class="wrapper">
+  <form (ngSubmit)="actualizarProveedor()">
+    <h1 class="text-center">Actualizar Proveedor</h1>
+    <!-- Campo para mostrar el ID del proveedor -->
+    <div class="form-group mb-3">
+      <label for="idInput" class="form-label">ID</label>
+      <input type="text" class="form-control" id="idInput" name="id" [value]="id" readonly>
+    </div>
+
+    <!-- Campo para editar el nombre del proveedor -->
+    <div class="form-group mb-3">
+      <label for="proveedorInput" class="form-label">Nombre del proveedor</label>
+      <input type="text" class="form-control" id="proveedorInput" name="proveedor" [(ngModel)]="proveedor" required>
+    </div>
+
+    <!-- Campo para editar la dirección del proveedor -->
+    <div class="form-group mb-3">
+      <label for="direccionInput" class="form-label">Dirección del proveedor</label>
+      <input type="text" class="form-control" id="direccionInput" name="direccion" [(ngModel)]="direccion" required>
+    </div>
+
+    <!-- Campo para editar el teléfono del proveedor -->
+    <div class="form-group mb-3">
+      <label for="telefonoInput" class="form-label">Teléfono del proveedor</label>
+      <input type="text" class="form-control" id="telefonoInput" name="telefono" [(ngModel)]="telefono" required>
+    </div>
+
+    <!-- Campo para editar el correo electrónico del proveedor -->
+    <div class="form-group mb-3">
+      <label for="correoInput" class="form-label">Correo Electrónico del proveedor</label>
+      <input type="email" class="form-control" id="correoInput" name="correo" [(ngModel)]="correoElectronico" required>
+    </div>
+
+    <!-- Campo para seleccionar el estado del proveedor -->
+    <!-- <div class="form-group mb-3">
+      <label for="estadoInput" class="form-label">Estado del proveedor</label>
+      <select class="form-control" id="estadoInput" name="estado" [(ngModel)]="estadoProveedor" required>
+        <option value="activo">Activo</option>
+        <option value="inactivo">Inactivo</option>
+      </select>
+    </div> -->
+
+    <!-- Botón para guardar los cambios -->
+    <div class="text-center">
+      <button type="button" class="btn-add" (click)="actualizarProveedor()">Guardar</button>
+      <button type="button" class="btn-cancelar" routerLink="/proveedores">Cancelar</button>
+    </div>
+
+  </form>
+</div>
+
+</body>
+</html>

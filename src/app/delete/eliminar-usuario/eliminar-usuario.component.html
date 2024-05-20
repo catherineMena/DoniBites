@@ -3,37 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Eliminar Usuario</title>
 </head>
 <body>
 
-  <div class="wrapper">
-  <form>
-
-    <h1 class="text-center">¿Seguro que desea eliminar?</h1>
-    <!-- Campo para el primer input con margen inferior -->
+<div class="wrapper">
+  <form (ngSubmit)="eliminarUsuario()">
+    <h1 class="text-center">Eliminar Usuario</h1>
+    <!-- Campo para mostrar el nombre del usuario -->
     <div class="form-group mb-3">
-      <label for="exampleInput1" class="form-label">Id</label>
-      <input type="text" class="form-control" id="exampleInput1" placeholder="1,2...">
+      <label for="usuarioInput" class="form-label">Nombre del usuario</label>
+      <input type="text" class="form-control" id="usuarioInput" name="nombre de usuario" [value]="username" readonly>
     </div>
 
-    <!-- Campo para el segundo input con margen inferior -->
-    <div class="form-group mb-3">
-        <label for="exampleInput1" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="exampleInput1" placeholder="Nombre...">
-      </div>
-
-      <div class="form-group mb-3">
-        <label for="exampleInput1" class="form-label">Correo</label>
-        <input type="text" class="form-control" id="exampleInput1" placeholder="Correo...">
-      </div>
-
-      <label for="exampleInput1" class="form-label">Id Rol</label>
-      <input type="text" class="form-control" id="exampleInput1" placeholder="Id Rol...">
-    <!-- Botón de envío centrado -->
-    <div class="text-center ">
-      <button type="submit" class="btn btn-primary routerLink=/usuario">Eliminar</button>
-      <button type="submit" class="btn btn-primary" routerLink="/usuario">Cancelar</button>
+    <!-- Botón para confirmar la eliminación -->
+    <div class="text-center">
+      <button type="submit" class="btn-danger">Eliminar</button>
+      <button type="button" class="btn-cancelar" routerLink="/usuario">Cancelar</button>
     </div>
   </form>
 </div>

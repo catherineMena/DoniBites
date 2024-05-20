@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CategoriaService } from '../services/categoria.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-categoria',
   templateUrl: './categoria.component.html',
@@ -14,11 +13,11 @@ export class CategoriaComponent implements OnInit {
   constructor(private router: Router, private categoriaService: CategoriaService) { }
 
   ngOnInit() {
-    this.obtenerCategorias();
+    this.obtenerCategorias('activa');
   }
 
-  obtenerCategorias(): void {
-    this.categoriaService.getAllCategorias().subscribe(
+  obtenerCategorias(estado: string): void {
+    this.categoriaService.getCategoriasByEstado(estado).subscribe(
       res => {
         this.categorias = res;
       },

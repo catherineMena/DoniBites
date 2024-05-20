@@ -1,18 +1,20 @@
 /* Fondo con gradiente y configuración básica para el cuerpo */
 body {
   background: linear-gradient(to right, #EE696B, #523A78); /* Fondo con gradiente */
-  height: 100vh; /* Cubrir toda la altura del viewport */
   margin: 0; /* Eliminar márgenes predeterminados */
   display: flex; /* Usar Flexbox para centrar */
   justify-content: center; /* Centrar horizontalmente */
   align-items: center; /* Centrar verticalmente */
+  min-height: 100vh; /* Establecer una altura mínima del 100% del viewport */
+  overflow: hidden; /* Ocultar el desbordamiento vertical */
+  font-family: Arial, sans-serif; /* Fuente del texto */
 }
 
 h1 {
-  font-size: 1em; /* Tamaño del texto */
-  margin-bottom: 2rem;
+  font-size: 1.5em; /* Tamaño del texto */
+  margin-bottom: 2rem; /* Margen inferior */
   text-align: center; /* Alineación del texto */
-  color: aliceblue; /* Color del texto */
+  color: #fff; /* Color del texto */
 }
 
 /* Contenedor principal centrado */
@@ -25,30 +27,38 @@ h1 {
   border-radius: 10px; /* Bordes redondeados */
   box-shadow: 0 4px 10px rgba(20, 20, 20, 0.1); /* Sombra sutil */
   padding: 3%; /* Espaciado interno */
-  width: fit-content /* Ancho del contenedor */
+  width: fit-content; /* Ancho del contenedor */
 }
 
 /* Estilos para el formulario */
 .form-group {
-  color: aliceblue; /* Color del texto */
-  font-size: 80%; /* Tamaño del texto */
+  color: #fff; /* Color del texto */
+  font-size: 90%; /* Tamaño del texto */
+  margin-bottom: 1rem; /* Margen inferior */
 }
 
 input {
-  width: 15rem; /* Ancho del campo de entrada */
+  width: 100%; /* Ancho del campo de entrada */
   height: 2rem; /* Altura del campo de entrada */
-  padding: 5px; /* Espaciado interno */
-  font-size: 80%; /* Tamaño del texto */
+  padding: 0.5rem; /* Espaciado interno */
+  font-size: 90%; /* Tamaño del texto */
   border-radius: 5px; /* Bordes redondeados */
-  border: 1px sólido #ccc; /* Borde sólido */
+  border: 1px solid #ccc; /* Borde sólido */
+  background-color: rgba(255, 255, 255, 0.7); /* Fondo semi-transparente */
 }
 
 /* Estilo para el botón */
 button {
-  background-color: black; /* Fondo negro */
-  color: aliceblue; /* Color del texto */
-  font-size: 80%; /* Tamaño del texto */
-  padding: 10px 20px; /* Espaciado interno */
+  background-color: #523A78; /* Fondo morado */
+  color: #fff; /* Color del texto */
+  font-size: 90%; /* Tamaño del texto */
+  padding: 0.7rem 1.5rem; /* Espaciado interno */
   border: none; /* Eliminar borde por defecto */
   border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor tipo puntero */
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+button:hover {
+  background-color: #6d50a4; /* Cambio de color al pasar el ratón */
 }

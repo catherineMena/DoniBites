@@ -30,7 +30,7 @@ export class UsuarioService {
   }
 
   eliminarUsuario(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
+    return this.http.get<any>(`${this.apiUrl}/delete/${id}`);
   }
 
   getAllRoles(): Observable<any[]> {

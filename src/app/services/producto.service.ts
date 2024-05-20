@@ -27,7 +27,7 @@ export class ProductoService {
     return this.http.put<any>(`${this.apiUrl}/update/${id}`, producto);
   }
 
-  eliminarProducto(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
+  deactivateProductoById(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/delete/${id}`);
   }
 }

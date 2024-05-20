@@ -30,6 +30,9 @@ import { AuthenticationService } from './services/authentication.service';
 import { ProveedoresService } from './services/proveedores.service';
 import { ProveedoresComponent } from './proveedores/proveedores.component';
 import { AgregarProveedorComponent } from './Add/agregar-proveedor/agregar-proveedor.component';
+import { VisualizarProveedorComponent } from './read/visualizar-proveedor/visualizar-proveedor.component';
+import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actualizar-proveedor.component';
+import { EliminarProveedorComponent } from './delete/eliminar-proveedor/eliminar-proveedor.component';
 
 
 @NgModule({
@@ -55,7 +58,9 @@ import { AgregarProveedorComponent } from './Add/agregar-proveedor/agregar-prove
     EliminarUsuarioComponent,
     ActualizarUsuarioComponent,
     VisualizarProductoComponent,
-
+    VisualizarProveedorComponent,
+    ActualizarProveedorComponent,
+    EliminarProveedorComponent,
 
   ],
   imports: [

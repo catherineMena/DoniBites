@@ -1,18 +1,21 @@
 /* Fondo con gradiente y configuración básica para el cuerpo */
 body {
   background: linear-gradient(to right, #EE696B, #523A78); /* Fondo con gradiente */
-
   margin: 0; /* Eliminar márgenes predeterminados */
   display: flex; /* Usar Flexbox para centrar */
   justify-content: center; /* Centrar horizontalmente */
   align-items: center; /* Centrar verticalmente */
+  min-height: 100vh; /* Establecer una altura mínima del 100% del viewport */
+  overflow: hidden; /* Ocultar el desbordamiento vertical */
 }
 
+/* Estilos para el título */
 h1 {
-  font-size: 1em; /* Tamaño del texto */
-  margin-bottom: 1rem;
+  font-size: 2em; /* Tamaño del texto */
+  margin-bottom: 2rem;
   text-align: center; /* Alineación del texto */
-  color: aliceblue; /* Color del texto */
+  color: #fff; /* Color del texto */
+  font-family: 'Arial', sans-serif; /* Fuente del texto */
 }
 
 /* Contenedor principal centrado */
@@ -23,41 +26,56 @@ h1 {
   align-items: center; /* Centrar horizontalmente */
   background: rgba(255, 255, 255, 0.12); /* Fondo semitransparente */
   border-radius: 10px; /* Bordes redondeados */
-  box-shadow: 0 4px 10px rgba(20, 20, 20, 0.1); /* Sombra sutil */
+  box-shadow: 0 4px 10px rgba(126, 19, 19, 0.1); /* Sombra sutil */
   padding: 3%; /* Espaciado interno */
-  width: fit-content;/* Ancho del contenedor */
+  width: fit-content; /* Ancho del contenedor */
 }
 
 /* Estilos para el formulario */
 .form-group {
-  color: aliceblue; /* Color del texto */
-  font-size: 80%; /* Tamaño del texto */
+  color: #ffffff; /* Color del texto */
+  font-size: 1em; /* Tamaño del texto */
 }
 
 input {
-  width: 15rem; /* Ancho del campo de entrada */
-  height: 1.5rem; /* Altura del campo de entrada */
-  padding: 5px; /* Espaciado interno */
-  font-size: 60%; /* Tamaño del texto */
+  background-color: rgba(255, 255, 255, 0.12); /* Fondo gris claro */
+  color: #333; /* Texto gris oscuro */
   border-radius: 5px; /* Bordes redondeados */
-  border: 1px sólido #ccc; /* Borde sólido */
+  border: 1px solid #ccc; /* Borde sólido */
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  font-size: 1em;
 }
 
-.form-label {
-  margin-bottom: 0; /* Espacio entre la etiqueta y el campo de entrada */
-  color: aliceblue; /* Color de las etiquetas */
-top: 2%;
-font-size: 70%;
-
-
-}
-
-/* Estilo para el botón */
-button {
-  background-color: black; /* Fondo negro */
-  color: aliceblue; /* Color del texto */
-  font-size: 60%; /* Tamaño del texto */
-  padding: 10px 20px; /* Espaciado interno */
+/* Estilo para el botón de guardar */
+/* Estilo para el botón de guardar */
+.btn-add {
+  background-color: #EE696B; /* Fondo */
+  color: #fff; /* Color del texto */
+  font-size: 1em; /* Tamaño del texto */
+  padding: 0.8rem 1.5rem; /* Espaciado interno */
   border: none; /* Eliminar borde por defecto */
   border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
+  margin: 1rem; /* Espacio en todos los lados */
+}
+
+/* Estilo para el botón de cancelar */
+.btn-cancelar {
+  background-color: #523A78; /* Fondo */
+  color: #fff; /* Color del texto */
+  font-size: 1em; /* Tamaño del texto */
+  padding: 0.8rem 1.5rem; /* Espaciado interno */
+  border: none; /* Eliminar borde por defecto */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
+  margin: 1rem; /* Espacio en todos los lados */
+}
+
+/* Estilo para el botón de cancelar al pasar el ratón */
+.btn-cancelar:hover {
+  background-color: #6E5194; /* Cambio de color al pasar el ratón */
 }

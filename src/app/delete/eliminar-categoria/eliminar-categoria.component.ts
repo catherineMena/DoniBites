@@ -25,15 +25,15 @@ export class EliminarCategoriaComponent implements OnInit {
     });
   }
 
-  eliminarCategoria(): void {
-    this.categoriaService.eliminarCategoria(this.id).subscribe(
+  desactivarCategoria(): void {
+    this.categoriaService.desactivarCategoria(this.id).subscribe(
       () => {
-        console.log('Categoría eliminada con éxito');
-        this.router.navigate(['/categorias']);
+        console.log('Categoría desactivada con éxito');
+        this.router.navigate(['/categoria']); // Redirige a la lista de categorías u otra página según tu flujo
       },
       (error: any) => {
-        console.error('Error al eliminar la categoría:', error);
-        alert('Error al eliminar la categoría. Por favor, inténtalo de nuevo.');
+        console.error('Error al desactivar la categoría:', error);
+        alert('Error al desactivar la categoría. Por favor, inténtalo de nuevo.');
       }
     );
   }

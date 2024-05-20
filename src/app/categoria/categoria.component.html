@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rancho&display=swap">
   <link rel="stylesheet" href="categoria.component.css">
 
 </head>
 <body>
 
 <div class="wrapper">
+  <!-- Botón de Regresar -->
+  <div class="back-btn-container">
+    <button class="btn back-btn" routerLink="/menu">Regresar</button>
+  </div>
   <div class="header">
     <div class="title">
       <h1>Tabla de categorías</h1>
@@ -22,6 +27,7 @@
       <tr>
         <th>Id</th>
         <th>Categoría</th>
+        <!-- <th>Estado</th> -->
         <th>Acciones</th>
       </tr>
     </thead>
@@ -29,6 +35,7 @@
       <tr *ngFor="let categoria of categorias">
         <td>{{categoria.id}}</td>
         <td>{{categoria.name}}</td>
+        <!-- <td>{{categoria.status}}</td> -->
         <td>
           <div class="actions">
             <a [routerLink]="['/visualizar-categoria', categoria.id]" class="btn-action">

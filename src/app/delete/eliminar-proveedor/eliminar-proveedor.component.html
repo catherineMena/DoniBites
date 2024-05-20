@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eliminar Proveedor</title>
+</head>
+<body>
+
+<div class="wrapper">
+  <form (ngSubmit)="eliminarProveedor()">
+    <h1 class="text-center">Eliminar Proveedor</h1>
+    <!-- Campo para mostrar el nombre del proveedor -->
+    <div class="form-group mb-3">
+      <label for="proveedorInput" class="form-label">Proveedor</label>
+      <input type="text" class="form-control" id="proveedorInput" name="proveedor" [value]="proveedor" readonly>
+    </div>
+
+    <!-- Botón para confirmar la eliminación -->
+    <div class="text-center">
+      <button type="submit" class="btn-danger" (click)="eliminarProveedor()">Eliminar</button>
+      <button type="button" class="btn-cancelar" routerLink="/proveedores">Cancelar</button>
+    </div>
+
+  </form>
+</div>
+
+</body>
+</html>

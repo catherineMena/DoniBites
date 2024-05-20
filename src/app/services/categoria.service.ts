@@ -29,8 +29,16 @@ export class CategoriaService {
     return this.http.put<any>(`${this.apiUrl}/update/${id}`, categoria);
   }
 
-  eliminarCategoria(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
+  // eliminarCategoria(id: number): Observable<any> {
+  //   return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
+  // }
+
+  desactivarCategoria(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/delete/${id}`);
+  }
+
+  getCategoriasByEstado(estado: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}?estado=${estado}`);
   }
 
 }

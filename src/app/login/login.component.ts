@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +10,20 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   username: string = '';
   password: string = '';
+  errorMessage: string = '';
 
-  constructor(private authService: AuthenticationService, private router: Router) { }
+  constructor(private authService: AuthenticationService, private router: Router) {}
 
-  onSubmit() {
-    this.authService.login(this.username, this.password).subscribe(response => {
-      // handle successful login
-      this.router.navigate(['/menu']); // Redirecciona al menú
-      console.log('Login successful', response);
-    }, error => {
-      // handle error
-      console.error('Login failed', error);
-    });
+  iniciarSesion() {
+    this.authService.login(this.username, this.password).subscribe(
+      response => {
+        console.log('Inicio de sesión exitoso', response);
+        this.router.navigate(['/menu']);
+      },
+      error => {
+        this.errorMessage = error;
+        console.error('Error de inicio de sesión', error);
+      }
+    );
   }
 }

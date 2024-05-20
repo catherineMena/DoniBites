@@ -3,33 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Login</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap">
+  <link rel="stylesheet" href="login.component.css">
 </head>
 <body>
   <div class="wrapper">
-    <form (ngSubmit)="onSubmit()">
+    <!-- Agregar la imagen justo antes del formulario -->
+    <!-- <img src="donibitesimage.png" alt="Imagen de fondo" class="background-image"> -->
 
+    <h1>Bienvenido/a</h1>
+    <form (ngSubmit)="iniciarSesion()">
+      <h1 class="text-center">Inicie Sesión</h1>
       <div class="form-group mb-3">
-        <label for="usernameInput" class="form-label">Nombre de usuario</label>
-        <input type="text" class="form-control" id="usernameInput" placeholder="Ingrese su nombre de usuario" name="username" [(ngModel)]="username">
+        <label for="usernameInput" class="form-label">Usuario</label>
+        <input type="text" class="form-control" id="usernameInput" [(ngModel)]="username" name="username" required>
       </div>
-
       <div class="form-group mb-3">
         <label for="passwordInput" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" id="passwordInput" placeholder="Ingrese la contraseña" name="password" [(ngModel)]="password">
+        <input type="password" class="form-control" id="passwordInput" [(ngModel)]="password" name="password" required>
       </div>
-
       <div class="text-center">
-        <button type="submit" class="btn btn-primary btn-add" routerLink="/menu" >Login</button>
+        <button type="submit" class="btn btn-primary btn-add">Iniciar Sesión</button>
       </div>
-
-      <!-- Hipervínculos -->
-      <div class="log2 text-center">
-        <a href="#" class="link-light">Regístrese</a>
-        <br>
-        <a href="#" class="link-light">¿Ha olvidado su contraseña?</a>
-      </div>
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
     </form>
+    <div class="log2 text-center">
+      <!-- <a href="#" class="link-light">Regístrese</a> -->
+      <br>
+      <a href="#" class="link-light">¿Ha olvidado su contraseña?</a>
+    </div>
   </div>
 </body>
 </html>
