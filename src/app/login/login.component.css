@@ -1,13 +1,15 @@
 /* Estilos para el cuerpo */
 body {
   background: linear-gradient(to right, #EE696B, #523A78); /* Fondo con gradiente */
-  height: 100vh; /* Cubrir toda la altura del viewport */
   margin: 0; /* Eliminar márgenes predeterminados */
   display: flex; /* Usar Flexbox para centrar */
   justify-content: center; /* Centrar horizontalmente */
   align-items: center; /* Centrar verticalmente */
-  font-family: Arial, sans-serif; /* Fuente de texto */
+  min-height: 100vh; /* Establecer una altura mínima del 100% del viewport */
+  overflow: hidden; /* Ocultar el desbordamiento vertical */
+  font-family: Arial, sans-serif; /* Fuente del texto */
 }
+
 
 /* Contenedor principal centrado */
 .wrapper {

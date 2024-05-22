@@ -36,4 +36,21 @@ export class CategoriaComponent implements OnInit {
   eliminarCategoria(id: number): void {
     this.router.navigate(['/eliminar-categoria', id]);
   }
+
+
+  isSidebarCollapsed = false;
+
+  toggleSidebar() {
+    this.isSidebarCollapsed = !this.isSidebarCollapsed;
+    const sidebar = document.getElementById('sidebar');
+    const content = document.getElementById('content');
+
+    if (this.isSidebarCollapsed) {
+      sidebar?.classList.add('collapsed');
+      content?.classList.add('expanded');
+    } else {
+      sidebar?.classList.remove('collapsed');
+      content?.classList.remove('expanded');
+    }
+  }
 }
