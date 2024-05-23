@@ -33,7 +33,7 @@ import { AgregarProveedorComponent } from './Add/agregar-proveedor/agregar-prove
 import { VisualizarProveedorComponent } from './read/visualizar-proveedor/visualizar-proveedor.component';
 import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actualizar-proveedor.component';
 import { EliminarProveedorComponent } from './delete/eliminar-proveedor/eliminar-proveedor.component';
-
+import { RecuperarPwdComponent } from './recuperar-pwd/recuperar-pwd.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +61,7 @@ import { EliminarProveedorComponent } from './delete/eliminar-proveedor/eliminar
     VisualizarProveedorComponent,
     ActualizarProveedorComponent,
     EliminarProveedorComponent,
+    RecuperarPwdComponent,
 
   ],
   imports: [

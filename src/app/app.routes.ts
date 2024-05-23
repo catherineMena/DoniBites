@@ -21,7 +21,7 @@ import { VisualizarProveedorComponent } from './read/visualizar-proveedor/visual
 import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actualizar-proveedor.component';
 import { EliminarProveedorComponent } from './delete/eliminar-proveedor/eliminar-proveedor.component';
 import { MenuComponent } from './menu/menu.component';
-
+import { RecuperarPwdComponent } from './recuperar-pwd/recuperar-pwd.component';
 
  export const appRoutes: Routes = [
 
@@ -72,8 +72,10 @@ import { MenuComponent } from './menu/menu.component';
 { path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'login', component: LoginComponent },
 { path: 'dashboard', component: MenuComponent },
-{ path: '**', redirectTo: '/login' }
+{ path: '**', redirectTo: '/login' },
 
+
+{ path: 'recuperar-pwd', component: RecuperarPwdComponent },
 
   // Agrega aquí más rutas según sea necesario
 ];

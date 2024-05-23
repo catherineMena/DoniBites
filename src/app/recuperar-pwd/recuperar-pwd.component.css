@@ -1,0 +1,87 @@
+/* Estilos para el cuerpo */
+body {
+  background: linear-gradient(to right, #EE696B, #523A78); /* Fondo con gradiente */
+  margin: 0; /* Eliminar márgenes predeterminados */
+  display: flex; /* Usar Flexbox para centrar */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  min-height: 100vh; /* Establecer una altura mínima del 100% del viewport */
+  overflow: hidden; /* Ocultar el desbordamiento vertical */
+  font-family: Arial, sans-serif; /* Fuente del texto */
+}
+
+/* Contenedor principal centrado */
+.container {
+  background: rgba(255, 255, 255, 0.12); /* Fondo semitransparente */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(20, 20, 20, 0.1); /* Sombra sutil */
+  padding: 30px; /* Espaciado interno */
+  width: 320px; /* Ancho del contenedor */
+  text-align: center; /* Centrar el texto */
+}
+
+/* Estilo para el título */
+h1 {
+  font-family: 'Parisienne', cursive;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* Estilos para el formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+  width: 100%;
+}
+
+.form-label {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+}
+
+input {
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.836);
+  color: #fff;
+}
+
+/* Estilo para el botón */
+button {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6a46a5;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #f04f84;
+}
+
+/* Estilos para los hipervínculos */
+.log2 a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.log2 a:hover {
+  text-decoration: underline;
+}
