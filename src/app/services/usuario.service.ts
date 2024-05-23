@@ -7,12 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class UsuarioService {
   apiUrl = 'http://45.79.199.80:8080/minidonas/users';
-
   roles: any[] = [];
 
   constructor(private http: HttpClient) { }
 
-  getAllUsuarios(): Observable<any> {
+  getAllUsuarios(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
 

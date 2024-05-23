@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabla de productos</title>
+  <title>Tabla de proveedores</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rancho&display=swap">
@@ -12,6 +12,7 @@
 <body>
   <nav id="navbar" class="navbar-bg">
     <div class="container">
+      <a href="/menu" class="link"><span class="text">Home</span></a>
       <a href="/usuario" class="link"><span class="text">Usuarios</span></a>
       <a href="/categoria" class="link"><span class="text">Categorias</span></a>
       <a href="/producto" class="link"><span class="text">Productos</span></a>
@@ -19,54 +20,54 @@
     </div>
   </nav>
 
-<div class="wrapper">
-<!-- Botón de Regresar -->
-<div class="back-btn-container">
-  <button class="btn back-btn" routerLink="/menu">Regresar</button>
-</div>
-  <div class="header">
-    <div class="title">
-      <h1>Tabla de proveedores</h1>
+  <div class="wrapper">
+    <div class="back-btn-container">
+      <button class="btn back-btn" routerLink="/menu">Regresar</button>
     </div>
+    <div class="header">
+      <div class="title">
+        <h1>Tabla de proveedores</h1>
+      </div>
+    </div>
+    <div class="actions">
+      <input type="text" placeholder="Buscar proveedores..." (input)="buscarProveedor($event)" class="search-input">
+      <button class="btn-add" routerLink="/agregar-proveedor">AGREGAR</button>
+      <button (click)="descargarLista()" class="btn-download">Descargar lista</button>
+    </div>
+    <table class="tabla-proveedor">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Dirección</th>
+          <th>Teléfono</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let proveedor of proveedoresFiltrados">
+          <td>{{proveedor.id}}</td>
+          <td>{{proveedor.name}}</td>
+          <td>{{proveedor.email}}</td>
+          <td>{{proveedor.address}}</td>
+          <td>{{proveedor.phone}}</td>
+          <td>
+            <div class="actions">
+              <a [routerLink]="['/visualizar-proveedor', proveedor.id]" class="btn-action">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a [routerLink]="['/actualizar-proveedor', proveedor.id]" class="btn-action">
+                <i class="fas fa-pencil"></i>
+              </a>
+              <a [routerLink]="['/eliminar-proveedor', proveedor.id]" class="btn-action">
+                <i class="fas fa-trash"></i>
+              </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <button class="btn-add" routerLink="/agregar-proveedor">AGREGAR</button>
-  <table class="tabla-proveedor">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Proveedor</th>
-        <th>Direccion</th>
-        <th>Telefono</th>
-        <th>Correo electronico</th>
-        <th>Estado</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let proveedor of proveedores">
-        <td>{{proveedor.id}}</td>
-        <td>{{proveedor.name}}</td>
-        <td>{{proveedor.address}}</td>
-        <td>{{proveedor.phone}}</td>
-        <td>{{proveedor.email}}</td>
-        <td>{{proveedor.status}}</td>
-        <td>
-          <div class="actions">
-            <a [routerLink]="['/visualizar-proveedor', proveedor.id]" class="btn-action">
-              <i class="fas fa-eye"></i>
-            </a>
-            <a [routerLink]="['/actualizar-proveedor', proveedor.id]" class="btn-action">
-              <i class="fas fa-pencil"></i>
-            </a>
-            <a [routerLink]="['/eliminar-proveedor', proveedor.id]" class="btn-action">
-              <i class="fas fa-trash"></i>
-            </a>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
 </body>
 </html>

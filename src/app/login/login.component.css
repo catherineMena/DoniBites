@@ -10,7 +10,6 @@ body {
   font-family: Arial, sans-serif; /* Fuente del texto */
 }
 
-
 /* Contenedor principal centrado */
 .wrapper {
   background: rgba(255, 255, 255, 0.12); /* Fondo semitransparente */
@@ -18,6 +17,22 @@ body {
   box-shadow: 0 4px 10px rgba(20, 20, 20, 0.1); /* Sombra sutil */
   padding: 30px; /* Espaciado interno */
   width: 320px; /* Ancho del contenedor */
+  text-align: center; /* Centrar el texto */
+}
+
+/* Estilo para el título */
+h1 {
+  font-family: 'Parisienne', cursive;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* Estilo para la imagen del logo */
+.logo-image {
+  width: 100px; /* Ajusta el tamaño de la imagen según tus necesidades */
+  height: auto;
+  margin-bottom: 20px;
 }
 
 /* Estilos para el formulario */
@@ -76,13 +91,4 @@ button:hover {
 
 .log2 a:hover {
   text-decoration: underline;
-}
-
-/* Estilo para el título */
-h1 {
-  font-family: 'Parisienne', cursive;
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #fff;
 }

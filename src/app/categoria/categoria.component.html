@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla de categorías</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rancho&display=swap">
   <link rel="stylesheet" href="categoria.component.css">
-  <title>Tabla de Categorías</title>
 </head>
 <body>
   <nav id="navbar" class="navbar-bg">
     <div class="container">
+      <a href="/menu" class="link"><span class="text">Home</span></a>
       <a href="/usuario" class="link"><span class="text">Usuarios</span></a>
       <a href="/categoria" class="link"><span class="text">Categorias</span></a>
       <a href="/producto" class="link"><span class="text">Productos</span></a>
@@ -20,7 +21,6 @@
   </nav>
 
   <div class="wrapper">
-    <!-- Botón de Regresar -->
     <div class="back-btn-container">
       <button class="btn back-btn" routerLink="/menu">Regresar</button>
     </div>
@@ -29,19 +29,25 @@
         <h1>Tabla de categorías</h1>
       </div>
     </div>
-    <button class="btn-add" routerLink="/agregar-categoria">AGREGAR</button>
+    <div class="actions">
+      <input type="text" placeholder="Buscar categorías..." (input)="buscarCategoria($event)" class="search-input">
+      <button class="btn-add" routerLink="/agregar-categoria">AGREGAR</button>
+      <button (click)="descargarLista()" class="btn-download">Descargar lista</button>
+    </div>
     <table class="tabla-categoria">
       <thead>
         <tr>
           <th>Id</th>
-          <th>Categoría</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
           <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let categoria of categorias">
+        <tr *ngFor="let categoria of categoriasFiltradas">
           <td>{{categoria.id}}</td>
           <td>{{categoria.name}}</td>
+          <td>{{categoria.description}}</td>
           <td>
             <div class="actions">
               <a [routerLink]="['/visualizar-categoria', categoria.id]" class="btn-action">

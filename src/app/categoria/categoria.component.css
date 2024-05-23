@@ -101,6 +101,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-left: 10px;
   margin-bottom: 20px;
 }
 
@@ -165,4 +166,41 @@ body {
 
 .back-btn:hover {
   background-color: #CC4E5C;
+}
+
+/* Estilo para el campo de búsqueda */
+.search-input {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Estilo para el botón de descargar */
+.btn-download {
+  background-color: #6a46a5;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+  margin-bottom: 20px;
+
+}
+
+.btn-download:hover {
+  background-color: #f04f84;
+}
+
+/* Ajuste de estilos para el contenedor de acciones */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 100%;
 }
