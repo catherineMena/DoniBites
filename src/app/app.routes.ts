@@ -22,6 +22,7 @@ import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actu
 import { EliminarProveedorComponent } from './delete/eliminar-proveedor/eliminar-proveedor.component';
 import { MenuComponent } from './menu/menu.component';
 import { RecuperarPwdComponent } from './recuperar-pwd/recuperar-pwd.component';
+import { IngredientesComponent } from './ingredientes/ingredientes.component';
 
  export const appRoutes: Routes = [
 
@@ -54,7 +55,7 @@ import { RecuperarPwdComponent } from './recuperar-pwd/recuperar-pwd.component';
   { path: 'actualizar-usuario/:id', component: ActualizarUsuarioComponent},
   { path: 'eliminar-usuario/:id', component: EliminarUsuarioComponent},
 ///////////////////////////////////////////////////////////////////
-  {path:'login', component: LoginComponent},
+  // {path:'login', component: LoginComponent},
 
 
   { path: 'proveedores', component: ProveedoresComponent },
@@ -68,6 +69,11 @@ import { RecuperarPwdComponent } from './recuperar-pwd/recuperar-pwd.component';
   { path: 'eliminar-proveedor/:id', component: EliminarProveedorComponent},
 
 ///////////////////////////////////////////////////////////////////
+
+{path: 'Ingrediente', component: IngredientesComponent},
+
+
+
 
 { path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'login', component: LoginComponent },

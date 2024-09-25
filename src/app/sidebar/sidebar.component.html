@@ -1,15 +1,61 @@
-<div id="wrapper">
-  <div id="sidebar" class="bg-light">
-    <div class="container">
-      <h4 class="text-center py-3">Doni Bites</h4>
-      <a href="/home" class="link"><span class="text">Home</span></a>
-      <a href="/projects" class="link"><span class="text">Usuario</span></a>
-      <a href="/art" class="link"><span class="text">Categoria</span></a>
-      <a href="/social" class="link"><span class="text">Producto</span></a>
-      <a href="/setup" class="link"><span class="text">Proveedor</span></a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoniBites</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="sidebar.component.css"> <!-- Enlace al archivo CSS -->
+</head>
+<body>
+
+  <!-- Barra Lateral -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <span class="brand-name">DoniBites</span>
+      <img src="assets/icons-login.png" alt="Logo" class="logo">
     </div>
+    <div class="sidebar-menu">
+      <a href="/menu" class="link active">
+        <i class="bi bi-house-door-fill"></i>
+        <span class="text">Home</span>
+      </a>
+      <a href="/usuario" class="link">
+        <i class="icon-user"></i>
+        <span class="text">Usuarios</span>
+      </a>
+      <a href="/categoria" class="link">
+        <i class="icon-category"></i>
+        <span class="text">Categorias</span>
+      </a>
+      <a href="/producto" class="link">
+        <i class="icon-product"></i>
+        <span class="text">Productos</span>
+      </a>
+      <a href="/proveedores" class="link">
+        <i class="icon-supplier"></i>
+        <span class="text">Proveedores</span>
+      </a>
+      <a href="/proveedores" class="link">
+        <i class="icon-supplier"></i>
+        <span class="text">Ingredientes</span>
+      </a>
+        <a href="/proveedores" class="link">
+          <i class="icon-supplier"></i>
+          <span class="text">Factura</span>
+      </a>
+    </div>
+    <!-- <div class="sidebar-footer">
+      <div class="profile-pic">
+      </div>
+      <span class="username">Usuario</span>
+    </div> -->
   </div>
-  <div id="content">
-    <button class="btn btn-primary" id="toggleSidebar" (click)="toggleSidebar()">Toggle Sidebar</button>
-  </div>
-</div>
+
+  <!-- Contenido de la página -->
+  <div class="content">
+    <!-- Aquí va el resto del contenido -->
+  </div>
+
+</body>
+</html>

@@ -34,14 +34,21 @@ import { VisualizarProveedorComponent } from './read/visualizar-proveedor/visual
 import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actualizar-proveedor.component';
 import { EliminarProveedorComponent } from './delete/eliminar-proveedor/eliminar-proveedor.component';
 import { RecuperarPwdComponent } from './recuperar-pwd/recuperar-pwd.component';
+import { IngredientService } from './services/ingredient.service';
+import { IngredientesComponent } from './ingredientes/ingredientes.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SidebarComponent,
     CategoriaComponent,
+    NavbarComponent,
     ProductoComponent,
     UsuarioComponent,
     MenuComponent,
+    IngredientesComponent,
     LoginComponent,
     ProductoComponent,
     ProveedoresComponent,
@@ -82,7 +89,8 @@ import { RecuperarPwdComponent } from './recuperar-pwd/recuperar-pwd.component';
     ProductoService,
     UsuarioService,
     AuthenticationService,
-    ProveedoresService
+    ProveedoresService,
+    IngredientService
   ],
   bootstrap: [AppComponent]
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="login.component.css">
 </head>
 <body>
@@ -12,11 +12,12 @@
     <!-- Agregar la imagen justo antes del formulario -->
     <!-- <img src="../login/donibitesimage.png" alt="Imagen de DoniBites" class="logo-image"> -->
 
-    <h1>Bienvenido/a a
+    <h1>
       DoniBites
+      <img src="assets/pink-donut.png"  style="width: 60px; height: 55px; vertical-align: middle; margin-right: 8px;">
+
     </h1>
     <form (ngSubmit)="iniciarSesion()">
-      <h1 class="text-center">Inicie Sesión</h1>
       <div class="form-group mb-3">
         <label for="usernameInput" class="form-label">Usuario</label>
         <input type="text" class="form-control" id="usernameInput" [(ngModel)]="username" name="username" required>

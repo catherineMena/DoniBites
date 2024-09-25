@@ -2,8 +2,13 @@
 body {
   background: linear-gradient(to right, #EE696B, #523A78); /* Agrega un gradiente de fondo */
   margin: 0; /* Elimina el margen predeterminado del cuerpo */
-  font-family: Arial, sans-serif,; /* Usa una fuente de respaldo */
+  font-family: "Raleway", sans-serif;
+  /* Usa una fuente de respaldo */
 
+}
+
+.nav-link {
+  color: transparent; /* Esto haría que el texto sea invisible */
 }
 
 /* Contenedor principal con alineación centrada */
@@ -15,19 +20,25 @@ body {
 }
 
 /* Grupo de botones verticales */
-.btn-group-vertical {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.btn-group-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+  gap: 10px; /* Espacio entre los botones */
+  justify-items: center; /* Centra los botones en sus celdas */
+  margin-top: 20px;
+
+
+  /* justify-content: center;
   align-items: center;
   height: 50vh;
   width: 70vh;
-  gap: 1rem;
+  gap: 1rem; */
 }
 
 /* Estilos para los botones */
 .btn {
-  font-family: 'Parisienne', cursive;
+  font-family: "Raleway", sans-serif;
+
   font-size: 25px;
   padding: 10px 20px;
   margin: 5px;
@@ -44,7 +55,8 @@ body {
 }
 
 h1 {
-  font-family: 'Parisienne', cursive;
+  font-family: "Raleway", sans-serif;
+
   font-size: 48px;
   font-weight: bold;
   text-align: center;

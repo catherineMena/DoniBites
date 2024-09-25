@@ -13,25 +13,55 @@ body {
   overflow: hidden;
 }
 
-.sidebar {
-  width: 250px;
-  height: 100vh;
-  background: rgba(191, 192, 192, 0.2); /* Aumenta la transparencia */
-  backdrop-filter: blur(15px); /* Incrementa el desenfoque */
-  -webkit-backdrop-filter: blur(15px); /* Compatibilidad con Safari */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde más sutil */
-  padding: 20px;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(145, 142, 244,0.4);
+  /* background: linear-gradient(to bottom, rgba(52, 35, 166, 0.8), rgba(254, 180, 123, 0.8)); */
+
+  backdrop-filter: blur(10px);
   position: fixed;
+  width: 100%;
   top: 0;
   left: 0;
-  display: flex;
-  flex-direction: column;
+  z-index: 1000;
 }
 
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.user-icon {
+  margin-left: auto; /* Asegura que el icono esté al final del navbar */
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.user-icon:hover {
+  color: #f0f0f0;
+}
+
+.navbar i {
+  transition: transform 0.3s ease;
+}
+
+.navbar i:hover {
+  transform: scale(1.1);
+}
 
 .sidebar {
   width: 250px;
   height: 100vh;
+
+  margin-top: 100px; /* Ajusta el valor según sea necesario */
+
   background: rgba(191, 192, 192, 0.2); /* Aumenta la transparencia */
   backdrop-filter: blur(15px); /* Incrementa el desenfoque */
   -webkit-backdrop-filter: blur(15px); /* Compatibilidad con Safari */
@@ -173,7 +203,6 @@ body {
   margin-top: 16px;
 }
 
-
 .table {
   width: 80%;
   padding: 20px;
@@ -182,6 +211,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   font-size: 0.8rem;
   padding-top: 2%;
+  margin: 0 auto; /* Centrar la tabla */
 }
 
 .actions {
@@ -207,25 +237,27 @@ body {
   background-color: #CC4E5C;
 }
 
-.table-product {
+.table-ingredient {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.table-product th,
-.table-product td {
+.table-ingredient th,
+.table-ingredient td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
 
-.table-product th {
+.table-ingredient th {
   background-color: rgb(30,30,31);
   color: #fff;
 }
 
-.table-product td {
+.table-ingredient td {
   background-color: #fff;
   color: #000;
 }
@@ -302,7 +334,6 @@ body {
   margin-bottom: 20px;
   width: 100%;
 }
-
 
 
 
