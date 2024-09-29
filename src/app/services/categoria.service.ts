@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CategoriaService {
- apiUrl = 'http://45.79.199.80:8080/minidonas/categories';
+ apiUrl = 'http://139.177.206.17:8080/minidonas/categories';
 
   constructor(private http: HttpClient) { }
 

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class IngredientService {
-  apiUrl = 'http://45.79.199.80:8080/minidonas/ingredients';
+  apiUrl = 'http://139.177.206.17:8080/minidonas/ingredients';
 
   constructor(private http: HttpClient) { }
 

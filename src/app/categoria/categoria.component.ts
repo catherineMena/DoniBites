@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoriaService } from '../services/categoria.service';
 import { Router } from '@angular/router';
 import jsPDF from 'jspdf';
+import * as XLSX from 'xlsx';
 import 'jspdf-autotable';
 
 @Component({
@@ -19,6 +20,10 @@ export class CategoriaComponent implements OnInit {
     this.cargarCategorias();
   }
 
+  verCategoria(id: number): void {
+    this.router.navigate(['/visualizar-categoria', id]);
+  }
+
   cargarCategorias(): void {
     this.categoriaService.getAllCategorias().subscribe(
       (data: any) => {
@@ -29,42 +34,41 @@ export class CategoriaComponent implements OnInit {
     );
   }
 
+  eliminarCategoria(id: number): void {
+    this.router.navigate(['/eliminar-categoria', id]);
+  }
+
   buscarCategoria(event: any): void {
     const valor = event.target.value.toLowerCase();
     this.categoriasFiltradas = this.categorias.filter(categoria =>
-      categoria.name.toLowerCase().includes(valor) ||
-      categoria.description.toLowerCase().includes(valor)
+      categoria.name.toLowerCase().includes(valor)
     );
   }
 
-  descargarLista(): void {
+  // Método para descargar la lista en el formato especificado
+  descargarLista(formato: string) {
+    if (formato === 'pdf') {
+      this.descargarPDF();
+    } else if (formato === 'excel') {
+      this.descargarExcel();
+    }
+  }
+
+  // Método para descargar en PDF
+  descargarPDF() {
     const doc = new jsPDF();
-    const tableColumn = ["Id", "Nombre", "Descripción"];
-    const tableRows: any[] = [];
-
-    this.categoriasFiltradas.forEach(categoria => {
-      const categoriaData = [
-        categoria.id,
-        categoria.name,
-        categoria.description
-      ];
-      tableRows.push(categoriaData);
+    doc.text('Tabla de Categorías', 10, 10);
+    (doc as any).autoTable({
+      head: [['Id', 'Nombre']],
+      body: this.categoriasFiltradas.map(categoria => [categoria.id, categoria.name])
     });
-
-    (doc as any).autoTable(tableColumn, tableRows, { startY: 20 });
-    doc.text("Lista de Categorías", 14, 15);
     doc.save('categorias.pdf');
   }
 
-  verCategoria(id: number): void {
-    this.router.navigate(['/visualizar-categoria', id]);
-  }
-
-  editarCategoria(id: number): void {
-    this.router.navigate(['/actualizar-categoria', id]);
-  }
-
-  eliminarCategoria(id: number): void {
-    this.router.navigate(['/eliminar-categoria', id]);
+  // Método para descargar en Excel
+  descargarExcel() {
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.categoriasFiltradas);
+    const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+    XLSX.writeFile(workbook, 'categorias.xlsx');
   }
 }
