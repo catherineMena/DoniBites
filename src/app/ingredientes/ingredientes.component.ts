@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {IngredientService} from '../services/ingredient.service';
 import { Router } from '@angular/router';
-
+import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
@@ -21,6 +21,18 @@ export class IngredientesComponent implements OnInit {
     this.loadIngredient();
   }
 
+  viewIngredient(id: number): void {
+    this.router.navigate(['/view-ingredient', id]);
+  }
+
+  editIngredient(id: number): void {
+    this.router.navigate(['/update-ingredient', id]);
+  }
+
+deleteIngredient(id: number): void {
+    this.router.navigate(['/delete-ingredient', id]);
+  }
+
   loadIngredient(): void {
     this.ingredientService.getAllIngredients().subscribe(
       (data: any) => {
@@ -38,42 +50,38 @@ export class IngredientesComponent implements OnInit {
   searchIngredient(event: any): void {
     const valor = event.target.value.toLowerCase();
     this.filterIngredient = this.ingredients.filter(ingredient =>
-      ingredient.name.toLowerCase().includes(valor) ||
-      ingredient.unit.toLowerCase().includes(valor)
+      ingredient.name.toLowerCase().includes(valor)
     );
   }
 
 
 
-  downloadList(): void {
+  downloadList(formato: string) {
+    if (formato === 'pdf') {
+      this.downloadPDF();
+    } else if (formato === 'excel') {
+      this.downloadExcel();
+    }
+  }
+
+  // Método para descargar en PDF
+  downloadPDF() {
     const doc = new jsPDF();
-    const tableColumn = ["Id", "Nombre", "Unidad de medida"];
-    const tableRows: any[] = [];
-
-    this.filterIngredient.forEach(ingredient => {
-      const ingredientData = [
-        ingredient.id,
-        ingredient.ingredient,
-        ingredient.unit
-      ];
-      tableRows.push(ingredientData);
-    });
-
-    (doc as any).autoTable(tableColumn, tableRows, { startY: 20 });
-    doc.text("Lista de  ingredientes", 14, 15);
+    doc.text('Tabla de Ingredientes', 10, 10);
+    (doc as any).autoTable({
+      head: [['Id', 'Nombre', 'Unidad']],
+      body: this.filterIngredient.map(ingredient => [ingredient.id, ingredient.name, ingredient.unit])    });
     doc.save('Ingredientes.pdf');
   }
 
-  viewIngredient(id: number): void {
-    this.router.navigate(['/view-ingredient', id]);
-  }
-
-  editIngredient(id: number): void {
-    this.router.navigate(['/update-ingredient', id]);
-  }
-
-deleteIngredient(id: number): void {
-    this.router.navigate(['/delete-ingredient', id]);
+  // Método para descargar en Excel
+  downloadExcel() {
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.filterIngredient);
+    const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+    XLSX.writeFile(workbook, 'Ingredientes.xlsx');
   }
 }
+
+
+
 
