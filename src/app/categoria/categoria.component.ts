@@ -50,7 +50,7 @@ export class CategoriaComponent implements OnInit {
     if (formato === 'pdf') {
       this.descargarPDF();
     } else if (formato === 'excel') {
-      this.descargarExcel();
+      this.downloadExcel();
     }
   }
 
@@ -66,8 +66,14 @@ export class CategoriaComponent implements OnInit {
   }
 
   // Método para descargar en Excel
-  descargarExcel() {
-    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.categoriasFiltradas);
+  downloadExcel() {
+    const headers = [['Id', 'Nombre', 'Descripción']];
+    const data = this.categoriasFiltradas.map(categorias => [
+      categorias.id,
+      categorias.name,
+      categorias.description
+    ]);
+    const worksheet: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet([...headers, ...data]);
     const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
     XLSX.writeFile(workbook, 'categorias.xlsx');
   }

@@ -2,7 +2,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Raleway', sans-serif;
-  color: #FFF;
+  color: #000;
   height: 100%;
   background-color: rgb(45, 49, 66);
   display: flex;
@@ -13,25 +13,55 @@ body {
   overflow: hidden;
 }
 
-.sidebar {
-  width: 250px;
-  height: 100vh;
-  background: rgba(191, 192, 192, 0.2); /* Aumenta la transparencia */
-  backdrop-filter: blur(15px); /* Incrementa el desenfoque */
-  -webkit-backdrop-filter: blur(15px); /* Compatibilidad con Safari */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde más sutil */
-  padding: 20px;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(145, 142, 244,0.4);
+  /* background: linear-gradient(to bottom, rgba(52, 35, 166, 0.8), rgba(254, 180, 123, 0.8)); */
+
+  backdrop-filter: blur(10px);
   position: fixed;
+  width: 100%;
   top: 0;
   left: 0;
-  display: flex;
-  flex-direction: column;
+  z-index: 1000;
 }
 
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.user-icon {
+  margin-left: auto; /* Asegura que el icono esté al final del navbar */
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.user-icon:hover {
+  color: #f0f0f0;
+}
+
+.navbar i {
+  transition: transform 0.3s ease;
+}
+
+.navbar i:hover {
+  transform: scale(1.1);
+}
 
 .sidebar {
   width: 250px;
   height: 100vh;
+
+  margin-top: 100px; /* Ajusta el valor según sea necesario */
+
   background: rgba(191, 192, 192, 0.2); /* Aumenta la transparencia */
   backdrop-filter: blur(15px); /* Incrementa el desenfoque */
   -webkit-backdrop-filter: blur(15px); /* Compatibilidad con Safari */
@@ -48,7 +78,8 @@ body {
   display: flex;
   align-items: center;
   color: #fff;
-  font-size: 1.25rem;
+  font-weight: bold;
+  font-size: 1.25rem
 }
 
 .sidebar-header .badge {
@@ -57,6 +88,7 @@ body {
   border-radius: 4px;
   margin-left: 5px;
 }
+
 
 .sidebar hr {
   margin: 1rem 0;
@@ -83,7 +115,7 @@ body {
 
 .link:hover,
 .link.active {
-  background-color: rgba(109, 103, 110, 0.5); /* Fondo semitransparente en hover */
+  background-color: rgba(145, 142, 244,0.4); /* Fondo semitransparente en hover */
   color: #fff;
 }
 
@@ -91,6 +123,9 @@ body {
   margin-right: 10px;
 }
 
+.link i {
+  margin-right: 10px; /* Espacio entre el icono y el texto */
+}
 .sidebar-footer {
   display: flex;
   align-items: center;
@@ -128,19 +163,6 @@ body {
   padding: 0 20px;
 }
 
-.link {
-  font-size: 16px;
-  font-weight: 300;
-  text-align: center;
-  padding: 10px;
-  color: #FFF;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.link:hover {
-  color: #EE696B;
-}
 
 .wrapper {
   max-width: 1000px;
@@ -166,11 +188,18 @@ body {
   text-shadow: 2px 2px 5px #ffffff;
 }
 
-.header button {
-  background-color: black;
-  color: white;
-  font-size: 0.8rem;
-  margin-top: 16px;
+
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+
+/*`---------------Table----------- */
+tbody tr {
+  transition: all 0.9s ease; /* Transición suave al filtrar */
 }
 
 
@@ -182,89 +211,76 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   font-size: 0.8rem;
   padding-top: 2%;
-}
+  min-height: 400%; /* Ajusta esto según la cantidad de filas esperadas */
 
-.actions {
-  display: flex;
-  justify-content: space-between;
-  gap: 5px;
 }
-
-.btn-add {
-  background-color: rgb(206,156,249);
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-left: 10px;
-  margin-bottom: 20px;
-}
-
-.btn-add:hover {
-  background-color: #CC4E5C;
-}
-
-.table-product {
+.product-table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
 }
 
-.table-product th,
-.table-product td {
-  padding: 10px;
+tbody tr {
+  height: 50px; /* Define una altura fija para cada fila */
+}
+
+.product-table tbody {
+  min-height: 200px; /* Define una altura mínima para el cuerpo de la tabla */
+}
+
+th, td {
+  padding: 15px; /* Espaciado uniforme */
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
 
-.table-product th {
+.product-table th,
+.product-table td {
+  padding: 25px;
+  padding-bottom: 3%;
+  border-bottom: 1px solid #ddd;
+  min-width: 150%; /* Establecer un ancho mínimo para las celdas */
+
+}
+
+.product-table th {
   background-color: rgb(30,30,31);
   color: #fff;
+  text-align: center;
 }
 
-.table-product td {
-  background-color: #fff;
-  color: #000;
+
+.product-table td {
+  background-color: transparent; /* Retain background color */
+  color: #000; /* Ensure text color is black for better contrast */
 }
 
-.btn-action {
-  background-color: #EE696B;
-  color: #fff;
+/* ----------Action buttons ---------------*/
+.btn-visualize{
+  color:rgb(245, 187, 0) ;
+  background-color: rgb(236,159,5,0.3);
+  /* border: solid 3px rgb(254, 153, 32); */
   border: none;
-  padding: 5px 10px;
-  font-size: 14px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.btn-action:hover {
-  background-color: #CC4E5C;
-}
-
-.back-btn-container {
-  position: absolute;
-  top: 80px; /* Ajustar para que no quede debajo del navbar */
-  right: 10px;
-}
-
-.back-btn {
-  font-family: 'Rancho', cursive;
-  padding: 10px 20px;
-  background-color: #EE696B;
-  color: white;
+.btn-add{
+  background-color: rgb(5, 178, 220, 0.3);
+  color: rgb(5, 178, 220);
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
+
+}
+.btn-update{
+  background-color: rgb(133, 255, 158, 0.3);
+  color: #36CB7C;
+  border: none ;
 }
 
-.back-btn:hover {
-  background-color: #CC4E5C;
+.btn-delete{
+  background-color: rgb(221, 13, 30, 0.3);
+  color: #DD0D1E;
+  border: none;
 }
+
 
 /* Estilo para el campo de búsqueda */
 .search-input {
@@ -275,24 +291,8 @@ body {
   font-size: 16px;
 }
 
-/* Estilo para el botón de descargar */
-.btn-download {
-  background-color: rgb(22,152,115);
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-left: 10px;
-  margin-bottom: 20px;
 
-}
 
-.btn-download:hover {
-  background-color: #f04f84;
-}
 
 /* Ajuste de estilos para el contenedor de acciones */
 .actions {
@@ -304,5 +304,109 @@ body {
 }
 
 
+/* Ajuste de estilos para el contenedor de acciones */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+}
 
+/*----------- RESPONSIVE TABLE-------------- */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80px; /* Ancho reducido de la sidebar */
+    transition: width 0.3s;
+  }
+
+  .sidebar:hover {
+    width: 250px; /* Ancho expandido de la sidebar al hacer hover */
+  }
+
+  .sidebar-header h3,
+  .link .text {
+    display: none; /* Ocultar el texto en la sidebar */
+  }
+
+  .link i {
+    margin-right: 0; /* Eliminar el margen derecho del icono */
+  }
+
+  .sidebar-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar-footer .profile-pic {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/*---------------Table----------- */
+tbody tr {
+  transition: all 0.9s ease; /* Transición suave al filtrar */
+}
+
+.table {
+  width: auto;
+  padding: 10%;
+  border: 1px solid aliceblue;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-size: 0.8rem;
+  padding-top: 2%;
+}
+
+.product-table {
+  width: auto;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.product-table th,
+.product-table td {
+  padding: 15px; /* Ajustar el padding para más espacio entre columnas */
+  padding-bottom: 5px;
+  text-align: justify;
+  border-bottom: 1px solid #ddd;
+  min-width: 150px; /* Establecer un ancho mínimo para las celdas */
+}
+
+.product-table th {
+  background-color: rgb(30, 30, 31);
+  color: #fff;
+  text-align: center; /* Alinear los encabezados al centro */
+}
+
+/*----------- RESPONSIVE SIDEBAR-------------- */
+@media (max-width: 900px) {
+  i {
+    font-size: 14px;
+  }
+
+  .sidebar {
+    width: 80px; /* Ancho reducido de la sidebar */
+  }
+
+  .sidebar-header h3,
+  .link .text {
+    display: none; /* Ocultar el texto en la sidebar */
+  }
+
+  .link i {
+    margin-right: 0; /* Eliminar el margen derecho del icono */
+  }
+
+  .sidebar-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar-footer .profile-pic {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
 

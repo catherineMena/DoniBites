@@ -75,11 +75,17 @@ deleteIngredient(id: number): void {
   }
 
   // Método para descargar en Excel
-  downloadExcel() {
-    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.filterIngredient);
-    const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
-    XLSX.writeFile(workbook, 'Ingredientes.xlsx');
-  }
+downloadExcel() {
+  const headers = [['Id', 'Nombre', 'Unidad']];
+  const data = this.filterIngredient.map(ingredient => [
+    ingredient.id,
+    ingredient.name,
+    ingredient.unit
+  ]);
+  const worksheet: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet([...headers, ...data]);
+  const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+  XLSX.writeFile(workbook, 'Ingredientes.xlsx');
+}
 }
 
 
