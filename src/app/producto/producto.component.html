@@ -10,58 +10,65 @@
   <link rel="stylesheet" href="producto.component.css">
 </head>
 <body>
-  <!-- <nav id="navbar" class="navbar-bg">
-    <div class="container">
-      <a href="/menu" class="link"><span class="text">Home</span></a>
-      <a href="/usuario" class="link"><span class="text">Usuarios</span></a>
-      <a href="/categoria" class="link"><span class="text">Categorias</span></a>
-      <a href="/producto" class="link"><span class="text">Productos</span></a>
-      <a href="/proveedores" class="link"><span class="text">Proveedores</span></a>
+
+   <nav class="navbar">
+    <!-- <span class="logo">DoniBites</span> -->
+    <i class="fas fa-user user-icon"></i>
+  </nav>
+
+
+
+
+
+    <hr>
+
+
+
+
+    <nav class="navbar">
+      <!-- <span class="logo">DoniBites</span> -->
+      <i class="fas fa-user user-icon"></i>
+    </nav>
+
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h3>
+          DoniBites
+          <img src="assets/donut.png" alt="Logo de DoniBites" style="width: 50px; height: 45px; vertical-align: middle; margin-right: 8px;">
+        </h3>
+      </div>
+      <hr>
+      <div class="sidebar-menu">
+        <a href="/menu" class="link active d-flex align-items-center">
+          <i class="fa-solid fa-house" title="Home"></i><span class="text" >Home</span>
+        </a>
+        <a href="/usuario" class="link">
+          <i class="fa-solid fa-users"  title="Usuario"></i><span class="text">Usuarios</span>
+        </a>
+        <a href="/categoria" class="link">
+          <i class="fa-solid fa-list" title="Categorias"></i><span class="text">Categorias</span>
+        </a>
+        <a href="/producto" class="link">
+          <i class="fas fa-shopping-basket" title="Productos"></i><span class="text">Productos</span>
+        </a>
+        <a href="/ingredientes" class="link">
+          <i class="fas fa-utensil-spoon" title="Ingredientes"></i><span class="text">Ingredientes</span>
+        </a>
+        <a href="/factura" class="link">
+          <i class="fas fa-receipt" title="Factura"></i><span class="text">Factura</span>
+        </a>
+        <a href="/proveedores" class="link">
+          <i class="fas fa-box" title="Proveedores"></i><span class="text">Proveedores</span>
+                </a>
+        <a href="/client" class="link">
+          <i class="fas fa-user" title="Cliente"></i>
+          <span class="text" >Cliente</span>
+        </a>
+      </div>
     </div>
-  </nav> -->
- <!-- Sidebar -->
- <div class="sidebar">
-  <div class="sidebar-header">
-    <h3>
-      DoniBites
-      <img src="assets/donut.png"  style="width: 50px; height: 45px; vertical-align: middle; margin-right: 8px;">
 
-  </h3>
-
-  </div>
-  <hr>
-  <div class="sidebar-menu">
-
-    <a href="/menu" class="link active d-flex align-items-center">
-      <span class="text">Home</span>
-      <i class="bi bi-house-door-fill ms-2"></i>
-  </a>
-    <a href="/usuario" class="link">
-      <i class="icon-user"></i><span class="text">Usuarios</span>
-    </a>
-    <a href="/categoria" class="link">
-      <i class="icon-category"></i><span class="text">Categorias</span>
-    </a>
-    <a href="/producto" class="link">
-      <i class="icon-product"></i><span class="text">Productos</span>
-    </a>
-    <a href="/proveedores" class="link">
-      <i class="icon-supplier"></i><span class="text">Proveedores</span>
-    </a>
-    <a href="/proveedores" class="link">
-      <i class="icon-supplier"></i>
-      <span class="text">Ingredientes</span>
-    </a>
-      <a href="/proveedores" class="link">
-        <i class="icon-supplier"></i>
-        <span class="text">Factura</span>
-    </a>
-  </div>
-  <!-- <div class="sidebar-footer">
-    <img src="profile.jpg" alt="User" class="profile-pic">
-    <span class="username">mdo</span>
-  </div> -->
-</div>
 <!------------------sidebar end----------->
 
 
@@ -75,11 +82,18 @@
       </div>
     </div>
     <div class="actions">
-      <input type="text" placeholder="Buscar productos..." (input)="buscarProducto($event)" class="search-input">
-      <button class="btn-add" routerLink="/agregar-producto">AGREGAR</button>
-      <button (click)="descargarLista()" class="btn-download">Descargar lista</button>
+      <input type="text" placeholder="Buscar categorías..." (input)="searchProduct($event)" class="search-input">
+      <div class="btn-group dropright">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          Descargar ingredientes
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="#" (click)="downloadList('pdf')">Descargar PDF</a></li>
+          <li><a class="dropdown-item" href="#" (click)="downloadList('excel')">Descargar Excel</a></li>
+        </ul>
+      </div>
     </div>
-    <table class="table-product">
+    <table class="product-table">
       <thead>
         <tr>
           <th>Id</th>
@@ -93,7 +107,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let producto of productosFiltrados">
+        <tr *ngFor="let producto of filteredProducts">
           <td>{{producto.id}}</td>
           <td>{{producto.name}}</td>
           <td>{{producto.description}}</td>
