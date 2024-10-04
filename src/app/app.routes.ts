@@ -1,28 +1,28 @@
 import { Routes } from '@angular/router';
-import { UsuarioComponent } from './usuario/usuario.component';
-import { ProductoComponent } from './producto/producto.component';
-import { CategoriaComponent } from './categoria/categoria.component';
 import { AgregarCategoriaComponent } from './Add/agregar-categoria/agregar-categoria.component';
-import { VisualizarCategoriaComponent } from './read/visualizar-categoria/visualizar-categoria.component';
-import { ActualizarCategoriaComponent } from './update/actualizar-categoria/actualizar-categoria.component';
-import { EliminarCategoriaComponent } from './delete/eliminar-categoria/eliminar-categoria.component';
-import { AgregarUsuarioComponent } from './Add/agregar-usuario/agregar-usuario.component';
-import { VisualizarUsuarioComponent } from './read/visualizar-usuario/visualizar-usuario.component';
-import { ActualizarUsuarioComponent } from './update/actualizar-usuario/actualizar-usuario.component';
-import { EliminarUsuarioComponent } from './delete/eliminar-usuario/eliminar-usuario.component';
 import { AgregarProductoComponent } from './Add/agregar-producto/agregar-producto.component';
-import { VisualizarProductoComponent } from './read/visualizar-producto/visualizar-producto.component';
-import { ActualizarProductoComponent } from './update/actualizar-producto/actualizar-producto.component';
-import { EliminarProductoComponent } from './delete/eliminar-producto/eliminar-producto.component';
-import { LoginComponent } from './login/login.component';
-import { ProveedoresComponent } from './proveedores/proveedores.component';
 import { AgregarProveedorComponent } from './Add/agregar-proveedor/agregar-proveedor.component';
-import { VisualizarProveedorComponent } from './read/visualizar-proveedor/visualizar-proveedor.component';
-import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actualizar-proveedor.component';
+import { AgregarUsuarioComponent } from './Add/agregar-usuario/agregar-usuario.component';
+import { CategoriaComponent } from './categoria/categoria.component';
+import { EliminarCategoriaComponent } from './delete/eliminar-categoria/eliminar-categoria.component';
+import { EliminarProductoComponent } from './delete/eliminar-producto/eliminar-producto.component';
 import { EliminarProveedorComponent } from './delete/eliminar-proveedor/eliminar-proveedor.component';
-import { MenuComponent } from './menu/menu.component';
-import { RecuperarPwdComponent } from './recuperar-pwd/recuperar-pwd.component';
+import { EliminarUsuarioComponent } from './delete/eliminar-usuario/eliminar-usuario.component';
 import { IngredientesComponent } from './ingredientes/ingredientes.component';
+import { LoginComponent } from './login/login.component';
+import { MenuComponent } from './menu/menu.component';
+import { ProductoComponent } from './producto/producto.component';
+import { ProveedoresComponent } from './proveedores/proveedores.component';
+import { VisualizarCategoriaComponent } from './read/visualizar-categoria/visualizar-categoria.component';
+import { VisualizarProductoComponent } from './read/visualizar-producto/visualizar-producto.component';
+import { VisualizarProveedorComponent } from './read/visualizar-proveedor/visualizar-proveedor.component';
+import { VisualizarUsuarioComponent } from './read/visualizar-usuario/visualizar-usuario.component';
+import { RecuperarPwdComponent } from './recuperar-pwd/recuperar-pwd.component';
+import { ActualizarCategoriaComponent } from './update/actualizar-categoria/actualizar-categoria.component';
+import { ActualizarProductoComponent } from './update/actualizar-producto/actualizar-producto.component';
+import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actualizar-proveedor.component';
+import { ActualizarUsuarioComponent } from './update/actualizar-usuario/actualizar-usuario.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
  export const appRoutes: Routes = [
 
@@ -73,15 +73,12 @@ import { IngredientesComponent } from './ingredientes/ingredientes.component';
 {path: 'Ingrediente', component: IngredientesComponent},
 
 
-
-
-{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'login', component: LoginComponent },
 { path: 'dashboard', component: MenuComponent },
-{ path: '**', redirectTo: '/login' },
-
-
 { path: 'recuperar-pwd', component: RecuperarPwdComponent },
+
+{ path: '', redirectTo: '/login', pathMatch: 'full' },
+{ path: '**', redirectTo: '/login' },
 
   // Agrega aquí más rutas según sea necesario
 ];
