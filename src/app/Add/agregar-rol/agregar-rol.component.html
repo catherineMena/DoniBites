@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Rol</title>
+</head>
+<body>
+
+<div class="wrapper">
+  <form (ngSubmit)="guardarRol()">
+    <h1 class="text-center">Agregar Rol</h1>
+
+    <div class="form-group mb-3">
+      <label for="idInput" class="form-label">ID</label>
+      <input type="text" class="form-control" id="idInput" placeholder="ID del rol" name="id" [(ngModel)]="id" required>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="nombreRolInput" class="form-label">Nombre del Rol</label>
+      <input type="text" class="form-control" id="nombreRolInput" placeholder="Nombre del rol" name="nombreRol" [(ngModel)]="nombreRol" required>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="descripcionInput" class="form-label">Descripción</label>
+      <input type="text" class="form-control" id="descripcionInput" placeholder="Descripción del rol" name="descripcion" [(ngModel)]="descripcion" required>
+    </div>
+
+    <div class="text-center">
+      <button type="button" class="btn btn-primary btn-add" (click)="guardarRol()">Guardar</button>
+      <button type="button" class="btn-cancelar" routerLink="/roles">Cancelar</button>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
