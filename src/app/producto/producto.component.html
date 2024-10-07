@@ -15,22 +15,7 @@
     <!-- <span class="logo">DoniBites</span> -->
     <i class="fas fa-user user-icon"></i>
   </nav>
-
-
-
-
-
     <hr>
-
-
-
-
-    <nav class="navbar">
-      <!-- <span class="logo">DoniBites</span> -->
-      <i class="fas fa-user user-icon"></i>
-    </nav>
-
-
     <!-- Sidebar -->
     <div class="sidebar">
       <div class="sidebar-header">
@@ -73,19 +58,17 @@
 
 
   <div class="wrapper">
-    <!-- <div class="back-btn-container">
-      <button class="btn back-btn" routerLink="/menu">Regresar</button>
-    </div> -->
+
     <div class="header">
       <div class="title">
         <h1>Tabla de productos</h1>
       </div>
     </div>
     <div class="actions">
-      <input type="text" placeholder="Buscar categorías..." (input)="searchProduct($event)" class="search-input">
+      <input type="text" placeholder="Buscar producto..." (input)="searchProduct($event)" class="search-input">
       <div class="btn-group dropright">
         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-          Descargar ingredientes
+          Descargar productos
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <li><a class="dropdown-item" href="#" (click)="downloadList('pdf')">Descargar PDF</a></li>
@@ -117,13 +100,18 @@
           <td>{{producto.unitPrice}}</td>
           <td>
             <div class="actions">
-              <a [routerLink]="['/visualizar-producto', producto.id]" class="btn-action">
+              <a [routerLink]="['/visualizar-producto', producto.id]" class="btn-action btn-visualize" title="Visualizar producto">
                 <i class="fas fa-eye"></i>
               </a>
-              <a [routerLink]="['/actualizar-producto', producto.id]" class="btn-action">
+              <a [routerLink]="['/agregar-producto', producto.id]" class="btn-action btn-add" title="Agregar producto">
+                <i class="fas fa-plus"></i>
+              </a>
+              <a [routerLink]="['/actualizar-producto', producto.id]" class="btn-action " title="Actualizar producto">
+
                 <i class="fas fa-pencil"></i>
               </a>
-              <a [routerLink]="['/eliminar-producto', producto.id]" class="btn-action">
+
+              <a [routerLink]="['/eliminar-producto', producto.id]" class="btn-action btn-delete" title="Eliminar producto">
                 <i class="fas fa-trash"></i>
               </a>
             </div>

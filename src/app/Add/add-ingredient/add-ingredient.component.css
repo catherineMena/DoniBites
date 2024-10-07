@@ -21,56 +21,55 @@ h1 {
 
 /* Contenedor principal centrado */
 .wrapper {
-  max-width: 600px; /* or 80% */
-  min-height: 400px; /* new property */
+  max-width: 600px;
+  min-height: 400px;
   margin: 0 auto;
   padding: 40px;
   border: 2px solid #ccc;
   border-radius: 10px;
   background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+form {
+  width: 100%; /* Asegurar que el formulario ocupe todo el ancho disponible */
+}
+
+.form-group {
+  text-align: left; /* Mantener la alineación a la izquierda */
+  width: 100%; /* Hacer que el form-group ocupe todo el ancho */
+}
+
 .form-label {
-  font-size: 1.2em; /* increase font size */
+  font-size: 1.2em; /* Aumentar el tamaño de la fuente */
   font-weight: bold;
 }
 
 input {
-  font-size: 1.2em; /* increase font size */
-  padding: 1.5rem; /* increase padding */
-  height: 4rem; /* increase height */
+  font-size: 1.2em; /* Aumentar el tamaño de la fuente */
+  padding: 1.5rem; /* Aumentar el padding */
+  height: 4rem; /* Aumentar la altura */
+  width: 100%; /* Asegurar que el input ocupe todo el ancho del form-group */
 }
-
 
 /* Estilo para el botón */
-.btn-delete {
-  background-color: rgb(5, 178, 220);
-  color: #fff;
+.btn-add {
+  font-size: 1.1em;
+  padding: 0.8rem 1.5rem;
+    background-color: rgb(5, 178, 220);
+  color:#fff;
   border: none;
-  font-size: 130%; /* Tamaño del texto */
-  padding: 0.7rem 1.5rem; /* Espaciado interno */
-  border: none; /* Eliminar borde por defecto */
-  border-radius: 5px; /* Bordes redondeados */
-  cursor: pointer; /* Cursor tipo puntero */
-}
-
-button:hover {
-  background-color: rgb(5, 178, 220, 0.5); /* Cambio de color al pasar el ratón */
-}
-
-.btn-cancel{
-  font-size: 1.2em; /* Aumentar tamaño de la fuente */
-  padding: 1rem 2rem; /* Aumentar espaciado interno */
-  padding: 0.7rem 1.5rem;
-  background-color: #DD0D1E;
   border-radius: 5px;
-  border: none;
-  cursor: pointer; /* Cursor tipo puntero */
-
-
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block; /* Asegurar que el botón sea un bloque */
+  margin: 1rem auto 0 auto; /* Centrar el botón con margen automático */
 }
 
-.btn-cancel:hover{
-
-  background-color: rgb(221, 13, 30, 0.3);
-  color: #DD0D1E;
+.btn.add:hover {
+  background-color: rgba(5, 178, 220, 0.3);
+  /* Cambio de color al pasar el ratón */
 }

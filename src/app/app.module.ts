@@ -38,6 +38,10 @@ import { IngredientService } from './services/ingredient.service';
 import { IngredientesComponent } from './ingredientes/ingredientes.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AddIngredientComponent } from './Add/add-ingredient/add-ingredient.component';
+import { ReadIngredientComponent } from './read/read-ingredient/read-ingredient.component';
+import { UpdateIngredientComponent } from './update/update-ingredient/update-ingredient.component';
+import { DeleteIngredientComponent } from './delete/delete-ingredient/delete-ingredient.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +53,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     UsuarioComponent,
     MenuComponent,
     IngredientesComponent,
+    AddIngredientComponent,
+    ReadIngredientComponent,
+    UpdateIngredientComponent,
+    DeleteIngredientComponent,
     LoginComponent,
     ProductoComponent,
     ProveedoresComponent,
@@ -75,7 +83,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    FormsModule,
+    FormsModule
     // Add AppComponent to imports array
 
 

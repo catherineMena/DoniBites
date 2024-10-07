@@ -23,9 +23,12 @@ import { ActualizarProductoComponent } from './update/actualizar-producto/actual
 import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actualizar-proveedor.component';
 import { ActualizarUsuarioComponent } from './update/actualizar-usuario/actualizar-usuario.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { AddIngredientComponent } from './Add/add-ingredient/add-ingredient.component';
+import { ReadIngredientComponent } from './read/read-ingredient/read-ingredient.component';
+import { UpdateIngredientComponent } from './update/update-ingredient/update-ingredient.component';
+import { DeleteIngredientComponent } from './delete/delete-ingredient/delete-ingredient.component';
 
- export const appRoutes: Routes = [
-
+export const appRoutes: Routes = [
   { path: 'menu', component: MenuComponent },
   /////////////////////////////////////////////////////////////////////
   { path: 'producto', component: ProductoComponent },
@@ -36,49 +39,49 @@ import { UsuarioComponent } from './usuario/usuario.component';
 
   /////////////////////////////////////////////////////////////////////
   { path: 'categoria', component: CategoriaComponent },
-  { path: 'agregar-categoria', component: AgregarCategoriaComponent },
-  { path: 'visualizar-categoria', component: VisualizarCategoriaComponent },
-  { path: 'actualizar-categoria', component: ActualizarCategoriaComponent},
-  { path: 'eliminar-categoria', component: EliminarCategoriaComponent},
-
+  { path: 'agregar-categoria/:id', component: AgregarCategoriaComponent },
+  // { path: 'visualizar-categoria', component: VisualizarCategoriaComponent },
+  // { path: 'actualizar-categoria', component: ActualizarCategoriaComponent },
+  // { path: 'eliminar-categoria', component: EliminarCategoriaComponent },
   { path: 'visualizar-categoria/:id', component: VisualizarCategoriaComponent },
   { path: 'actualizar-categoria/:id', component: ActualizarCategoriaComponent },
   { path: 'eliminar-categoria/:id', component: EliminarCategoriaComponent },
 
-   /////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////
   { path: 'usuario', component: UsuarioComponent },
   { path: 'agregar-usuario', component: AgregarUsuarioComponent },
-  { path: 'visualizar-usuario', component: VisualizarUsuarioComponent},
-  { path: 'actualizar-usuario', component: ActualizarUsuarioComponent},
-  { path: 'eliminar-usuario', component: EliminarUsuarioComponent},
-  { path: 'visualizar-usuario/:id', component: VisualizarUsuarioComponent},
-  { path: 'actualizar-usuario/:id', component: ActualizarUsuarioComponent},
-  { path: 'eliminar-usuario/:id', component: EliminarUsuarioComponent},
-///////////////////////////////////////////////////////////////////
+  { path: 'visualizar-usuario', component: VisualizarUsuarioComponent },
+  { path: 'actualizar-usuario', component: ActualizarUsuarioComponent },
+  { path: 'eliminar-usuario', component: EliminarUsuarioComponent },
+  { path: 'visualizar-usuario/:id', component: VisualizarUsuarioComponent },
+  { path: 'actualizar-usuario/:id', component: ActualizarUsuarioComponent },
+  { path: 'eliminar-usuario/:id', component: EliminarUsuarioComponent },
+  ///////////////////////////////////////////////////////////////////
   // {path:'login', component: LoginComponent},
-
 
   { path: 'proveedores', component: ProveedoresComponent },
   { path: 'agregar-proveedor', component: AgregarProveedorComponent },
+  { path: 'visualizar-proveedor', component: VisualizarProveedorComponent },
+  { path: 'actualizar-proveedor', component: ActualizarProveedorComponent },
+  { path: 'eliminar-proveedor', component: EliminarProveedorComponent },
+  { path: 'visualizar-proveedor/:id', component: VisualizarProveedorComponent },
+  { path: 'actualizar-proveedor/:id', component: ActualizarProveedorComponent },
+  { path: 'eliminar-proveedor/:id', component: EliminarProveedorComponent },
 
-  { path: 'visualizar-proveedor', component: VisualizarProveedorComponent},
-  { path: 'actualizar-proveedor', component: ActualizarProveedorComponent},
-  { path: 'eliminar-proveedor', component: EliminarProveedorComponent},
-  { path: 'visualizar-proveedor/:id', component: VisualizarProveedorComponent},
-  { path: 'actualizar-proveedor/:id', component: ActualizarProveedorComponent},
-  { path: 'eliminar-proveedor/:id', component: EliminarProveedorComponent},
+  ///////////////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////////
+  { path: 'Ingredient', component: IngredientesComponent },
+  { path: 'add-ingredient/:id', component: AddIngredientComponent },
+{path: 'read-ingredient/:id', component: ReadIngredientComponent},
+{path: 'update-ingredient/:id', component: UpdateIngredientComponent},
+{ path: 'delete-ingredient/:id', component: DeleteIngredientComponent },
+  //////////////////////////////////////////////s/////////////////////
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: MenuComponent },
+  { path: 'recuperar-pwd', component: RecuperarPwdComponent },
 
-{path: 'Ingrediente', component: IngredientesComponent},
-
-
-{ path: 'login', component: LoginComponent },
-{ path: 'dashboard', component: MenuComponent },
-{ path: 'recuperar-pwd', component: RecuperarPwdComponent },
-
-{ path: '', redirectTo: '/login', pathMatch: 'full' },
-{ path: '**', redirectTo: '/login' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login' },
 
   // Agrega aquí más rutas según sea necesario
 ];

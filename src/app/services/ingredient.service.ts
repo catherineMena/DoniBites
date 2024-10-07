@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +10,7 @@ export class IngredientService {
 
   constructor(private http: HttpClient) { }
 
-   getAllIngredients() {
+  getAllIngredients(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
 
@@ -25,19 +24,11 @@ export class IngredientService {
   }
 
   updateIngredient(id: number, ingredient: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/update/${id}`, ingredient);
+    const headers = { 'Content-Type': 'application/json' };
+    return this.http.put<any>(`${this.apiUrl}/update/${id}`, ingredient, { headers });
   }
 
-  // eliminarCategoria(id: number): Observable<any> {
-  //   return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
-  // }
-
-  deactivateIngrediente(id: number): Observable<any> {
+  deactivateIngredient(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/delete/${id}`);
   }
-
-  getIngredientByStatus(estado: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}?estado=${estado}`);
-  }
-
 }

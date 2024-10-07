@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Ingrediente</title>
+</head>
+<body>
+
+<div class="wrapper">
+  <form #ingredienteForm="ngForm" (ngSubmit)="saveIngredient()">
+    <h1 class="text-center">Agregar Ingrediente</h1>
+
+
+
+    <div class="form-group mb-3">
+      <label for="ingredienteInput" class="form-label">Ingrediente</label>
+      <input type="text" class="form-control" id="ingredienteInput" placeholder="Glaseadas, simples...." name="ingredient" [(ngModel)]="ingredient" required>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="unitInput" class="form-label">Unidad de medida</label>
+      <input type="text" class="form-control" id="unidadInput" placeholder="Kg, L, g..." name="unit" [(ngModel)]="unit" required>
+    </div>
+    <button type="submit" class="btn btn-primary btn-add">Guardar</button>
+  </form>
+</div>
+
+</body>
+</html>

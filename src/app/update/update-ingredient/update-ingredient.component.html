@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualizar Categoría</title>
+</head>
+<body>
+  <div class="wrapper">
+    <form (ngSubmit)="updateIngredient()">
+      <h1 class="text-center">Update Ingredient</h1>
+
+      <!-- Campo para mostrar el ID del ingrediente -->
+      <div class="form-group mb-3">
+        <label for="idInput" class="form-label">ID</label>
+        <input type="text" class="form-control" id="idInput" name="id" [value]="id" readonly>
+      </div>
+
+      <!-- Campo para editar el nombre del ingrediente -->
+      <div class="form-group mb-3">
+        <label for="ingredientInput" class="form-label">Nombre del ingrediente</label>
+        <input type="text" class="form-control" id="ingredientInput" name="nombre" [(ngModel)]="ingredient" required>
+      </div>
+
+      <!-- Campo para editar la unidad del ingrediente -->
+      <div class="form-group mb-3">
+        <label for="unitInput" class="form-label">Descripción del producto</label>
+        <input type="text" class="form-control" id="unitInput" name="unit" [(ngModel)]="unit" required>
+      </div>
+
+      <!-- Botones para guardar o cancelar -->
+      <div class="text-center">
+        <button type="button" class="btn btn-primary btn-add" (click)="updateIngredient()">Guardar</button>
+        <button type="button" class="btn btn-primary btn-cancel" routerLink="/ingredientes">Cancelar</button>
+      </div>
+    </form>
+  </div>

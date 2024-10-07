@@ -13,6 +13,7 @@ body {
   overflow: hidden;
 }
 
+/* -------------NAVBAR-------------- */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -29,12 +30,42 @@ body {
   z-index: 1000;
 }
 
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.user-icon {
+  margin-left: auto; /* Asegura que el icono esté al final del navbar */
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.user-icon:hover {
+  color: #f0f0f0;
+}
+
+.navbar i {
+  transition: transform 0.3s ease;
+}
+
+.navbar i:hover {
+  transform: scale(1.1);
+}
+
+/* -------------SIDEBAR------------- */
 
 .sidebar {
   width: 250px;
   height: 100vh;
-  /* background-color: #646881; */
-  background: rgba(191, 192, 192, 0.2);
+
+  margin-top: 100px; /* Ajusta el valor según sea necesario */
+
+  background: rgba(191, 192, 192, 0.2); /* Aumenta la transparencia */
   backdrop-filter: blur(15px); /* Incrementa el desenfoque */
   -webkit-backdrop-filter: blur(15px); /* Compatibilidad con Safari */
   border: 1px solid rgba(255, 255, 255, 0.2); /* Borde más sutil */
@@ -49,8 +80,8 @@ body {
 .sidebar-header {
   display: flex;
   align-items: center;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto para resaltar */  font-weight: bold;
+  color: #fff;
+  font-weight: bold;
   font-size: 1.25rem
 }
 
@@ -60,6 +91,7 @@ body {
   border-radius: 4px;
   margin-left: 5px;
 }
+
 
 .sidebar hr {
   margin: 1rem 0;
@@ -86,8 +118,12 @@ body {
 
 .link:hover,
 .link.active {
-  background-color: rgb(85,40,111,0.35); /* Fondo semitransparente en hover */
+  background-color: rgba(145, 142, 244,0.4); /* Fondo semitransparente en hover */
   color: #fff;
+}
+
+.link .icon {
+  margin-right: 10px;
 }
 
 .link i {
@@ -177,7 +213,7 @@ tbody tr {
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   font-size: 0.8rem;
-  padding-top: 2%;
+  padding-top: 5%;
   min-height: 400%; /* Ajusta esto según la cantidad de filas esperadas */
 
 }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CategoriaService } from '../../services/categoria.service';
 import { Router } from '@angular/router';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 
 @Component({
   selector: 'app-agregar-categoria',
@@ -8,29 +10,47 @@ import { Router } from '@angular/router';
   styleUrls: ['./agregar-categoria.component.css']
 })
 export class AgregarCategoriaComponent {
-  id: string = '';
   categoria: string = '';
 
   constructor(private categoriaService: CategoriaService, private router: Router) { }
 
   guardarCategoria(): void {
-    if (this.id.trim() === '' || this.categoria.trim() === '') {
-      alert('Por favor, completa todos los campos.');
+    if (this.categoria.trim() === '') {
+      Toastify({
+        text: "Por favor, completa todos los campos antes de guardar",
+        duration: 3000,
+        gravity: "top",
+        position: "center",
+        backgroundColor: "rgba(145, 142, 244)",
+      }).showToast();
       return;
     }
+
     const nuevaCategoria = {
-      id: this.id,
       name: this.categoria
     };
 
     this.categoriaService.crearCategoria(nuevaCategoria).subscribe(
       (response: any) => {
         console.log('Categoría guardada con éxito:', response);
+        Toastify({
+          text: "Categoría guardada con éxito.",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "#36CB7C",
+        }).showToast();
         this.router.navigate(['/categoria']);
       },
       (error: any) => {
         console.error('Error al guardar la categoría:', error);
-        alert('Error al guardar la categoría. Por favor, inténtalo de nuevo.');
+        Toastify({
+          text: "Error al guardar la categoría. Inténtalo de nuevo.",
+          duration: 3000,
+          gravity: "top",
+          position: "right",
+          backgroundColor: "#ff5f6d",
+        }).showToast();
       }
     );
   }

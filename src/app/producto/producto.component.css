@@ -165,7 +165,7 @@ body {
 
 
 .wrapper {
-  max-width: 1000px;
+  max-width: auto;
   margin: 100px auto 50px auto;
   padding: 20px;
   background-color: rgb(255, 255, 255);
@@ -381,7 +381,8 @@ tbody tr {
 }
 
 /*----------- RESPONSIVE SIDEBAR-------------- */
-@media (max-width: 900px) {
+
+@media (max-width: 768px) {
   i {
     font-size: 14px;
   }
