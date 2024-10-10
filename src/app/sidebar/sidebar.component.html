@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DoniBites</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="sidebar.component.css"> <!-- Enlace al archivo CSS -->
-</head>
-<body>
+
 
   <!-- Barra Lateral -->
   <div class="sidebar">
@@ -16,35 +7,35 @@
       <img src="assets/icons-login.png" alt="Logo" class="logo">
     </div>
     <div class="sidebar-menu">
-      <a href="/menu" class="link active">
+      <a routerLink="/menu" class="link active">
         <i class="bi bi-house-door-fill"></i>
         <span class="text">Home</span>
       </a>
-      <a href="/usuario" class="link">
+      <a routerLink="/usuario" class="link">
         <i class="icon-user"></i>
         <span class="text">Usuarios</span>
       </a>
-      <a href="/categoria" class="link">
+      <a routerLink="/categoria" class="link">
         <i class="icon-category"></i>
         <span class="text">Categorias</span>
       </a>
-      <a href="/producto" class="link">
+      <a routerLink="/producto" class="link">
         <i class="icon-product"></i>
         <span class="text">Productos</span>
       </a>
-      <a href="/proveedores" class="link">
+      <a routerLink="/proveedores" class="link">
         <i class="icon-supplier"></i>
         <span class="text">Proveedores</span>
       </a>
-      <a href="/proveedores" class="link">
+      <a routerLink="/proveedores" class="link">
         <i class="icon-supplier"></i>
         <span class="text">Ingredientes</span>
       </a>
-        <a href="/proveedores" class="link">
+        <a routerLink="/proveedores" class="link">
           <i class="icon-supplier"></i>
           <span class="text">Factura</span>
       </a>
-      <a href="/rol" class="link">
+      <a routerLink="/rol" class="link">
         <i class="icon-supplier"></i>
         <span class="text">Rol</span>
       </a>
@@ -61,5 +52,3 @@
     <!-- Aquí va el resto del contenido -->
   </div>
 
-</body>
-</html>

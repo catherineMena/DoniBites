@@ -95,6 +95,8 @@ import { UsuarioComponent } from './usuario/usuario.component';
 { path: 'dashboard', component: MenuComponent },
 { path: 'recuperar-pwd', component: RecuperarPwdComponent },
 
+{path: 'logout', component: LoginComponent},
+
 { path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: '**', redirectTo: '/login' },
 
