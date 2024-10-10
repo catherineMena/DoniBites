@@ -44,6 +44,10 @@ import { UsuarioService } from './services/usuario.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actualizar-proveedor.component';
 import { ActualizarRolComponent } from './update/actualizar-rol/actualizar-rol.component';
+import { UpdateIngredientComponent } from './update/update-ingredient/update-ingredient.component';
+import { AddIngredientComponent } from './Add/add-ingredient/add-ingredient.component';
+import { DeleteIngredientComponent } from './delete/delete-ingredient/delete-ingredient.component';
+import { ReadIngredientComponent } from './read/read-ingredient/read-ingredient.component';
 
 
 
@@ -57,6 +61,10 @@ import { ActualizarRolComponent } from './update/actualizar-rol/actualizar-rol.c
     UsuarioComponent,
     MenuComponent,
     IngredientesComponent,
+    UpdateIngredientComponent,
+    AddIngredientComponent,
+    DeleteIngredientComponent,
+    ReadIngredientComponent,
     LoginComponent,
     ProductoComponent,
     ProveedoresComponent,

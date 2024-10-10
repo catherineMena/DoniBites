@@ -19,7 +19,7 @@ export class IngredientService {
   }
 
   createIngredient(ingredient: any): Observable<any> {
-    console.log('Datos de la categoría a guardar:', ingredient);
+    console.log('Datos del ingrediente a guardar:', ingredient);
     return this.http.post<any>(`${this.apiUrl}/newIngredient`, ingredient);
   }
 

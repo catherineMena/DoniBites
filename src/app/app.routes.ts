@@ -84,7 +84,11 @@ import { UsuarioComponent } from './usuario/usuario.component';
 { path: 'actualizar-rol/:id', component: ActualizarRolComponent },
 { path: 'eliminar-rol/:id', component: EliminarRolComponent },
 
-{path: 'Ingrediente', component: IngredientesComponent},
+{path: 'ingredient', component: IngredientesComponent},
+{path:'add-ingredient', component: AgregarProductoComponent},
+{path:'view-ingredient/:id', component: VisualizarProductoComponent},
+{path:'update-ingredient/:id', component: ActualizarProductoComponent},
+{path:'delete-ingredient/:id', component: EliminarProductoComponent},
 
 
 { path: 'login', component: LoginComponent },
