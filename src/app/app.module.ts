@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -34,16 +34,11 @@ import { VisualizarProveedorComponent } from './read/visualizar-proveedor/visual
 import { VisualizarRolComponent } from './read/visualizar-rol/visualizar-rol.component';
 import { RecuperarPwdComponent } from './recuperar-pwd/recuperar-pwd.component';
 import { RolComponent } from './rol/rol.component';
-import { AuthenticationService } from './services/authentication.service';
-import { CategoriaService } from './services/categoria.service';
-import { IngredientService } from './services/ingredient.service';
-import { ProductoService } from './services/producto.service';
-import { ProveedoresService } from './services/proveedores.service';
-import { RolService } from './services/rol.service';
-import { UsuarioService } from './services/usuario.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actualizar-proveedor.component';
 import { ActualizarRolComponent } from './update/actualizar-rol/actualizar-rol.component';
+import { HttpInterceptorService } from './services/httpInterceptor.service';
+
 
 
 
@@ -100,13 +95,11 @@ import { ActualizarRolComponent } from './update/actualizar-rol/actualizar-rol.c
   exports: [RouterModule],
 
   providers: [
-    CategoriaService,
-    ProductoService,
-    UsuarioService,
-    AuthenticationService,
-    ProveedoresService,
-    IngredientService,
-    RolService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 
