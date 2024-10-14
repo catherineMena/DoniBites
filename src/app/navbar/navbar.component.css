@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .navbar {
@@ -13,14 +13,16 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: rgba(255, 255, 255, 0.2); /* Efecto transparente */
-  backdrop-filter: blur(10px); /* Un poco de desenfoque */
+  background-color: rgb(45, 49, 66);/* Color de fondo del navbar */
+  backdrop-filter: blur(15px); /* Incrementa el desenfoque */
   position: fixed;
-  width: 100%;
+  width: calc(100% - 250px); /* Ajusta el ancho para dejar espacio a la sidebar */
   top: 0;
-  left: 0;
+  left: 250px; /* Posiciona la navbar a la derecha de la sidebar */
   z-index: 1000;
+  border-left: none;
 }
+
 
 .logo {
   font-size: 24px;
