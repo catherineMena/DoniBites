@@ -54,12 +54,10 @@ deleteIngredient(id: number): void {
     );
   }
 
-
-
-  downloadList(formato: string) {
-    if (formato === 'pdf') {
+  downloadList(format: string) {
+    if (format === 'pdf') {
       this.downloadPDF();
-    } else if (formato === 'excel') {
+    } else if (format === 'excel') {
       this.downloadExcel();
     }
   }
@@ -85,7 +83,13 @@ downloadExcel() {
   const worksheet: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet([...headers, ...data]);
   const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
   XLSX.writeFile(workbook, 'Ingredientes.xlsx');
+
 }
+
+
+
+
+
 }
 
 

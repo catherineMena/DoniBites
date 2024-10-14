@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IngredientService } from '../../services/ingredient.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-delete-ingredient',
@@ -30,11 +32,11 @@ export class DeleteIngredientComponent {
     this.ingredientService.deactivateIngredient(this.id).subscribe(
       () => {
         console.log('Ingrediente desactivado con éxito');
-        this.router.navigate(['/ingredientes']); // Redirige a la lista de categorías u otra página según tu flujo
+        this.router.navigate(['/ingredientes']); // Redirige a la lista de ingredientes u otra página
       },
       (error: any) => {
-        console.error('Error al desactivar la categoría:', error);
-        alert('Error al desactivar la categoría. Por favor, inténtalo de nuevo.');
+        console.error('Error al desactivar el ingrediente:', error);
+        alert('Error al desactivar el ingrediente. Por favor, inténtalo de nuevo.');
       }
     );
   }

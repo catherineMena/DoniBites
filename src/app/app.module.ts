@@ -37,15 +37,15 @@ import { RolComponent } from './rol/rol.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actualizar-proveedor.component';
 import { ActualizarRolComponent } from './update/actualizar-rol/actualizar-rol.component';
-<<<<<<< HEAD
 import { UpdateIngredientComponent } from './update/update-ingredient/update-ingredient.component';
 import { AddIngredientComponent } from './Add/add-ingredient/add-ingredient.component';
 import { DeleteIngredientComponent } from './delete/delete-ingredient/delete-ingredient.component';
 import { ReadIngredientComponent } from './read/read-ingredient/read-ingredient.component';
-=======
 import { HttpInterceptorService } from './services/httpInterceptor.service';
+import { IncomingStockComponent } from './incoming-stock/incoming-stock.component';
+import { ReadIncomingStockComponent } from "./read/read-incoming-stock/read-incoming-stock.component";
+import { AddIncomingStockComponent } from './Add/add-incoming-stock/add-incoming-stock.component';
 
->>>>>>> f534fc9738a59720aab127187fc0dd8b0c6b91dc
 
 
 
@@ -63,6 +63,8 @@ import { HttpInterceptorService } from './services/httpInterceptor.service';
     AddIngredientComponent,
     DeleteIngredientComponent,
     ReadIngredientComponent,
+    IncomingStockComponent,
+    AddIncomingStockComponent,
     LoginComponent,
     ProductoComponent,
     ProveedoresComponent,
@@ -97,11 +99,8 @@ import { HttpInterceptorService } from './services/httpInterceptor.service';
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FormsModule,
-    // Add AppComponent to imports array
-
-
-
-  ],
+    ReadIncomingStockComponent
+],
 
   exports: [RouterModule],
 

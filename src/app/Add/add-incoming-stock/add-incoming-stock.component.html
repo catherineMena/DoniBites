@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar entrada</title>
+</head>
+<body>
+
+  <nav class="navbar">
+    <!-- <span class="logo">DoniBites</span> -->
+    <i class="fas fa-user user-icon"></i>
+  </nav>
+
+  <div class="wrapper">
+    <form #ingredienteForm="ngForm" (ngSubmit)="saveStock()">
+      <h1 class="text-center">Agregar entrada de inventario</h1>
+
+      <!-- Campo para la Fecha de entrada -->
+      <div class="form-group mb-3">
+        <label for="entryDateInput" class="form-label">Fecha de entrada</label>
+        <input type="date" class="form-control" id="entryDateInput" name="date" [(ngModel)]="date" required>
+      </div>
+
+      <!-- Campo para el Ingrediente -->
+      <div class="form-group mb-3">
+        <label for="ingredientInput" class="form-label">Ingrediente</label>
+        <input type="text" class="form-control" id="ingredientInput" placeholder="Glaseadas, simples...." name="ingredient" [(ngModel)]="ingredient" required>
+      </div>
+
+      <!-- Campo para la Cantidad -->
+      <div class="form-group mb-3">
+        <label for="qtyInput" class="form-label">Cantidad</label>
+        <input type="number" class="form-control" id="quantityInput" placeholder="Cantidad" name="quantity" [(ngModel)]="quantity" required>
+      </div>
+
+      <!-- Campo para el Proveedor -->
+      <div class="form-group mb-3">
+        <label for="providerInput" class="form-label">Proveedor</label>
+        <input type="text" class="form-control" id="providerInput" placeholder="Nestle, Harinas de Nic...." name="provider" [(ngModel)]="provider" required>
+      </div>
+
+      <!-- Campo para el Monto Pagado -->
+      <div class="form-group mb-3">
+        <label for="paidAmountInput" class="form-label">Monto Pagado</label>
+        <input type="number" class="form-control" id="paidAmountInput" placeholder="Monto pagado" name="paidAmount" [(ngModel)]="amountPaid" required>
+      </div>
+
+      <!-- Campo para el Usuario de Registro -->
+      <div class="form-group mb-3">
+        <label for="recordUserInput" class="form-label">Usuario de Registro</label>
+        <input type="text" class="form-control" id="userInput" placeholder="Usuario de registro" name="user" [(ngModel)]="user" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-add">Guardar</button>
+    </form>
+  </div>
+
+  </body>
+  </html>

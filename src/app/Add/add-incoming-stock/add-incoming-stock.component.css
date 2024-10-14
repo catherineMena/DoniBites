@@ -1,0 +1,77 @@
+/* Fondo con gradiente y configuración básica para el cuerpo */
+body {
+  background: rgb(45, 49, 66); /* Fondo con gradiente */
+  margin: 0; /* Eliminar márgenes predeterminados */
+  display: flex; /* Usar Flexbox para centrar */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  min-height: 100vh; /* Establecer una altura mínima del 100% del viewport */
+  overflow: hidden; /* Ocultar el desbordamiento vertical */
+  font-family: Arial, sans-serif; /* Fuente del texto */
+}
+
+/* Estilos para el título */
+h1 {
+  font-size: 2em; /* Tamaño del texto */
+  margin-bottom: 2rem;
+  text-align: center; /* Alineación del texto */
+  color: #000; /* Color del texto */
+  font-family: 'Arial', sans-serif; /* Fuente del texto */
+}
+
+/* Contenedor principal centrado */
+.wrapper {
+  margin-top: 2rem;
+  margin-bottom: 3%;
+  max-width: 600px;
+  min-height: 400px;
+  margin: 0 auto;
+  padding: 40px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 100%; /* Asegurar que el formulario ocupe todo el ancho disponible */
+}
+
+.form-group {
+  text-align: left; /* Mantener la alineación a la izquierda */
+  width: 100%; /* Hacer que el form-group ocupe todo el ancho */
+}
+
+.form-label {
+  font-size: 1.2em; /* Aumentar el tamaño de la fuente */
+  font-weight: bold;
+}
+
+input {
+  font-size: 1.2em; /* Aumentar el tamaño de la fuente */
+  padding: 1.5rem; /* Aumentar el padding */
+  height: 4rem; /* Aumentar la altura */
+  width: 100%; /* Asegurar que el input ocupe todo el ancho del form-group */
+}
+
+/* Estilo para el botón */
+.btn-add {
+  font-size: 1.1em;
+  padding: 0.8rem 1.5rem;
+    background-color: rgb(5, 178, 220);
+  color:#fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block; /* Asegurar que el botón sea un bloque */
+  margin: 1rem auto 0 auto; /* Centrar el botón con margen automático */
+}
+
+.btn.add:hover {
+  background-color: rgba(5, 178, 220, 0.3);
+  /* Cambio de color al pasar el ratón */
+}

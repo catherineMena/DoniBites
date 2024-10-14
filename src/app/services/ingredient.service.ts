@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +29,14 @@ export class IngredientService {
   }
 
   deactivateIngredient(id: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/delete/${id}`);
+    // Check that the ID is valid before calling delete
+    return this.http.delete<any>(`${this.apiUrl}/delete/${id}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    console.error('An error occurred:', error);
+    return throwError('Something bad happened; please try again later.');
   }
 }

@@ -14,150 +14,6 @@ body {
 }
 
 
-/* -------------NAVBAR-------------- */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: rgba(145, 142, 244,0.4);
-  /* background: linear-gradient(to bottom, rgba(52, 35, 166, 0.8), rgba(254, 180, 123, 0.8)); */
-
-  backdrop-filter: blur(10px);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
-}
-
-.user-icon {
-  margin-left: auto; /* Asegura que el icono esté al final del navbar */
-  font-size: 24px;
-  color: #fff;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  position: relative;
-}
-
-.user-icon:hover {
-  color: #f0f0f0;
-}
-
-.navbar i {
-  transition: transform 0.3s ease;
-}
-
-.navbar i:hover {
-  transform: scale(1.1);
-}
-/* -------------SIDEBAR------------- */
-
-.sidebar {
-  width: 250px;
-  height: 100vh;
-
-  margin-top: 100px; /* Ajusta el valor según sea necesario */
-
-  background: rgba(191, 192, 192, 0.2); /* Aumenta la transparencia */
-  backdrop-filter: blur(15px); /* Incrementa el desenfoque */
-  -webkit-backdrop-filter: blur(15px); /* Compatibilidad con Safari */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde más sutil */
-  padding: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.25rem
-}
-
-.sidebar-header .badge {
-  background-color: #000;
-  padding: 5px;
-  border-radius: 4px;
-  margin-left: 5px;
-}
-
-
-.sidebar hr {
-  margin: 1rem 0;
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Línea divisoria con transparencia */
-}
-
-.sidebar-menu {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.link {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  text-decoration: none;
-  color: #fff;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.link:hover,
-.link.active {
-  background-color: rgba(145, 142, 244,0.4); /* Fondo semitransparente en hover */
-  color: #fff;
-}
-
-.link .icon {
-  margin-right: 10px;
-}
-
-.link i {
-  margin-right: 10px; /* Espacio entre el icono y el texto */
-}
-.sidebar-footer {
-  display: flex;
-  align-items: center;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Línea divisoria con transparencia */
-}
-
-.sidebar-footer .profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.sidebar-footer .username {
-  color: #fff;
-}
-.sidebar-footer .profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.sidebar-footer .username {
-  color: #cfd8dc;
-}
-
-
 .container {
   display: flex;
   justify-content: space-around;
@@ -258,6 +114,13 @@ th, td {
   color: #000; /* Ensure text color is black for better contrast */
 }
 
+.table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Alinea los elementos hijos a la derecha */
+}
+
+
 /* ----------Action buttons ---------------*/
 .btn-visualize{
   color:rgb(245, 187, 0) ;
@@ -266,21 +129,54 @@ th, td {
   border: none;
 }
 
-.btn-add{
-  background-color: rgb(5, 178, 220, 0.3);
-  color: rgb(5, 178, 220);
+.btn-visualize:hover{
+  background-color: rgb(236,159,5);
+  color: #fff;
   border: none;
-
 }
+
+.btn-add {
+  width: 14rem;
+  height: 3em;
+  font-size: 1.2rem;
+  background-color: #52C989;
+  color: #fff;
+  border: none;
+  margin-top: 1em;
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+
+  /* Asegura el centrado del texto */
+  text-align: center;  /* Centra horizontalmente el texto */
+  line-height: 3em;    /* Igual a la altura del botón para centrar verticalmente */
+  padding: 0;          /* Elimina relleno que pueda afectar el centrado */
+}
+
+
+
 .btn-update{
-  background-color: rgb(133, 255, 158, 0.3);
-  color: #36CB7C;
+  background-color: rgb(145, 142, 244, 0.5);
+  color: #fff;
   border: none ;
 }
+
+.btn-update:hover{
+  background-color: rgb(145, 142, 244);
+  color: #fff;
+  border: none ;
+}
+
 
 .btn-delete{
   background-color: rgb(221, 13, 30, 0.3);
   color: #DD0D1E;
+  border: none;
+}
+
+.btn-delete:hover{
+  background-color: rgb(221, 13, 30);
+  color: #fff;
   border: none;
 }
 
@@ -382,34 +278,3 @@ tbody tr {
   color: #fff;
   text-align: center; /* Alinear los encabezados al centro */
 }
-
-/*----------- RESPONSIVE SIDEBAR-------------- */
-@media (max-width: 900px) {
-  i {
-    font-size: 14px;
-  }
-
-  .sidebar {
-    width: 80px; /* Ancho reducido de la sidebar */
-  }
-
-  .sidebar-header h3,
-  .link .text {
-    display: none; /* Ocultar el texto en la sidebar */
-  }
-
-  .link i {
-    margin-right: 0; /* Eliminar el margen derecho del icono */
-  }
-
-  .sidebar-footer {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .sidebar-footer .profile-pic {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-}
-

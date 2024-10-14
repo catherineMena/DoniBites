@@ -217,7 +217,7 @@ tbody tr {
   min-height: 400%; /* Ajusta esto según la cantidad de filas esperadas */
 
 }
-.provider-table {
+.stock-table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
@@ -227,7 +227,7 @@ tbody tr {
   height: 50px; /* Define una altura fija para cada fila */
 }
 
-.provider-table tbody {
+.stock-table tbody {
   min-height: 200px; /* Define una altura mínima para el cuerpo de la tabla */
 }
 
@@ -237,8 +237,8 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 
-.provider-table th,
-.provider-table td {
+.stock-table th,
+.stock-table td {
   padding: 25px;
   padding-bottom: 3%;
   border-bottom: 1px solid #ddd;
@@ -246,14 +246,14 @@ th, td {
 
 }
 
-.provider-table th {
+.stock-table th {
   background-color: rgb(30,30,31);
   color: #fff;
   text-align: center;
 }
 
 
-.provider-table td {
+.stock-table td {
   background-color: transparent; /* Retain background color */
   color: #000; /* Ensure text color is black for better contrast */
 }
@@ -402,14 +402,14 @@ tbody tr {
   padding-top: 2%;
 }
 
-.provider-table {
+.category-table {
   width: auto;
   border-collapse: collapse;
   margin-bottom: 20px;
 }
 
-.provider-table th,
-.provider-table td {
+.category-table th,
+.category-table td {
   padding: 15px; /* Ajustar el padding para más espacio entre columnas */
   padding-bottom: 5px;
   text-align: justify;
@@ -417,8 +417,39 @@ tbody tr {
   min-width: 150px; /* Establecer un ancho mínimo para las celdas */
 }
 
-.provider-table th {
+.category-table th {
   background-color: rgb(30, 30, 31);
   color: #fff;
   text-align: center; /* Alinear los encabezados al centro */
 }
+
+/*----------- RESPONSIVE SIDEBAR-------------- */
+@media (max-width: 900px) {
+  i {
+    font-size: 14px;
+  }
+
+  .sidebar {
+    width: 80px; /* Ancho reducido de la sidebar */
+  }
+
+  .sidebar-header h3,
+  .link .text {
+    display: none; /* Ocultar el texto en la sidebar */
+  }
+
+  .link i {
+    margin-right: 0; /* Eliminar el margen derecho del icono */
+  }
+
+  .sidebar-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar-footer .profile-pic {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+

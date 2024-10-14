@@ -1,40 +1,76 @@
-body {
-  margin: 0;
-  font-family: 'Raleway', sans-serif;
-  display: flex;
-  min-height: 100vh;
+.body{
+  background-color: rgba(145, 142, 244);
 }
 
-/* Estilo del sidebar */
+/* -------------NAVBAR-------------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(145, 142, 244,0.4);
+  /* background: linear-gradient(to bottom, rgba(52, 35, 166, 0.8), rgba(254, 180, 123, 0.8)); */
+
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.user-icon {
+  margin-left: auto; /* Asegura que el icono esté al final del navbar */
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.user-icon:hover {
+  color: #f0f0f0;
+}
+
+.navbar i {
+  transition: transform 0.3s ease;
+}
+
+.navbar i:hover {
+  transform: scale(1.1);
+}
+/* -------------SIDEBAR------------- */
+
 .sidebar {
   width: 250px;
   height: 100vh;
-  background-color: rgb(45, 49, 66);/* Color de fondo del sidebar */
+
+  margin-top: 100px; /* Ajusta el valor según sea necesario */
+
+  background: rgba(191, 192, 192, 0.2); /* Aumenta la transparencia */
   backdrop-filter: blur(15px); /* Incrementa el desenfoque */
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(15px); /* Compatibilidad con Safari */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde más sutil */
   padding: 20px;
   position: fixed;
   top: 0;
   left: 0;
   display: flex;
   flex-direction: column;
-
 }
 
-/* Estilo de la cabecera del sidebar */
 .sidebar-header {
   display: flex;
   align-items: center;
   color: #fff;
-  margin-bottom: 20px;
-}
-
-.sidebar-header .badge {
-  background-color: #000;
-  padding: 5px;
-  border-radius: 4px;
-  margin-left: 5px;
+  font-weight: bold;
+  font-size: 1.25rem
 }
 
 .sidebar-header .badge {
@@ -46,41 +82,31 @@ body {
 
 
 .sidebar hr {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   border: none;
   border-top: 1px solid rgba(255, 255, 255, 0.3); /* Línea divisoria con transparencia */
 }
 
-.logo {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-}
-
-.brand-name {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-/* Estilo del menú del sidebar */
 .sidebar-menu {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .link {
   display: flex;
   align-items: center;
-  color: #fff;
-  text-decoration: none;
   padding: 10px;
+  text-decoration: none;
+  color: #fff;
   border-radius: 5px;
   margin-bottom: 10px;
   transition: background-color 0.3s, color 0.3s;
 }
 
-.link.active,
-.link:hover {
-  background-color: rgba(109, 103, 110, 0.5); /* Fondo semitransparente en hover */
+.link:hover,
+.link.active {
+  background-color: rgba(145, 142, 244,0.4); /* Fondo semitransparente en hover */
   color: #fff;
 }
 
@@ -88,6 +114,9 @@ body {
   margin-right: 10px;
 }
 
+.link i {
+  margin-right: 10px; /* Espacio entre el icono y el texto */
+}
 .sidebar-footer {
   display: flex;
   align-items: center;
@@ -117,48 +146,33 @@ body {
 }
 
 
-.container {
-  display: flex;
-  justify-content: space-around;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+/*----------- RESPONSIVE SIDEBAR-------------- */
+@media (max-width: 900px) {
+  i {
+    font-size: 14px;
+  }
+
+  .sidebar {
+    width: 80px; /* Ancho reducido de la sidebar */
+  }
+
+  .sidebar-header h3,
+  .link .text {
+    display: none; /* Ocultar el texto en la sidebar */
+  }
+
+  .link i {
+    margin-right: 0; /* Eliminar el margen derecho del icono */
+  }
+
+  .sidebar-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar-footer .profile-pic {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }
 
-.link {
-  font-size: 16px;
-  font-weight: 300;
-  text-align: center;
-  padding: 10px;
-  color: #FFF;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.link:hover {
-  color: #EE696B;
-}
-
-.wrapper {
-  max-width: 1000px;
-  margin: 100px auto 50px auto;
-  padding: 20px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 100px; /* Espacio para el navbar */
-}
-
-.header {
-  text-align: center;
-  color: rgb(21,25,21);
-  padding: 10px 0;
-  font-family: "Raleway", sans-serif;
-
-  font-size: 40px;
-  font-weight: bold;
-  text-shadow: 2px 2px 5px #ffffff;
-}

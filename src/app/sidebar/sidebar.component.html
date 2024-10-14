@@ -1,54 +1,47 @@
+<nav class="navbar">
+  <!-- <span class="logo">DoniBites</span> -->
+  <i class="fas fa-user user-icon"></i>
+</nav>
 
-
-  <!-- Barra Lateral -->
-  <div class="sidebar">
-    <div class="sidebar-header">
-      <span class="brand-name">DoniBites</span>
-      <img src="assets/icons-login.png" alt="Logo" class="logo">
-    </div>
-    <div class="sidebar-menu">
-      <a routerLink="/menu" class="link active">
-        <i class="bi bi-house-door-fill"></i>
-        <span class="text">Home</span>
-      </a>
-      <a routerLink="/usuario" class="link">
-        <i class="icon-user"></i>
-        <span class="text">Usuarios</span>
-      </a>
-      <a routerLink="/categoria" class="link">
-        <i class="icon-category"></i>
-        <span class="text">Categorias</span>
-      </a>
-      <a routerLink="/producto" class="link">
-        <i class="icon-product"></i>
-        <span class="text">Productos</span>
-      </a>
-      <a routerLink="/proveedores" class="link">
-        <i class="icon-supplier"></i>
-        <span class="text">Proveedores</span>
-      </a>
-      <a routerLink="/proveedores" class="link">
-        <i class="icon-supplier"></i>
-        <span class="text">Ingredientes</span>
-      </a>
-        <a routerLink="/proveedores" class="link">
-          <i class="icon-supplier"></i>
-          <span class="text">Factura</span>
-      </a>
-      <a routerLink="/rol" class="link">
-        <i class="icon-supplier"></i>
-        <span class="text">Rol</span>
-      </a>
-    </div>
-    <!-- <div class="sidebar-footer">
-      <div class="profile-pic">
-      </div>
-      <span class="username">Usuario</span>
-    </div> -->
+<div class="sidebar">
+  <div class="sidebar-header">
+    <h3>
+      DoniBites
+      <img src="assets/icons-login.png" alt="Logo de DoniBites" style="width: 50px; height: 45px; vertical-align: middle; margin-right: 8px;">
+    </h3>
   </div>
+  <hr>
+  <div class="sidebar-menu">
+    <a routerLink="/menu" class="link active d-flex align-items-center">
+      <i class="fa-solid fa-house" title="Home"></i><span class="text">Home</span>
+    </a>
+    <a routerLink="/usuario" class="link">
+      <i class="fa-solid fa-users" title="Usuario"></i><span class="text">Usuarios</span>
+    </a>
+    <a routerLink="/producto" class="link">
+      <i class="fas fa-shopping-basket" title="Productos"></i><span class="text">Productos</span>
+    </a>
+    <a routerLink="/categoria" class="link">
+      <i class="fa-solid fa-list" title="Categorias"></i><span class="text">Categorias</span>
+    </a>
 
-  <!-- Contenido de la página -->
-  <div class="content">
-    <!-- Aquí va el resto del contenido -->
+    <a routerLink="/ingredient" class="link">
+      <i class="fas fa-utensil-spoon"></i><span class="text">Ingredientes</span>
+    </a>
+    <a routerLink="/proveedores" class="link">
+      <i class="fas fa-box" title="Proveedores"></i><span class="text">Proveedores</span>
+    </a>
+
+    <a routerLink="/factura" class="link">
+      <i class="fas fa-receipt" title="Factura"></i><span class="text">Factura</span>
+    </a>
+
+    <a routerLink="/incoming-stock" class="link">
+      <i class="fa-solid fa-boxes-stacked" title="Factura"></i><span class="text">Entradas de inventario</span>
+    </a>
+
+    <a routerLink="/client" class="link">
+      <i class="fas fa-user" title="Cliente"></i><span class="text">Cliente</span>
+    </a>
   </div>
-
+</div>

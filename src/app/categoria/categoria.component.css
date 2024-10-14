@@ -3,20 +3,24 @@ body {
   margin: 0;
   font-family: 'Raleway', sans-serif;
   color: #000;
-  height: 100%;
+  height: 100vh;
   background-color: rgb(45, 49, 66);
-  display: flex;
+  display: grid;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
   overflow: hidden;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 200px 1fr;
 }
 
 /* -------------NAVBAR-------------- */
 .navbar {
+  grid-row: 1 / 2; /* Ocupa la primera fila (parte superior) */
+  grid-column: 2 / 3; /* Ocupa la segunda columna (resto de la página) */
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;;
   align-items: center;
   padding: 10px 20px;
   background-color: rgba(145, 142, 244,0.4);
@@ -57,53 +61,6 @@ body {
   transform: scale(1.1);
 }
 
-/* -------------SIDEBAR------------- */
-
-.sidebar {
-  width: 250px;
-  height: 100vh;
-
-  margin-top: 100px; /* Ajusta el valor según sea necesario */
-
-  background: rgba(191, 192, 192, 0.2); /* Aumenta la transparencia */
-  backdrop-filter: blur(15px); /* Incrementa el desenfoque */
-  -webkit-backdrop-filter: blur(15px); /* Compatibilidad con Safari */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde más sutil */
-  padding: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.25rem
-}
-
-.sidebar-header .badge {
-  background-color: #000;
-  padding: 5px;
-  border-radius: 4px;
-  margin-left: 5px;
-}
-
-
-.sidebar hr {
-  margin: 1rem 0;
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Línea divisoria con transparencia */
-}
-
-.sidebar-menu {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
 
 .link {
   display: flex;
@@ -129,33 +86,6 @@ body {
 .link i {
   margin-right: 10px; /* Espacio entre el icono y el texto */
 }
-.sidebar-footer {
-  display: flex;
-  align-items: center;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Línea divisoria con transparencia */
-}
-
-.sidebar-footer .profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.sidebar-footer .username {
-  color: #fff;
-}
-.sidebar-footer .profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.sidebar-footer .username {
-  color: #cfd8dc;
-}
 
 
 .container {
@@ -168,16 +98,30 @@ body {
 
 
 .wrapper {
-  max-width: 1000px;
-  margin: 100px auto 50px auto;
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  margin-top: 70px; /* Espacio para navbar */
   padding: 20px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px; /* Espacio para el navbar */
+  height: calc(100vh - 70px); /* Ocupa todo el alto de la pantalla excepto el navbar */
+  overflow-y: auto;
+  width: 100%;
+}
+
+.main-content {
+  width: 80%; /* Ocupa el 100% del contenedor principal */
+  padding: 20px;
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Ajusta según el espacio que quieras debajo del navbar */
 }
 
 .header {
@@ -185,9 +129,9 @@ body {
   color: rgb(21,25,21);
   padding: 10px 0;
   font-family: "Raleway", sans-serif;
-
   font-size: 40px;
   font-weight: bold;
+  margin-bottom: 50px;
   text-shadow: 2px 2px 5px #ffffff;
 }
 
@@ -207,7 +151,7 @@ tbody tr {
 
 
 .table {
-  width: 80%;
+  width: 100%;
   padding: 20px;
   border: 1px solid aliceblue;
   border-radius: 15px;
@@ -218,30 +162,36 @@ tbody tr {
 
 }
 .category-table {
+  text-align: center;
   width: 100%;
+  max-width: none; /* Limitar el ancho de la tabla */
   border-collapse: collapse;
   margin-bottom: 20px;
 }
 
 tbody tr {
+  text-align: center;
   height: 50px; /* Define una altura fija para cada fila */
 }
 
 .category-table tbody {
+  text-align: center;
   min-height: 200px; /* Define una altura mínima para el cuerpo de la tabla */
 }
 
 th, td {
-  padding: 15px; /* Espaciado uniforme */
-  text-align: left;
+  width: 100%;
+  padding: 10px; /* Espaciado uniforme */
+  text-align: center;
   border-bottom: 1px solid #ddd;
 }
 
 .category-table th,
 .category-table td {
-  padding: 25px;
+  padding: 15px;
   padding-bottom: 3%;
   border-bottom: 1px solid #ddd;
+  text-align: center;
   min-width: 150%; /* Establecer un ancho mínimo para las celdas */
 
 }
@@ -254,6 +204,8 @@ th, td {
 
 
 .category-table td {
+  text-align: center;
+  word-wrap: break-word;
   background-color: transparent; /* Retain background color */
   color: #000; /* Ensure text color is black for better contrast */
 }
@@ -266,12 +218,6 @@ th, td {
   border: none;
 }
 
-.btn-add{
-  background-color: rgb(5, 178, 220, 0.3);
-  color: rgb(5, 178, 220);
-  border: none;
-
-}
 .btn-update{
   background-color: rgb(133, 255, 158, 0.3);
   color: #36CB7C;
@@ -284,11 +230,39 @@ th, td {
   border: none;
 }
 
+.button-group {
+  display: flex;
+  justify-content: flex-end; /* Botones alineados a la derecha */
+  gap: 10px; /* Espacio entre los botones */
+}
+
+
+
+
+#dropdownMenuButton {
+  justify-content: flex-end;
+  background-color: #198754; /* Mismo color verde del botón agregar */
+  border-color: #28a745; /* Borde igual */
+  color: white; /* Color del texto blanco */
+  padding: 10px 20px; /* Asegúrate de que el tamaño del botón sea similar */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente igual */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#dropdownMenuButton:hover {
+  background-color: #157347; /* Cambia el color al pasar el mouse (hover) */
+  border-color: #1e7e34;
+}
 
 /* Estilo para el campo de búsqueda */
 .search-input {
+  width: 800px;
   padding: 10px;
   margin-right: 10px;
+  margin-left: 60px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
@@ -317,8 +291,10 @@ th, td {
 }
 
 /*----------- RESPONSIVE TABLE-------------- */
-@media (max-width: 320px) {
+@media (max-width: 900px) {
+
   .category-table {
+    text-align: center;
     width: 100%;
     display: block;
     overflow-x: auto;
@@ -327,15 +303,18 @@ th, td {
 
   .category-table th,
   .category-table td {
+    text-align: center;
     padding: auto;
     min-width: auto; /* Ancho mínimo para las celdas */
   }
 
   .category-table th {
+    text-align: center;
     font-size: 14%; /* Tamaño de fuente más pequeño para encabezados */
   }
 
   .category-table td {
+    text-align: center;
     font-size: 12%; /* Tamaño de fuente más pequeño para celdas */
   }
 }
@@ -356,6 +335,7 @@ tbody tr {
 }
 
 .category-table {
+  text-align: center;
   width: auto;
   border-collapse: collapse;
   margin-bottom: 20px;
@@ -363,9 +343,9 @@ tbody tr {
 
 .category-table th,
 .category-table td {
+  text-align: center;
   padding: 15px; /* Ajustar el padding para más espacio entre columnas */
   padding-bottom: 5px;
-  text-align: justify;
   border-bottom: 1px solid #ddd;
   min-width: 150px; /* Establecer un ancho mínimo para las celdas */
 }
@@ -376,33 +356,26 @@ tbody tr {
   text-align: center; /* Alinear los encabezados al centro */
 }
 
-/*----------- RESPONSIVE SIDEBAR-------------- */
-@media (max-width: 900px) {
-  i {
-    font-size: 14px;
-  }
+/* Ajustamos el ancho de cada columna por separado*/
 
-  .sidebar {
-    width: 80px; /* Ancho reducido de la sidebar */
-  }
-
-  .sidebar-header h3,
-  .link .text {
-    display: none; /* Ocultar el texto en la sidebar */
-  }
-
-  .link i {
-    margin-right: 0; /* Eliminar el margen derecho del icono */
-  }
-
-  .sidebar-footer {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .sidebar-footer .profile-pic {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
+.category-table th:nth-child(1),
+.category-table td:nth-child(1) {
+  width: 10%; /* Ajustar el ancho para la primera columna */
 }
+
+.category-table th:nth-child(2),
+.category-table td:nth-child(2) {
+  width: 50%; /* Ajustar el ancho para la segunda columna */
+}
+
+.category-table th:nth-child(3),
+.category-table td:nth-child(3) {
+  width: 30%; /* Ajustar el ancho para la tercera columna */
+}
+
+.category-table th:nth-child(4),
+.category-table td:nth-child(4) {
+  width: 10%; /* Ajustar el ancho para la cuarta columna */
+}
+
 

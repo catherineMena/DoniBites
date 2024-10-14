@@ -28,9 +28,16 @@ import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actu
 import { ActualizarRolComponent } from './update/actualizar-rol/actualizar-rol.component';
 import { ActualizarUsuarioComponent } from './update/actualizar-usuario/actualizar-usuario.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { AddIngredientComponent } from './Add/add-ingredient/add-ingredient.component';
+import { ReadIngredientComponent } from './read/read-ingredient/read-ingredient.component';
+import { DeleteIngredientComponent } from './delete/delete-ingredient/delete-ingredient.component';
+import { UpdateIngredientComponent } from './update/update-ingredient/update-ingredient.component';
+import { IncomingStockComponent } from './incoming-stock/incoming-stock.component';
+import { ReadIncomingStockComponent } from './read/read-incoming-stock/read-incoming-stock.component';
+import { AddIncomingStockComponent } from './Add/add-incoming-stock/add-incoming-stock.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
- export const appRoutes: Routes = [
-
+export const appRoutes: Routes = [
   { path: 'menu', component: MenuComponent },
   /////////////////////////////////////////////////////////////////////
   { path: 'producto', component: ProductoComponent },
@@ -42,63 +49,60 @@ import { UsuarioComponent } from './usuario/usuario.component';
   /////////////////////////////////////////////////////////////////////
   { path: 'categoria', component: CategoriaComponent },
   { path: 'agregar-categoria', component: AgregarCategoriaComponent },
-  { path: 'visualizar-categoria', component: VisualizarCategoriaComponent },
-  { path: 'actualizar-categoria', component: ActualizarCategoriaComponent},
-  { path: 'eliminar-categoria', component: EliminarCategoriaComponent},
-
   { path: 'visualizar-categoria/:id', component: VisualizarCategoriaComponent },
   { path: 'actualizar-categoria/:id', component: ActualizarCategoriaComponent },
   { path: 'eliminar-categoria/:id', component: EliminarCategoriaComponent },
 
-   /////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////
   { path: 'usuario', component: UsuarioComponent },
   { path: 'agregar-usuario', component: AgregarUsuarioComponent },
-  { path: 'visualizar-usuario', component: VisualizarUsuarioComponent},
-  { path: 'actualizar-usuario', component: ActualizarUsuarioComponent},
-  { path: 'eliminar-usuario', component: EliminarUsuarioComponent},
-  { path: 'visualizar-usuario/:id', component: VisualizarUsuarioComponent},
-  { path: 'actualizar-usuario/:id', component: ActualizarUsuarioComponent},
-  { path: 'eliminar-usuario/:id', component: EliminarUsuarioComponent},
-///////////////////////////////////////////////////////////////////
-  // {path:'login', component: LoginComponent},
-
+  { path: 'visualizar-usuario', component: VisualizarUsuarioComponent },
+  { path: 'actualizar-usuario', component: ActualizarUsuarioComponent },
+  { path: 'eliminar-usuario', component: EliminarUsuarioComponent },
+  { path: 'visualizar-usuario/:id', component: VisualizarUsuarioComponent },
+  { path: 'actualizar-usuario/:id', component: ActualizarUsuarioComponent },
+  { path: 'eliminar-usuario/:id', component: EliminarUsuarioComponent },
+  ///////////////////////////////////////////////////////////////////
 
   { path: 'proveedores', component: ProveedoresComponent },
   { path: 'agregar-proveedor', component: AgregarProveedorComponent },
+  { path: 'visualizar-proveedor', component: VisualizarProveedorComponent },
+  { path: 'actualizar-proveedor', component: ActualizarProveedorComponent },
+  { path: 'eliminar-proveedor', component: EliminarProveedorComponent },
+  { path: 'visualizar-proveedor/:id', component: VisualizarProveedorComponent },
+  { path: 'actualizar-proveedor/:id', component: ActualizarProveedorComponent },
+  { path: 'eliminar-proveedor/:id', component: EliminarProveedorComponent },
 
-  { path: 'visualizar-proveedor', component: VisualizarProveedorComponent},
-  { path: 'actualizar-proveedor', component: ActualizarProveedorComponent},
-  { path: 'eliminar-proveedor', component: EliminarProveedorComponent},
-  { path: 'visualizar-proveedor/:id', component: VisualizarProveedorComponent},
-  { path: 'actualizar-proveedor/:id', component: ActualizarProveedorComponent},
-  { path: 'eliminar-proveedor/:id', component: EliminarProveedorComponent},
+  ///////////////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////////
+  { path: 'roles', component: RolComponent },
+  { path: 'agregar-rol', component: AgregarRolComponent },
+  { path: 'visualizar-rol', component: VisualizarRolComponent },
+  { path: 'actualizar-rol', component: ActualizarRolComponent },
+  { path: 'eliminar-rol', component: EliminarRolComponent },
+  { path: 'visualizar-rol/:id', component: VisualizarRolComponent },
+  { path: 'actualizar-rol/:id', component: ActualizarRolComponent },
+  { path: 'eliminar-rol/:id', component: EliminarRolComponent },
+  //////////////////////////////////////////////////////////////////
 
-{ path: 'roles', component: RolComponent },
-{ path: 'agregar-rol', component: AgregarRolComponent },
-{ path: 'visualizar-rol', component: VisualizarRolComponent },
-{ path: 'actualizar-rol', component: ActualizarRolComponent },
-{ path: 'eliminar-rol', component: EliminarRolComponent },
-{ path: 'visualizar-rol/:id', component: VisualizarRolComponent },
-{ path: 'actualizar-rol/:id', component: ActualizarRolComponent },
-{ path: 'eliminar-rol/:id', component: EliminarRolComponent },
-
-{path: 'ingredient', component: IngredientesComponent},
-{path:'add-ingredient', component: AgregarProductoComponent},
-{path:'view-ingredient/:id', component: VisualizarProductoComponent},
-{path:'update-ingredient/:id', component: ActualizarProductoComponent},
-{path:'delete-ingredient/:id', component: EliminarProductoComponent},
+  { path: 'ingredient', component: IngredientesComponent },
+  { path: 'add-ingredient', component: AddIngredientComponent },
+  { path: 'view-ingredient/:id', component: ReadIngredientComponent },
+  { path: 'update-ingredient/:id', component: UpdateIngredientComponent },
+  { path: 'delete-ingredient/:id', component: DeleteIngredientComponent },
+  //////////////////////////////////////////////////////////////////////
+{path:'incoming-stock', component: IncomingStockComponent},
+{path:'view-stock/:id',component:ReadIncomingStockComponent},
+{path:'add-stock',component:AddIncomingStockComponent},
 
 
-{ path: 'login', component: LoginComponent },
-{ path: 'dashboard', component: MenuComponent },
-{ path: 'recuperar-pwd', component: RecuperarPwdComponent },
+ ////////////////////////////////////////////////////////////////////////
+  { path: 'login', component: LoginComponent },
+  {path:'sidebar',component:SidebarComponent},
+  { path: 'dashboard', component: MenuComponent },
+  { path: 'recuperar-pwd', component: RecuperarPwdComponent },
+  { path: 'logout', component: LoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login' },
 
-{path: 'logout', component: LoginComponent},
-
-{ path: '', redirectTo: '/login', pathMatch: 'full' },
-{ path: '**', redirectTo: '/login' },
-
-  // Agrega aquí más rutas según sea necesario
 ];

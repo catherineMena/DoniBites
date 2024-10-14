@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizar Ingrediente</title>
+</head>
+<body>
+
+  <nav class="navbar">
+    <!-- <span class="logo">DoniBites</span> -->
+    <i class="fas fa-user user-icon"></i>
+  </nav>
+  <div class="wrapper">
+    <form>
+      <h1 class="text-center">Visualizar entrada de inventario</h1>
+
+       <!-- Campo para el Id -->
+  <div class="form-group mb-3">
+    <label for="idInput" class="form-label">Id</label>
+    <input type="text" class="form-control" id="idInput" [value]="stockEntry?.id" readonly>
+  </div>
+
+  <!-- Campo para la Fecha de entrada -->
+  <div class="form-group mb-3">
+    <label for="entryDateInput" class="form-label">Fecha de entrada</label>
+    <input type="text" class="form-control" id="entryDateInput" [value]="stockEntry?.entryDate | date: 'short'" readonly>
+  </div>
+
+  <!-- Campo para el Ingrediente -->
+  <div class="form-group mb-3">
+    <label for="ingredientInput" class="form-label">Ingrediente</label>
+    <input type="text" class="form-control" id="ingredientInput" [value]="stockEntry?.ingredient?.name" readonly>
+  </div>
+
+  <!-- Campo para la Cantidad -->
+  <div class="form-group mb-3">
+    <label for="qtyInput" class="form-label">Cantidad</label>
+    <input type="text" class="form-control" id="qtyInput" [value]="stockEntry?.qty" readonly>
+  </div>
+
+  <!-- Campo para el Proveedor -->
+  <div class="form-group mb-3">
+    <label for="providerInput" class="form-label">Proveedor</label>
+    <input type="text" class="form-control" id="providerInput" [value]="stockEntry?.provider?.name" readonly>
+  </div>
+
+  <!-- Campo para el Monto Pagado -->
+  <div class="form-group mb-3">
+    <label for="paidAmountInput" class="form-label">Monto Pagado</label>
+    <input type="text" class="form-control" id="paidAmountInput" [value]="stockEntry?.paidAmount | currency:'USD':'symbol':'1.2-2'" readonly>  </div>
+
+
+  <!-- Campo para el Usuario de Registro -->
+  <div class="form-group mb-3">
+    <label for="recordUserInput" class="form-label">Usuario de Registro</label>
+    <input type="text" class="form-control" id="recordUserInput" [value]="stockEntry?.recordUser" readonly>
+  </div>
+
+  <!-- Botón de cierre centrado -->
+  <div class="text-center">
+    <button type="button" class="btn btn-primary" routerLink="/categoria">Cerrar</button>
+  </div>
+
+
+    </form>
+  </div>
+</body>
+</html>

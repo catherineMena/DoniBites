@@ -18,18 +18,17 @@
 
     <hr>
 
-    <nav class="navbar">
-      <!-- <span class="logo">DoniBites</span> -->
+    <!-- <nav class="navbar">
       <i class="fas fa-user user-icon"></i>
-    </nav>
+    </nav> -->
 
-
+<app-sidebar></app-sidebar>
     <!-- Sidebar -->
-    <div class="sidebar">
+    <!-- <div class="sidebar">
       <div class="sidebar-header">
         <h3>
           DoniBites
-          <img src="assets/donut.png" alt="Logo de DoniBites" style="width: 50px; height: 45px; vertical-align: middle; margin-right: 8px;">
+          <img src="assets/icons-login.png" alt="Logo de DoniBites" style="width: 50px; height: 45px; vertical-align: middle; margin-right: 8px;">
         </h3>
       </div>
       <hr>
@@ -60,7 +59,7 @@
           <span class="text" >Cliente</span>
         </a>
       </div>
-    </div>
+    </div> -->
     <!------------------sidebar end----------->
 
   <div class="wrapper">
@@ -101,12 +100,11 @@
           <td>{{ingredient.unit}}</td>
           <td>
             <div class="actions">
-              <a [routerLink]="['/read-ingredient', ingredient.id]" class="btn btn-primary btn-visualize" title="Ver ingrediente">
+              <a [routerLink]="['/view-ingredient', ingredient.id]" class="btn btn-primary btn-visualize" title="Ver ingrediente">
                 <i class="fas fa-eye"></i>
               </a>
-              <a [routerLink]="['/add-ingredient', ingredient.id]" class="btn btn-primary btn-add" title="Agregar ingrediente">
-                <i class="fa-solid fa-plus"></i>
-              </a>
+
+
               <a [routerLink]="['/update-ingredient', ingredient.id]" class="btn btn-primary btn-update" title="Editar ingrediente">
                 <i class="fas fa-pencil"></i>
               </a>
@@ -116,8 +114,16 @@
             </div>
           </td>
         </tr>
+
       </tbody>
+
+
     </table>
+
+    <a [routerLink]="['/add-ingredient']" class="btn btn-primary btn-add" title="Agregar ingrediente">Agregar ingrediente
+      <i class="fa-solid fa-plus"></i>
+    </a>
+
   </div>
 </body>
 </html>
