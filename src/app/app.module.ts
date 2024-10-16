@@ -22,29 +22,37 @@ import { ActualizarUsuarioComponent } from './update/actualizar-usuario/actualiz
 import { UsuarioComponent } from './usuario/usuario.component';
 
 import { FormsModule } from '@angular/forms';
+import { AddIncomingStockComponent } from './Add/add-incoming-stock/add-incoming-stock.component';
+import { AddIngredientComponent } from './Add/add-ingredient/add-ingredient.component';
+import { AgregarFacturaComponent } from './Add/agregar-factura/agregar-factura.component';
+import { AgregarPedidoComponent } from './Add/agregar-pedido/agregar-pedido.component';
 import { AgregarProveedorComponent } from './Add/agregar-proveedor/agregar-proveedor.component';
 import { AgregarRolComponent } from './Add/agregar-rol/agregar-rol.component';
+import { DeleteIngredientComponent } from './delete/delete-ingredient/delete-ingredient.component';
 import { EliminarProveedorComponent } from './delete/eliminar-proveedor/eliminar-proveedor.component';
 import { EliminarRolComponent } from './delete/eliminar-rol/eliminar-rol.component';
+import { FacturaComponent } from './factura/factura.component';
+import { IncomingStockComponent } from './incoming-stock/incoming-stock.component';
 import { IngredientesComponent } from './ingredientes/ingredientes.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PedidoComponent } from './pedido/pedido.component';
 import { ProveedoresComponent } from './proveedores/proveedores.component';
+import { ReadIncomingStockComponent } from "./read/read-incoming-stock/read-incoming-stock.component";
+import { ReadIngredientComponent } from './read/read-ingredient/read-ingredient.component';
+import { VisualizarFacturaComponent } from './read/visualizar-factura/visualizar-factura.component';
+import { VisualizarPedidoComponent } from './read/visualizar-pedido/visualizar-pedido.component';
 import { VisualizarProveedorComponent } from './read/visualizar-proveedor/visualizar-proveedor.component';
 import { VisualizarRolComponent } from './read/visualizar-rol/visualizar-rol.component';
 import { RecuperarPwdComponent } from './recuperar-pwd/recuperar-pwd.component';
 import { RolComponent } from './rol/rol.component';
+import { HttpInterceptorService } from './services/httpInterceptor.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ActualizarFacturaComponent } from './update/actualizar-factura/actualizar-factura.component';
+import { ActualizarPedidoComponent } from './update/actualizar-pedido/actualizar-pedido.component';
 import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actualizar-proveedor.component';
 import { ActualizarRolComponent } from './update/actualizar-rol/actualizar-rol.component';
 import { UpdateIngredientComponent } from './update/update-ingredient/update-ingredient.component';
-import { AddIngredientComponent } from './Add/add-ingredient/add-ingredient.component';
-import { DeleteIngredientComponent } from './delete/delete-ingredient/delete-ingredient.component';
-import { ReadIngredientComponent } from './read/read-ingredient/read-ingredient.component';
-import { HttpInterceptorService } from './services/httpInterceptor.service';
-import { IncomingStockComponent } from './incoming-stock/incoming-stock.component';
-import { ReadIncomingStockComponent } from "./read/read-incoming-stock/read-incoming-stock.component";
-import { AddIncomingStockComponent } from './Add/add-incoming-stock/add-incoming-stock.component';
 
 
 
@@ -90,6 +98,16 @@ import { AddIncomingStockComponent } from './Add/add-incoming-stock/add-incoming
     VisualizarRolComponent,
     ActualizarRolComponent,
     EliminarRolComponent,
+    FacturaComponent,
+    AgregarFacturaComponent,
+    VisualizarFacturaComponent,
+    ActualizarFacturaComponent,
+    EliminarRolComponent,
+    PedidoComponent,
+    AgregarPedidoComponent,
+    VisualizarPedidoComponent,
+    ActualizarPedidoComponent,
+
 
 
 

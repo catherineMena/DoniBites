@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&family=Roboto:wght@100..900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Pedido</title>
+</head>
+<body>
+  <div class="wrapper">
+    <form #pedidoForm="ngForm" (ngSubmit)="guardarPedido()">
+      <h1 class="text-center">Agregar Pedido</h1>
+
+      <!-- Campo para el ID del pedido -->
+      <div class="form-group mb-3">
+        <label for="idInput" class="form-label">ID del Pedido</label>
+        <input type="text" class="form-control" id="idInput" placeholder="ID del pedido" name="id" [(ngModel)]="id" required>
+      </div>
+
+      <!-- Campo para seleccionar el producto -->
+      <div class="form-group mb-3">
+        <label for="productoInput" class="form-label">Producto</label>
+        <select class="form-control" id="productoInput" name="productoId" [(ngModel)]="productoId" required (change)="onProductChange($event)">
+          <option value="" disabled selected>Seleccione un producto</option>
+          <option *ngFor="let producto of productos" [value]="producto.id">{{ producto.name }}</option>
+        </select>
+      </div>
+
+      <!-- Campo para la cantidad -->
+      <div class="form-group mb-3">
+        <label for="cantidadInput" class="form-label">Cantidad</label>
+        <input type="number" class="form-control" id="cantidadInput" placeholder="Cantidad del producto" name="cantidad" [(ngModel)]="cantidad" required (change)="onCantidadChange()">
+      </div>
+
+      <!-- Campo para el precio unitario -->
+      <div class="form-group mb-3">
+        <label for="precioInput" class="form-label">Precio Unitario</label>
+        <input type="number" class="form-control" id="precioInput" placeholder="Precio unitario" name="precioUnitario" [(ngModel)]="precioUnitario" readonly>
+      </div>
+
+      <!-- Campo para el total -->
+      <div class="form-group mb-3">
+        <label for="totalInput" class="form-label">Total</label>
+        <input type="number" class="form-control" id="totalInput" placeholder="Total" name="total" [value]="calcularTotal()" readonly>
+      </div>
+
+      <!-- Campo para la fecha del pedido -->
+      <div class="form-group mb-3">
+        <label for="fechaPedido" class="form-label">Fecha del Pedido</label>
+        <input type="date" class="form-control" id="fechaPedido" [(ngModel)]="fechaPedido" name="fechaPedido" required (change)="onFechaChange($event)">
+      </div>
+
+      <!-- Campo para la fecha esperada -->
+      <div class="form-group mb-3">
+        <label for="fechaEsperada" class="form-label">Fecha de Entrega Esperada</label>
+        <input type="date" class="form-control" id="fechaEsperada" [(ngModel)]="fechaEsperada" name="fechaEsperada" required (change)="onFechaEsperadaChange($event)">
+      </div>
+
+      <!-- Campo para la descripción -->
+      <div class="form-group mb-3">
+        <label for="descripcion" class="form-label">Descripción</label>
+        <textarea class="form-control" id="descripcion" placeholder="Descripción del pedido" name="descripcion" [(ngModel)]="descripcion" rows="3" required></textarea>
+      </div>
+
+      <!-- Campo para seleccionar el estado -->
+<div class="form-group mb-3">
+  <label for="estadoInput" class="form-label">Estado</label>
+  <select class="form-control" id="estadoInput" name="estado" [(ngModel)]="estado" required>
+    <option value="" disabled selected>Seleccione un estado</option>
+    <option value="Pendiente">Pendiente</option>
+    <option value="En Proceso">En Proceso</option>
+    <option value="Completado">Completado</option>
+    <option value="Cancelado">Cancelado</option>
+  </select>
+</div>
+
+
+      <!-- Botón para guardar los cambios -->
+      <div class="text-center">
+        <button type="button" class="btn btn-primary btn-add" (click)="guardarPedido()">Guardar</button>
+        <button type="button" class="btn-cancelar" routerLink="/factura">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

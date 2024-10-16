@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facturas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rancho&display=swap">
+  <link rel="stylesheet" href="factura.component.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <i class="fas fa-receipt cart-icon" aria-label="Icono de factura"></i>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h3>
+        DoniBites
+        <img src="assets/donut.png" alt="Logo de DoniBites" style="width: 50px; height: 45px; vertical-align: middle; margin-right: 8px;">
+      </h3>
+    </div>
+    <hr>
+    <div class="sidebar-menu">
+      <a href="/menu" class="link" aria-label="Ir a Inicio">
+        <i class="fa-solid fa-house"></i><span class="text">Home</span>
+      </a>
+      <a href="/usuario" class="link" aria-label="Ir a Usuarios">
+        <i class="fa-solid fa-users"></i><span class="text">Usuarios</span>
+      </a>
+      <a href="/categoria" class="link" aria-label="Ir a Categorías">
+        <i class="fa-solid fa-list"></i><span class="text">Categorías</span>
+      </a>
+      <a href="/producto" class="link" aria-label="Ir a Productos">
+        <i class="fas fa-shopping-basket"></i><span class="text">Productos</span>
+      </a>
+      <a href="/ingredientes" class="link" aria-label="Ir a Ingredientes">
+        <i class="fas fa-utensil-spoon"></i><span class="text">Ingredientes</span>
+      </a>
+      <a href="/factura" class="link active" aria-label="Ir a Factura">
+        <i class="fas fa-receipt"></i><span class="text">Factura</span>
+      </a>
+      <a href="/proveedores" class="link" aria-label="Ir a Proveedores">
+        <i class="fas fa-user-tie"></i><span class="text">Proveedores</span>
+      </a>
+      <a href="/roles" class="link" aria-label="Ir a Roles">
+        <i class="fas fa-user-shield"></i><span class="text">Roles</span>
+      </a>
+      <a href="/pedidos" class="link" aria-label="Ir a Pedidos">
+        <i class="fas fa-shopping-cart"></i><span class="text">Pedidos</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <!-- Contenido principal -->
+    <div class="main-content">
+      <div class="header">
+        <div class="title">
+          <h1>Tabla de Facturas</h1>
+        </div>
+      </div>
+
+      <div class="actions">
+        <input type="text" placeholder="Buscar facturas..." (input)="buscarFactura($event)" class="search-input">
+        <div class="btn-group dropright">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            Descargar facturas
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#" (click)="descargarLista('pdf')">Descargar PDF</a></li>
+            <li><a class="dropdown-item" href="#" (click)="descargarLista('excel')">Descargar Excel</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <table class="factura-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Fecha de Factura</th>
+            <th>Descripción del Pedido</th>
+            <th>RUC</th>
+            <th>Monto Pagado</th>
+            <th>Estado</th>
+            <th>Fecha de Pedido</th>
+            <th>Fecha de Entrega Esperada</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let factura of facturasFiltradas">
+            <td>{{factura.id}}</td>
+            <td>{{factura.invoiceDate | date: 'short'}}</td>
+            <td>{{factura.order.description}}</td>
+            <td>{{factura.ruc}}</td> <!-- Aquí asumo que la cantidad es el número de detalles del pedido -->
+            <td>{{factura.paidAmount | currency}}</td>
+            <td>{{factura.status}}</td>
+            <td>{{factura.order.orderDate | date: 'short'}}</td>
+            <td>{{factura.order.expectedDeliverDate | date: 'short'}}</td>
+            <td>
+              <div class="actions">
+                <a [routerLink]="['/visualizar-factura', factura.id]" class="btn btn-primary btn-visualize" title="Ver factura">
+                  <i class="fa-solid fa-eye"></i>
+                </a>
+                <a [routerLink]="['/actualizar-factura', factura.id]" class="btn btn-primary btn-update" title="Editar factura">
+                  <i class="fa-solid fa-pen"></i>
+                </a>
+                <a [routerLink]="['/eliminar-factura', factura.id]" class="btn btn-primary btn-delete" title="Eliminar factura">
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Botón "Agregar nuevo" en la parte inferior derecha -->
+      <div class="add-factura text-right">
+        <a [routerLink]="['/agregar-factura']" class="btn btn-success" title="Agregar nueva factura">
+          Agregar nueva
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

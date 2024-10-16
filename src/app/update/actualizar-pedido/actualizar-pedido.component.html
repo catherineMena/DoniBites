@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualizar Pedido</title>
+  <link rel="stylesheet" href="actualizar-pedido.component.css">
+</head>
+<body>
+  <div class="wrapper">
+    <form (ngSubmit)="actualizarPedido()">
+      <h1 class="text-center">Actualizar Pedido</h1>
+
+      <!-- Campo para el ID del pedido (solo visualización, no editable) -->
+      <div class="form-group mb-3">
+        <label for="pedidoId" class="form-label">ID del Pedido</label>
+        <input type="text" class="form-control" id="pedidoId" [value]="pedido.id" readonly>
+      </div>
+
+
+      <!-- Campo para la fecha del pedido -->
+      <div class="form-group mb-3">
+        <label for="pedidoDate" class="form-label">Fecha del Pedido</label>
+        <input type="date" class="form-control" id="pedidoDate" [(ngModel)]="pedido.orderDate" name="orderDate" required>
+      </div>
+
+      <!-- Campo para la fecha de entrega esperada -->
+      <div class="form-group mb-3">
+        <label for="pedidoDeliverDate" class="form-label">Fecha de Entrega Esperada</label>
+        <input type="date" class="form-control" id="pedidoDeliverDate" [(ngModel)]="pedido.expectedDeliverDate" name="expectedDeliverDate" required>
+      </div>
+
+      <!-- Campo para la descripción -->
+      <div class="form-group mb-3">
+        <label for="pedidoDescription" class="form-label">Descripción</label>
+        <textarea class="form-control" id="pedidoDescription" [(ngModel)]="pedido.description" name="description" rows="2"></textarea>
+      </div>
+
+      <!-- Campo para el estado del pedido -->
+      <div class="form-group mb-3">
+        <label for="pedidoStatus" class="form-label">Estado</label>
+        <input type="text" class="form-control" id="pedidoStatus" [(ngModel)]="pedido.status" name="status">
+      </div>
+
+   <!-- Detalles de los productos -->
+<h3>Detalles de los Productos</h3>
+<div *ngFor="let detail of pedido.details" class="mb-3">
+  <div class="form-group">
+    <label>Nombre del Producto:</label>
+    <input type="text" class="form-control" [(ngModel)]="detail.product.name" name="productName">
+  </div>
+  <div class="form-group">
+    <label>Descripción del Producto:</label>
+    <textarea class="form-control" [(ngModel)]="detail.product.description" name="productDescription" rows="2"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Cantidad:</label>
+    <input type="number" class="form-control" [(ngModel)]="detail.qty" (ngModelChange)="calcularPreciosTotales()" name="qty">
+  </div>
+  <div class="form-group">
+    <label>Precio Unitario:</label>
+    <input type="number" class="form-control" [(ngModel)]="detail.product.unitPrice" name="unitPrice" readonly>
+  </div>
+  <div class="form-group">
+    <label>Precio Total:</label>
+    <input type="number" class="form-control" [(ngModel)]="detail.price" name="price" readonly>
+  </div>
+  <hr>
+</div>
+
+      <!-- Botón para guardar los cambios -->
+      <div class="text-center">
+        <button type="button" class="btn-add" (click)="actualizarPedido()">Guardar</button>
+         <button type="button" class="btn-cancelar" routerLink="/pedidos">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EliminarRolService } from './eliminar-rol.service';
+import { PedidoService } from './pedido.service';
 
-describe('EliminarRolService', () => {
-  let service: EliminarRolService;
+describe('PedidoService', () => {
+  let service: PedidoService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(EliminarRolService);
+    service = TestBed.inject(PedidoService);
   });
 
   it('should be created', () => {

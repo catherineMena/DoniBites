@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { InventoryService } from '../services/inventory.service';
 import { Router } from '@angular/router';
-import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import * as XLSX from 'xlsx';
+import { InventoryService } from '../services/inventory.service';
 
 @Component({
   selector: 'app-incoming-stock',
