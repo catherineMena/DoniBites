@@ -10,14 +10,14 @@ import { ProductoService } from '../../services/producto.service';
 })
 export class AgregarPedidoComponent implements OnInit {
   id: string = '';
-  productoId: number | null = null;
-  cantidad: number = 1;
-  precioUnitario: number = 0;
-  fechaPedido: string = new Date().toISOString().split('T')[0];
-  fechaEsperada: string = new Date().toISOString().split('T')[0];
-  descripcion: string = '';
-  estado: string = 'Pendiente'; // Valor predeterminado
-  productos: any[] = [];
+  orderDate: string = '';
+  description: string = '';
+  status: string = 'pendiente';
+  expectedDeliverDate: string = '';
+  deliverDate: string = '';
+  detail: any = { product: { id: 0, name: '' }, qty: 0, price: 0 };
+  unitPrice: number = 0;
+  products: any[] = [];
 
   constructor(
     private pedidoService: PedidoService,
@@ -26,89 +26,63 @@ export class AgregarPedidoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.cargarProductos();
+    this.obtenerProductos();
   }
 
-  cargarProductos(): void {
+  obtenerProductos(): void {
     this.productoService.getAllProductos().subscribe(
-      (data: any) => {
-        this.productos = data;
+      (data: any[]) => {
+        this.products = data;
       },
       (error: any) => {
-        console.error('Error al cargar los productos:', error);
+        console.error('Error al obtener los productos:', error);
+        alert('Error al cargar los productos. Por favor, intenta de nuevo.');
       }
     );
   }
 
+  actualizarPrecio(): void {
+    const selectedProduct = this.products.find(product => product.id == this.detail.product.id);
+    if (selectedProduct) {
+      this.unitPrice = selectedProduct.unitPrice; // Asigna el precio unitario
+      this.detail.price = this.unitPrice * this.detail.qty; // Actualiza el total al seleccionar producto
+    }
+  }
+
+  calcularTotal(): void {
+    if (this.unitPrice > 0 && this.detail.qty > 0) {
+      this.detail.price = this.unitPrice * this.detail.qty; // Calcula el total basado en la cantidad
+    } else {
+      this.detail.price = 0; // Total es 0 si no hay cantidad o precio unitario válido
+    }
+  }
+
   guardarPedido(): void {
-    if (
-      this.id.trim() === '' ||
-      this.productoId === null ||
-      this.cantidad <= 0 ||
-      this.descripcion.trim() === '' ||
-      this.estado.trim() === ''
-    ) {
-      alert('Por favor, completa todos los campos.');
-      return;
-    }
-
-    // Verificar que el precio unitario no sea cero
-    if (this.precioUnitario === 0) {
-      alert('Por favor, seleccione un producto válido.');
-      return;
-    }
-
     const newOrder = {
-      id: this.id,
-      product: {
-        id: this.productoId,
-        qty: this.cantidad,
-        price: this.precioUnitario,
-      },
-      total: this.calcularTotal(),
-      deliverDate: this.fechaPedido,
-      expectedDeliverDate: this.fechaEsperada,
-      description: this.descripcion,
-      status: this.estado
+      recordUser: 1,
+      updateUser: 1,
+      orderDate: this.orderDate + 'T00:00:00.000+00:00',
+      updateDate: new Date().toISOString(),
+      expectedDeliverDate: this.expectedDeliverDate + 'T00:00:00.000+00:00',
+      deliverDate: this.deliverDate ? this.deliverDate + 'T00:00:00.000+00:00' : null,
+      description: this.description,
+      status: this.status,
+      details: [{
+        product: { id: this.detail.product.id },
+        qty: this.detail.qty,
+        price: this.detail.price
+      }]
     };
 
     this.pedidoService.createPedido(newOrder).subscribe(
       (response: any) => {
         console.log('Pedido guardado con éxito:', response);
-        this.router.navigate(['/pedidos']);
+        this.router.navigate(['/pedido']);
       },
       (error: any) => {
         console.error('Error al guardar el pedido:', error);
-        const errorMessage = error.error?.message || 'Error desconocido';
-        alert(`Error al guardar el pedido: ${errorMessage}`);
+        alert('Error al guardar el pedido. Por favor, inténtalo de nuevo.');
       }
     );
-  }
-
-  onProductChange(event: any): void {
-    this.productoId = +event.target.value;
-    const selectedProduct = this.productos.find(producto => producto.id === this.productoId);
-    if (selectedProduct) {
-      this.precioUnitario = selectedProduct.unitPrice;
-      this.onCantidadChange(); // Actualiza el total al cambiar el producto
-    } else {
-      this.precioUnitario = 0; // Restablecer el precio si no se encuentra el producto
-    }
-  }
-
-  calcularTotal(): number {
-    return this.precioUnitario * this.cantidad;
-  }
-
-  onCantidadChange(): void {
-    this.calcularTotal();
-  }
-
-  onFechaChange(event: any): void {
-    this.fechaPedido = event.target.value;
-  }
-
-  onFechaEsperadaChange(event: any): void {
-    this.fechaEsperada = event.target.value;
   }
 }

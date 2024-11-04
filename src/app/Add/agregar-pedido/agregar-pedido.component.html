@@ -1,88 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&family=Roboto:wght@100..900&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agregar Pedido</title>
 </head>
 <body>
-  <div class="wrapper">
-    <form #pedidoForm="ngForm" (ngSubmit)="guardarPedido()">
-      <h1 class="text-center">Agregar Pedido</h1>
 
-      <!-- Campo para el ID del pedido -->
-      <div class="form-group mb-3">
-        <label for="idInput" class="form-label">ID del Pedido</label>
-        <input type="text" class="form-control" id="idInput" placeholder="ID del pedido" name="id" [(ngModel)]="id" required>
-      </div>
+<div class="wrapper">
+  <form (ngSubmit)="guardarPedido() ">
 
-      <!-- Campo para seleccionar el producto -->
-      <div class="form-group mb-3">
-        <label for="productoInput" class="form-label">Producto</label>
-        <select class="form-control" id="productoInput" name="productoId" [(ngModel)]="productoId" required (change)="onProductChange($event)">
-          <option value="" disabled selected>Seleccione un producto</option>
-          <option *ngFor="let producto of productos" [value]="producto.id">{{ producto.name }}</option>
-        </select>
-      </div>
+    <h1 class="text-center">Agregar Pedido</h1>
 
-      <!-- Campo para la cantidad -->
-      <div class="form-group mb-3">
-        <label for="cantidadInput" class="form-label">Cantidad</label>
-        <input type="number" class="form-control" id="cantidadInput" placeholder="Cantidad del producto" name="cantidad" [(ngModel)]="cantidad" required (change)="onCantidadChange()">
-      </div>
+    <div class="form-group mb-3">
+      <label for="orderId" class="form-label">ID del Pedido</label>
+      <input type="text" class="form-control" id="orderId" placeholder="Ingrese el ID del pedido" name="orderId" [(ngModel)]="id" required>
+    </div>
 
-      <!-- Campo para el precio unitario -->
-      <div class="form-group mb-3">
-        <label for="precioInput" class="form-label">Precio Unitario</label>
-        <input type="number" class="form-control" id="precioInput" placeholder="Precio unitario" name="precioUnitario" [(ngModel)]="precioUnitario" readonly>
-      </div>
+    <div class="form-group mb-3">
+      <label for="orderDate" class="form-label">Fecha del Pedido</label>
+      <input type="date" class="form-control" id="orderDate" name="orderDate" [(ngModel)]="orderDate" required>
+    </div>
 
-      <!-- Campo para el total -->
-      <div class="form-group mb-3">
-        <label for="totalInput" class="form-label">Total</label>
-        <input type="number" class="form-control" id="totalInput" placeholder="Total" name="total" [value]="calcularTotal()" readonly>
-      </div>
+    <div class="form-group mb-3">
+      <label for="descriptionInput" class="form-label">Descripción del Pedido</label>
+      <input type="text" class="form-control" id="descriptionInput" placeholder="Ingrese la descripción del pedido" name="description" [(ngModel)]="description" required>
+    </div>
 
-      <!-- Campo para la fecha del pedido -->
-      <div class="form-group mb-3">
-        <label for="fechaPedido" class="form-label">Fecha del Pedido</label>
-        <input type="date" class="form-control" id="fechaPedido" [(ngModel)]="fechaPedido" name="fechaPedido" required (change)="onFechaChange($event)">
-      </div>
+    <div class="form-group mb-3">
+      <label for="statusInput" class="form-label">Estado</label>
+      <select class="form-control" id="statusInput" name="status" [(ngModel)]="status" required>
+        <option value="pendiente">Pendiente</option>
+        <option value="completado">Completado</option>
+        <option value="cancelado">Cancelado</option>
+      </select>
+    </div>
 
-      <!-- Campo para la fecha esperada -->
-      <div class="form-group mb-3">
-        <label for="fechaEsperada" class="form-label">Fecha de Entrega Esperada</label>
-        <input type="date" class="form-control" id="fechaEsperada" [(ngModel)]="fechaEsperada" name="fechaEsperada" required (change)="onFechaEsperadaChange($event)">
-      </div>
+    <div class="form-group mb-3">
+      <label for="expectedDeliverDate" class="form-label">Fecha de Entrega Esperada</label>
+      <input type="date" class="form-control" id="expectedDeliverDate" name="expectedDeliverDate" [(ngModel)]="expectedDeliverDate" required>
+    </div>
 
-      <!-- Campo para la descripción -->
-      <div class="form-group mb-3">
-        <label for="descripcion" class="form-label">Descripción</label>
-        <textarea class="form-control" id="descripcion" placeholder="Descripción del pedido" name="descripcion" [(ngModel)]="descripcion" rows="3" required></textarea>
-      </div>
+    <div class="form-group mb-3">
+      <label for="deliverDate" class="form-label">Fecha de Entrega</label>
+      <input type="date" class="form-control" id="deliverDate" name="deliverDate" [(ngModel)]="deliverDate" required>
+    </div>
 
-      <!-- Campo para seleccionar el estado -->
-<div class="form-group mb-3">
-  <label for="estadoInput" class="form-label">Estado</label>
-  <select class="form-control" id="estadoInput" name="estado" [(ngModel)]="estado" required>
-    <option value="" disabled selected>Seleccione un estado</option>
-    <option value="Pendiente">Pendiente</option>
-    <option value="En Proceso">En Proceso</option>
-    <option value="Completado">Completado</option>
-    <option value="Cancelado">Cancelado</option>
-  </select>
+    <h2>Detalle del Pedido</h2>
+
+    <div class="form-group mb-3">
+      <h5>Producto</h5>
+
+      <label for="productId" class="form-label">Seleccionar Producto</label>
+      <select class="form-control" id="productId" [(ngModel)]="detail.product.id" name="productId" (change)="actualizarPrecio()" required>
+        <option value="">Seleccione un producto</option>
+        <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
+      </select>
+
+      <label for="qty" class="form-label">Cantidad</label>
+      <input type="number" class="form-control" id="qty" [(ngModel)]="detail.qty" name="qty" (input)="calcularTotal()" required>
+
+      <label for="unitPrice" class="form-label">Precio Unitario</label>
+      <input type="number" class="form-control" id="unitPrice" [(ngModel)]="unitPrice" name="unitPrice" readonly>
+
+      <label for="price" class="form-label">Total</label>
+      <input type="number" class="form-control" id="price" [(ngModel)]="detail.price" name="price" readonly>
+
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn-add">Guardar</button>
+      <button type="button" class="btn-cancel" routerLink="/pedido">Cancelar</button>
+    </div>
+  </form>
 </div>
 
-
-      <!-- Botón para guardar los cambios -->
-      <div class="text-center">
-        <button type="button" class="btn btn-primary btn-add" (click)="guardarPedido()">Guardar</button>
-        <button type="button" class="btn-cancelar" routerLink="/factura">Cancelar</button>
-      </div>
-    </form>
-  </div>
 </body>
 </html>

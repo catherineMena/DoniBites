@@ -3,23 +3,39 @@ body {
   font-family: 'Raleway', sans-serif;
   display: flex;
   min-height: 100vh;
+  padding-top: 50px; /* Evita que el contenido principal se superponga con el navbar */
+  overflow-x: hidden; /* Evita desplazamiento horizontal */
 }
 
+/* Ajustes del navbar */
+.navbar {
+  height: 50px; /* Altura del navbar */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #333; /* Color de ejemplo */
+  z-index: 1000; /* Asegura que el navbar esté por encima del sidebar */
+}
+
+/* Ajustes del sidebar */
 .sidebar {
   width: 250px;
-  height: 100vh;
+  height: calc(100vh - 50px); /* Resta la altura del navbar */
   background: rgba(191, 192, 192, 0.2);
-  margin-top: 50px;
+  margin-top: 50px; /* Espacio igual a la altura del navbar */
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 20px;
   position: fixed;
-  top: 0;
+  top: 0; /* Justo debajo del navbar */
   left: 0;
   display: flex;
   flex-direction: column;
+  overflow-y: auto; /* Permite el desplazamiento */
 }
+
 
 .sidebar-header {
   display: flex;
