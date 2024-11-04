@@ -4,57 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eliminar Producto</title>
-  <link rel="stylesheet" href="eliminar-producto.component.css"> <!-- Asegúrate de enlazar tu archivo CSS -->
 </head>
 <body>
 
 <div class="wrapper">
-  <form>
+  <form (ngSubmit)="eliminarProducto()">
     <h1 class="text-center">Eliminar Producto</h1>
-    <!-- Campo para el primer input con margen inferior -->
     <div class="form-group mb-3">
-      <label for="idInput" class="form-label">ID</label>
-      <input type="text" class="form-control" id="idInput" [value]="producto?.id" readonly>
+      <label for="nombreInput" class="form-label">Nombre del producto</label>
+      <input type="text" class="form-control" id="nombreInput" name="nombre" [value]="producto?.name" readonly>
     </div>
-
-    <!-- Campo para el segundo input con margen inferior -->
-    <div class="form-group mb-3">
-      <label for="nombreInput" class="form-label">Nombre</label>
-      <input type="text" class="form-control" id="nombreInput" [value]="producto?.name" readonly>
-    </div>
-
-    <!-- Campo para el tercer input con margen inferior -->
-    <div class="form-group mb-3">
-      <label for="descripcionInput" class="form-label">Descripción</label>
-      <input type="text" class="form-control" id="descripcionInput" [value]="producto?.description" readonly>
-    </div>
-
-    <!-- Campo para el cuarto input con margen inferior -->
-    <div class="form-group mb-3">
-      <label for="existenciaInput" class="form-label">Existencia</label>
-      <input type="text" class="form-control" id="existenciaInput" [value]="producto?.qty" readonly>
-    </div>
-
-    <!-- Campo para el quinto input con margen inferior -->
-    <div class="form-group mb-3">
-      <label for="categoriaInput" class="form-label">Categoría</label>
-      <input type="text" class="form-control" id="categoriaInput" [value]="producto?.category.name" readonly>
-    </div>
-
-    <!-- Campo para el sexto input con margen inferior -->
-    <div class="form-group mb-3">
-      <label for="precioInput" class="form-label">Precio</label>
-      <input type="text" class="form-control" id="precioInput" [value]="producto?.unitPrice" readonly>
-    </div>
-
-    <!-- Botones de acción centrados -->
     <div class="text-center">
-      <button type="button" class="btn btn-danger" (click)="eliminarProducto()">Eliminar</button>
-      <button type="button" class="btn btn-secondary" routerLink="/producto">Cancelar</button>
+      <button type="submit" class="btn-delete">Eliminar</button>
+      <button type="button" class="btn-cancel" routerLink="/productos">Cancelar</button>
     </div>
   </form>
 </div>
 
 </body>
 </html>
-

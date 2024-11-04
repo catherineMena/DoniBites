@@ -54,7 +54,15 @@ import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actu
 import { ActualizarRolComponent } from './update/actualizar-rol/actualizar-rol.component';
 import { UpdateIngredientComponent } from './update/update-ingredient/update-ingredient.component';
 
+import { EliminarFacturaComponent } from './delete/eliminar-factura/eliminar-factura.component';
+import { EliminarPedidoComponent } from './delete/eliminar-pedidos/eliminar-pedidos.component';
 
+
+import { AgregarOutgoingComponent } from './Add/agregar-outgoings/agregar-outgoings.component';
+import { OutgoingsComponent } from './outgoings/outgoings.component';
+import { VisualizarOutgoingsComponent } from './read/visualizar-outgoings/visualizar-outgoings.component';
+import { ActualizarOutgoingsComponent } from './update/actualizar-outgoings/actualizar-outgoings.component';
+import { EliminarOutgoingsComponent } from './delete/eliminar-outgoings/eliminar-outgoings.component';
 
 
 @NgModule({
@@ -102,11 +110,19 @@ import { UpdateIngredientComponent } from './update/update-ingredient/update-ing
     AgregarFacturaComponent,
     VisualizarFacturaComponent,
     ActualizarFacturaComponent,
+    EliminarCategoriaComponent,
     EliminarRolComponent,
     PedidoComponent,
     AgregarPedidoComponent,
     VisualizarPedidoComponent,
     ActualizarPedidoComponent,
+    EliminarPedidoComponent,
+    OutgoingsComponent,
+    ActualizarOutgoingsComponent,
+    VisualizarOutgoingsComponent,
+    EliminarOutgoingsComponent,
+    AgregarOutgoingComponent,
+
 
 
 

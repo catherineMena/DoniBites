@@ -10,18 +10,14 @@
 <div class="wrapper">
   <form (ngSubmit)="eliminarProveedor()">
     <h1 class="text-center">Eliminar Proveedor</h1>
-    <!-- Campo para mostrar el nombre del proveedor -->
     <div class="form-group mb-3">
-      <label for="proveedorInput" class="form-label">Proveedor</label>
-      <input type="text" class="form-control" id="proveedorInput" name="proveedor" [value]="proveedor" readonly>
+      <label for="nombreInput" class="form-label">Nombre del proveedor</label>
+      <input type="text" class="form-control" id="nombreInput" name="nombre" [value]="proveedor?.name" readonly>
     </div>
-
-    <!-- Botón para confirmar la eliminación -->
     <div class="text-center">
-      <button type="submit" class="btn-danger" (click)="eliminarProveedor()">Eliminar</button>
-      <button type="button" class="btn-cancelar" routerLink="/proveedores">Cancelar</button>
+      <button type="submit" class="btn-delete">Eliminar</button>
+      <button type="button" class="btn-cancel" routerLink="/proveedores">Cancelar</button>
     </div>
-
   </form>
 </div>
 

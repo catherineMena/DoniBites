@@ -3,31 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eliminar Categoría</title>
+  <title>Eliminar Ingrediente</title>
 </head>
 <body>
 
 <div class="wrapper">
-  <form (ngSubmit)="deactivateIngredient()">
-    <h1 class="text-center">Eliminar ingrediente</h1>
-    <!-- Mostrar los datos de la categoría a eliminar -->
-    <!-- <div class="form-group mb-3">
-      <label for="idInput" class="form-label">ID</label>
-      <input type="text" class="form-control" id="idInput" name="id" [value]="categoria?.id" readonly>
-    </div> -->
+  <form (ngSubmit)="eliminarIngrediente()">
+    <h1 class="text-center">Eliminar Ingrediente</h1>
     <div class="form-group mb-3">
-      <label for="nombreInput" class="form-label">Nombre de la categoría</label>
-      <input type="text" class="form-control" id="nombreInput" name="nombre" [value]="ingredient?.name" readonly>
+      <label for="nombreInput" class="form-label">Nombre del ingrediente</label>
+      <input type="text" class="form-control" id="nombreInput" name="nombre" [value]="ingrediente?.name" readonly>
     </div>
-
-    <div class="form-group mb-3">
-      <label for="unitInput" class="form-label">Unidad de medida</label>
-      <input type="text" class="form-control" id="nombreInput" name="nombre" [value]="ingredient?.unit" readonly>
-    </div>
-    <!-- Botón para confirmar la eliminación -->
     <div class="text-center">
-      <button type="submit" class="btn-delete" (click)="deactivateIngredient()" routerLink="/ingredientes">Eliminar</button>
-      <button type="button" class="btn-cancel" routerLink="/categoria">Cancelar</button>
+      <button type="submit" class="btn-delete">Eliminar</button>
+      <button type="button" class="btn-cancel" routerLink="/ingredientes">Cancelar</button>
     </div>
   </form>
 </div>

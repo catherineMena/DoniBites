@@ -35,6 +35,10 @@ export class IngredientService {
     );
   }
 
+  deleteIngredient(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
+  }
+
   private handleError(error: HttpErrorResponse): Observable<never> {
     console.error('An error occurred:', error);
     return throwError('Something bad happened; please try again later.');

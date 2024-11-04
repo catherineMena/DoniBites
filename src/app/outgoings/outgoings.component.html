@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outgoings</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rancho&display=swap">
+  <link rel="stylesheet" href="outgoings.component.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <app-navbar></app-navbar>
+<app-sidebar></app-sidebar>
+
+  <div class="wrapper">
+    <!-- Contenido principal -->
+    <div class="main-content">
+      <div class="header">
+        <div class="title">
+          <h1>Tabla de Salidas</h1>
+        </div>
+      </div>
+
+      <div class="actions">
+        <input type="text" placeholder="Buscar salidas..." (input)="buscarOutgoing($event)" class="search-input">
+        <div class="btn-group dropright">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            Descargar salidas
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#" (click)="descargarLista('pdf')">Descargar PDF</a></li>
+            <li><a class="dropdown-item" href="#" (click)="descargarLista('excel')">Descargar Excel</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <table class="outgoings-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Fecha de Salida</th>
+            <th>Ingrediente</th>
+            <th>Unidad</th>
+            <th>Cantidad</th>
+            <th>Fecha de Expiración</th>
+            <th>Usuario que Registra</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let outgoing of outgoingsFiltrados">
+            <td>{{ outgoing.id }}</td>
+            <td>{{ outgoing.issueDate | date: 'short' }}</td>
+            <td>{{ outgoing.ingredient.name }}</td>
+            <td>{{ outgoing.ingredient.unit }}</td>
+            <td>{{ outgoing.qty }}</td>
+            <td>{{ outgoing.expirationDate | date: 'short' }}</td>
+            <td>{{ outgoing.recordUser }}</td>
+            <td>
+              <div class="actions">
+                <a [routerLink]="['/visualizar-outgoings', outgoing.id]" class="btn btn-primary btn-visualize" title="Ver salida">
+                  <i class="fa-solid fa-eye"></i>
+                </a>
+                <a [routerLink]="['/actualizar-outgoings', outgoing.id]" class="btn btn-primary btn-update" title="Editar salida">
+                  <i class="fa-solid fa-pen"></i>
+                </a>
+                <a [routerLink]="['/eliminar-outgoings', outgoing.id]" class="btn btn-primary btn-delete" title="Eliminar salida">
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Botón "Agregar nuevo" en la parte inferior derecha -->
+      <div class="add-outgoing text-right">
+        <a [routerLink]="['/agregar-outgoing']" class="btn btn-success" title="Agregar nueva salida">
+          Agregar nueva
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -37,4 +37,10 @@ deletePedidoById(id: number): Observable<any> {
   return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
 }
 
+deletePedido(id: number): Observable<any> {
+  return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
+}
+
+
+
 }

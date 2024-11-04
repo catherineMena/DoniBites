@@ -9,7 +9,7 @@ import { UsuarioService } from '../../services/usuario.service';
 })
 export class EliminarUsuarioComponent implements OnInit {
   id: number = 0;
-  username: string = '';
+  usuario: any = {};
 
   constructor(private usuarioService: UsuarioService, private route: ActivatedRoute, private router: Router) { }
 
@@ -18,7 +18,7 @@ export class EliminarUsuarioComponent implements OnInit {
       this.id = +params['id'];
       this.usuarioService.getUsuarioById(this.id).subscribe(
         (res: any) => {
-          this.username = res.username; // Cambio aquí
+          this.usuario = res;
         },
         err => console.error(err)
       );
@@ -26,19 +26,15 @@ export class EliminarUsuarioComponent implements OnInit {
   }
 
   eliminarUsuario(): void {
-    if (!confirm('¿Estás seguro de que quieres eliminar este usuario?')) {
-      return;
-    }
-
     this.usuarioService.eliminarUsuario(this.id).subscribe(
       () => {
         console.log('Usuario eliminado con éxito');
-        this.router.navigate(['/usuario']); // Cambio aquí
+        this.router.navigate(['/usuario']); // Redirige a la lista de usuarios u otra página según tu flujo
       },
-      // (error: any) => {
-      //   console.error('Error al eliminar el usuario:', error);
-      //   alert('Error al eliminar el usuario. Por favor, inténtalo de nuevo.');
-      // }
+      (error: any) => {
+        console.error('Error al eliminar el usuario:', error);
+        alert('Error al eliminar el usuario. Por favor, inténtalo de nuevo.');
+      }
     );
   }
 }

@@ -8,39 +8,33 @@ import { ProductoService } from '../../services/producto.service';
   styleUrls: ['./eliminar-producto.component.css']
 })
 export class EliminarProductoComponent implements OnInit {
-  producto: any;
+  id: number = 0;
+  producto: any = {};
 
-  constructor(
-    private productoService: ProductoService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+  constructor(private productoService: ProductoService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      const productId = +params['id'];
-      this.obtenerProductoPorId(productId);
+      this.id = +params['id'];
+      this.productoService.getProductoById(this.id).subscribe(
+        (res: any) => {
+          this.producto = res;
+        },
+        err => console.error(err)
+      );
     });
   }
 
-  obtenerProductoPorId(id: number): void {
-    this.productoService.getProductoById(id).subscribe(
-      res => {
-        this.producto = res;
-      },
-      err => console.error(err)
-    );
-  }
-
   eliminarProducto(): void {
-    if (this.producto && this.producto.id) {
-      this.productoService.deactivateProductoById(this.producto.id).subscribe(
-        () => {
-          console.log('Producto eliminado con éxito');
-          this.router.navigate(['/producto']);
-        },
-        err => console.error('Error al eliminar el producto:', err)
-      );
-    }
+    this.productoService.eliminarProducto(this.id).subscribe(
+      () => {
+        console.log('Producto eliminado con éxito');
+        this.router.navigate(['/producto']); // Redirige a la lista de productos u otra página según tu flujo
+      },
+      (error: any) => {
+        console.error('Error al eliminar el producto:', error);
+        alert('Error al eliminar el producto. Por favor, inténtalo de nuevo.');
+      }
+    );
   }
 }

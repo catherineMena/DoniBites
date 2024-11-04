@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agregar Outgoing</title>
+    <link rel="stylesheet" href="agregar-outgoings.component.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <form (ngSubmit)="guardarOutgoing()" #form="ngForm">
+        <h1 class="text-center">Agregar Outgoing</h1>
+
+        <div class="form-group mb-3">
+          <label for="outgoingId" class="form-label">ID del Outgoing</label>
+          <input
+            type="number"
+            class="form-control"
+            id="outgoingId"
+            [(ngModel)]="id"
+            name="outgoingId"
+            required
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="issueDate" class="form-label">Fecha de Emisión</label>
+          <input
+            type="date"
+            class="form-control"
+            id="issueDate"
+            [(ngModel)]="issueDate"
+            name="issueDate"
+            required
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="ingredientSelect" class="form-label"
+            >Seleccionar Ingrediente</label
+          >
+          <select
+            class="form-control"
+            id="ingredientSelect"
+            (change)="onIngredientChange($event)"
+            required
+          >
+            <option value="">Seleccionar Ingrediente</option>
+            <option *ngFor="let ing of ingredients" [value]="ing.id">
+              {{ ing.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="ingredientUnit" class="form-label"
+            >Unidad del Ingrediente</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="ingredientUnit"
+            [value]="ingredientUnit"
+            readonly
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="expirationDate" class="form-label"
+            >Fecha de Caducidad</label
+          >
+          <input
+            type="date"
+            class="form-control"
+            id="expirationDate"
+            [(ngModel)]="expirationDate"
+            name="expirationDate"
+            required
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="qty" class="form-label">Cantidad</label>
+          <input
+            type="number"
+            class="form-control"
+            id="qty"
+            [(ngModel)]="qty"
+            name="qty"
+            required
+          />
+        </div>
+
+        <!-- <div class="form-group mb-3">
+        <label for="recordUser" class="form-label">Usuario que Registra</label>
+        <input type="number" class="form-control" id="recordUser" [(ngModel)]="recordUser" name="recordUser" required>
+      </div> -->
+
+        <div class="text-center">
+          <button
+            type="button"
+            class="btn btn-primary btn-add"
+            (click)="guardarOutgoing()"
+          >
+            Guardar
+          </button>
+          <button type="button" class="btn-cancelar" routerLink="/outgoings">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

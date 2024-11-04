@@ -1,18 +1,15 @@
-import { Component } from '@angular/core';
-import { IngredientService } from '../../services/ingredient.service';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, throwError } from 'rxjs';
-import { HttpErrorResponse } from '@angular/common/http';
+import { IngredientService } from '../../services/ingredient.service';
 
 @Component({
   selector: 'app-delete-ingredient',
   templateUrl: './delete-ingredient.component.html',
-  styleUrl: './delete-ingredient.component.css'
+  styleUrls: ['./delete-ingredient.component.css']
 })
-export class DeleteIngredientComponent {
+export class DeleteIngredientComponent implements OnInit {
   id: number = 0;
-  ingredient: any = {};
-  unit: string = '';
+  ingrediente: any = {};
 
   constructor(private ingredientService: IngredientService, private route: ActivatedRoute, private router: Router) { }
 
@@ -21,22 +18,22 @@ export class DeleteIngredientComponent {
       this.id = +params['id'];
       this.ingredientService.getIngredientById(this.id).subscribe(
         (res: any) => {
-          this.ingredient = res;
+          this.ingrediente = res;
         },
         err => console.error(err)
       );
     });
   }
 
-  deactivateIngredient(): void {
-    this.ingredientService.deactivateIngredient(this.id).subscribe(
+  eliminarIngrediente(): void {
+    this.ingredientService.deleteIngredient(this.id).subscribe(
       () => {
-        console.log('Ingrediente desactivado con éxito');
-        this.router.navigate(['/ingredientes']); // Redirige a la lista de ingredientes u otra página
+        console.log('Ingrediente eliminado con éxito');
+        this.router.navigate(['/ingredientes']); // Redirige a la lista de ingredientes u otra página según tu flujo
       },
       (error: any) => {
-        console.error('Error al desactivar el ingrediente:', error);
-        alert('Error al desactivar el ingrediente. Por favor, inténtalo de nuevo.');
+        console.error('Error al eliminar el ingrediente:', error);
+        alert('Error al eliminar el ingrediente. Por favor, inténtalo de nuevo.');
       }
     );
   }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizar Outgoing</title>
+  <link rel="stylesheet" href="visualizar-outgoings.component.css">
+</head>
+<body>
+  <div class="wrapper">
+    <form>
+      <h1 class="text-center">Visualizar Outgoing</h1>
+
+      <!-- Campo para el ID de la salida -->
+      <div class="form-group mb-3">
+        <label for="outgoingId" class="form-label">ID de la Salida</label>
+        <input type="text" class="form-control" id="outgoingId" [value]="outgoing?.id" readonly>
+      </div>
+
+      <!-- Campo para la fecha de emisión -->
+      <div class="form-group mb-3">
+        <label for="outgoingIssueDate" class="form-label">Fecha de Emisión</label>
+        <input type="text" class="form-control" id="outgoingIssueDate" [value]="outgoing?.issueDate | date:'short'" readonly>
+      </div>
+
+      <!-- Campo para el nombre del ingrediente -->
+      <div class="form-group mb-3">
+        <label for="outgoingIngredient" class="form-label">Nombre del Ingrediente</label>
+        <input type="text" class="form-control" id="outgoingIngredient" [value]="outgoing?.ingredient.name" readonly>
+      </div>
+
+      <!-- Campo para la unidad -->
+<div class="form-group mb-3">
+  <label for="outgoingUnit" class="form-label">Unidad</label>
+  <input type="text" class="form-control" id="outgoingUnit" [value]="outgoing?.ingredient.unit" readonly> <!-- Campo para la unidad -->
+</div>
+
+
+      <!-- Campo para la cantidad -->
+      <div class="form-group mb-3">
+        <label for="outgoingQty" class="form-label">Cantidad</label>
+        <input type="text" class="form-control" id="outgoingQty" [value]="outgoing?.qty" readonly>
+      </div>
+
+      <!-- Campo para la fecha de expiración -->
+      <div class="form-group mb-3">
+        <label for="outgoingExpirationDate" class="form-label">Fecha de Expiración</label>
+        <input type="text" class="form-control" id="outgoingExpirationDate" [value]="outgoing?.expirationDate | date:'short'" readonly>
+      </div>
+
+      <!-- Campo para el usuario que registra -->
+      <div class="form-group mb-3">
+        <label for="outgoingRecordUser" class="form-label">Usuario que Registra</label>
+        <input type="text" class="form-control" id="outgoingRecordUser" [value]="outgoing?.recordUser" readonly>
+      </div>
+
+      <!-- Botón de cierre centrado -->
+      <div class="text-center">
+        <button type="button" class="btn btn-primary" routerLink="/outgoings">Cerrar</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

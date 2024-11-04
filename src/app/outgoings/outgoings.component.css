@@ -1,0 +1,329 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  color: #000;
+  min-height: 100vh;
+  background-color: rgb(45, 49, 66);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar {
+  width: 250px; /* Ancho del sidebar */
+  height: 100vh;
+  background: rgba(191, 192, 192, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  margin-left: 250px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: rgb(45, 49, 66);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.wrapper .header .title {
+  display: flex;
+  justify-content: center; /* Centrar el contenido horizontalmente */
+  align-items: center; /* Centrar el contenido verticalmente */
+  width: 100%; /* Asegurar que ocupe todo el ancho disponible */
+}
+
+
+.main-content {
+  width: fit-content;
+  max-width: 1200px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+
+  margin: 20px auto; /* Cambiado para centrar */
+}
+
+.table-responsive {
+  width: auto; /* Reducido ligeramente del 100% */
+  overflow-x: auto;
+  margin: 0 auto; /* Centrar la tabla */
+  padding: 0 20px; /* Añadir padding en ambos lados */
+}
+
+.category-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto; /* Centrar la tabla */
+  max-width: 1100px; /* Ajustar según necesidad */
+  align-items: center;
+}
+
+.category-table th,
+.category-table td {
+  padding: 0.25rem; /* Reducir el padding para que las celdas tengan menos ancho */
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  word-wrap: break-word;
+  align-items: center;
+}
+
+.category-table th {
+  align-items: center;
+  background-color: rgb(30, 30, 31);
+  color: #fff;
+}
+
+.wrapper {
+  /* ... propiedades existentes ... */
+  padding: 20px 40px; /* Aumentar el padding lateral */
+}
+
+.main-content {
+  /* ... propiedades existentes ... */
+  padding: 20px 30px; /* Aumentar el padding lateral */
+}
+
+/* Responsive Sidebar */
+@media (max-width: 2500px) {
+  .sidebar {
+    width: auto;
+  }
+
+  .wrapper {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+  }
+
+  .main-content {
+    max-width: 2000px; /* Ajusta el ancho máximo para pantallas grandes */
+  }
+
+  .category-table {
+    max-width: 1800px; /* Ajusta el ancho máximo de la tabla para pantallas grandes */
+  }
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .wrapper {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+  }
+
+  .main-content {
+    max-width: 1000px; /* Ajusta el ancho máximo para pantallas medianas */
+  }
+
+  .category-table {
+    max-width: 900px; /* Ajusta el ancho máximo de la tabla para pantallas medianas */
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    width: 150px;
+  }
+
+  .wrapper {
+    margin-left: 150px;
+    width: calc(100% - 150px);
+  }
+
+  .main-content {
+    max-width: 800px; /* Ajusta el ancho máximo para pantallas más pequeñas */
+  }
+
+  .category-table {
+    max-width: 700px; /* Ajusta el ancho máximo de la tabla para pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 120px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+  }
+
+  .wrapper {
+    margin-left: 120px;
+    width: calc(100% - 120px);
+  }
+
+  .main-content {
+    max-width: 700px; /* Ajusta el ancho máximo para pantallas pequeñas */
+  }
+
+  .category-table {
+    max-width: 650px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
+    font-size: 12px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
+    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
+  }
+
+  .category-table th {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+  }
+
+  .wrapper {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+  }
+
+  .main-content {
+    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
+  }
+
+  .category-table {
+    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
+    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
+    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
+  }
+
+  .category-table th {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 5px; /* Reduce aún más el padding para pantallas muy pequeñas */
+  }
+
+  .category-table th,
+  .category-table td {
+    padding: 10px; /* Reduce el padding de las celdas para pantallas muy pequeñas */
+  }
+
+  .search-input {
+    width: 100%; /* Ajusta el ancho del campo de búsqueda para pantallas muy pequeñas */
+  }
+}
+
+@media (max-width: 888px) {
+  .sidebar {
+    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+  }
+
+  .wrapper {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+  }
+
+  .main-content {
+    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
+  }
+
+  .category-table {
+    word-wrap: break-word;
+    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
+    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
+    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
+  }
+
+  .category-table th {
+    word-wrap: break-word;
+    width: fit-content;
+  }
+}
+
+@media (max-width: 280px) {
+  .sidebar {
+    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+  }
+
+  .wrapper {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+  }
+
+  .main-content {
+    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
+  }
+
+  .category-table {
+    word-wrap: break-word;
+    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
+    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
+    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
+  }
+
+  .category-table th {
+    word-wrap: break-word;
+    width: fit-content;
+  }
+}
+
+/* ----------Action buttons ---------------*/
+.btn-visualize {
+  color: rgb(245, 187, 0);
+  background-color: rgb(236, 159, 5, 0.3);
+  border: solid 3px rgb(254, 153, 32);
+  border: none;
+}
+
+.btn-update {
+  background-color: rgb(133, 255, 158, 0.3);
+  color: #36cb7c;
+  border: none;
+}
+
+.btn-delete {
+  background-color: rgb(221, 13, 30, 0.3);
+  color: #dd0d1e;
+  border: none;
+}
+
+
+.actions {
+  display: flex;
+  justify-content: center; /* Centrar los elementos */
+  gap: 2rem; /* Reducir el espacio entre los elementos */
+}
+
+#dropdownMenuButton {
+  justify-content: flex-end;
+  background-color: #198754; /* Mismo color verde del botón agregar */
+  border-color: #28a745; /* Borde igual */
+  color: white; /* Color del texto blanco */
+  padding: 10px 20px; /* Asegúrate de que el tamaño del botón sea similar */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente igual */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#dropdownMenuButton:hover {
+  background-color: #157347; /* Cambia el color al pasar el mouse (hover) */
+  border-color: #1e7e34;
+}
+
+/* Estilo para el campo de búsqueda */
+.search-input {
+  width: 800px;
+  padding: 10px;
+  margin-right: 10px;
+  margin-left: 60px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}

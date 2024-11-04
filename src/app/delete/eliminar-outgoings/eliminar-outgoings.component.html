@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eliminar Salida</title>
+</head>
+<body>
+
+<div class="wrapper">
+  <form (ngSubmit)="eliminarOutgoing()">
+    <h1 class="text-center">Eliminar Salida</h1>
+    <div class="form-group mb-3">
+      <label for="nombreInput" class="form-label">Nombre de la salida</label>
+      <input type="text" class="form-control" id="nombreInput" name="nombre" [value]="outgoing?.id" readonly>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn-delete">Eliminar</button>
+      <button type="button" class="btn-cancel" routerLink="/outgoing">Cancelar</button>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

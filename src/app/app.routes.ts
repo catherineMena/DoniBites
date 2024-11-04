@@ -39,6 +39,23 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { IncomingStockComponent } from './incoming-stock/incoming-stock.component';
 import { ReadIncomingStockComponent } from './read/read-incoming-stock/read-incoming-stock.component';
 import { AddIncomingStockComponent } from './Add/add-incoming-stock/add-incoming-stock.component';
+import { AddIngredientComponent } from './Add/add-ingredient/add-ingredient.component';
+import { ReadIngredientComponent } from './read/read-ingredient/read-ingredient.component';
+import { UpdateIngredientComponent } from './update/update-ingredient/update-ingredient.component';
+import { DeleteIngredientComponent } from './delete/delete-ingredient/delete-ingredient.component';
+import { EliminarFacturaComponent } from './delete/eliminar-factura/eliminar-factura.component';
+
+import { EliminarPedidoComponent } from './delete/eliminar-pedidos/eliminar-pedidos.component';
+
+// import { AgregarOutgoingComponent } from './Add/agregar-outgoing/agregar-outgoing.component';
+import { OutgoingsComponent } from './outgoings/outgoings.component';
+import { AgregarOutgoingComponent } from './Add/agregar-outgoings/agregar-outgoings.component';
+import { VisualizarOutgoingsComponent } from './read/visualizar-outgoings/visualizar-outgoings.component';
+import { ActualizarOutgoingsComponent } from './update/actualizar-outgoings/actualizar-outgoings.component';
+import { EliminarOutgoingsComponent } from './delete/eliminar-outgoings/eliminar-outgoings.component';
+// import { VisualizarOutgoingsComponent } from './read/visualizar-outgoings/visualizar-outgoings.component';
+// import { ActualizarOutgoingsComponent } from './update/actualizar-outgoings/actualizar-outgoings.component';
+// import { EliminarOutgoingsComponent } from './delete/eliminar-outgoings/eliminar-outgoings.component';
 
 
  export const appRoutes: Routes = [
@@ -110,24 +127,36 @@ import { AddIncomingStockComponent } from './Add/add-incoming-stock/add-incoming
   { path: 'agregar-factura', component: AgregarFacturaComponent },
   { path: 'visualizar-factura', component: VisualizarFacturaComponent },
   { path: 'actualizar-factura', component: ActualizarFacturaComponent },
-  // { path: 'eliminar-factura', component: EliminarFacturaComponent },
   { path: 'visualizar-factura/:id', component: VisualizarFacturaComponent },
   { path: 'actualizar-factura/:id', component: ActualizarFacturaComponent },
-  // { path: 'eliminar-factura/:id', component: EliminarFacturaComponent },
+  {path: 'eliminar-factura/:id', component: EliminarFacturaComponent},
 
 ///////////////////////////////////////////////////////////////////////////
 
   {path: 'ingredient', component: IngredientesComponent},
-  {path:'add-ingredient', component: AgregarProductoComponent},
-  {path:'view-ingredient/:id', component: VisualizarProductoComponent},
-  {path:'update-ingredient/:id', component: ActualizarProductoComponent},
-  {path:'delete-ingredient/:id', component: EliminarProductoComponent},
+  {path:'add-ingredient', component: AddIngredientComponent},
+  {path:'view-ingredient/:id', component: ReadIngredientComponent},
+  {path:'update-ingredient/:id', component: UpdateIngredientComponent},
+  {path:'delete-ingredient/:id', component: DeleteIngredientComponent
+
+  },
 /////////////////////////////////////////////////////////////////////////////
 
 {path:'incoming-stock', component: IncomingStockComponent},
 {path:'view-stock/:id',component:ReadIncomingStockComponent},
 {path:'add-stock',component:AddIncomingStockComponent},
 ///////////////////////////////////////////////////////////////////
+{ path: 'outgoings', component: OutgoingsComponent },
+{ path: 'agregar-outgoing', component: AgregarOutgoingComponent },
+{ path: 'visualizar-outgoings', component: VisualizarOutgoingsComponent},
+{ path: 'actualizar-outgoings', component: ActualizarOutgoingsComponent },
+{ path: 'eliminar-outgoings/:id', component: EliminarOutgoingsComponent },
+{ path: 'visualizar-outgoings/:id', component: VisualizarOutgoingsComponent },
+{ path: 'actualizar-outgoings/:id', component: ActualizarOutgoingsComponent },
+///////////////////////////////////////////////////////////////////
+
+
+
 { path: 'login', component: LoginComponent },
 { path: 'dashboard', component: MenuComponent },
 { path: 'recuperar-pwd', component: RecuperarPwdComponent },

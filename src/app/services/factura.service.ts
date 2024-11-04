@@ -35,4 +35,10 @@ export class FacturaService {
   deactivateFacturaById(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/delete/${id}`);
   }
+
+
+
+  deleteFactura(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
+  }
 }

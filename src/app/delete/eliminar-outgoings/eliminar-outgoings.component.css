@@ -1,0 +1,76 @@
+/* Fondo con gradiente y configuración básica para el cuerpo */
+body {
+  background: rgb(45, 49, 66); /* Fondo con gradiente */
+  margin: 0; /* Eliminar márgenes predeterminados */
+  display: flex; /* Usar Flexbox para centrar */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  min-height: 100vh; /* Establecer una altura mínima del 100% del viewport */
+  overflow: hidden; /* Ocultar el desbordamiento vertical */
+  font-family: Arial, sans-serif; /* Fuente del texto */
+}
+
+/* Estilos para el título */
+h1 {
+  font-size: 2em; /* Tamaño del texto */
+  margin-bottom: 2rem;
+  text-align: center; /* Alineación del texto */
+  color: #000; /* Color del texto */
+  font-family: 'Arial', sans-serif; /* Fuente del texto */
+}
+
+/* Contenedor principal centrado */
+.wrapper {
+  max-width: 600px; /* or 80% */
+  min-height: 400px; /* new property */
+  margin: 0 auto;
+  padding: 40px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+.form-label {
+  font-size: 1.2em; /* increase font size */
+  font-weight: bold;
+}
+
+input {
+  font-size: 1.2em; /* increase font size */
+  padding: 1.5rem; /* increase padding */
+  height: 4rem; /* increase height */
+}
+
+
+/* Estilo para el botón */
+.btn-delete {
+  background-color: rgb(5, 178, 220);
+  color: #fff;
+  border: none;
+  font-size: 130%; /* Tamaño del texto */
+  padding: 0.7rem 1.5rem; /* Espaciado interno */
+  border: none; /* Eliminar borde por defecto */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor tipo puntero */
+}
+
+button:hover {
+  background-color: rgb(5, 178, 220, 0.5); /* Cambio de color al pasar el ratón */
+}
+
+.btn-cancel{
+  font-size: 1.2em; /* Aumentar tamaño de la fuente */
+  padding: 1rem 2rem; /* Aumentar espaciado interno */
+  padding: 0.7rem 1.5rem;
+  background-color: #DD0D1E;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer; /* Cursor tipo puntero */
+
+
+}
+
+.btn-cancel:hover{
+
+  background-color: rgb(221, 13, 30, 0.3);
+  color: #DD0D1E;
+}
