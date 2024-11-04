@@ -14,11 +14,13 @@
 </head>
 <body>
  <!-------NAVIGATION-->
+ <app-navbar></app-navbar>
   <app-sidebar></app-sidebar>
 
   <!-----------Table----------------->
 
   <div class="wrapper">
+    <div class="main-content">
     <div class="header">
       <div class="title">
         <h1>Tabla de Inventario</h1>
@@ -79,6 +81,7 @@
     <a [routerLink]="['/add-stock']" class="btn btn-primary btn-add" title="Agregar entrada ">Agregar entrada
       <i class="fa-solid fa-plus"></i>
     </a>
+  </div>
   </div>
 </body>
 </html>

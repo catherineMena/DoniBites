@@ -10,17 +10,12 @@
   <link rel="stylesheet" href="usuario.component.css">
 </head>
 <body>
-  <nav id="navbar" class="navbar-bg">
-    <div class="container">
-      <a href="/menu" class="link"><span class="text">Home</span></a>
-      <a href="/usuario" class="link"><span class="text">Usuarios</span></a>
-      <a href="/categoria" class="link"><span class="text">Categorias</span></a>
-      <a href="/producto" class="link"><span class="text">Productos</span></a>
-      <a href="/proveedores" class="link"><span class="text">Proveedores</span></a>
-    </div>
-  </nav>
-
+ <app-navbar></app-navbar>
+ <app-sidebar></app-sidebar>
   <div class="wrapper">
+
+    <div class="main-content">
+
     <div class="back-btn-container">
       <button class="btn back-btn" routerLink="/menu">Regresar</button>
     </div>
@@ -78,6 +73,7 @@
         </tr>
       </tbody>
     </table>
+  </div>
   </div>
 </body>
 </html>

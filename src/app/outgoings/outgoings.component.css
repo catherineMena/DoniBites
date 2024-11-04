@@ -62,7 +62,7 @@ body {
   padding: 0 20px; /* Añadir padding en ambos lados */
 }
 
-.category-table {
+.outgoings-table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px auto; /* Centrar la tabla */
@@ -70,8 +70,8 @@ body {
   align-items: center;
 }
 
-.category-table th,
-.category-table td {
+.outgoings-table th,
+.outgoings-table td {
   padding: 0.25rem; /* Reducir el padding para que las celdas tengan menos ancho */
   border-bottom: 1px solid #ddd;
   text-align: center;
@@ -79,7 +79,7 @@ body {
   align-items: center;
 }
 
-.category-table th {
+.outgoings-table th {
   align-items: center;
   background-color: rgb(30, 30, 31);
   color: #fff;
@@ -110,7 +110,7 @@ body {
     max-width: 2000px; /* Ajusta el ancho máximo para pantallas grandes */
   }
 
-  .category-table {
+  .outgoings-table {
     max-width: 1800px; /* Ajusta el ancho máximo de la tabla para pantallas grandes */
   }
 }
@@ -129,7 +129,7 @@ body {
     max-width: 1000px; /* Ajusta el ancho máximo para pantallas medianas */
   }
 
-  .category-table {
+  .outgoings-table {
     max-width: 900px; /* Ajusta el ancho máximo de la tabla para pantallas medianas */
   }
 }
@@ -148,7 +148,7 @@ body {
     max-width: 800px; /* Ajusta el ancho máximo para pantallas más pequeñas */
   }
 
-  .category-table {
+  .outgoings-table {
     max-width: 700px; /* Ajusta el ancho máximo de la tabla para pantallas más pequeñas */
   }
 }
@@ -167,13 +167,13 @@ body {
     max-width: 700px; /* Ajusta el ancho máximo para pantallas pequeñas */
   }
 
-  .category-table {
+  .outgoings-table {
     max-width: 650px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
     font-size: 12px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
     padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
   }
 
-  .category-table th {
+  .outgoings-table th {
     width: fit-content;
   }
 }
@@ -192,13 +192,13 @@ body {
     max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
   }
 
-  .category-table {
+  .outgoings-table {
     max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
     font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
     padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
   }
 
-  .category-table th {
+  .outgoings-table th {
     width: fit-content;
   }
 }
@@ -208,8 +208,8 @@ body {
     padding: 5px; /* Reduce aún más el padding para pantallas muy pequeñas */
   }
 
-  .category-table th,
-  .category-table td {
+  .outgoings-table th,
+  .outgoings-table td {
     padding: 10px; /* Reduce el padding de las celdas para pantallas muy pequeñas */
   }
 
@@ -232,14 +232,14 @@ body {
     max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
   }
 
-  .category-table {
+  .outgoings-table {
     word-wrap: break-word;
     max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
     font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
     padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
   }
 
-  .category-table th {
+  .outgoings-table th {
     word-wrap: break-word;
     width: fit-content;
   }
@@ -259,14 +259,14 @@ body {
     max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
   }
 
-  .category-table {
+  .outgoings-table {
     word-wrap: break-word;
     max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
     font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
     padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
   }
 
-  .category-table th {
+  .outgoings-table th {
     word-wrap: break-word;
     width: fit-content;
   }

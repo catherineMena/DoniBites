@@ -1,454 +1,329 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   color: #000;
-  height: 100%;
+  min-height: 100vh;
+  background-color: rgb(45, 49, 66);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar {
+  width: 250px; /* Ancho del sidebar */
+  height: 100vh;
+  background: rgba(191, 192, 192, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  margin-left: 250px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 4px;
   background-color: rgb(45, 49, 66);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-
-/* -------------NAVBAR-------------- */
-.navbar {
-  display: flex;
-  justify-content: space-between;
+  box-sizing: border-box;
   align-items: center;
-  padding: 10px 20px;
-  background-color: rgba(145, 142, 244,0.4);
-  /* background: linear-gradient(to bottom, rgba(52, 35, 166, 0.8), rgba(254, 180, 123, 0.8)); */
-
-  backdrop-filter: blur(10px);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
-}
-
-.user-icon {
-  margin-left: auto; /* Asegura que el icono esté al final del navbar */
-  font-size: 24px;
-  color: #fff;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  position: relative;
-}
-
-.user-icon:hover {
-  color: #f0f0f0;
-}
-
-.navbar i {
-  transition: transform 0.3s ease;
-}
-
-.navbar i:hover {
-  transform: scale(1.1);
-}
-/* -------------SIDEBAR------------- */
-
-.sidebar {
-  width: 250px;
-  height: 100vh;
-
-  margin-top: 100px; /* Ajusta el valor según sea necesario */
-
-  background: rgba(191, 192, 192, 0.2); /* Aumenta la transparencia */
-  backdrop-filter: blur(15px); /* Incrementa el desenfoque */
-  -webkit-backdrop-filter: blur(15px); /* Compatibilidad con Safari */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde más sutil */
-  padding: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
+.wrapper .header .title {
   display: flex;
-  flex-direction: column;
-}
-
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.25rem
-}
-
-.sidebar-header .badge {
-  background-color: #000;
-  padding: 5px;
-  border-radius: 4px;
-  margin-left: 5px;
+  justify-content: center; /* Centrar el contenido horizontalmente */
+  align-items: center; /* Centrar el contenido verticalmente */
+  width: 100%; /* Asegurar que ocupe todo el ancho disponible */
 }
 
 
-.sidebar hr {
-  margin: 1rem 0;
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Línea divisoria con transparencia */
-}
-
-.sidebar-menu {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.link {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  text-decoration: none;
-  color: #fff;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.link:hover,
-.link.active {
-  background-color: rgba(145, 142, 244,0.4); /* Fondo semitransparente en hover */
-  color: #fff;
-}
-
-.link .icon {
-  margin-right: 10px;
-}
-
-.link i {
-  margin-right: 10px; /* Espacio entre el icono y el texto */
-}
-.sidebar-footer {
-  display: flex;
-  align-items: center;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Línea divisoria con transparencia */
-}
-
-.sidebar-footer .profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.sidebar-footer .username {
-  color: #fff;
-}
-.sidebar-footer .profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.sidebar-footer .username {
-  color: #cfd8dc;
-}
-
-
-.container {
-  display: flex;
-  justify-content: space-around;
+.main-content {
+  width: fit-content;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-
-.wrapper {
-  max-width: 1000px;
-  margin: 100px auto 50px auto;
   padding: 20px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 100px; /* Espacio para el navbar */
+
+  margin: 20px auto; /* Cambiado para centrar */
 }
 
-.header {
-  text-align: center;
-  color: rgb(21,25,21);
-  padding: 10px 0;
-  font-family: "Raleway", sans-serif;
-
-  font-size: 40px;
-  font-weight: bold;
-  text-shadow: 2px 2px 5px #ffffff;
+.table-responsive {
+  width: auto; /* Reducido ligeramente del 100% */
+  overflow-x: auto;
+  margin: 0 auto; /* Centrar la tabla */
+  padding: 0 20px; /* Añadir padding en ambos lados */
 }
 
-
-
-.actions {
-  display: flex;
-  justify-content: space-between;
-  gap: 5px;
-}
-
-
-/*`---------------Table----------- */
-tbody tr {
-  transition: all 0.9s ease; /* Transición suave al filtrar */
-}
-
-
-.table {
-  width: 80%;
-  padding: 20px;
-  border: 1px solid aliceblue;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-size: 0.8rem;
-  padding-top: 1%;
-  min-height: 400%; /* Ajusta esto según la cantidad de filas esperadas */
-
-}
 .stock-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-tbody tr {
-  height: 50px; /* Define una altura fija para cada fila */
-}
-
-.stock-table tbody {
-  min-height: 200px; /* Define una altura mínima para el cuerpo de la tabla */
-}
-
-th, td {
-  padding: 15px; /* Espaciado uniforme */
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+  margin: 20px auto; /* Centrar la tabla */
+  max-width: 1100px; /* Ajustar según necesidad */
+  align-items: center;
 }
 
 .stock-table th,
 .stock-table td {
-  padding: 25px;
-  padding-bottom: 3%;
+  padding: 0.25rem; /* Reducir el padding para que las celdas tengan menos ancho */
   border-bottom: 1px solid #ddd;
-  min-width: 150%; /* Establecer un ancho mínimo para las celdas */
-
+  text-align: center;
+  word-wrap: break-word;
+  align-items: center;
 }
 
 .stock-table th {
-  background-color: rgb(30,30,31);
+  align-items: center;
+  background-color: rgb(30, 30, 31);
   color: #fff;
-  text-align: center;
 }
 
-
-.stock-table td {
-  background-color: transparent; /* Retain background color */
-  color: #000; /* Ensure text color is black for better contrast */
+.wrapper {
+  /* ... propiedades existentes ... */
+  padding: 20px 40px; /* Aumentar el padding lateral */
 }
 
-.table-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* Alinea los elementos hijos a la derecha */
+.main-content {
+  /* ... propiedades existentes ... */
+  padding: 20px 30px; /* Aumentar el padding lateral */
 }
 
+/* Responsive Sidebar */
+@media (max-width: 2500px) {
+  .sidebar {
+    width: auto;
+  }
+
+  .wrapper {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+  }
+
+  .main-content {
+    max-width: 2000px; /* Ajusta el ancho máximo para pantallas grandes */
+  }
+
+  .stock-table {
+    max-width: 1800px; /* Ajusta el ancho máximo de la tabla para pantallas grandes */
+  }
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .wrapper {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+  }
+
+  .main-content {
+    max-width: 1000px; /* Ajusta el ancho máximo para pantallas medianas */
+  }
+
+  .stock-table {
+    max-width: 900px; /* Ajusta el ancho máximo de la tabla para pantallas medianas */
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    width: 150px;
+  }
+
+  .wrapper {
+    margin-left: 150px;
+    width: calc(100% - 150px);
+  }
+
+  .main-content {
+    max-width: 800px; /* Ajusta el ancho máximo para pantallas más pequeñas */
+  }
+
+  .stock-table {
+    max-width: 700px; /* Ajusta el ancho máximo de la tabla para pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 120px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+  }
+
+  .wrapper {
+    margin-left: 120px;
+    width: calc(100% - 120px);
+  }
+
+  .main-content {
+    max-width: 700px; /* Ajusta el ancho máximo para pantallas pequeñas */
+  }
+
+  .stock-table {
+    max-width: 650px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
+    font-size: 12px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
+    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
+  }
+
+  .stock-table th {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+  }
+
+  .wrapper {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+  }
+
+  .main-content {
+    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
+  }
+
+  .stock-table {
+    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
+    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
+    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
+  }
+
+  .stock-table th {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 5px; /* Reduce aún más el padding para pantallas muy pequeñas */
+  }
+
+  .stock-table th,
+  .stock-table td {
+    padding: 10px; /* Reduce el padding de las celdas para pantallas muy pequeñas */
+  }
+
+  .search-input {
+    width: 100%; /* Ajusta el ancho del campo de búsqueda para pantallas muy pequeñas */
+  }
+}
+
+@media (max-width: 888px) {
+  .sidebar {
+    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+  }
+
+  .wrapper {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+  }
+
+  .main-content {
+    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
+  }
+
+  .stock-table {
+    word-wrap: break-word;
+    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
+    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
+    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
+  }
+
+  .stock-table th {
+    word-wrap: break-word;
+    width: fit-content;
+  }
+}
+
+@media (max-width: 280px) {
+  .sidebar {
+    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+  }
+
+  .wrapper {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+  }
+
+  .main-content {
+    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
+  }
+
+  .stock-table {
+    word-wrap: break-word;
+    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
+    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
+    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
+  }
+
+  .stock-table th {
+    word-wrap: break-word;
+    width: fit-content;
+  }
+}
 
 /* ----------Action buttons ---------------*/
-.btn-visualize{
-  color:rgb(245, 187, 0) ;
-  background-color: rgb(236,159,5,0.3);
-  /* border: solid 3px rgb(254, 153, 32); */
+.btn-visualize {
+  color: rgb(245, 187, 0);
+  background-color: rgb(236, 159, 5, 0.3);
+  border: solid 3px rgb(254, 153, 32);
   border: none;
 }
 
-.btn-visualize:hover{
-  background-color: rgb(236,159,5);
-  color: #fff;
+.btn-update {
+  background-color: rgb(133, 255, 158, 0.3);
+  color: #36cb7c;
   border: none;
 }
 
-.btn-add {
-  width: 14rem;
-  height: 3em;
-  font-size: 1.2rem;
-  background-color: #52C989;
-  color: #fff;
-  border: none;
-  margin-top: 1em;
-  display: block;
-  margin-left: auto;
-  margin-right: 0;
-
-  /* Asegura el centrado del texto */
-  text-align: center;  /* Centra horizontalmente el texto */
-  line-height: 3em;    /* Igual a la altura del botón para centrar verticalmente */
-  padding: 0;          /* Elimina relleno que pueda afectar el centrado */
-}
-
-
-
-.btn-update{
-  background-color: rgb(145, 142, 244, 0.5);
-  color: #fff;
-  border: none ;
-}
-
-.btn-update:hover{
-  background-color: rgb(145, 142, 244);
-  color: #fff;
-  border: none ;
-}
-
-
-.btn-delete{
+.btn-delete {
   background-color: rgb(221, 13, 30, 0.3);
-  color: #DD0D1E;
+  color: #dd0d1e;
   border: none;
 }
 
-.btn-delete:hover{
-  background-color: rgb(221, 13, 30);
-  color: #fff;
-  border: none;
+
+.actions {
+  display: flex;
+  justify-content: center; /* Centrar los elementos */
+  gap: 2rem; /* Reducir el espacio entre los elementos */
 }
 
+#dropdownMenuButton {
+  justify-content: flex-end;
+  background-color: #198754; /* Mismo color verde del botón agregar */
+  border-color: #28a745; /* Borde igual */
+  color: white; /* Color del texto blanco */
+  padding: 10px 20px; /* Asegúrate de que el tamaño del botón sea similar */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente igual */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#dropdownMenuButton:hover {
+  background-color: #157347; /* Cambia el color al pasar el mouse (hover) */
+  border-color: #1e7e34;
+}
 
 /* Estilo para el campo de búsqueda */
 .search-input {
+  width: 800px;
   padding: 10px;
   margin-right: 10px;
+  margin-left: 60px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-}
-
-
-
-
-/* Ajuste de estilos para el contenedor de acciones */
-.actions {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-
-/* Ajuste de estilos para el contenedor de acciones */
-.actions {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-/*----------- RESPONSIVE TABLE-------------- */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 80px; /* Ancho reducido de la sidebar */
-    transition: width 0.3s;
-  }
-
-  .sidebar:hover {
-    width: 250px; /* Ancho expandido de la sidebar al hacer hover */
-  }
-
-  .sidebar-header h3,
-  .link .text {
-    display: none; /* Ocultar el texto en la sidebar */
-  }
-
-  .link i {
-    margin-right: 0; /* Eliminar el margen derecho del icono */
-  }
-
-  .sidebar-footer {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .sidebar-footer .profile-pic {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-}
-
-/*---------------Table----------- */
-tbody tr {
-  transition: all 0.9s ease; /* Transición suave al filtrar */
-}
-
-.table {
-  width: auto;
-  padding: 10%;
-  border: 1px solid aliceblue;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-size: 0.8rem;
-  padding-top: 2%;
-}
-
-.category-table {
-  width: auto;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-.category-table th,
-.category-table td {
-  padding: 15px; /* Ajustar el padding para más espacio entre columnas */
-  padding-bottom: 5px;
-  text-align: justify;
-  border-bottom: 1px solid #ddd;
-  min-width: 150px; /* Establecer un ancho mínimo para las celdas */
-}
-
-.category-table th {
-  background-color: rgb(30, 30, 31);
-  color: #fff;
-  text-align: center; /* Alinear los encabezados al centro */
-}
-
-/*----------- RESPONSIVE SIDEBAR-------------- */
-@media (max-width: 900px) {
-  i {
-    font-size: 14px;
-  }
-
-  .sidebar {
-    width: 80px; /* Ancho reducido de la sidebar */
-  }
-
-  .sidebar-header h3,
-  .link .text {
-    display: none; /* Ocultar el texto en la sidebar */
-  }
-
-  .link i {
-    margin-right: 0; /* Eliminar el margen derecho del icono */
-  }
-
-  .sidebar-footer {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .sidebar-footer .profile-pic {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
 }

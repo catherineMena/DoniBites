@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProveedoresService {
-  apiUrl = 'http://139.177.206.17:8080/minidonas/providers';
+  apiUrl = 'http://139.177.206.17:8080/minidonas/users';
 
   constructor(private http: HttpClient) { }
 

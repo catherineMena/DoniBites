@@ -1,67 +1,79 @@
 /* Fondo con gradiente y configuración básica para el cuerpo */
 body {
-  background:rgb(45, 49, 66); /* Fondo con gradiente */
+  background: rgb(45, 49, 66); /* Fondo con gradiente */
   margin: 0; /* Eliminar márgenes predeterminados */
   display: flex; /* Usar Flexbox para centrar */
   justify-content: center; /* Centrar horizontalmente */
   align-items: center; /* Centrar verticalmente */
   min-height: 100vh; /* Establecer una altura mínima del 100% del viewport */
   overflow: hidden; /* Ocultar el desbordamiento vertical */
-  font-family: 'Raleway', sans-serif; /* Fuente del texto */
+  font-family: Arial, sans-serif; /* Fuente del texto */
 }
 
+/* Estilos para el título */
 h1 {
-  font-size: 1.5em; /* Tamaño del texto */
-  margin-bottom: 2rem; /* Margen inferior */
+  font-size: 2em; /* Tamaño del texto */
+  margin-bottom: 2rem;
   text-align: center; /* Alineación del texto */
-  color: #fff; /* Color del texto */
+  color: #000; /* Color del texto */
+  font-family: 'Arial', sans-serif; /* Fuente del texto */
 }
 
 /* Contenedor principal centrado */
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: rgba(145, 142, 244, 0.12);
+  max-width: 600px; /* or 80% */
+  min-height: 400px; /* new property */
+  margin: 0 auto;
+  padding: 40px;
+  border: 2px solid #ccc;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(20, 20, 20, 0.1);
-  padding: 3%;
-  width: 40%;
-  max-width: 500px; /* Establece un ancho máximo para el contenedor */
+  background-color: #f9f9f9;
 }
-
-/* Estilos para el formulario */
-.form-group {
-  color: #fff; /* Color del texto */
-  font-size: 90%; /* Tamaño del texto */
-  margin-bottom: 1rem; /* Margen inferior */
+.form-label {
+  font-size: 1.2em; /* increase font size */
+  font-weight: bold;
 }
 
 input {
-  width: 25rem; /* Cambiar el ancho de los inputs al 90% del contenedor */
-  height: 2rem; /* Altura del campo de entrada */
-  padding: 0.5rem; /* Espaciado interno */
-  font-size: 90%; /* Tamaño del texto */
-  border-radius: 5px; /* Bordes redondeados */
-  border: 1px solid #ccc; /* Borde sólido */
-  background-color: rgba(255, 255, 255, 0.7); /* Fondo semi-transparente */
-  margin: 0 auto; /* Centramos los inputs */
+  font-size: 1.2em; /* increase font size */
+  padding: 1.5rem; /* increase padding */
+  height: 4rem; /* increase height */
 }
 
-/* Estilo para el botón */
 button {
-  background-color: rgb(133, 255, 158, 0.3);
-border: 1px solid #36CB7C;
-  color: #fff;
-    font-size: 90%; /* Tamaño del texto */
-  padding: 0.7rem 1.5rem; /* Espaciado interno */
+  font-size: 1.2em; /* increase font size */
+  padding: 1rem 2rem; /* increase padding */
+}
+/* Estilo para el botón */
+.btn-add {
+  background-color: rgb(5, 178, 220);
+  color: #FFF;
+  border: none;
+  font-size: 1em; /* Tamaño del texto */
+  padding: 0.8rem 1.5rem;/* Espaciado interno */
   border: none; /* Eliminar borde por defecto */
   border-radius: 5px; /* Bordes redondeados */
   cursor: pointer; /* Cursor tipo puntero */
-  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+  margin-right: 1rem;
+
+}
+
+.btn-add:hover {
+  background-color: rgb(5, 178, 220,0.3); /* Cambio de color al pasar el ratón */
+}
+
+.btn-cancel{
+  background-color: rgb(221, 13, 30);
+  color:#FFF;
+  border: none;
+  font-size: 1em;/* Tamaño del texto */
+  padding: 0.8rem 1.5rem; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
 }
 
 button:hover {
-  background-color: #6d50a4; /* Cambio de color al pasar el ratón */
+  background-color: rgb(221, 13, 30, 0.3);
+  color: #DD0D1E; /* Cambio de color al pasar el ratón */
 }
