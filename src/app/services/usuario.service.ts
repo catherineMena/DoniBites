@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
-  apiUrl = 'http://45.79.199.80:8080/minidonas/users';
+  apiUrl = 'http://139.177.206.17:8080/minidonas/users';
   roles: any[] = [];
 
   constructor(private http: HttpClient) { }

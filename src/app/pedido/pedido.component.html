@@ -19,45 +19,10 @@
     <i class="fas fa-shopping-cart cart-icon" aria-label="Icono de pedido"></i>
   </nav>
 
+
+  <app-navbar></app-navbar>
   <!-- Sidebar -->
-  <div class="sidebar">
-    <div class="sidebar-header">
-      <h3>
-        DoniBites
-        <img src="assets/donut.png" alt="Logo de DoniBites" style="width: 50px; height: 45px; vertical-align: middle; margin-right: 8px;">
-      </h3>
-    </div>
-    <hr>
-    <div class="sidebar-menu">
-      <a href="/menu" class="link" aria-label="Ir a Inicio">
-        <i class="fa-solid fa-house"></i><span class="text">Home</span>
-      </a>
-      <a href="/usuario" class="link" aria-label="Ir a Usuarios">
-        <i class="fa-solid fa-users"></i><span class="text">Usuarios</span>
-      </a>
-      <a href="/categoria" class="link" aria-label="Ir a Categorías">
-        <i class="fa-solid fa-list"></i><span class="text">Categorías</span>
-      </a>
-      <a href="/producto" class="link" aria-label="Ir a Productos">
-        <i class="fas fa-shopping-basket"></i><span class="text">Productos</span>
-      </a>
-      <a href="/ingredientes" class="link" aria-label="Ir a Ingredientes">
-        <i class="fas fa-utensil-spoon"></i><span class="text">Ingredientes</span>
-      </a>
-      <a href="/factura" class="link" aria-label="Ir a Facturas">
-        <i class="fas fa-receipt"></i><span class="text">Facturas</span>
-      </a>
-      <a href="/proveedores" class="link" aria-label="Ir a Proveedores">
-        <i class="fas fa-user-tie"></i><span class="text">Proveedores</span>
-      </a>
-      <a href="/roles" class="link" aria-label="Ir a Roles">
-        <i class="fas fa-user-shield"></i><span class="text">Roles</span>
-      </a>
-      <a href="/pedidos" class="link active" aria-label="Ir a Pedidos">
-        <i class="fas fa-shopping-cart"></i><span class="text">Pedidos</span>
-      </a>
-    </div>
-  </div>
+  <app-sidebar></app-sidebar>
 
   <div class="wrapper">
     <!-- Contenido principal -->
@@ -130,13 +95,13 @@
       </table>
 
       <!-- Botón "Agregar nuevo" en la parte inferior derecha -->
-      <div class="add-pedido text-right">
-        <a [routerLink]="['/agregar-pedido']" class="btn btn-success" title="Agregar nuevo pedido">
-          Agregar nuevo
+
+        <a [routerLink]="['/agregar-pedido']" class="btn btn-primary btn-success" title="Agregar nuevo pedido">
+          Agregar Pedido
+          <i class="fa-solid fa-plus"></i>
         </a>
       </div>
     </div>
-  </div>
 
 </body>
 </html>

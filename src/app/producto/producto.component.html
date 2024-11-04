@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rancho&display=swap">
   <link rel="stylesheet" href="producto.component.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Añadir Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> <!-- Añadir Bootstrap JS -->
 </head>
 <body>
 
@@ -62,16 +66,16 @@
           <td>{{producto.unitPrice}}</td>
           <td>
             <div class="actions">
-              <a [routerLink]="['/visualizar-producto', producto.id]" class="btn-action btn-visualize" title="Visualizar producto">
+              <a [routerLink]="['/visualizar-producto', producto.id]" class="btn btn-primary btn-visualize" title="Visualizar producto">
                 <i class="fas fa-eye"></i>
               </a>
 
-              <a [routerLink]="['/actualizar-producto', producto.id]" class="btn-action " title="Actualizar producto">
+              <a [routerLink]="['/actualizar-producto', producto.id]" class="btn btn-primary btn-update" title="Actualizar producto">
 
                 <i class="fas fa-pencil"></i>
               </a>
 
-              <a [routerLink]="['/eliminar-producto', producto.id]" class="btn-action btn-delete" title="Eliminar producto">
+              <a [routerLink]="['/eliminar-producto', producto.id]" class="btn btn-primary btn-delete" title="Eliminar producto">
                 <i class="fas fa-trash"></i>
               </a>
             </div>
@@ -81,6 +85,7 @@
     </table>
       <a [routerLink]="['/agregar-producto']" class="btn btn-primary btn-success" title="Agregar un nuevo producto">
         Agregar producto
+        <i class="fa-solid fa-plus"></i>
       </a>
     </div>
   </div>

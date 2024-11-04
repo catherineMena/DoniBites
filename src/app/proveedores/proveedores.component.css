@@ -1,18 +1,20 @@
+/* Estilos básicos para la página */
 body {
   padding: 0;
   margin: 0;
-  font-family: "Raleway", sans-serif;
-  color: #000;
+  font-family: "Raleway", sans-serif; /* Fuente principal */
+  color: #000; /* Color de texto principal */
   min-height: 100vh;
-  background-color: rgb(45, 49, 66);
+  background-color: rgb(45, 49, 66); /* Color de fondo de la página */
   display: flex;
   flex-direction: column;
 }
 
+/* Estilos para la barra lateral */
 .sidebar {
-  width: 250px; /* Ancho del sidebar */
+  width: 250px;
   height: 100vh;
-  background: rgba(191, 192, 192, 0.2);
+  background: rgba(191, 192, 192, 0.2); /* Fondo semitransparente */
   position: fixed;
   top: 0;
   left: 0;
@@ -21,80 +23,72 @@ body {
   flex-direction: column;
 }
 
-.wrapper {
-  margin-left: 250px;
+/* Estilos para el encabezado y título */
+.header .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
-margin: auto;
-  padding: 20px;
+/* Estilos para el contenedor principal */
+.wrapper {
+  margin: 0 auto;
+  padding: 0 40px;
   border-radius: 4px;
-  background-color:rgb(45, 49, 66);
+  background-color: rgb(45, 49, 66); /* Fondo del contenedor */
   display: flex;
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  max-width: 1200px; /* Ancho máximo del contenedor */
 }
 
-.wrapper .header .title {
-  display: flex;
-  justify-content: center; /* Centrar el contenido horizontalmente */
-  align-items: center; /* Centrar el contenido verticalmente */
-  width: 100%; /* Asegurar que ocupe todo el ancho disponible */
-}
-
+/* Estilos para el contenido principal */
 .main-content {
-  width: fit-content;
-  max-width: 1200px;
-  padding: 20px;
-  background-color: #fff;
+  width: 100%;
+  padding: 20px 30px;
+  background-color: #fff; /* Fondo blanco */
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Sombra */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 20px auto; /* Cambiado para centrar */
-}
+  margin: 20px auto;
+  margin-top: 110px; /* Espacio superior para evitar choque con el navbar */}
 
+/* Contenedor para tablas con scroll horizontal */
 .table-responsive {
-  width: 90%; /* Reducido ligeramente del 100% */
-  overflow-x: auto;
-  margin: 0 auto; /* Centrar la tabla */
-  padding: 0 20px; /* Añadir padding en ambos lados */
+  width: auto;
+  overflow-x: auto; /* Habilita scroll horizontal */
+  margin: 0 auto;
+  padding: 0 20px;
+  padding-right: 20px;
 }
 
+/* Estilos para la tabla de proveedores */
 .provider-table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px auto; /* Centrar la tabla */
-  max-width: 1100px; /* Ajustar según necesidad */
+  margin: 20px auto;
+  max-width: 1100px; /* Ancho máximo de la tabla */
 }
-
-
 
 .provider-table th,
 .provider-table td {
-  padding: 0.25rem; /* Reducir el padding para que las celdas tengan menos ancho */
-  border-bottom: 1px solid #ddd;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd; /* Línea divisoria */
   text-align: center;
-  word-wrap: break-word;
+  word-wrap: break-word; /* Ajusta texto largo */
 }
 
 .provider-table th {
-  background-color: rgb(30, 30, 31);
-  color: #fff;
+  background-color: rgb(30, 30, 31); /* Fondo de encabezado */
+  color: #fff; /* Color de texto en el encabezado */
 }
 
+/* ----------Estilos responsivos para adaptarse a pantallas de distintos tamaños----------- */
 
-.wrapper {
-  /* ... propiedades existentes ... */
-  padding: 20px 40px; /* Aumentar el padding lateral */
-}
-
-.main-content {
-  /* ... propiedades existentes ... */
-  padding: 20px 30px; /* Aumentar el padding lateral */
-}
-
-/* Responsive Sidebar */
+/* Para pantallas de hasta 2500px de ancho */
 @media (max-width: 2500px) {
   .sidebar {
     width: auto;
@@ -106,14 +100,15 @@ margin: auto;
   }
 
   .main-content {
-    max-width: 2000px; /* Ajusta el ancho máximo para pantallas grandes */
+    max-width: 2000px;
   }
 
   .provider-table {
-    max-width: 1800px; /* Ajusta el ancho máximo de la tabla para pantallas grandes */
+    max-width: 1800px;
   }
 }
 
+/* Para pantallas de hasta 1200px de ancho */
 @media (max-width: 1200px) {
   .sidebar {
     width: 200px;
@@ -125,14 +120,15 @@ margin: auto;
   }
 
   .main-content {
-    max-width: 1000px; /* Ajusta el ancho máximo para pantallas medianas */
+    max-width: 1000px;
   }
 
   .provider-table {
-    max-width: 900px; /* Ajusta el ancho máximo de la tabla para pantallas medianas */
+    max-width: 900px;
   }
 }
 
+/* Para pantallas de hasta 992px de ancho */
 @media (max-width: 992px) {
   .sidebar {
     width: 150px;
@@ -144,17 +140,18 @@ margin: auto;
   }
 
   .main-content {
-    max-width: 800px; /* Ajusta el ancho máximo para pantallas más pequeñas */
+    max-width: 800px;
   }
 
   .provider-table {
-    max-width: 700px; /* Ajusta el ancho máximo de la tabla para pantallas más pequeñas */
+    max-width: 700px;
   }
 }
 
+/* Para pantallas de hasta 768px de ancho */
 @media (max-width: 768px) {
   .sidebar {
-    width: 120px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+    width: 120px;
   }
 
   .wrapper {
@@ -163,23 +160,20 @@ margin: auto;
   }
 
   .main-content {
-    max-width: 700px; /* Ajusta el ancho máximo para pantallas pequeñas */
+    max-width: 700px;
   }
 
   .provider-table {
-    max-width: 650px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
-    font-size: 12px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
-    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
-  }
-
-  .provider-table th {
-    width: fit-content;
+    max-width: 650px;
+    font-size: 12px; /* Reduce tamaño de fuente */
+    padding: 0.5rem;
   }
 }
 
+/* Para pantallas de hasta 600px de ancho */
 @media (max-width: 600px) {
   .sidebar {
-    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+    width: 100px;
   }
 
   .wrapper {
@@ -188,140 +182,93 @@ margin: auto;
   }
 
   .main-content {
-    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
+    max-width: 600px;
   }
 
   .provider-table {
-    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
-    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
-    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
-  }
-
-  .provider-table th {
-    width: fit-content;
+    max-width: 600px;
+    font-size: 10px; /* Reduce tamaño de fuente */
+    padding: 0.5rem;
   }
 }
 
+/* Para pantallas de hasta 480px de ancho */
 @media (max-width: 480px) {
   .main-content {
-    padding: 5px; /* Reduce aún más el padding para pantallas muy pequeñas */
+    padding: 5px;
   }
 
   .provider-table th,
   .provider-table td {
-    padding: 10px; /* Reduce el padding de las celdas para pantallas muy pequeñas */
+    padding: 10px;
   }
 
   .search-input {
-    width: 100%; /* Ajusta el ancho del campo de búsqueda para pantallas muy pequeñas */
+    width: 100%;
   }
 }
 
-@media (max-width: 888px) {
-  .sidebar {
-    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
-  }
-
-  .wrapper {
-    margin-left: 100px;
-    width: calc(100% - 100px);
-  }
-
-  .main-content {
-    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
-  }
-
-  .provider-table {
-    word-wrap: break-word;
-    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
-    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
-    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
-  }
-
-  .provider-table th {
-    word-wrap: break-word;
-    width: fit-content;
-  }
-}
-
-@media (max-width: 280px) {
-  .sidebar {
-    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
-  }
-
-  .wrapper {
-    margin-left: 100px;
-    width: calc(100% - 100px);
-  }
-
-  .main-content {
-    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
-  }
-
-  .provider-table {
-    word-wrap: break-word;
-    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
-    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
-    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
-  }
-
-  .provider-table th {
-    word-wrap: break-word;
-    width: fit-content;
-  }
-}
-
-/* ----------Action buttons ---------------*/
+/* ----------Estilos para los botones de acción en la tabla----------- */
 .btn-visualize {
   color: rgb(245, 187, 0);
-  background-color: rgb(236, 159, 5, 0.3);
-  border: solid 3px rgb(254, 153, 32);
+  background-color: rgba(236, 159, 5, 0.3);
   border: none;
 }
 
 .btn-update {
-  background-color: rgb(133, 255, 158, 0.3);
-  color: #36CB7C;
+  background-color: rgba(133, 255, 158, 0.3);
+  color: #36cb7c;
   border: none;
 }
 
 .btn-delete {
-  background-color: rgb(221, 13, 30, 0.3);
-  color: #DD0D1E;
+  background-color: rgba(221, 13, 30, 0.3);
+  color: #dd0d1e;
   border: none;
 }
 
 .actions {
   display: flex;
-  justify-content: center; /* Centrar los elementos */
-  gap: 2rem; /* Reducir el espacio entre los elementos */
+  justify-content: center;
+  gap: 0.5rem; /* Reducir el espacio entre los elementos */
 }
 
+/* Estilos para el botón de menú desplegable */
 #dropdownMenuButton {
-  justify-content: flex-end;
-  background-color: #198754; /* Mismo color verde del botón agregar */
-  border-color: #28a745; /* Borde igual */
-  color: white; /* Color del texto blanco */
-  padding: 10px 20px; /* Asegúrate de que el tamaño del botón sea similar */
-  border-radius: 5px; /* Bordes redondeados */
-  font-size: 16px; /* Tamaño de fuente igual */
+  background-color: #198754;
+  border-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
 #dropdownMenuButton:hover {
-  background-color: #157347; /* Cambia el color al pasar el mouse (hover) */
+  background-color: #157347;
   border-color: #1e7e34;
 }
 
-/* Estilo para el campo de búsqueda */
+/* Estilos para el campo de entrada de búsqueda */
 .search-input {
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   padding: 10px;
-  margin-right: 10px;
-  margin-left: 60px;
+  margin: 0 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+}
+
+/* Estilos para el botón de éxito */
+.btn-success {
+  background-color: rgb(0, 108, 231);
+  color: #ffffff;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: rgb(1, 173, 150); /* Color de fondo al pasar el mouse */
 }

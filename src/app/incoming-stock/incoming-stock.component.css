@@ -21,38 +21,35 @@ body {
   flex-direction: column;
 }
 
-.wrapper {
-  margin-left: 250px;
-  margin: auto;
-  padding: 20px;
-  border-radius: 4px;
-  background-color: rgb(45, 49, 66);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  align-items: center;
-}
-
-.wrapper .header .title {
+.header .title {
   display: flex;
   justify-content: center; /* Centrar el contenido horizontalmente */
   align-items: center; /* Centrar el contenido verticalmente */
   width: 100%; /* Asegurar que ocupe todo el ancho disponible */
 }
 
+.wrapper {
+  margin: 0 auto; /* Centrar el wrapper */
+  padding: 0 40px; /* Aumentar el padding lateral */
+  border-radius: 4px;
+  background-color: rgb(45, 49, 66);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrar los elementos en el eje horizontal */
+  box-sizing: border-box;
+  max-width: 1200px; /* Limitar el ancho máximo del wrapper */
+}
 
 .main-content {
-  width: fit-content;
-  max-width: 1200px;
-  padding: 20px;
+  width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+  padding: 20px 30px; /* Aumentar el padding lateral */
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-
-  margin: 20px auto; /* Cambiado para centrar */
+  margin: 20px auto; /* Centrar verticalmente */
+  margin-top: 110px; /* Espacio superior para evitar choque con el navbar */
 }
 
 .table-responsive {
@@ -60,6 +57,7 @@ body {
   overflow-x: auto;
   margin: 0 auto; /* Centrar la tabla */
   padding: 0 20px; /* Añadir padding en ambos lados */
+  padding-right: 20px; /* Agregar espacio a la derecha */
 }
 
 .stock-table {
@@ -67,32 +65,19 @@ body {
   border-collapse: collapse;
   margin: 20px auto; /* Centrar la tabla */
   max-width: 1100px; /* Ajustar según necesidad */
-  align-items: center;
 }
 
 .stock-table th,
 .stock-table td {
-  padding: 0.25rem; /* Reducir el padding para que las celdas tengan menos ancho */
+  padding: 0.5rem; /* Reducir el padding para que las celdas tengan menos ancho */
   border-bottom: 1px solid #ddd;
   text-align: center;
   word-wrap: break-word;
-  align-items: center;
 }
 
 .stock-table th {
-  align-items: center;
   background-color: rgb(30, 30, 31);
   color: #fff;
-}
-
-.wrapper {
-  /* ... propiedades existentes ... */
-  padding: 20px 40px; /* Aumentar el padding lateral */
-}
-
-.main-content {
-  /* ... propiedades existentes ... */
-  padding: 20px 30px; /* Aumentar el padding lateral */
 }
 
 /* Responsive Sidebar */
@@ -172,10 +157,6 @@ body {
     font-size: 12px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
     padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
   }
-
-  .stock-table th {
-    width: fit-content;
-  }
 }
 
 @media (max-width: 600px) {
@@ -197,10 +178,6 @@ body {
     font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
     padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
   }
-
-  .stock-table th {
-    width: fit-content;
-  }
 }
 
 @media (max-width: 480px) {
@@ -218,112 +195,65 @@ body {
   }
 }
 
-@media (max-width: 888px) {
-  .sidebar {
-    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
-  }
-
-  .wrapper {
-    margin-left: 100px;
-    width: calc(100% - 100px);
-  }
-
-  .main-content {
-    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
-  }
-
-  .stock-table {
-    word-wrap: break-word;
-    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
-    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
-    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
-  }
-
-  .stock-table th {
-    word-wrap: break-word;
-    width: fit-content;
-  }
-}
-
-@media (max-width: 280px) {
-  .sidebar {
-    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
-  }
-
-  .wrapper {
-    margin-left: 100px;
-    width: calc(100% - 100px);
-  }
-
-  .main-content {
-    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
-  }
-
-  .stock-table {
-    word-wrap: break-word;
-    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
-    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
-    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
-  }
-
-  .stock-table th {
-    word-wrap: break-word;
-    width: fit-content;
-  }
-}
-
-/* ----------Action buttons ---------------*/
+/* ---------- Botones de acción --------------- */
 .btn-visualize {
   color: rgb(245, 187, 0);
-  background-color: rgb(236, 159, 5, 0.3);
+  background-color: rgba(236, 159, 5, 0.3);
   border: solid 3px rgb(254, 153, 32);
   border: none;
 }
 
 .btn-update {
-  background-color: rgb(133, 255, 158, 0.3);
+  background-color: rgba(133, 255, 158, 0.3);
   color: #36cb7c;
   border: none;
 }
 
 .btn-delete {
-  background-color: rgb(221, 13, 30, 0.3);
+  background-color: rgba(221, 13, 30, 0.3);
   color: #dd0d1e;
   border: none;
 }
 
-
 .actions {
   display: flex;
   justify-content: center; /* Centrar los elementos */
-  gap: 2rem; /* Reducir el espacio entre los elementos */
+  gap: 0.5rem; /* Reducir el espacio entre los elementos */
 }
 
 #dropdownMenuButton {
-  justify-content: flex-end;
-  background-color: #198754; /* Mismo color verde del botón agregar */
-  border-color: #28a745; /* Borde igual */
-  color: white; /* Color del texto blanco */
-  padding: 10px 20px; /* Asegúrate de que el tamaño del botón sea similar */
-  border-radius: 5px; /* Bordes redondeados */
-  font-size: 16px; /* Tamaño de fuente igual */
+  background-color: #198754;
+  border-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
 #dropdownMenuButton:hover {
-  background-color: #157347; /* Cambia el color al pasar el mouse (hover) */
+  background-color: #157347;
   border-color: #1e7e34;
 }
 
-/* Estilo para el campo de búsqueda */
 .search-input {
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   padding: 10px;
-  margin-right: 10px;
-  margin-left: 60px;
+  margin: 0 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+}
+
+.btn-success {
+  background-color: rgb(0, 108, 231); /* Color de fondo */
+  color: #ffffff; /* Color del texto */
+  border: none; /* Sin borde */
+}
+
+.btn-success:hover {
+  background-color: rgb(1, 173, 150); /* Color de fondo al pasar el mouse */
 }
