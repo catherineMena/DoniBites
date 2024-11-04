@@ -37,6 +37,11 @@ export class CategoriaService {
     return this.http.get(`${this.apiUrl}/delete/${id}`);
   }
 
+
+  eliminarCategoria(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
+  }
+
   getCategoriasByEstado(estado: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}?estado=${estado}`);
   }

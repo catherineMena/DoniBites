@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriaService } from '../../services/categoria.service';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 
 @Component({
   selector: 'app-actualizar-categoria',
@@ -27,7 +29,13 @@ export class ActualizarCategoriaComponent implements OnInit {
 
   actualizarCategoria(): void {
     if (this.categoria.trim() === '') {
-      alert('Por favor, completa el nombre de la categoría.');
+      Toastify({
+        text: "Por favor, completa el nombre de la categoría.",
+        duration: 3000,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        backgroundColor: "#ff5f6d",
+      }).showToast();
       return;
     }
 
@@ -39,11 +47,24 @@ export class ActualizarCategoriaComponent implements OnInit {
     this.categoriaService.actualizarCategoria(this.id, categoriaActualizada).subscribe(
       (response: any) => {
         console.log('Categoría actualizada con éxito:', response);
+        Toastify({
+          text: "Categoría actualizada con éxito",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "center", // `left`, `center` or `right`
+          backgroundColor: "#36CB7C",
+        }).showToast();
         this.router.navigate(['/categoria']);
       },
       (error: any) => {
         console.error('Error al actualizar la categoría:', error);
-        alert('Error al actualizar la categoría. Por favor, inténtalo de nuevo.');
+        Toastify({
+          text: "Error al actualizar la categoría. Por favor, inténtalo de nuevo.",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "center", // `left`, `center` or `right`
+          backgroundColor: "#ff5f6d",
+        }).showToast();
       }
     );
   }

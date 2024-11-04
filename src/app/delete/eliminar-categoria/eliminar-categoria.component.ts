@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriaService } from '../../services/categoria.service';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 
 @Component({
   selector: 'app-eliminar-categoria',
@@ -26,14 +28,27 @@ export class EliminarCategoriaComponent implements OnInit {
   }
 
   desactivarCategoria(): void {
-    this.categoriaService.desactivarCategoria(this.id).subscribe(
+    this.categoriaService.eliminarCategoria(this.id).subscribe(
       () => {
-        console.log('Categoría desactivada con éxito');
+        console.log('Categoría eliminada con éxito');
+        Toastify({
+          text: "Categoría eliminada con éxito",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "center", // `left`, `center` or `right`
+          backgroundColor: "#36CB7C",
+        }).showToast();
         this.router.navigate(['/categoria']); // Redirige a la lista de categorías u otra página según tu flujo
       },
       (error: any) => {
-        console.error('Error al desactivar la categoría:', error);
-        alert('Error al desactivar la categoría. Por favor, inténtalo de nuevo.');
+        console.error('Error al eliminar la categoría:', error);
+        Toastify({
+          text: "Error al eliminar la categoría. Por favor, inténtalo de nuevo.",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "right", // `left`, `center` or `right`
+          backgroundColor: "#ff5f6d",
+        }).showToast();
       }
     );
   }

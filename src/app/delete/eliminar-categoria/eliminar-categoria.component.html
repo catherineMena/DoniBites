@@ -10,18 +10,12 @@
 <div class="wrapper">
   <form (ngSubmit)="desactivarCategoria()">
     <h1 class="text-center">Eliminar Categoría</h1>
-    <!-- Mostrar los datos de la categoría a eliminar -->
-    <!-- <div class="form-group mb-3">
-      <label for="idInput" class="form-label">ID</label>
-      <input type="text" class="form-control" id="idInput" name="id" [value]="categoria?.id" readonly>
-    </div> -->
     <div class="form-group mb-3">
       <label for="nombreInput" class="form-label">Nombre de la categoría</label>
       <input type="text" class="form-control" id="nombreInput" name="nombre" [value]="categoria?.name" readonly>
     </div>
-    <!-- Botón para confirmar la eliminación -->
     <div class="text-center">
-      <button type="submit" class="btn-delete" (click)="desactivarCategoria()" routerLink="/categoria">Eliminar</button>
+      <button type="submit" class="btn-delete">Eliminar</button>
       <button type="button" class="btn-cancel" routerLink="/categoria">Cancelar</button>
     </div>
   </form>

@@ -18,51 +18,11 @@
 
     <hr>
 
-    <!-- <nav class="navbar">
-      <i class="fas fa-user user-icon"></i>
-    </nav> -->
-
+<app-navbar></app-navbar>
 <app-sidebar></app-sidebar>
-    <!-- Sidebar -->
-    <!-- <div class="sidebar">
-      <div class="sidebar-header">
-        <h3>
-          DoniBites
-          <img src="assets/icons-login.png" alt="Logo de DoniBites" style="width: 50px; height: 45px; vertical-align: middle; margin-right: 8px;">
-        </h3>
-      </div>
-      <hr>
-      <div class="sidebar-menu">
-        <a href="/menu" class="link active d-flex align-items-center">
-          <i class="fa-solid fa-house" title="Home"></i><span class="text" >Home</span>
-        </a>
-        <a href="/usuario" class="link">
-          <i class="fa-solid fa-users"  title="Usuario"></i><span class="text">Usuarios</span>
-        </a>
-        <a href="/categoria" class="link">
-          <i class="fa-solid fa-list" title="Categorias"></i><span class="text">Categorias</span>
-        </a>
-        <a href="/producto" class="link">
-          <i class="fas fa-shopping-basket" title="Productos"></i><span class="text">Productos</span>
-        </a>
-        <a href="/Ingredient" class="link">
-          <i class="fas fa-utensil-spoon" title="Ingredientes"></i><span class="text">Ingredientes</span>
-        </a>
-        <a href="/factura" class="link">
-          <i class="fas fa-receipt" title="Factura"></i><span class="text">Factura</span>
-        </a>
-        <a href="/proveedores" class="link">
-          <i class="fas fa-box" title="Proveedores"></i><span class="text">Proveedores</span>
-                </a>
-        <a href="/client" class="link">
-          <i class="fas fa-user" title="Cliente"></i>
-          <span class="text" >Cliente</span>
-        </a>
-      </div>
-    </div> -->
-    <!------------------sidebar end----------->
 
   <div class="wrapper">
+    <div class="main-content">
     <!-- <div class="back-btn-container">
       <button class="btn back-btn" routerLink="/menu">Regresar</button>
     </div> -->
@@ -120,10 +80,13 @@
 
     </table>
 
-    <a [routerLink]="['/add-ingredient']" class="btn btn-primary btn-add" title="Agregar ingrediente">Agregar ingrediente
-      <i class="fa-solid fa-plus"></i>
-    </a>
 
+      <a [routerLink]="['/add-ingredient']" class="btn btn-primary btn-add" title="Agregar ingrediente">Agregar ingrediente
+        <i class="fa-solid fa-plus"></i>
+      </a>
+
+
+  </div>
   </div>
 </body>
 </html>

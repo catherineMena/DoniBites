@@ -36,6 +36,9 @@ import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actu
 import { ActualizarRolComponent } from './update/actualizar-rol/actualizar-rol.component';
 import { ActualizarUsuarioComponent } from './update/actualizar-usuario/actualizar-usuario.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { IncomingStockComponent } from './incoming-stock/incoming-stock.component';
+import { ReadIncomingStockComponent } from './read/read-incoming-stock/read-incoming-stock.component';
+import { AddIncomingStockComponent } from './Add/add-incoming-stock/add-incoming-stock.component';
 
 
  export const appRoutes: Routes = [
@@ -112,11 +115,19 @@ import { UsuarioComponent } from './usuario/usuario.component';
   { path: 'actualizar-factura/:id', component: ActualizarFacturaComponent },
   // { path: 'eliminar-factura/:id', component: EliminarFacturaComponent },
 
+///////////////////////////////////////////////////////////////////////////
 
+  {path: 'ingredient', component: IngredientesComponent},
+  {path:'add-ingredient', component: AgregarProductoComponent},
+  {path:'view-ingredient/:id', component: VisualizarProductoComponent},
+  {path:'update-ingredient/:id', component: ActualizarProductoComponent},
+  {path:'delete-ingredient/:id', component: EliminarProductoComponent},
+/////////////////////////////////////////////////////////////////////////////
 
-{path: 'Ingrediente', component: IngredientesComponent},
-
-
+{path:'incoming-stock', component: IncomingStockComponent},
+{path:'view-stock/:id',component:ReadIncomingStockComponent},
+{path:'add-stock',component:AddIncomingStockComponent},
+///////////////////////////////////////////////////////////////////
 { path: 'login', component: LoginComponent },
 { path: 'dashboard', component: MenuComponent },
 { path: 'recuperar-pwd', component: RecuperarPwdComponent },

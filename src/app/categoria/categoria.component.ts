@@ -67,11 +67,11 @@ export class CategoriaComponent implements OnInit {
 
   // Método para descargar en Excel
   downloadExcel() {
-    const headers = [['Id', 'Nombre', 'Descripción']];
+    const headers = [['Id', 'Nombre']];
     const data = this.categoriasFiltradas.map(categorias => [
       categorias.id,
       categorias.name,
-      categorias.description
+
     ]);
     const worksheet: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet([...headers, ...data]);
     const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };

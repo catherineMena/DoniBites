@@ -7,16 +7,16 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  
-  public apiUrl = 'http://139.177.206.17:8080/minidonas';
-  public autString:string = 'Basic';
 
-  
-    
+  public apiUrl = 'http://139.177.206.17:8080/minidonas';
+  public autString:string = 'Basic amVzc2ltYXNzaTpqZXNzaWNh';
+
+
+
   constructor(private http: HttpClient) {
     console.log('AuthenticationService instantiated');
   }
-  
+
 
   login(username: String, password: String) : Observable<any> {
 
@@ -30,7 +30,7 @@ export class AuthenticationService {
         return throwError('No se pudo iniciar sesión. Comprueba tus credenciales.');
       }))
       ;
-    
+
   }
 
   createBasicAuthToken(username: String, password: String) {
@@ -46,7 +46,7 @@ export class AuthenticationService {
   }
 
   isUserLoggedIn() {
-    if (this.autString  == 'Basic') return false
+    // if (this.autString  == 'Basic') return false
     return true
   }
 

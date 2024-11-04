@@ -1,234 +1,320 @@
-/* General Body Styles */
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   color: #000;
-  height: 100%;
+  min-height: 100vh;
   background-color: rgb(45, 49, 66);
   display: flex;
-  min-height: 100vh;
-  overflow: hidden; /* Esto se puede mantener si quieres evitar el desplazamiento del body */
-}
-
-/* Navbar Styles */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: rgba(145, 142, 244, 0.4);
-  backdrop-filter: blur(10px);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-/* Sidebar Styles */
-.sidebar {
-  width: 250px;
-  height: 100vh; /* Asegúrate de que la barra lateral ocupe toda la altura de la ventana */
-  background: rgba(191, 192, 192, 0.2);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 20px;
-  position: fixed; /* Mantener el sidebar fijo */
-  top: 0; /* Fijar en la parte superior */
-  left: 0;
-  display: flex;
   flex-direction: column;
-  overflow-y: auto; /* Permitir el desplazamiento interno en el sidebar si el contenido excede la altura */
 }
 
-/* Sidebar Header */
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  color: #b17d7d;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto para resaltar */
-  font-weight: bold;
-  font-size: 1.25rem;
-}
 
-.sidebar-header .badge {
-  background-color: #000;
-  padding: 5px;
-  border-radius: 4px;
-  margin-left: 5px;
-}
-
-.sidebar hr {
-  margin: 1rem 0;
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* Sidebar Menu Links */
-.sidebar-menu {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto; /* Permitir el desplazamiento de los enlaces de menú si es necesario */
-}
-
-.link {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  text-decoration: none;
-  color: #fff;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.link:hover,
-.link.active {
-  background-color: rgba(85, 40, 111, 0.35);
-  color: #fff;
-}
-
-.link i {
-  margin-right: 10px;
-}
-
-/* Sidebar Footer (User Profile) */
-.sidebar-footer {
-  display: flex;
-  align-items: center;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.sidebar-footer .profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.sidebar-footer .username {
-  color: #cfd8dc;
-}
-
-/* Main Container */
 .wrapper {
-  max-width: 1500px; /* Puedes ajustar esto si deseas un tamaño diferente */
-  margin: 100px auto 0px auto;
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  margin: auto;
   padding: 20px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  background-color: rgb(45, 49, 66);
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 250px; /* Espacio para el sidebar */
-  margin-top: 100px; /* Espacio para el navbar */
-  padding-left: 20px; /* Espacio adicional para evitar el choque */
+  box-sizing: border-box;
+  align-items: center;
 }
 
-.header {
-  text-align: center;
-  color: rgb(21,25,21);
-  padding: 10px 0;
-  font-family: "Raleway", sans-serif;
-  font-size: 40px;
-  font-weight: bold;
-  text-shadow: 2px 2px 5px #ffffff;
-}
 
-/* Actions Container */
-.actions {
+.wrapper .header .title {
   display: flex;
-  justify-content: space-between;
-  gap: 5px;
+  justify-content: center; /* Centrar el contenido horizontalmente */
+  align-items: center; /* Centrar el contenido verticalmente */
+  width: 100%; /* Asegurar que ocupe todo el ancho disponible */
 }
 
-/* Table Styles */
-.table {
-  width: 80%;
+.main-content {
+
+  max-width: 1200px;
   padding: 20px;
-  border: 1px solid aliceblue;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-size: 0.8rem;
-  padding-top: 2%;
-  min-height: 400%;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto; /* Cambiado para centrar */
+}
+
+.table-responsive {
+  width: 100%; /* Reducido ligeramente del 100% */
+  overflow-x: auto;
+  margin: 0 auto; /* Centrar la tabla */
+  padding: 0 20px; /* Añadir padding en ambos lados */
 }
 
 .factura-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
-  margin-left: 0;
+  margin: 20px auto; /* Centrar la tabla */
+  max-width: 1100px; /* Ajustar según necesidad */
+  align-items: center;
 }
 
 .factura-table th,
 .factura-table td {
-  padding: 15px;
-  text-align: left;
+  padding: 0.5rem; /* Reducir el padding para que las celdas tengan menos ancho */
   border-bottom: 1px solid #ddd;
+  text-align: center;
+  word-wrap: break-word;
+  align-items: center;
 }
 
 .factura-table th {
+  align-items: center;
   background-color: rgb(30, 30, 31);
   color: #fff;
-  text-align: center;
 }
 
-.factura-table td {
-  background-color: rgb(255, 255, 255);
-  color: #000;
+.wrapper {
+  /* ... propiedades existentes ... */
+  padding: 20px 40px; /* Aumentar el padding lateral */
 }
 
-/* Action Buttons */
+.main-content {
+  /* ... propiedades existentes ... */
+  padding: 20px 30px; /* Aumentar el padding lateral */
+}
+
+/* ----------Action buttons ---------------*/
 .btn-visualize {
   color: rgb(245, 187, 0);
-  background-color: rgba(236, 159, 5, 0.3);
-  border: none;
-}
-
-.btn-add {
-  background-color: rgba(5, 178, 220, 0.3);
-  color: rgb(5, 178, 220);
+  background-color: rgb(236, 159, 5, 0.3);
+  border: solid 3px rgb(254, 153, 32);
   border: none;
 }
 
 .btn-update {
-  background-color: rgba(133, 255, 158, 0.3);
-  color: #36CB7C;
+  background-color: rgb(133, 255, 158, 0.3);
+  color: #36cb7c;
   border: none;
 }
 
 .btn-delete {
-  background-color: rgba(221, 13, 30, 0.3);
-  color: #DD0D1E;
+  background-color: rgb(221, 13, 30, 0.3);
+  color: #dd0d1e;
   border: none;
 }
 
-/* Search Input */
+.actions {
+  display: flex;
+  justify-content: center; /* Centrar los elementos */
+  gap: 2rem; /* Reducir el espacio entre los elementos */
+}
+
+#dropdownMenuButton {
+  justify-content: flex-end;
+  background-color: #198754; /* Mismo color verde del botón agregar */
+  border-color: #28a745; /* Borde igual */
+  color: white; /* Color del texto blanco */
+  padding: 10px 20px; /* Asegúrate de que el tamaño del botón sea similar */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente igual */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#dropdownMenuButton:hover {
+  background-color: #157347; /* Cambia el color al pasar el mouse (hover) */
+  border-color: #1e7e34;
+}
+
+/* Estilo para el campo de búsqueda */
 .search-input {
+  width: 800px;
   padding: 10px;
   margin-right: 10px;
+  margin-left: 60px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
 }
 
+
+
+
 /* Responsive Sidebar */
-@media (max-width: 900px) {
-  i {
-    font-size: 14px;
-  }
-
+@media (max-width: 2500px) {
   .sidebar {
-    width: 80px;
+    width: auto;
   }
 
-  .sidebar-header h3,
-  .link .text {
-    display: none;
+  .wrapper {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+  }
+
+  .main-content {
+    max-width: 2000px; /* Ajusta el ancho máximo para pantallas grandes */
+  }
+
+  .factura-table {
+    max-width: 1800px; /* Ajusta el ancho máximo de la tabla para pantallas grandes */
+  }
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .wrapper {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+  }
+
+  .main-content {
+    max-width: 1000px; /* Ajusta el ancho máximo para pantallas medianas */
+  }
+
+  .factura-table {
+    max-width: 900px; /* Ajusta el ancho máximo de la tabla para pantallas medianas */
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    width: 150px;
+  }
+
+  .wrapper {
+    margin-left: 150px;
+    width: calc(100% - 150px);
+  }
+
+  .main-content {
+    max-width: 800px; /* Ajusta el ancho máximo para pantallas más pequeñas */
+  }
+
+  .factura-table {
+    max-width: 700px; /* Ajusta el ancho máximo de la tabla para pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 120px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+  }
+
+  .wrapper {
+    margin-left: 120px;
+    width: calc(100% - 120px);
+  }
+
+  .main-content {
+    max-width: 700px; /* Ajusta el ancho máximo para pantallas pequeñas */
+  }
+
+  .factura-table {
+    max-width: 650px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
+    font-size: 12px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
+    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
+  }
+
+  .factura-table th {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+  }
+
+  .wrapper {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+  }
+
+  .main-content {
+    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
+  }
+
+  .factura-table {
+    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
+    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
+    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
+  }
+
+  .factura-table th {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 5px; /* Reduce aún más el padding para pantallas muy pequeñas */
+  }
+
+  .factura-table th,
+  .factura-table td {
+    padding: 10px; /* Reduce el padding de las celdas para pantallas muy pequeñas */
+  }
+
+  .search-input {
+    width: 100%; /* Ajusta el ancho del campo de búsqueda para pantallas muy pequeñas */
+  }
+}
+
+@media (max-width: 888px) {
+  .sidebar {
+    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+  }
+
+  .wrapper {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+  }
+
+  .main-content {
+    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
+  }
+
+  .factura-table {
+    word-wrap: break-word;
+    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
+    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
+    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
+  }
+
+  .factura-table th {
+    word-wrap: break-word;
+    width: fit-content;
+  }
+}
+
+@media (max-width: 280px) {
+  .sidebar {
+    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+  }
+
+  .wrapper {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+  }
+
+  .main-content {
+    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
+  }
+
+  .factura-table {
+    word-wrap: break-word;
+    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
+    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
+    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
+  }
+
+  .factura-table th {
+    word-wrap: break-word;
+    width: fit-content;
   }
 }

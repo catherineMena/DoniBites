@@ -15,49 +15,11 @@
 </head>
 <body>
 
-  <nav class="navbar">
-    <i class="fas fa-receipt cart-icon" aria-label="Icono de factura"></i>
-  </nav>
 
+  <app-navbar></app-navbar>
   <!-- Sidebar -->
-  <div class="sidebar">
-    <div class="sidebar-header">
-      <h3>
-        DoniBites
-        <img src="assets/donut.png" alt="Logo de DoniBites" style="width: 50px; height: 45px; vertical-align: middle; margin-right: 8px;">
-      </h3>
-    </div>
-    <hr>
-    <div class="sidebar-menu">
-      <a href="/menu" class="link" aria-label="Ir a Inicio">
-        <i class="fa-solid fa-house"></i><span class="text">Home</span>
-      </a>
-      <a href="/usuario" class="link" aria-label="Ir a Usuarios">
-        <i class="fa-solid fa-users"></i><span class="text">Usuarios</span>
-      </a>
-      <a href="/categoria" class="link" aria-label="Ir a Categorías">
-        <i class="fa-solid fa-list"></i><span class="text">Categorías</span>
-      </a>
-      <a href="/producto" class="link" aria-label="Ir a Productos">
-        <i class="fas fa-shopping-basket"></i><span class="text">Productos</span>
-      </a>
-      <a href="/ingredientes" class="link" aria-label="Ir a Ingredientes">
-        <i class="fas fa-utensil-spoon"></i><span class="text">Ingredientes</span>
-      </a>
-      <a href="/factura" class="link active" aria-label="Ir a Factura">
-        <i class="fas fa-receipt"></i><span class="text">Factura</span>
-      </a>
-      <a href="/proveedores" class="link" aria-label="Ir a Proveedores">
-        <i class="fas fa-user-tie"></i><span class="text">Proveedores</span>
-      </a>
-      <a href="/roles" class="link" aria-label="Ir a Roles">
-        <i class="fas fa-user-shield"></i><span class="text">Roles</span>
-      </a>
-      <a href="/pedidos" class="link" aria-label="Ir a Pedidos">
-        <i class="fas fa-shopping-cart"></i><span class="text">Pedidos</span>
-      </a>
-    </div>
-  </div>
+  <app-sidebar></app-sidebar>
+
 
   <div class="wrapper">
     <!-- Contenido principal -->
@@ -89,7 +51,7 @@
             <th>Descripción del Pedido</th>
             <th>RUC</th>
             <th>Monto Pagado</th>
-            <th>Estado</th>
+            <!-- <th>Estado</th> -->
             <th>Fecha de Pedido</th>
             <th>Fecha de Entrega Esperada</th>
             <th>Acciones</th>
@@ -102,7 +64,7 @@
             <td>{{factura.order.description}}</td>
             <td>{{factura.ruc}}</td> <!-- Aquí asumo que la cantidad es el número de detalles del pedido -->
             <td>{{factura.paidAmount | currency}}</td>
-            <td>{{factura.status}}</td>
+            <!-- <td>{{factura.status}}</td> -->
             <td>{{factura.order.orderDate | date: 'short'}}</td>
             <td>{{factura.order.expectedDeliverDate | date: 'short'}}</td>
             <td>
@@ -123,11 +85,12 @@
       </table>
 
       <!-- Botón "Agregar nuevo" en la parte inferior derecha -->
-      <div class="add-factura text-right">
-        <a [routerLink]="['/agregar-factura']" class="btn btn-success" title="Agregar nueva factura">
-          Agregar nueva
+
+        <a [routerLink]="['/agregar-factura']" class="btn btn-primary btn-add" title="Agregar nueva factura">
+          Agregar Factura
+          <i class="fa-solid fa-plus"></i>
         </a>
-      </div>
+
     </div>
   </div>
 

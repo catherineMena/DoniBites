@@ -1,243 +1,303 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   color: #000;
-  height: 100vh;
-  background-color: rgb(45, 49, 66);
-  display: grid;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
   min-height: 100vh;
-  overflow: hidden;
-  grid-template-rows: auto 1fr;
-  grid-template-columns: 200px 1fr;
+  background-color: rgb(45, 49, 66);
+  display: flex;
+  flex-direction: column;
 }
 
-/* -------------NAVBAR-------------- */
-.navbar {
-  grid-row: 1 / 2; /* Ocupa la primera fila (parte superior) */
-  grid-column: 2 / 3; /* Ocupa la segunda columna (resto de la página) */
-  display: flex;
-  justify-content: flex-end;;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: rgba(145, 142, 244,0.4);
-  /* background: linear-gradient(to bottom, rgba(52, 35, 166, 0.8), rgba(254, 180, 123, 0.8)); */
-
-  backdrop-filter: blur(10px);
+.sidebar {
+  width: 250px; /* Ancho del sidebar */
+  height: 100vh;
+  background: rgba(191, 192, 192, 0.2);
   position: fixed;
-  width: 100%;
   top: 0;
   left: 0;
-  z-index: 1000;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
-}
-
-.user-icon {
-  margin-left: auto; /* Asegura que el icono esté al final del navbar */
-  font-size: 24px;
-  color: #fff;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  position: relative;
-}
-
-.user-icon:hover {
-  color: #f0f0f0;
-}
-
-.navbar i {
-  transition: transform 0.3s ease;
-}
-
-.navbar i:hover {
-  transform: scale(1.1);
-}
-
-
-.link {
+  padding: 20px;
   display: flex;
-  align-items: center;
-  padding: 10px;
-  text-decoration: none;
-  color: #fff;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  transition: background-color 0.3s, color 0.3s;
+  flex-direction: column;
 }
-
-.link:hover,
-.link.active {
-  background-color: rgba(145, 142, 244,0.4); /* Fondo semitransparente en hover */
-  color: #fff;
-}
-
-.link .icon {
-  margin-right: 10px;
-}
-
-.link i {
-  margin-right: 10px; /* Espacio entre el icono y el texto */
-}
-
-
-.container {
-  display: flex;
-  justify-content: space-around;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
 
 .wrapper {
-  grid-row: 2 / 3;
-  grid-column: 2 / 3;
-  margin-top: 70px; /* Espacio para navbar */
+  margin-left: 250px;
+  margin: auto;
   padding: 20px;
-  background-color: #fff; /* Fondo blanco */
-  border-radius: 5px;
+  border-radius: 4px;
+  background-color: rgb(45, 49, 66);
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: calc(100vh - 70px); /* Ocupa todo el alto de la pantalla excepto el navbar */
-  overflow-y: auto;
-  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
 }
 
+.wrapper .header .title {
+  display: flex;
+  justify-content: center; /* Centrar el contenido horizontalmente */
+  align-items: center; /* Centrar el contenido verticalmente */
+  width: 100%; /* Asegurar que ocupe todo el ancho disponible */
+}
+
+
 .main-content {
-  width: 80%; /* Ocupa el 100% del contenedor principal */
+  width: fit-content;
+  max-width: 1200px;
   padding: 20px;
-  background-color: #fff; /* Fondo blanco */
+  background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 20px; /* Ajusta según el espacio que quieras debajo del navbar */
+
+  margin: 20px auto; /* Cambiado para centrar */
 }
 
-.header {
-  text-align: center;
-  color: rgb(21,25,21);
-  padding: 10px 0;
-  font-family: "Raleway", sans-serif;
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 50px;
-  text-shadow: 2px 2px 5px #ffffff;
+.table-responsive {
+  width: auto; /* Reducido ligeramente del 100% */
+  overflow-x: auto;
+  margin: 0 auto; /* Centrar la tabla */
+  padding: 0 20px; /* Añadir padding en ambos lados */
 }
 
-
-
-.actions {
-  display: flex;
-  justify-content: space-between;
-  gap: 5px;
-}
-
-
-/*`---------------Table----------- */
-tbody tr {
-  transition: all 0.9s ease; /* Transición suave al filtrar */
-}
-
-
-.table {
-  width: 100%;
-  padding: 20px;
-  border: 1px solid aliceblue;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-size: 0.8rem;
-  padding-top: 5%;
-  min-height: 400%; /* Ajusta esto según la cantidad de filas esperadas */
-
-}
 .category-table {
-  text-align: center;
   width: 100%;
-  max-width: none; /* Limitar el ancho de la tabla */
   border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-tbody tr {
-  text-align: center;
-  height: 50px; /* Define una altura fija para cada fila */
-}
-
-.category-table tbody {
-  text-align: center;
-  min-height: 200px; /* Define una altura mínima para el cuerpo de la tabla */
-}
-
-th, td {
-  width: 100%;
-  padding: 10px; /* Espaciado uniforme */
-  text-align: center;
-  border-bottom: 1px solid #ddd;
+  margin: 20px auto; /* Centrar la tabla */
+  max-width: 1100px; /* Ajustar según necesidad */
+  align-items: center;
 }
 
 .category-table th,
 .category-table td {
-  padding: 15px;
-  padding-bottom: 3%;
+  padding: 0.25rem; /* Reducir el padding para que las celdas tengan menos ancho */
   border-bottom: 1px solid #ddd;
   text-align: center;
-  min-width: 150%; /* Establecer un ancho mínimo para las celdas */
-
+  word-wrap: break-word;
+  align-items: center;
 }
 
 .category-table th {
-  background-color: rgb(30,30,31);
+  align-items: center;
+  background-color: rgb(30, 30, 31);
   color: #fff;
-  text-align: center;
 }
 
+.wrapper {
+  /* ... propiedades existentes ... */
+  padding: 20px 40px; /* Aumentar el padding lateral */
+}
 
-.category-table td {
-  text-align: center;
-  word-wrap: break-word;
-  background-color: transparent; /* Retain background color */
-  color: #000; /* Ensure text color is black for better contrast */
+.main-content {
+  /* ... propiedades existentes ... */
+  padding: 20px 30px; /* Aumentar el padding lateral */
+}
+
+/* Responsive Sidebar */
+@media (max-width: 2500px) {
+  .sidebar {
+    width: auto;
+  }
+
+  .wrapper {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+  }
+
+  .main-content {
+    max-width: 2000px; /* Ajusta el ancho máximo para pantallas grandes */
+  }
+
+  .category-table {
+    max-width: 1800px; /* Ajusta el ancho máximo de la tabla para pantallas grandes */
+  }
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .wrapper {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+  }
+
+  .main-content {
+    max-width: 1000px; /* Ajusta el ancho máximo para pantallas medianas */
+  }
+
+  .category-table {
+    max-width: 900px; /* Ajusta el ancho máximo de la tabla para pantallas medianas */
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    width: 150px;
+  }
+
+  .wrapper {
+    margin-left: 150px;
+    width: calc(100% - 150px);
+  }
+
+  .main-content {
+    max-width: 800px; /* Ajusta el ancho máximo para pantallas más pequeñas */
+  }
+
+  .category-table {
+    max-width: 700px; /* Ajusta el ancho máximo de la tabla para pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 120px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+  }
+
+  .wrapper {
+    margin-left: 120px;
+    width: calc(100% - 120px);
+  }
+
+  .main-content {
+    max-width: 700px; /* Ajusta el ancho máximo para pantallas pequeñas */
+  }
+
+  .category-table {
+    max-width: 650px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
+    font-size: 12px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
+    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
+  }
+
+  .category-table th {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+  }
+
+  .wrapper {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+  }
+
+  .main-content {
+    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
+  }
+
+  .category-table {
+    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
+    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
+    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
+  }
+
+  .category-table th {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 5px; /* Reduce aún más el padding para pantallas muy pequeñas */
+  }
+
+  .category-table th,
+  .category-table td {
+    padding: 10px; /* Reduce el padding de las celdas para pantallas muy pequeñas */
+  }
+
+  .search-input {
+    width: 100%; /* Ajusta el ancho del campo de búsqueda para pantallas muy pequeñas */
+  }
+}
+
+@media (max-width: 888px) {
+  .sidebar {
+    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+  }
+
+  .wrapper {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+  }
+
+  .main-content {
+    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
+  }
+
+  .category-table {
+    word-wrap: break-word;
+    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
+    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
+    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
+  }
+
+  .category-table th {
+    word-wrap: break-word;
+    width: fit-content;
+  }
+}
+
+@media (max-width: 280px) {
+  .sidebar {
+    width: 100px; /* Reducir el ancho del sidebar para pantallas pequeñas */
+  }
+
+  .wrapper {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+  }
+
+  .main-content {
+    max-width: 600px; /* Ajusta el ancho máximo para pantallas pequeñas */
+  }
+
+  .category-table {
+    word-wrap: break-word;
+    max-width: 600px; /* Ajusta el ancho máximo de la tabla para pantallas pequeñas */
+    font-size: 10px; /* Reducir el tamaño de la fuente para que quepa en la pantalla */
+    padding: 0.5rem; /* Reducir el padding para que quepa más contenido */
+  }
+
+  .category-table th {
+    word-wrap: break-word;
+    width: fit-content;
+  }
 }
 
 /* ----------Action buttons ---------------*/
-.btn-visualize{
-  color:rgb(245, 187, 0) ;
-  background-color: rgb(236,159,5,0.3);
-  /* border: solid 3px rgb(254, 153, 32); */
+.btn-visualize {
+  color: rgb(245, 187, 0);
+  background-color: rgb(236, 159, 5, 0.3);
+  border: solid 3px rgb(254, 153, 32);
   border: none;
 }
 
-.btn-update{
+.btn-update {
   background-color: rgb(133, 255, 158, 0.3);
-  color: #36CB7C;
-  border: none ;
-}
-
-.btn-delete{
-  background-color: rgb(221, 13, 30, 0.3);
-  color: #DD0D1E;
+  color: #36cb7c;
   border: none;
 }
 
-.button-group {
-  display: flex;
-  justify-content: flex-end; /* Botones alineados a la derecha */
-  gap: 10px; /* Espacio entre los botones */
+.btn-delete {
+  background-color: rgb(221, 13, 30, 0.3);
+  color: #dd0d1e;
+  border: none;
 }
 
 
-
+.actions {
+  display: flex;
+  justify-content: center; /* Centrar los elementos */
+  gap: 2rem; /* Reducir el espacio entre los elementos */
+}
 
 #dropdownMenuButton {
   justify-content: flex-end;
@@ -267,115 +327,3 @@ th, td {
   border-radius: 5px;
   font-size: 16px;
 }
-
-
-
-
-/* Ajuste de estilos para el contenedor de acciones */
-.actions {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-
-/* Ajuste de estilos para el contenedor de acciones */
-.actions {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-/*----------- RESPONSIVE TABLE-------------- */
-@media (max-width: 900px) {
-
-  .category-table {
-    text-align: center;
-    width: 100%;
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  .category-table th,
-  .category-table td {
-    text-align: center;
-    padding: auto;
-    min-width: auto; /* Ancho mínimo para las celdas */
-  }
-
-  .category-table th {
-    text-align: center;
-    font-size: 14%; /* Tamaño de fuente más pequeño para encabezados */
-  }
-
-  .category-table td {
-    text-align: center;
-    font-size: 12%; /* Tamaño de fuente más pequeño para celdas */
-  }
-}
-
-/*---------------Table----------- */
-tbody tr {
-  transition: all 0.9s ease; /* Transición suave al filtrar */
-}
-
-.table {
-  width: auto;
-  padding: 10%;
-  border: 1px solid aliceblue;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-size: 0.8rem;
-  padding-top: 2%;
-}
-
-.category-table {
-  text-align: center;
-  width: auto;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-.category-table th,
-.category-table td {
-  text-align: center;
-  padding: 15px; /* Ajustar el padding para más espacio entre columnas */
-  padding-bottom: 5px;
-  border-bottom: 1px solid #ddd;
-  min-width: 150px; /* Establecer un ancho mínimo para las celdas */
-}
-
-.category-table th {
-  background-color: rgb(30, 30, 31);
-  color: #fff;
-  text-align: center; /* Alinear los encabezados al centro */
-}
-
-/* Ajustamos el ancho de cada columna por separado*/
-
-.category-table th:nth-child(1),
-.category-table td:nth-child(1) {
-  width: 10%; /* Ajustar el ancho para la primera columna */
-}
-
-.category-table th:nth-child(2),
-.category-table td:nth-child(2) {
-  width: 50%; /* Ajustar el ancho para la segunda columna */
-}
-
-.category-table th:nth-child(3),
-.category-table td:nth-child(3) {
-  width: 30%; /* Ajustar el ancho para la tercera columna */
-}
-
-.category-table th:nth-child(4),
-.category-table td:nth-child(4) {
-  width: 10%; /* Ajustar el ancho para la cuarta columna */
-}
-
-

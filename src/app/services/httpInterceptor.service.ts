@@ -11,7 +11,7 @@ export class HttpInterceptorService implements HttpInterceptor {
 
     public authString:string='';
 
-    constructor(private authService: AuthenticationService, private router: Router) { 
+    constructor(private authService: AuthenticationService, private router: Router) {
     }
 
 

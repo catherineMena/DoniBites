@@ -1,76 +1,51 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: 'Raleway', sans-serif;
-}
+/* -------------NAVBAR-------------- */
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: rgb(45, 49, 66);/* Color de fondo del navbar */
-  backdrop-filter: blur(15px); /* Incrementa el desenfoque */
+  background-color: rgba(145, 142, 244, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: fixed;
-  width: calc(100% - 250px); /* Ajusta el ancho para dejar espacio a la sidebar */
+  width: 100%;
   top: 0;
-  left: 250px; /* Posiciona la navbar a la derecha de la sidebar */
+  left: 0;
   z-index: 1000;
-  border-left: none;
 }
 
 
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-family: 'Raleway', sans-serif;
+}
+
 .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
+margin-left: 2%;
+align-items: center;
+  font-size: 2em; /* Tamaño del texto del logo */
+  font-weight:700%; /* Negrita */
+  color: #fff;;
 }
 
 .user-icon {
-  font-size: 24px;
+  font-size: 1.5em; /* Tamaño del ícono */
+  margin-left: auto; /* Mover el ícono al extremo derecho */
   color: #fff;
-  cursor: pointer;
-  transition: color 0.3s ease;
 }
 
 .user-icon:hover {
   color: #f0f0f0;
 }
-
 .navbar i {
   transition: transform 0.3s ease;
 }
-
-.navbar i:hover {
-  transform: scale(1.1);
-}
-
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
-}
-
-.user-icon {
-  font-size: 24px;
-  color: #fff;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.user-icon:hover {
-  color: #f0f0f0;
-}
-
-.navbar i {
-  transition: transform 0.3s ease;
-}
-
 .navbar i:hover {
   transform: scale(1.1);
 }

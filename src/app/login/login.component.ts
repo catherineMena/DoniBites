@@ -28,7 +28,6 @@ export class LoginComponent {
       }
     );
 
-    // Navegar directamente al menú sin autenticación
-    //this.router.navigate(['/menu']);
+    this.router.navigate(['/menu']);
   }
 }

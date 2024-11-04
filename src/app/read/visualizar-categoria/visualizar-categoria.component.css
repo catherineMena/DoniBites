@@ -99,10 +99,9 @@ input {
 /* Estilo para el botón */
 button {
   background-color: rgb(221, 13, 30);
-    color: #fff;
-    font-weight: bold;
   border: 3em solid rgb(221, 13, 30);
-  font-size: 1em; /* Tamaño del texto */
+
+  font-size: 1.1em;/* Tamaño del texto */
   padding: 0.8rem 1.5rem; /* Espaciado interno */
   border: none; /* Eliminar borde por defecto */
   border-radius: 5px; /* Bordes redondeados */
@@ -112,5 +111,5 @@ button {
 
 button:hover {
   background-color: rgb(221, 13, 30, 0.3);
-  color: #DD0D1E;
+  color: #DD0D1E; /* Cambio de color al pasar el ratón */
 }
