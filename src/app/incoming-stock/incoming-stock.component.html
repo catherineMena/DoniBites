@@ -35,8 +35,8 @@
           Descargar inventario
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <li><a class="dropdown-item" href="#" (click)="downloadList('pdf')">Descargar PDF</a></li>
-          <li><a class="dropdown-item" href="#" (click)="downloadList('excel')">Descargar Excel</a></li>
+          <li><a class="dropdown-item" href="#" (click)="downloadList('pdf'); $event.preventDefault()">Descargar PDF</a></li>
+          <li><a class="dropdown-item" href="#" (click)="downloadList('excel'); $event.preventDefault()">Descargar Excel</a></li>
         </ul>
       </div>
     </div>

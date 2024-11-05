@@ -76,7 +76,7 @@ export class FacturaComponent implements OnInit {
     const facturasWithTotals = this.facturasFiltradas.map(factura => {
         return {
             ...factura,
-            paidAmountFormatted: `C$ ${(parseFloat(factura.paidAmount)).toFixed(2)}`
+            paidAmountFormatted: `$ ${(parseFloat(factura.paidAmount)).toFixed(2)}`
         };
     });
 
@@ -125,15 +125,15 @@ export class FacturaComponent implements OnInit {
             // Subtotales y totales con el signo de córdoba
             [
                 { content: 'Subtotal', colSpan: 6, styles: { halign: 'right', fontStyle: 'bold' } },
-                { content: `C$ ${subtotal}`, styles: { halign: 'center' } }
+                { content: `$ ${subtotal}`, styles: { halign: 'center' } }
             ],
             [
                 { content: 'IVA (15%)', colSpan: 6, styles: { halign: 'right', fontStyle: 'bold' } },
-                { content: `C$ ${iva}`, styles: { halign: 'center' } }
+                { content: `$ ${iva}`, styles: { halign: 'center' } }
             ],
             [
                 { content: 'Total', colSpan: 6, styles: { halign: 'right', fontStyle: 'bold' } },
-                { content: `C$ ${total}`, styles: { halign: 'center' } }
+                { content: `$ ${total}`, styles: { halign: 'center' } }
             ]
         ]
     });
@@ -161,7 +161,7 @@ export class FacturaComponent implements OnInit {
        { v: 'Fecha de Factura', s: { font: { bold: true }, fill: { fgColor: { rgb: "1ABC9C" } }, alignment: { horizontal: 'center' }, color: { rgb: "FFFFFF" } } },
        { v: 'Fecha de Pedido', s: { font: { bold: true }, fill: { fgColor: { rgb: "1ABC9C" } }, alignment: { horizontal: 'center' }, color: { rgb: "FFFFFF" } } },
        { v: 'Estado', s: { font: { bold: true }, fill: { fgColor: { rgb: "1ABC9C" } }, alignment: { horizontal: 'center' }, color: { rgb: "FFFFFF" } } },
-       { v: 'Monto Pagado (C$)', s: { font: { bold: true }, fill: { fgColor: { rgb: "1ABC9C" } }, alignment: { horizontal: 'center' }, color: { rgb: "FFFFFF" } } }]
+       { v: 'Monto Pagado ($)', s: { font: { bold: true }, fill: { fgColor: { rgb: "1ABC9C" } }, alignment: { horizontal: 'center' }, color: { rgb: "FFFFFF" } } }]
     ];
 
     // Datos de la tabla de facturas, con el monto pagado formateado
@@ -172,7 +172,7 @@ export class FacturaComponent implements OnInit {
       new Date(factura.invoiceDate).toLocaleDateString(),
       new Date(factura.order.orderDate).toLocaleDateString(),
       factura.status,
-      `C$ ${parseFloat(factura.paidAmount).toFixed(2)}`
+      `$ ${parseFloat(factura.paidAmount).toFixed(2)}`
     ]);
 
     // Cálculo del subtotal, IVA, y total

@@ -59,11 +59,11 @@ export class ProductoComponent implements OnInit {
     const productsWithTotals = this.filteredProducts.map(product => {
       return {
         ...product,
-        totalParcial: `C$ ${(product.qty * product.unitPrice).toFixed(2)}`
+        totalParcial: `$ ${(product.qty * product.unitPrice).toFixed(2)}`
       };
     });
 
-    const subtotal = productsWithTotals.reduce((acc, product) => acc + parseFloat(product.totalParcial.replace('C$ ', '')), 0).toFixed(2);
+    const subtotal = productsWithTotals.reduce((acc, product) => acc + parseFloat(product.totalParcial.replace('$ ', '')), 0).toFixed(2);
     const iva = (parseFloat(subtotal) * 0.15).toFixed(2);
     const total = (parseFloat(subtotal) + parseFloat(iva)).toFixed(2);
 
@@ -91,8 +91,8 @@ export class ProductoComponent implements OnInit {
           { content: 'Nombre', styles: { fillColor: [22, 160, 133], textColor: 255 } },
           { content: 'Descripción', styles: { fillColor: [22, 160, 133], textColor: 255 } },
           { content: 'Existencias', styles: { halign: 'center', fillColor: [22, 160, 133], textColor: 255 } },
-          { content: 'Precio (C$)', styles: { halign: 'center', fillColor: [22, 160, 133], textColor: 255 } },
-          { content: 'Total Parcial (C$)', styles: { halign: 'center', fillColor: [22, 160, 133], textColor: 255 } }
+          { content: 'Precio ($)', styles: { halign: 'center', fillColor: [22, 160, 133], textColor: 255 } },
+          { content: 'Total Parcial ($)', styles: { halign: 'center', fillColor: [22, 160, 133], textColor: 255 } }
         ],
         // Datos de los productos
         ...productsWithTotals.map(product => [
@@ -100,21 +100,21 @@ export class ProductoComponent implements OnInit {
           { content: product.name },
           { content: product.description },
           { content: product.qty.toString(), styles: { halign: 'center' } },
-          { content: `C$ ${product.unitPrice.toFixed(2)}`, styles: { halign: 'center' } },
+          { content: `$ ${product.unitPrice.toFixed(2)}`, styles: { halign: 'center' } },
           { content: product.totalParcial, styles: { halign: 'center' } }
         ]),
         // Subtotales y totales con símbolo de córdoba
         [
           { content: 'Subtotal', colSpan: 5, styles: { halign: 'right', fontStyle: 'bold' } },
-          { content: `C$ ${subtotal}`, styles: { halign: 'center' } }
+          { content: `$ ${subtotal}`, styles: { halign: 'center' } }
         ],
         [
           { content: 'IVA (15%)', colSpan: 5, styles: { halign: 'right', fontStyle: 'bold' } },
-          { content: `C$ ${iva}`, styles: { halign: 'center' } }
+          { content: `$ ${iva}`, styles: { halign: 'center' } }
         ],
         [
           { content: 'Total', colSpan: 5, styles: { halign: 'right', fontStyle: 'bold' } },
-          { content: `C$ ${total}`, styles: { halign: 'center' } }
+          { content: `$ ${total}`, styles: { halign: 'center' } }
         ]
       ]
     });
@@ -140,26 +140,29 @@ export class ProductoComponent implements OnInit {
        { v: 'Nombre', s: { font: { bold: true }, fill: { fgColor: { rgb: "1ABC9C" } }, alignment: { horizontal: 'center' }, color: { rgb: "FFFFFF" } } },
        { v: 'Descripción', s: { font: { bold: true }, fill: { fgColor: { rgb: "1ABC9C" } }, alignment: { horizontal: 'center' }, color: { rgb: "FFFFFF" } } },
        { v: 'Existencias', s: { font: { bold: true }, fill: { fgColor: { rgb: "1ABC9C" } }, alignment: { horizontal: 'center' }, color: { rgb: "FFFFFF" } } },
-       { v: 'Precio', s: { font: { bold: true }, fill: { fgColor: { rgb: "1ABC9C" } }, alignment: { horizontal: 'center' }, color: { rgb: "FFFFFF" } } },
-       { v: 'Total Parcial', s: { font: { bold: true }, fill: { fgColor: { rgb: "1ABC9C" } }, alignment: { horizontal: 'center' }, color: { rgb: "FFFFFF" } } }]
+       { v: 'Precio ($)', s: { font: { bold: true }, fill: { fgColor: { rgb: "1ABC9C" } }, alignment: { horizontal: 'center' }, color: { rgb: "FFFFFF" } } },
+       { v: 'Total Parcial ($)', s: { font: { bold: true }, fill: { fgColor: { rgb: "1ABC9C" } }, alignment: { horizontal: 'center' }, color: { rgb: "FFFFFF" } } }]
     ];
 
-    // Datos de la tabla de productos, incluyendo el cálculo de Total Parcial
-    const data = this.filteredProducts.map(product => [
-      product.id,
-      product.name,
-      product.description,
-      product.qty,
-      product.unitPrice.toFixed(2),
-      (product.qty * product.unitPrice).toFixed(2) // Total Parcial
-    ]);
+    // Datos de la tabla de productos, manteniendo los valores numéricos para cálculos y agregando el símbolo $ para visualización
+    const data = this.filteredProducts.map(product => {
+      const totalParcial = product.qty * product.unitPrice;
+      return [
+        product.id,
+        product.name,
+        product.description,
+        product.qty,
+        `$${product.unitPrice.toFixed(2)}`,               // Precio con $
+        `$${totalParcial.toFixed(2)}`                     // Total Parcial con $
+      ];
+    });
 
-    // Cálculo del subtotal, IVA, y total
-    const subtotal = data.reduce((acc, product) => acc + parseFloat(product[5]), 0).toFixed(2);
+    // Cálculo del subtotal, IVA, y total sin el símbolo $
+    const subtotal = this.filteredProducts.reduce((acc, product) => acc + (product.qty * product.unitPrice), 0).toFixed(2);
     const iva = (parseFloat(subtotal) * 0.15).toFixed(2);
     const total = (parseFloat(subtotal) + parseFloat(iva)).toFixed(2);
 
-    // Resumen final de Subtotal, IVA, y Total con estilos de alineación y negrita
+    // Resumen final de Subtotal, IVA, y Total con el símbolo de $
     const summary = [
       [], // Línea en blanco
       [{}, {}, {}, {}, { v: 'Subtotal:', s: { font: { bold: true }, alignment: { horizontal: 'right' } } }, { v: `$${subtotal}`, s: { font: { bold: true }, alignment: { horizontal: 'center' }, fill: { fgColor: { rgb: "D5DBDB" } } } }],
@@ -185,8 +188,8 @@ export class ProductoComponent implements OnInit {
 
     // Guardar el archivo Excel
     XLSX.writeFile(workbook, 'Reporte_Productos.xlsx');
-     this.router.navigate(['/producto']);
-  }
+}
+
 
 
 }
