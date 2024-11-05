@@ -38,7 +38,7 @@ export class EliminarRolComponent implements OnInit {
           position: "center", // `left`, `center` or `right`
           backgroundColor: "#36CB7C",
         }).showToast();
-        this.router.navigate(['/rol']); // Redirige a la lista de roles u otra página según tu flujo
+        this.router.navigate(['/roles']); // Redirige a la lista de roles u otra página según tu flujo
       },
       (error: any) => {
         console.error('Error al eliminar el rol:', error);
