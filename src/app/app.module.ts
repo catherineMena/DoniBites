@@ -127,7 +127,8 @@ import { WidgetsComponent } from './widgets/widgets.component';
     AgregarOutgoingComponent,
     EliminarFacturaComponent,
     EliminarRolComponent,
-    WidgetsComponent,
+    WidgetsComponent,    RecuperarPwdComponent
+
 
 
 

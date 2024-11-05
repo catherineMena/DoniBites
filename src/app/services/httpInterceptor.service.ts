@@ -16,6 +16,10 @@ export class HttpInterceptorService implements HttpInterceptor {
 
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        if(req.url.indexOf('changepwd') > 0){
+            return next.handle(req);
+        }
+
         if (!this.authService.isUserLoggedIn()){
             this.router.navigate(['/login']);
         }
