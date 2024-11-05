@@ -16,11 +16,15 @@ export class HttpInterceptorService implements HttpInterceptor {
 
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        if(req.url.indexOf('changepwd') > 0){
+            return next.handle(req);
+        }
+
         if (!this.authService.isUserLoggedIn()){
             this.router.navigate(['/login']);
         }
 
-        if (req.url.indexOf('basicauth') === -1 && req.url.indexOf('changepwd') === -1) {
+        if (req.url.indexOf('basicauth') === -1) {
             const authReq = req.clone({
                 headers: new HttpHeaders({
                     'Content-Type': 'application/json',

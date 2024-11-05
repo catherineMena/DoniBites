@@ -11,12 +11,12 @@ import { map } from 'rxjs/operators';
 
 export class RecuperarPwdService {
 
- apiUrl = 'http://139.177.206.17:8080/minidonas/changepwd';
+ apiUrl = 'http://localhost:8080/changepwd';
 
   constructor(private http: HttpClient) { }
 
   crearContraseña(usuario: any): Observable<any> {
-    console.log('Datos de la categoría a guardar:', usuario);
+    console.log('Datos de usuario a enviar:', usuario);
     return this.http.post<any>(`${this.apiUrl}`, usuario);
   }      
 }

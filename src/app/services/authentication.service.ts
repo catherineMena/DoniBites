@@ -9,7 +9,7 @@ import { map, catchError } from 'rxjs/operators';
 export class AuthenticationService {
 
   public apiUrl = 'http://139.177.206.17:8080/minidonas';
-  public autString:string = 'Basic amVzc2ltYXNzaTpqZXNzaWNh';
+  public autString:string = 'Basic';
 
 
 
@@ -46,8 +46,12 @@ export class AuthenticationService {
   }
 
   isUserLoggedIn() {
-    // if (this.autString  == 'Basic') return false
-    return true
+    if (this.autString  == 'Basic') {
+      return false
+    }else {
+      return true
+    }
+    
   }
 
   setAutString(val: string) {

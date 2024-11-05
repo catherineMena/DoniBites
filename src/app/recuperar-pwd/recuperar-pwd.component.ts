@@ -25,26 +25,23 @@ export class RecuperarPwdComponent {
       return;
     }
 
-    const nuevaContrasenia = {
-      name: this.usuario
-    };
 
-  this.recuperarPwdService.crearContraseña(nuevaContrasenia).subscribe(
+  this.recuperarPwdService.crearContraseña(this.usuario).subscribe(
     (response: any) => {
-      console.log('Se ha enviado una nueva contraseña a su correo', response);
+      console.log('Resultado:', response.message);
       Toastify({
-        text: "Se ha enviado una nueva contraseña a su correo.",
+        text: response.message,
         duration: 3000,
         gravity: "top",
         position: "center",
-        backgroundColor: "#36CB7C",
+        backgroundColor: "#bcb5f5",
       }).showToast();
       this.router.navigate(['/login']);
       },
       (error: any) => {
         console.error('Error al enviar la contraseña', error);
         Toastify({
-          text: "Error al enviar la contraseña",
+          text: "Error al enviar la contraseña " + error,
           duration: 3000,
           gravity: "top",
           position: "right",
