@@ -1,11 +1,54 @@
-/* Fondo con gradiente y configuración básica para el cuerpo */
 body {
-  background: linear-gradient(to right, #EE696B, #523A78); /* Fondo con gradiente */
-  height: 100vh; /* Cubrir toda la altura del viewport */
+  background: rgb(45, 49, 66); /* Fondo con gradiente */
   margin: 0; /* Eliminar márgenes predeterminados */
   display: flex; /* Usar Flexbox para centrar */
   justify-content: center; /* Centrar horizontalmente */
   align-items: center; /* Centrar verticalmente */
+  min-height: 100vh; /* Establecer una altura mínima del 100% del viewport */
+  overflow: hidden; /* Ocultar el desbordamiento vertical */
+  color: #000;
+}
+
+/* -------------NAVBAR-------------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(145, 142, 244, 0.4);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.user-icon {
+  margin-left: auto; /* Asegura que el icono esté al final del navbar */
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.user-icon:hover {
+  color: #f0f0f0;
+}
+
+.navbar i {
+  transition: transform 0.3s ease;
+}
+
+.navbar i:hover {
+  transform: scale(1.1);
 }
 
 /* Estilos para el título */
@@ -13,8 +56,9 @@ h1 {
   font-size: 2em; /* Tamaño del texto */
   margin-bottom: 2rem;
   text-align: center; /* Alineación del texto */
-  color: #fff; /* Color del texto */
-  font-family: 'Arial', sans-serif; /* Fuente del texto */
+  color: #000; /* Color del texto */
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
 }
 
 /* Contenedor principal centrado */
@@ -23,11 +67,11 @@ h1 {
   flex-direction: column; /* Organizar elementos en columna */
   justify-content: center; /* Centrar los elementos internos */
   align-items: center; /* Centrar horizontalmente */
-  background: rgba(255, 255, 255, 0.12); /* Fondo semitransparente */
+  background: #fff; /* Fondo semitransparente */
   border-radius: 10px; /* Bordes redondeados */
   box-shadow: 0 4px 10px rgba(126, 19, 19, 0.1); /* Sombra sutil */
   padding: 3%; /* Espaciado interno */
-  width: fit-content /* Ancho del contenedor */
+  width: fit-content; /* Ancho del contenedor */
 }
 
 /* Estilos para el formulario */
@@ -46,33 +90,39 @@ input {
   padding: 8px;
   font-size: 1em;
 }
-
-.btn-danger {
-  background-color: #EE696B; /* Fondo */
-  color: #fff; /* Color del texto */
+.form-label {
+  color: #000;
+}
+/* Estilo para el botón */
+.btn-delete{
+  background-color: rgb(5, 178, 220);
+  color: #FFF;
+  border: none;
   font-size: 1em; /* Tamaño del texto */
-  padding: 0.8rem 1.5rem; /* Espaciado interno */
+  padding: 0.8rem 1.5rem;/* Espaciado interno */
   border: none; /* Eliminar borde por defecto */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor tipo puntero */
+  margin-right: 1rem;
+
+}
+
+button:hover {
+  background-color: rgb(5, 178, 220,0.3); /* Cambio de color al pasar el ratón */
+}
+
+.btn-cancel{
+  background-color: rgb(221, 13, 30);
+  color: #FFF;
+  border: none;
+  font-size: 1em;/* Tamaño del texto */
+  padding: 0.8rem 1.5rem; /* Espaciado interno */
   border-radius: 5px; /* Bordes redondeados */
   cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
   transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
-  margin: 1rem; /* Espacio en todos los lados */
 }
 
-/* Estilo para el botón de cancelar */
-.btn-cancelar {
-  background-color: #523A78; /* Fondo */
-  color: #fff; /* Color del texto */
-  font-size: 1em; /* Tamaño del texto */
-  padding: 0.8rem 1.5rem; /* Espaciado interno */
-  border: none; /* Eliminar borde por defecto */
-  border-radius: 5px; /* Bordes redondeados */
-  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
-  transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
-  margin: 1rem; /* Espacio en todos los lados */
-}
-
-/* Estilo para el botón de cancelar al pasar el ratón */
-.btn-cancelar:hover {
-  background-color: #6E5194; /* Cambio de color al pasar el ratón */
+button:hover {
+  background-color: rgb(221, 13, 30, 0.3);
+  color: #DD0D1E; /* Cambio de color al pasar el ratón */
 }

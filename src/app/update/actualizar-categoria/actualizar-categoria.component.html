@@ -10,11 +10,6 @@
 <div class="wrapper">
   <form (ngSubmit)="actualizarCategoria()">
     <h1 class="text-center">Actualizar Categoría</h1>
-    <!-- Campo para mostrar el ID de la categoría -->
-    <div class="form-group mb-3">
-      <label for="idInput" class="form-label">ID</label>
-      <input type="text" class="form-control" id="idInput" name="id" [value]="id" readonly>
-    </div>
 
     <!-- Campo para editar el nombre de la categoría -->
     <div class="form-group mb-3">
@@ -25,7 +20,7 @@
     <!-- Botón para guardar los cambios -->
     <div class="text-center">
       <button type="button" class="btn btn-primary btn-add" (click)="actualizarCategoria()">Guardar</button>
-      <button type="button" class="btn btn-primary btn-cancel" routerLink="/categoria">Cancelar</button>
+      <button type="button" class="btn-cancel" routerLink="/categoria">Cancelar</button>
     </div>
 
   </form>

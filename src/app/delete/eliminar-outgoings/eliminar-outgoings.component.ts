@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 import { OutgoingService } from '../../services/outgoings.service'; // Asegúrate de que el servicio existe
 
 @Component({
@@ -29,11 +31,24 @@ export class EliminarOutgoingsComponent implements OnInit {
     this.outgoingService.deleteOutgoing(this.id).subscribe(
       () => {
         console.log('Salida eliminada con éxito');
-        this.router.navigate(['/outgoing']); // Redirige a la lista de salidas u otra página según tu flujo
+        Toastify({
+          text: "Salida eliminada con éxito",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "center", // `left`, `center` or `right`
+          backgroundColor: "#36CB7C",
+        }).showToast();
+        this.router.navigate(['/outgoings']); // Redirige a la lista de salidas u otra página según tu flujo
       },
       (error: any) => {
         console.error('Error al eliminar la salida:', error);
-        alert('Error al eliminar la salida. Por favor, inténtalo de nuevo.');
+        Toastify({
+          text: "Error al eliminar la salida. Por favor, inténtalo de nuevo.",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "right", // `left`, `center` or `right`
+          backgroundColor: "#ff5f6d",
+        }).showToast();
       }
     );
   }

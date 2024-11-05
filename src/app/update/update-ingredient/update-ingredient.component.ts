@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IngredientService } from '../../services/ingredient.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
+import { IngredientService } from '../../services/ingredient.service';
 
 @Component({
   selector: 'app-update-ingredient',
@@ -43,12 +45,24 @@ export class UpdateIngredientComponent implements OnInit {
     this.ingredientService.updateIngredient(this.id, ingredientUpdated).subscribe(
       (response: any) => {
         console.log('Ingrediente actualizado con éxito:', response);
+        Toastify({
+          text: "Ingrediente actualizado con éxito",
+          duration: 3000,
+          gravity: "top", // `top` o `bottom`
+          position: "center", // `left`, `center` o `right`
+          backgroundColor: "#36CB7C",
+        }).showToast();
         this.router.navigate(['/ingredient']);
       },
       (error: any) => {
         console.error('Error al actualizar ingrediente:', error);
-        alert('Error al actualizar ingrediente. Por favor, inténtalo de nuevo.');
-      }
+        Toastify({
+          text: "Error al actualizar el ingrediente. Por favor, inténtalo de nuevo.",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "#ff5f6d",
+        }).showToast();      }
     );
   }
 }

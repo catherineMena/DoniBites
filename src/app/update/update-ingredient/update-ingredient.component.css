@@ -22,7 +22,7 @@ h1 {
 /* Contenedor principal centrado */
 .wrapper {
   max-width: 600px; /* or 80% */
-  min-height: 400px; /* new property */
+  min-height: 200px; /* new property */
   margin: 0 auto;
   padding: 40px;
   border: 2px solid #ccc;
@@ -40,39 +40,39 @@ input {
   height: 4rem; /* increase height */
 }
 
-
+button {
+  font-size: 1.2em; /* increase font size */
+  padding: 1rem 2rem; /* increase padding */
+}
 /* Estilo para el botón */
-.btn-delete {
-  font-size: 1.2em; /* Aumentar tamaño de la fuente */
-  padding: 1rem 2rem;/* increase padding */
-  /* background-color: rgb(5, 178, 220, 0.3);
-  color: rgb(5, 178, 220); */
+.btn-add {
+  background-color: rgb(5, 178, 220);
+  color: #FFF;
   border: none;
-  padding: 0.7rem 1.5rem; /* Espaciado interno */
+  font-size: 1em; /* Tamaño del texto */
+  padding: 0.8rem 1.5rem;/* Espaciado interno */
   border: none; /* Eliminar borde por defecto */
   border-radius: 5px; /* Bordes redondeados */
   cursor: pointer; /* Cursor tipo puntero */
   margin-right: 1rem;
+
 }
 
 button:hover {
-  background-color: rgb(5, 178, 220); /* Cambio de color al pasar el ratón */
+  background-color: rgb(5, 178, 220,0.3); /* Cambio de color al pasar el ratón */
 }
 
 .btn-cancel{
-  font-size: 1.2em; /* Aumentar tamaño de la fuente */
-  padding: 1rem 2rem; /* Aumentar espaciado interno */
-  padding: 0.7rem 1.5rem;
-  background-color: #DD0D1E;
-  border-radius: 5px;
+  background-color: rgb(221, 13, 30);
   border: none;
-  cursor: pointer; /* Cursor tipo puntero */
-
-
+  font-size: 1em;/* Tamaño del texto */
+  padding: 0.8rem 1.5rem; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
 }
 
-.btn-cancel:hover{
-
+button:hover {
   background-color: rgb(221, 13, 30, 0.3);
-  color: #DD0D1E;
+  color: #DD0D1E; /* Cambio de color al pasar el ratón */
 }

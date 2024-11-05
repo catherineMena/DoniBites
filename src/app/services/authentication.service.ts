@@ -1,7 +1,7 @@
-import { Injectable, Optional, SkipSelf } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import { map, catchError } from 'rxjs/operators';
 export class AuthenticationService {
 
   public apiUrl = 'http://139.177.206.17:8080/minidonas';
-  public autString:string = 'Basic amVzc2ltYXNzaTpqZXNzaWNh';
+  public autString:string = 'Basic';
 
 
 
@@ -46,7 +46,7 @@ export class AuthenticationService {
   }
 
   isUserLoggedIn() {
-    // if (this.autString  == 'Basic') return false
+    if (this.autString  == 'Basic') return false
     return true
   }
 

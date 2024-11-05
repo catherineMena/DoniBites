@@ -11,22 +11,16 @@
     <form (ngSubmit)="actualizarFactura()">
       <h1 class="text-center">Actualizar Factura</h1>
 
-      <!-- Campo para el ID de la factura (solo visualización, no editable) -->
-      <div class="form-group mb-3">
-        <label for="facturaId" class="form-label">ID de la Factura</label>
-        <input type="text" class="form-control" id="facturaId" [value]="factura.id" readonly>
-      </div>
-
       <!-- Campo para la fecha de la factura -->
       <div class="form-group mb-3">
         <label for="facturaDate" class="form-label">Fecha de la Factura</label>
         <input type="date" class="form-control" id="facturaDate" [(ngModel)]="factura.invoiceDate" name="invoiceDate" required>
       </div>
 
-      <!-- Campo para la descripción del pedido -->
+      <!-- Campo para la descripción de la factura -->
       <div class="form-group mb-3">
-        <label for="facturaDescription" class="form-label">Descripción del Pedido</label>
-        <textarea class="form-control" id="facturaDescription" [(ngModel)]="factura.order.description" name="description" rows="2"></textarea>
+        <label for="facturaDescription" class="form-label">Descripción de la Factura</label>
+        <textarea class="form-control" id="facturaDescription" [(ngModel)]="factura.description" name="description" rows="2" required></textarea>
       </div>
 
       <!-- Campo para el RUC -->
@@ -47,6 +41,14 @@
         <input type="text" class="form-control" id="facturaStatus" [(ngModel)]="factura.status" name="status">
       </div>
 
+      <!-- Selector para elegir el pedido -->
+      <div class="form-group mb-3">
+        <label for="pedidoSelect" class="form-label">Selecciona un Pedido</label>
+        <select class="form-control" id="pedidoSelect" [(ngModel)]="factura.order.id" name="orderId" required>
+          <option *ngFor="let pedido of pedidos" [value]="pedido.id">{{ pedido.description }}</option>
+        </select>
+      </div>
+
       <!-- Campo para la fecha de pedido -->
       <div class="form-group mb-3">
         <label for="facturaOrderDate" class="form-label">Fecha de Pedido</label>
@@ -62,7 +64,7 @@
       <!-- Botón para guardar los cambios -->
       <div class="text-center">
         <button type="button" class="btn-add" (click)="actualizarFactura()">Guardar</button>
-        <button type="button" class="btn-cancelar" routerLink="/factura">Cancelar</button>
+        <button type="button" class="btn-cancel" routerLink="/factura">Cancelar</button>
       </div>
     </form>
   </div>

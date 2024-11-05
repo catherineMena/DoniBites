@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import Toastify from 'toastify-js';
 import "toastify-js/src/toastify.css";
 import { InventoryService } from '../../services/inventory.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-incoming-stock',

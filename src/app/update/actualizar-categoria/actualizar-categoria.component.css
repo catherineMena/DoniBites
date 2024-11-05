@@ -22,7 +22,7 @@ h1 {
 /* Contenedor principal centrado */
 .wrapper {
   max-width: 600px; /* or 80% */
-  min-height: 400px; /* new property */
+  min-height: 200px; /* new property */
   margin: 0 auto;
   padding: 40px;
   border: 2px solid #ccc;

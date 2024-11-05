@@ -7,19 +7,19 @@
 </head>
 <body>
   <div class="wrapper">
-    <form (ngSubmit)="eliminarRol()">
+    <form (ngSubmit)="deleteRole()">
       <h1 class="text-center">Eliminar Rol</h1>
 
       <!-- Campo para mostrar el nombre del rol -->
       <div class="form-group mb-3">
         <label for="rolInput" class="form-label">Rol</label>
-        <input type="text" class="form-control" id="rolInput" name="rol" [value]="rol" readonly>
+        <input type="text" class="form-control" id="rolInput" name="rol" [value]="rol?.name" readonly>
       </div>
 
       <!-- Botón para confirmar la eliminación -->
       <div class="text-center">
-        <button type="submit" class="btn-danger">Eliminar</button>
-        <button type="button" class="btn-cancelar" routerLink="/roles">Cancelar</button>
+        <button type="submit" class="btn-delete">Eliminar</button>
+        <button type="button" class="btn-cancel"  routerLink="/roles">Cancelar</button>
       </div>
     </form>
   </div>

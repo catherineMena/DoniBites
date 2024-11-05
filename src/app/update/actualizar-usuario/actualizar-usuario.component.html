@@ -4,17 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Actualizar Usuario</title>
+  <link rel="stylesheet" href="actualizar-usuario.component.css">
 </head>
 <body>
 
 <div class="wrapper">
   <form (ngSubmit)="actualizarUsuario()">
     <h1 class="text-center">Actualizar Usuario</h1>
-    <!-- Campo para mostrar el ID del usuario -->
-    <div class="form-group mb-3">
-      <label for="idInput" class="form-label">ID</label>
-      <input type="text" class="form-control" id="idInput" name="id" [value]="id" readonly>
-    </div>
 
     <!-- Campo para editar el nombre de usuario -->
     <div class="form-group mb-3">
@@ -34,10 +30,10 @@
       <input type="email" class="form-control" id="emailInput" name="email" [(ngModel)]="email" required>
     </div>
 
-    <!-- Campo para editar el rol del usuario -->
+    <!-- Campo para el rol -->
     <div class="form-group mb-3">
       <label for="rolInput" class="form-label">Rol</label>
-      <select class="form-control" id="rolInput" name="rolId" [(ngModel)]="rolId" required (change)="onRoleChange($event)">
+      <select class="form-control" id="rolInput" name="rol" [(ngModel)]="rolId">
         <option *ngFor="let rol of roles" [value]="rol.id">{{ rol.name }}</option>
       </select>
     </div>
@@ -60,16 +56,10 @@
       <input type="tel" class="form-control" id="phoneInput" name="phone" [(ngModel)]="phone" required>
     </div>
 
-    <!-- Campo para editar el estado del usuario -->
-    <div class="form-group mb-3">
-      <label for="statusInput" class="form-label">Estado</label>
-      <input type="text" class="form-control" id="statusInput" name="status" [(ngModel)]="status" required>
-    </div>
-
     <!-- Botón para guardar los cambios -->
     <div class="text-center">
-      <button type="button" class="btn-add" (click)="actualizarUsuario()">Guardar</button>
-      <button type="button" class="btn-cancelar" routerLink="/usuario">Cancelar</button>
+      <button type="submit" class="btn-add">Guardar</button>
+      <button type="button" class="btn-cancel" routerLink="/usuario">Cancelar</button>
     </div>
   </form>
 </div>

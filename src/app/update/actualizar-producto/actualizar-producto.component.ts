@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductoService } from '../../services/producto.service';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 import { CategoriaService } from '../../services/categoria.service';
+import { ProductoService } from '../../services/producto.service';
 
 @Component({
   selector: 'app-actualizar-producto',
@@ -75,12 +77,24 @@ export class ActualizarProductoComponent implements OnInit {
     this.productoService.actualizarProducto(this.id, productoActualizado).subscribe(
       (response: any) => {
         console.log('Producto actualizado con éxito:', response);
+        Toastify({
+          text: "Producto actualizado con éxito",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "center", // `left`, `center` or `right`
+          backgroundColor: "#36CB7C",
+        }).showToast();
         this.router.navigate(['/producto']);
       },
       (error: any) => {
         console.error('Error al actualizar el producto:', error);
-        alert('Error al actualizar el producto. Por favor, inténtalo de nuevo.');
-      }
+        Toastify({
+          text: "Error al actualizar el producto. Por favor, inténtalo de nuevo.",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "center", // `left`, `center` or `right`
+          backgroundColor: "#ff5f6d",
+        }).showToast();      }
     );
   }
 

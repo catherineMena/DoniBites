@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 import { IngredientService } from '../../services/ingredient.service';
 import { OutgoingService } from '../../services/outgoings.service';
 
@@ -98,12 +100,24 @@ export class ActualizarOutgoingsComponent implements OnInit {
       this.outgoingService.updateOutgoing(this.outgoing.id, this.outgoing).subscribe(
         res => {
           console.log('Outgoing actualizado con éxito:', res);
+          Toastify({
+            text: "Salida actualizada con éxito",
+            duration: 3000,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            backgroundColor: "#36CB7C",
+          }).showToast();
           this.router.navigate(['/outgoings']);
         },
         err => {
           console.error('Error al actualizar el outgoing:', err);
-          alert('Error al actualizar el outgoing. Por favor, inténtalo de nuevo.');
-        }
+          Toastify({
+            text: "Error al actualizar la salida. Por favor, inténtalo de nuevo.",
+            duration: 3000,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            backgroundColor: "#ff5f6d",
+          }).showToast();        }
       );
     } else {
       alert('Por favor, completa todos los campos obligatorios.');

@@ -1,25 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 import { FacturaService } from '../../services/factura.service';
+import { PedidoService } from '../../services/pedido.service'; // Asegúrate de importar el servicio de pedidos
 
 // Definición de la interfaz para la Factura
 interface Factura {
   id: number;
   invoiceDate: string;
   order: {
-    description: string;
+    id: number;
+    recordUser: number;
+    updateUser: number;
     orderDate: string;
     expectedDeliverDate: string;
+    deliverDate: string;
+    description: string; // descripción del pedido
+    status: string; // estado del pedido
+    details: DetalleFactura[];
   };
   ruc: string;
+  description: string; // descripción normal de la factura
   paidAmount: number;
   status: string;
-  details: DetalleFactura[];
 }
 
 interface DetalleFactura {
   qty: number; // Cantidad
   price: number; // Precio total
+}
+
+interface Pedido {
+  id: number;
+  description: string; // Descripción del pedido
 }
 
 @Component({
@@ -32,18 +46,27 @@ export class ActualizarFacturaComponent implements OnInit {
     id: 0,
     invoiceDate: '',
     order: {
-      description: '',
+      id: 0,
+      recordUser: 0,
+      updateUser: 0,
       orderDate: '',
-      expectedDeliverDate: ''
+      expectedDeliverDate: '',
+      deliverDate: '',
+      description: '', // descripción del pedido
+      status: '',
+      details: []
     },
     ruc: '',
+    description: '', // descripción de la factura
     paidAmount: 0,
-    status: '',
-    details: []
+    status: ''
   };
+
+  pedidos: Pedido[] = []; // Array para almacenar los pedidos disponibles
 
   constructor(
     private facturaService: FacturaService,
+    private pedidoService: PedidoService, // Inicializa el servicio de pedidos
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -52,6 +75,7 @@ export class ActualizarFacturaComponent implements OnInit {
     this.route.params.subscribe(params => {
       const facturaId = +params['id'];
       this.obtenerFacturaPorId(facturaId);
+      this.cargarPedidos(); // Cargar los pedidos al iniciar
     });
   }
 
@@ -70,6 +94,17 @@ export class ActualizarFacturaComponent implements OnInit {
     );
   }
 
+  cargarPedidos(): void {
+    this.pedidoService.getAllPedidos().subscribe(
+      res => {
+        this.pedidos = res; // Asignar la respuesta a la lista de pedidos
+      },
+      err => {
+        console.error('Error al cargar pedidos:', err);
+      }
+    );
+  }
+
   formatearFecha(fecha: string): string {
     const date = new Date(fecha);
     return date.toISOString().split('T')[0]; // Devuelve la fecha en formato YYYY-MM-DD
@@ -79,11 +114,24 @@ export class ActualizarFacturaComponent implements OnInit {
     this.facturaService.updateFactura(this.factura.id, this.factura).subscribe(
       res => {
         console.log('Factura actualizada con éxito:', res);
+        Toastify({
+          text: "Factura actualizada con éxito",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "#36CB7C",
+        }).showToast();
         this.router.navigate(['/factura']);
       },
       err => {
         console.error('Error al actualizar la factura:', err);
-        alert('Error al actualizar la factura. Por favor, inténtalo de nuevo.');
+        Toastify({
+          text: "Error al actualizar la factura. Por favor, inténtalo de nuevo.",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "#ff5f6d",
+        }).showToast();
       }
     );
   }

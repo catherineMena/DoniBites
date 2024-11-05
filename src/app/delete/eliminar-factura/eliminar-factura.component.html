@@ -11,12 +11,12 @@
   <form (ngSubmit)="eliminarFactura()">
     <h1 class="text-center">Eliminar Factura</h1>
     <div class="form-group mb-3">
-      <label for="nombreInput" class="form-label">Nombre de la factura</label>
-      <input type="text" class="form-control" id="nombreInput" name="nombre" [value]="factura?.name" readonly>
+      <label for="rucInput" class="form-label">RUC de la factura</label>
+      <input type="text" class="form-control" id="rucInput" name="ruc" [value]="factura?.ruc" readonly>
     </div>
     <div class="text-center">
       <button type="submit" class="btn-delete">Eliminar</button>
-      <button type="button" class="btn-cancel" routerLink="/facturas">Cancelar</button>
+      <button type="button" class="btn-cancel" routerLink="/factura">Cancelar</button>
     </div>
   </form>
 </div>

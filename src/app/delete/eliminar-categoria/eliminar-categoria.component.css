@@ -22,7 +22,7 @@ h1 {
 /* Contenedor principal centrado */
 .wrapper {
   max-width: 600px; /* or 80% */
-  min-height: 400px; /* new property */
+  min-height: 200px; /* new property */
   margin: 0 auto;
   padding: 40px;
   border: 2px solid #ccc;
@@ -44,13 +44,14 @@ input {
 /* Estilo para el botón */
 .btn-delete {
   background-color: rgb(5, 178, 220);
-  color: #fff;
+  color: #FFF;
   border: none;
-  font-size: 130%; /* Tamaño del texto */
-  padding: 0.7rem 1.5rem; /* Espaciado interno */
+  font-size: 1em; /* Tamaño del texto */
+  padding: 0.8rem 1.5rem;/* Espaciado interno */
   border: none; /* Eliminar borde por defecto */
   border-radius: 5px; /* Bordes redondeados */
   cursor: pointer; /* Cursor tipo puntero */
+  margin-right: 1rem;
 }
 
 button:hover {
@@ -58,14 +59,13 @@ button:hover {
 }
 
 .btn-cancel{
-  font-size: 1.2em; /* Aumentar tamaño de la fuente */
-  padding: 1rem 2rem; /* Aumentar espaciado interno */
-  padding: 0.7rem 1.5rem;
-  background-color: #DD0D1E;
-  border-radius: 5px;
+  background-color: rgb(221, 13, 30);
   border: none;
-  cursor: pointer; /* Cursor tipo puntero */
-
+  font-size: 1em;/* Tamaño del texto */
+  padding: 0.8rem 1.5rem; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
 
 }
 

@@ -11,12 +11,12 @@
   <form (ngSubmit)="eliminarPedido()">
     <h1 class="text-center">Eliminar Pedido</h1>
     <div class="form-group mb-3">
-      <label for="nombreInput" class="form-label">Nombre del pedido</label>
-      <input type="text" class="form-control" id="nombreInput" name="nombre" [value]="pedido?.name" readonly>
+      <label for="descripcionInput" class="form-label">Descripción del pedido</label>
+      <input type="text" class="form-control" id="descripcionInput" name="descripcion" [value]="pedido?.description" readonly>
     </div>
     <div class="text-center">
       <button type="submit" class="btn-delete">Eliminar</button>
-      <button type="button" class="btn-cancel" routerLink="/pedidos">Cancelar</button>
+      <button type="button" class="btn-cancel" routerLink="/pedido">Cancelar</button>
     </div>
   </form>
 </div>

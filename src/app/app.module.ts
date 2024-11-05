@@ -59,10 +59,13 @@ import { EliminarPedidoComponent } from './delete/eliminar-pedidos/eliminar-pedi
 
 
 import { AgregarOutgoingComponent } from './Add/agregar-outgoings/agregar-outgoings.component';
+import { EliminarOutgoingsComponent } from './delete/eliminar-outgoings/eliminar-outgoings.component';
 import { OutgoingsComponent } from './outgoings/outgoings.component';
 import { VisualizarOutgoingsComponent } from './read/visualizar-outgoings/visualizar-outgoings.component';
 import { ActualizarOutgoingsComponent } from './update/actualizar-outgoings/actualizar-outgoings.component';
-import { EliminarOutgoingsComponent } from './delete/eliminar-outgoings/eliminar-outgoings.component';
+
+
+import { WidgetsComponent } from './widgets/widgets.component';
 
 
 @NgModule({
@@ -122,7 +125,9 @@ import { EliminarOutgoingsComponent } from './delete/eliminar-outgoings/eliminar
     VisualizarOutgoingsComponent,
     EliminarOutgoingsComponent,
     AgregarOutgoingComponent,
-
+    EliminarFacturaComponent,
+    EliminarRolComponent,
+    WidgetsComponent,
 
 
 

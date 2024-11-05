@@ -12,11 +12,6 @@
       <h1 class="text-center">Actualizar Pedido</h1>
 
       <div class="form-group mb-3">
-        <label for="pedidoId" class="form-label">ID del Pedido</label>
-        <input type="text" class="form-control" id="pedidoId" [value]="pedido.id" readonly>
-      </div>
-
-      <div class="form-group mb-3">
         <label for="pedidoDate" class="form-label">Fecha del Pedido</label>
         <input type="date" class="form-control" id="pedidoDate" [(ngModel)]="pedido.orderDate" name="orderDate" required>
       </div>
@@ -73,7 +68,7 @@
       <!-- Botón para guardar los cambios -->
       <div class="text-center">
         <button type="button" class="btn-add" (click)="actualizarPedido()">Guardar</button>
-         <button type="button" class="btn-cancelar" routerLink="/pedido">Cancelar</button>
+         <button type="button" class="btn-cancel" routerLink="/pedido">Cancelar</button>
       </div>
     </form>
   </div>

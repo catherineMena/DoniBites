@@ -12,11 +12,6 @@
     <h1 class="text-center">Agregar Factura</h1>
 
     <div class="form-group mb-3">
-      <label for="invoiceId" class="form-label">ID de la Factura</label>
-      <input type="text" class="form-control" id="invoiceId" placeholder="Ingrese el ID de la factura" name="invoiceId" [(ngModel)]="id" required>
-    </div>
-
-    <div class="form-group mb-3">
       <label for="invoiceDate" class="form-label">Fecha de la Factura</label>
       <input type="date" class="form-control" id="invoiceDate" name="invoiceDate" [(ngModel)]="invoiceDate" required>
     </div>
@@ -48,6 +43,13 @@
       <label for="expectedDeliverDate" class="form-label">Fecha de Entrega Esperada</label>
       <input type="date" class="form-control" id="expectedDeliverDate" name="expectedDeliverDate" [(ngModel)]="expectedDeliverDate" required>
     </div>
+
+
+    <div class="form-group mb-3">
+      <label for="invoiceDescription" class="form-label">Descripción de la Factura</label>
+      <input type="text" class="form-control" id="invoiceDescription" placeholder="Ingrese la descripción de la factura" name="invoiceDescription" [(ngModel)]="description" required>
+    </div>
+
 
     <div class="text-center">
       <button type="button" class="btn btn-primary btn-add" (click)="guardarFactura()">Guardar</button>

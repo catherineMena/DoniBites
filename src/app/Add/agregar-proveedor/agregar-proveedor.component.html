@@ -11,10 +11,10 @@
   <form (ngSubmit)="guardarProveedor()">
     <h1 class="text-center">Agregar Proveedor</h1>
     <!-- Campo para el ID del proveedor -->
-    <div class="form-group mb-3">
+    <!-- <div class="form-group mb-3">
       <label for="idInput" class="form-label">ID</label>
       <input type="text" class="form-control" id="idInput" placeholder="ID del proveedor" name="id" [(ngModel)]="id" required>
-    </div>
+    </div> -->
 
     <!-- Campo para el nombre del proveedor -->
     <div class="form-group mb-3">
@@ -52,6 +52,8 @@
     <!-- Botón de envío centrado -->
     <div class="text-center">
       <button type="button" class="btn btn-primary btn-add" (click)="guardarProveedor()">Guardar</button>
+      <button type="button" class="btn-cancel" routerLink="/proveedor">Cancelar</button>
+
     </div>
   </form>
 </div>

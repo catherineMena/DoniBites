@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 import { ProveedoresService } from '../../services/proveedores.service';
 
 @Component({
@@ -51,12 +53,24 @@ export class ActualizarProveedorComponent implements OnInit {
     this.proveedoresService.updateProvider(this.id, proveedorActualizado).subscribe(
       (response: any) => {
         console.log('Proveedor actualizado con éxito:', response);
+        Toastify({
+          text: "Proveedor actualizado con éxito",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "center", // `left`, `center` or `right`
+          backgroundColor: "#36CB7C",
+        }).showToast();
         this.router.navigate(['/proveedores']);
       },
       (error: any) => {
         console.error('Error al actualizar el proveedor:', error);
-        alert('Error al actualizar el proveedor. Por favor, inténtalo de nuevo.');
-      }
+        Toastify({
+          text: "Error al actualizar el proveedor. Por favor, inténtalo de nuevo.",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "center", // `left`, `center` or `right`
+          backgroundColor: "#ff5f6d",
+        }).showToast();      }
     );
   }
 }

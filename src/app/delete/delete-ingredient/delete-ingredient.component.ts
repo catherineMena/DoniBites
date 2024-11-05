@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 import { IngredientService } from '../../services/ingredient.service';
 
 @Component({
@@ -29,11 +31,24 @@ export class DeleteIngredientComponent implements OnInit {
     this.ingredientService.deleteIngredient(this.id).subscribe(
       () => {
         console.log('Ingrediente eliminado con éxito');
-        this.router.navigate(['/ingredientes']); // Redirige a la lista de ingredientes u otra página según tu flujo
+        Toastify({
+          text: "Ingrediente eliminado con éxito",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "center", // `left`, `center` or `right`
+          backgroundColor: "#36CB7C",
+        }).showToast();
+        this.router.navigate(['/ingredient']); // Redirige a la lista de ingredientes u otra página según tu flujo
       },
       (error: any) => {
         console.error('Error al eliminar el ingrediente:', error);
-        alert('Error al eliminar el ingrediente. Por favor, inténtalo de nuevo.');
+        Toastify({
+          text: "Error al eliminar el ingrediente. Por favor, inténtalo de nuevo.",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "right", // `left`, `center` or `right`
+          backgroundColor: "#ff5f6d",
+        }).showToast();
       }
     );
   }

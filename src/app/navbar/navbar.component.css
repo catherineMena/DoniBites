@@ -1,6 +1,3 @@
-
-/* -------------NAVBAR-------------- */
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -16,6 +13,13 @@
   z-index: 1000;
 }
 
+.navbar-brand{
+  color: #fff;
+  font-size: 1.5em;
+  font-size: bold;
+
+}
+
 .navbar-content {
   display: flex;
   justify-content: space-between;
@@ -25,25 +29,27 @@
 }
 
 .logo {
-margin-left: 2%;
-align-items: center;
-  font-size: 2em; /* Tamaño del texto del logo */
-  font-weight:700%; /* Negrita */
-  color: #fff;;
+  margin-left: 2%;
+  align-items: center;
+  font-size: 2em;
+  font-weight: 700;
+  color: #fff;
 }
 
 .user-icon {
-  font-size: 1.5em; /* Tamaño del ícono */
-  margin-left: auto; /* Mover el ícono al extremo derecho */
+  font-size: 1.5em;
+  margin-left: auto;
   color: #fff;
 }
 
 .user-icon:hover {
   color: #f0f0f0;
 }
+
 .navbar i {
   transition: transform 0.3s ease;
 }
+
 .navbar i:hover {
   transform: scale(1.1);
 }

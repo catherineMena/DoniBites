@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { AddIncomingStockComponent } from './Add/add-incoming-stock/add-incoming-stock.component';
+import { AddIngredientComponent } from './Add/add-ingredient/add-ingredient.component';
 import { AgregarCategoriaComponent } from './Add/agregar-categoria/agregar-categoria.component';
 import { AgregarFacturaComponent } from './Add/agregar-factura/agregar-factura.component';
 import { AgregarPedidoComponent } from './Add/agregar-pedido/agregar-pedido.component';
@@ -7,18 +9,23 @@ import { AgregarProveedorComponent } from './Add/agregar-proveedor/agregar-prove
 import { AgregarRolComponent } from './Add/agregar-rol/agregar-rol.component';
 import { AgregarUsuarioComponent } from './Add/agregar-usuario/agregar-usuario.component';
 import { CategoriaComponent } from './categoria/categoria.component';
+import { DeleteIngredientComponent } from './delete/delete-ingredient/delete-ingredient.component';
 import { EliminarCategoriaComponent } from './delete/eliminar-categoria/eliminar-categoria.component';
+import { EliminarFacturaComponent } from './delete/eliminar-factura/eliminar-factura.component';
 import { EliminarProductoComponent } from './delete/eliminar-producto/eliminar-producto.component';
 import { EliminarProveedorComponent } from './delete/eliminar-proveedor/eliminar-proveedor.component';
 import { EliminarRolComponent } from './delete/eliminar-rol/eliminar-rol.component';
 import { EliminarUsuarioComponent } from './delete/eliminar-usuario/eliminar-usuario.component';
 import { FacturaComponent } from './factura/factura.component';
+import { IncomingStockComponent } from './incoming-stock/incoming-stock.component';
 import { IngredientesComponent } from './ingredientes/ingredientes.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { PedidoComponent } from './pedido/pedido.component';
 import { ProductoComponent } from './producto/producto.component';
 import { ProveedoresComponent } from './proveedores/proveedores.component';
+import { ReadIncomingStockComponent } from './read/read-incoming-stock/read-incoming-stock.component';
+import { ReadIngredientComponent } from './read/read-ingredient/read-ingredient.component';
 import { VisualizarCategoriaComponent } from './read/visualizar-categoria/visualizar-categoria.component';
 import { VisualizarFacturaComponent } from './read/visualizar-factura/visualizar-factura.component';
 import { VisualizarPedidoComponent } from './read/visualizar-pedido/visualizar-pedido.component';
@@ -35,24 +42,17 @@ import { ActualizarProductoComponent } from './update/actualizar-producto/actual
 import { ActualizarProveedorComponent } from './update/actualizar-proveedor/actualizar-proveedor.component';
 import { ActualizarRolComponent } from './update/actualizar-rol/actualizar-rol.component';
 import { ActualizarUsuarioComponent } from './update/actualizar-usuario/actualizar-usuario.component';
-import { UsuarioComponent } from './usuario/usuario.component';
-import { IncomingStockComponent } from './incoming-stock/incoming-stock.component';
-import { ReadIncomingStockComponent } from './read/read-incoming-stock/read-incoming-stock.component';
-import { AddIncomingStockComponent } from './Add/add-incoming-stock/add-incoming-stock.component';
-import { AddIngredientComponent } from './Add/add-ingredient/add-ingredient.component';
-import { ReadIngredientComponent } from './read/read-ingredient/read-ingredient.component';
 import { UpdateIngredientComponent } from './update/update-ingredient/update-ingredient.component';
-import { DeleteIngredientComponent } from './delete/delete-ingredient/delete-ingredient.component';
-import { EliminarFacturaComponent } from './delete/eliminar-factura/eliminar-factura.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 import { EliminarPedidoComponent } from './delete/eliminar-pedidos/eliminar-pedidos.component';
 
 // import { AgregarOutgoingComponent } from './Add/agregar-outgoing/agregar-outgoing.component';
-import { OutgoingsComponent } from './outgoings/outgoings.component';
 import { AgregarOutgoingComponent } from './Add/agregar-outgoings/agregar-outgoings.component';
+import { EliminarOutgoingsComponent } from './delete/eliminar-outgoings/eliminar-outgoings.component';
+import { OutgoingsComponent } from './outgoings/outgoings.component';
 import { VisualizarOutgoingsComponent } from './read/visualizar-outgoings/visualizar-outgoings.component';
 import { ActualizarOutgoingsComponent } from './update/actualizar-outgoings/actualizar-outgoings.component';
-import { EliminarOutgoingsComponent } from './delete/eliminar-outgoings/eliminar-outgoings.component';
 // import { VisualizarOutgoingsComponent } from './read/visualizar-outgoings/visualizar-outgoings.component';
 // import { ActualizarOutgoingsComponent } from './update/actualizar-outgoings/actualizar-outgoings.component';
 // import { EliminarOutgoingsComponent } from './delete/eliminar-outgoings/eliminar-outgoings.component';
@@ -117,10 +117,10 @@ import { EliminarOutgoingsComponent } from './delete/eliminar-outgoings/eliminar
 { path: 'agregar-pedido', component: AgregarPedidoComponent },
 { path: 'visualizar-pedido', component: VisualizarPedidoComponent },
 { path: 'actualizar-pedido', component: ActualizarPedidoComponent },
-// { path: 'eliminar-pedido', component: EliminarPedidoComponent },
+{ path: 'eliminar-pedido', component: EliminarPedidoComponent },
 { path: 'visualizar-pedido/:id', component: VisualizarPedidoComponent },
 { path: 'actualizar-pedido/:id', component: ActualizarPedidoComponent },
-// { path: 'eliminar-pedido/:id', component: EliminarPedidoComponent },
+{ path: 'eliminar-pedido/:id', component: EliminarPedidoComponent },
 
   ///////////////////////////////////////////////////////////////////
   { path: 'factura', component: FacturaComponent },

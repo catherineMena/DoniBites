@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CategoriaService } from '../../services/categoria.service';
 import Toastify from 'toastify-js';
 import "toastify-js/src/toastify.css";
+import { CategoriaService } from '../../services/categoria.service';
 
 @Component({
   selector: 'app-eliminar-categoria',

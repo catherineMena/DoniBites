@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 import { PedidoService } from '../../services/pedido.service';
 import { ProductoService } from '../../services/producto.service';
 
@@ -9,7 +11,7 @@ import { ProductoService } from '../../services/producto.service';
   styleUrls: ['./agregar-pedido.component.css']
 })
 export class AgregarPedidoComponent implements OnInit {
-  id: string = '';
+  id: number = 0;
   orderDate: string = '';
   description: string = '';
   status: string = 'pendiente';
@@ -77,12 +79,24 @@ export class AgregarPedidoComponent implements OnInit {
     this.pedidoService.createPedido(newOrder).subscribe(
       (response: any) => {
         console.log('Pedido guardado con éxito:', response);
+        Toastify({
+          text: "El pedido se ha guardado con éxito",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "#36CB7C",
+        }).showToast();
         this.router.navigate(['/pedido']);
       },
       (error: any) => {
         console.error('Error al guardar el pedido:', error);
-        alert('Error al guardar el pedido. Por favor, inténtalo de nuevo.');
-      }
+        Toastify({
+          text: "Error al guardar pedido. Inténtalo de nuevo.",
+          duration: 3000,
+          gravity: "top",
+          position: "right",
+          backgroundColor: "#ff5f6d",
+        }).showToast();      }
     );
   }
 }

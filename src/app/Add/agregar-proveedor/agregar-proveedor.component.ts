@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { ProveedoresService } from '../../services/proveedores.service';
 import { Router } from '@angular/router';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
+import { ProveedoresService } from '../../services/proveedores.service';
 
 @Component({
   selector: 'app-agregar-proveedor',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./agregar-proveedor.component.css']
 })
 export class AgregarProveedorComponent {
-  id: string = '';
+  id: number = 0;
   proveedor: string = '';
   direccion: string = '';
   telefono: string = '';
@@ -18,12 +20,11 @@ export class AgregarProveedorComponent {
   constructor(private proveedoresService: ProveedoresService, private router: Router) { }
 
   guardarProveedor(): void {
-    if (this.id.trim() === '' || this.proveedor.trim() === '' || this.direccion.trim() === '' || this.telefono.trim() === '' || this.correoElectronico.trim() === '') {
+    if (this.proveedor.trim() === '' || this.direccion.trim() === '' || this.telefono.trim() === '' || this.correoElectronico.trim() === '') {
       alert('Por favor, completa todos los campos.');
       return;
     }
     const newProvider = {
-      id: this.id,
       name: this.proveedor,
       address: this.direccion,
       phone: this.telefono,
@@ -34,12 +35,24 @@ export class AgregarProveedorComponent {
     this.proveedoresService.createProviders(newProvider).subscribe(
       (response: any) => {
         console.log('Proveedor guardado con éxito:', response);
+        Toastify({
+          text: "El proveedor se ha guardado con éxito",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "#36CB7C",
+        }).showToast();
         this.router.navigate(['/proveedores']);
       },
       (error: any) => {
         console.error('Error al guardar el proveedor:', error);
-        alert('Error al guardar el proveedor. Por favor, inténtalo de nuevo.');
-      }
+        Toastify({
+          text: "Error al guardar proveedor. Inténtalo de nuevo.",
+          duration: 3000,
+          gravity: "top",
+          position: "right",
+          backgroundColor: "#ff5f6d",
+        }).showToast();      }
     );
   }
 }

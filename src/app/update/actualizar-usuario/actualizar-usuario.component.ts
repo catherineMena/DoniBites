@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
+import { RolService } from '../../services/rol.service';
 import { UsuarioService } from '../../services/usuario.service';
-import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-actualizar-usuario',
@@ -17,14 +20,15 @@ export class ActualizarUsuarioComponent implements OnInit {
   completeName: string = '';
   address: string = '';
   phone: string = '';
-  status: string = '';
+  status: string = ''; // Asegúrate de que esto esté definido para el estado
 
   roles: any[] = [];
 
   constructor(
     private usuarioService: UsuarioService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private rolService: RolService
   ) { }
 
   ngOnInit(): void {
@@ -33,9 +37,10 @@ export class ActualizarUsuarioComponent implements OnInit {
   }
 
   cargarRoles(): void {
-    this.usuarioService.getAllRoles().subscribe(
+    this.rolService.getAllRoles().subscribe(
       (data: any[]) => {
         this.roles = data;
+        console.log(this.roles); // Verifica que se estén cargando correctamente
       },
       (error: any) => {
         console.error('Error al cargar los roles:', error);
@@ -45,7 +50,7 @@ export class ActualizarUsuarioComponent implements OnInit {
 
   obtenerUsuario(): void {
     this.route.params.subscribe(params => {
-      this.id = +params['id'];
+      this.id = +params['id']; // Convertir el ID a número
       this.usuarioService.getUsuarioById(this.id).subscribe(
         (res: any) => {
           this.username = res.username;
@@ -56,9 +61,9 @@ export class ActualizarUsuarioComponent implements OnInit {
           this.completeName = res.completeName;
           this.address = res.address;
           this.phone = res.phone;
-          this.status = res.status;
+          this.status = res.status; // Asegúrate de que este campo se esté asignando
         },
-        err => console.error(err)
+        err => console.error('Error al obtener el usuario:', err)
       );
     });
   }
@@ -68,6 +73,7 @@ export class ActualizarUsuarioComponent implements OnInit {
       alert('Por favor, completa todos los campos.');
       return;
     }
+
     const usuarioActualizado = {
       id: this.id,
       username: this.username,
@@ -80,25 +86,44 @@ export class ActualizarUsuarioComponent implements OnInit {
       completeName: this.completeName,
       address: this.address,
       phone: this.phone,
-      status: this.status
+      status: this.status // Asegúrate de que el estado se incluya aquí
     };
 
     this.usuarioService.actualizarUsuario(this.id, usuarioActualizado).subscribe(
       (response: any) => {
         console.log('Usuario actualizado con éxito:', response);
+        Toastify({
+          text: "Usuario actualizado con éxito",
+          duration: 3000,
+          gravity: "top", // `top` o `bottom`
+          position: "center", // `left`, `center` o `right`
+          backgroundColor: "#36CB7C",
+        }).showToast();
         this.router.navigate(['/usuario']);
       },
       (error: any) => {
         console.error('Error al actualizar el usuario:', error);
-        alert('Error al actualizar el usuario. Por favor, inténtalo de nuevo.');
+        Toastify({
+          text: "Error al actualizar el usuario. Por favor, inténtalo de nuevo.",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "#ff5f6d",
+        }).showToast();
       }
     );
   }
 
+  // Método para manejar el cambio de selección de rol
   onRoleChange(event: any): void {
-    const selectedRole = this.roles.find(rol => rol.id === +event.target.value);
+    const selectedRoleId = +event.target.value; // Convertir a número
+    const selectedRole = this.roles.find(rol => rol.id === selectedRoleId);
+
     if (selectedRole) {
+      this.rolId = selectedRole.id;
       this.rolName = selectedRole.name;
+    } else {
+      this.rolId = 0; // Restablecer el rol si no es válido
     }
   }
 }

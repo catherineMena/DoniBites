@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 import { PedidoService } from '../../services/pedido.service';
 import { ProductoService } from '../../services/producto.service'; // Asegúrate de importar tu servicio de productos.
 
@@ -102,12 +104,24 @@ export class ActualizarPedidoComponent implements OnInit {
     this.pedidoService.updatePedido(this.pedido.id, this.pedido).subscribe(
       res => {
         console.log('Pedido actualizado con éxito:', res);
+        Toastify({
+          text: "Pedido actualizada con éxito",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "center", // `left`, `center` or `right`
+          backgroundColor: "#36CB7C",
+        }).showToast();
         this.router.navigate(['/pedido']);
       },
       err => {
         console.error('Error al actualizar el pedido:', err);
-        alert('Error al actualizar el pedido. Por favor, inténtalo de nuevo.');
-      }
+        Toastify({
+          text: "Error al actualizar el pedido. Por favor, inténtalo de nuevo.",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "center", // `left`, `center` or `right`
+          backgroundColor: "#ff5f6d",
+        }).showToast();      }
     );
   }
 

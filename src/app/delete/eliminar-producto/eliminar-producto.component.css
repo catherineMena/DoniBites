@@ -1,4 +1,3 @@
-/* Fondo con gradiente y configuración básica para el cuerpo */
 body {
   background: rgb(45, 49, 66); /* Fondo con gradiente */
   margin: 0; /* Eliminar márgenes predeterminados */
@@ -7,7 +6,49 @@ body {
   align-items: center; /* Centrar verticalmente */
   min-height: 100vh; /* Establecer una altura mínima del 100% del viewport */
   overflow: hidden; /* Ocultar el desbordamiento vertical */
-  font-family: Arial, sans-serif; /* Fuente del texto */
+  color: #000;
+}
+
+/* -------------NAVBAR-------------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(145, 142, 244, 0.4);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.user-icon {
+  margin-left: auto; /* Asegura que el icono esté al final del navbar */
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.user-icon:hover {
+  color: #f0f0f0;
+}
+
+.navbar i {
+  transition: transform 0.3s ease;
+}
+
+.navbar i:hover {
+  transform: scale(1.1);
 }
 
 /* Estilos para el título */
@@ -16,36 +57,44 @@ h1 {
   margin-bottom: 2rem;
   text-align: center; /* Alineación del texto */
   color: #000; /* Color del texto */
-  font-family: 'Arial', sans-serif; /* Fuente del texto */
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
 }
 
 /* Contenedor principal centrado */
 .wrapper {
-  max-width: 600px; /* or 80% */
-  min-height: 400px; /* new property */
-  margin: 0 auto;
-  padding: 40px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column; /* Organizar elementos en columna */
+  justify-content: center; /* Centrar los elementos internos */
+  align-items: center; /* Centrar horizontalmente */
+  background: #fff; /* Fondo semitransparente */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(126, 19, 19, 0.1); /* Sombra sutil */
+  padding: 3%; /* Espaciado interno */
+  width: fit-content; /* Ancho del contenedor */
 }
-.form-label {
-  font-size: 1.2em; /* increase font size */
-  font-weight: bold;
+
+/* Estilos para el formulario */
+.form-group {
+  color: #ffffff; /* Color del texto */
+  font-size: 1em; /* Tamaño del texto */
 }
 
 input {
-  font-size: 1.2em; /* increase font size */
-  padding: 1.5rem; /* increase padding */
-  height: 4rem; /* increase height */
+  background-color: rgba(255, 255, 255, 0.12); /* Fondo gris claro */
+  color: #333; /* Texto gris oscuro */
+  border-radius: 5px; /* Bordes redondeados */
+  border: 1px solid #ccc; /* Borde sólido */
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  font-size: 1em;
 }
-
-button {
-  font-size: 1.2em; /* increase font size */
-  padding: 1rem 2rem; /* increase padding */
+.form-label {
+  color: #000;
 }
 /* Estilo para el botón */
-.btn-add {
+.btn-delete{
   background-color: rgb(5, 178, 220);
   color: #FFF;
   border: none;
@@ -58,13 +107,13 @@ button {
 
 }
 
-.btn-add:hover {
+button:hover {
   background-color: rgb(5, 178, 220,0.3); /* Cambio de color al pasar el ratón */
 }
 
 .btn-cancel{
   background-color: rgb(221, 13, 30);
-  color:#FFF;
+  color: #FFF;
   border: none;
   font-size: 1em;/* Tamaño del texto */
   padding: 0.8rem 1.5rem; /* Espaciado interno */

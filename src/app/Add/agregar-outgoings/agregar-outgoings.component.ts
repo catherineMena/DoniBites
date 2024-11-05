@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 import { IngredientService } from '../../services/ingredient.service';
 import { OutgoingService } from '../../services/outgoings.service';
-import { FormsModule } from '@angular/forms';
-
 
 @Component({
   selector: 'app-agregar-outgoings',
@@ -71,12 +71,25 @@ export class AgregarOutgoingComponent implements OnInit {
     this.outgoingService.crearOutgoing(newOutgoing).subscribe(
       (response: any) => {
         console.log('Salida guardada con éxito:', response);
+        console.log('La salida se ha guardado con éxito:', response);
+        Toastify({
+          text: "La salida se ha guardado con éxito",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "#36CB7C",
+        }).showToast();
         this.router.navigate(['/outgoings']); // Redirigir a la lista de outgoings
       },
       (error: any) => {
         console.error('Error al guardar la salida:', error);
-        const errorMessage = error.error?.message || 'Error desconocido';
-        alert(`Error al guardar la salida: ${errorMessage}`);
+        Toastify({
+          text: "Error al guardar salida. Inténtalo de nuevo.",
+          duration: 3000,
+          gravity: "top",
+          position: "right",
+          backgroundColor: "#ff5f6d",
+        }).showToast();
       }
     );
   }

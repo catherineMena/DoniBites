@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 import { RolService } from '../../services/rol.service';
 
 @Component({
@@ -42,12 +44,24 @@ export class ActualizarRolComponent implements OnInit {
     this.rolService.updateRole(this.id, rolActualizado).subscribe(
       (response: any) => {
         console.log('Rol actualizado con éxito:', response);
+        Toastify({
+          text: "Rol actualizado con éxito",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "center", // `left`, `center` or `right`
+          backgroundColor: "#36CB7C",
+        }).showToast();
         this.router.navigate(['/roles']); // Cambiado a la ruta correspondiente
       },
       (error: any) => {
         console.error('Error al actualizar el rol:', error);
-        alert('Error al actualizar el rol. Por favor, inténtalo de nuevo.');
-      }
+        Toastify({
+          text: "Error al actualizar el rol. Por favor, inténtalo de nuevo.",
+          duration: 3000,
+          gravity: "top", // `top` or `bottom`
+          position: "center", // `left`, `center` or `right`
+          backgroundColor: "#ff5f6d",
+        }).showToast();      }
     );
   }
 }

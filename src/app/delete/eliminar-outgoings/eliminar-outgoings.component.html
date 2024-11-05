@@ -11,12 +11,12 @@
   <form (ngSubmit)="eliminarOutgoing()">
     <h1 class="text-center">Eliminar Salida</h1>
     <div class="form-group mb-3">
-      <label for="nombreInput" class="form-label">Nombre de la salida</label>
-      <input type="text" class="form-control" id="nombreInput" name="nombre" [value]="outgoing?.id" readonly>
+      <label for="idInput" class="form-label">ID de la salida</label>
+      <input type="text" class="form-control" id="idInput" name="id" [value]="outgoing?.id" readonly>
     </div>
     <div class="text-center">
       <button type="submit" class="btn-delete">Eliminar</button>
-      <button type="button" class="btn-cancel" routerLink="/outgoing">Cancelar</button>
+      <button type="button" class="btn-cancel" routerLink="/outgoings">Cancelar</button>
     </div>
   </form>
 </div>

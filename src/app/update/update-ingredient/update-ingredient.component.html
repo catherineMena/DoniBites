@@ -10,12 +10,6 @@
     <form (ngSubmit)="updateIngredient()">
       <h1 class="text-center">Update Ingredient</h1>
 
-      <!-- Campo para mostrar el ID del ingrediente -->
-      <div class="form-group mb-3">
-        <label for="idInput" class="form-label">ID</label>
-        <input type="text" class="form-control" id="idInput" name="id" [value]="id" readonly>
-      </div>
-
       <!-- Campo para editar el nombre del ingrediente -->
       <div class="form-group mb-3">
         <label for="ingredientInput" class="form-label">Nombre del ingrediente</label>
@@ -31,7 +25,7 @@
       <!-- Botones para guardar o cancelar -->
       <div class="text-center">
         <button type="button" class="btn btn-primary btn-add" (click)="updateIngredient()">Guardar</button>
-        <button type="button" class="btn btn-primary btn-cancel" routerLink="/ingredientes">Cancelar</button>
+        <button type="button" class="btn-cancel" routerLink="/ingredient">Cancelar</button>
       </div>
     </form>
   </div>

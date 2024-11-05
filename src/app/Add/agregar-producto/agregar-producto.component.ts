@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductoService } from '../../services/producto.service';
-import { CategoriaService } from '../../services/categoria.service';  // Asegúrate de importar el servicio de categorías
 import { Router } from '@angular/router';
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
+import { CategoriaService } from '../../services/categoria.service'; // Asegúrate de importar el servicio de categorías
+import { ProductoService } from '../../services/producto.service';
 
 @Component({
   selector: 'app-agregar-producto',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./agregar-producto.component.css']
 })
 export class AgregarProductoComponent implements OnInit {
-  id: string = '';
+  id: number = 0;
   nombre: string = '';
   descripcion: string = '';
   existencia: number = 0;
@@ -41,12 +43,11 @@ export class AgregarProductoComponent implements OnInit {
   }
 
   guardarProducto(): void {
-    if (this.id.trim() === '' || this.nombre.trim() === '' || this.descripcion.trim() === '' || this.categoriaId <= 0 || this.precio <= 0) {
+    if (this.nombre.trim() === '' || this.descripcion.trim() === '' || this.categoriaId <= 0 || this.precio <= 0) {
       alert('Por favor, completa todos los campos.');
       return;
     }
     const nuevoProducto = {
-      id: this.id,
       name: this.nombre,
       description: this.descripcion,
       qty: this.existencia,
@@ -60,12 +61,25 @@ export class AgregarProductoComponent implements OnInit {
     this.productService.crearProducto(nuevoProducto).subscribe(
       (response: any) => {
         console.log('Producto guardado con éxito:', response);
+        console.log('El ingrediente se ha guardado con éxito:', response);
+        Toastify({
+          text: "El producto se ha guardado con éxito",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "#36CB7C",
+        }).showToast();
         this.router.navigate(['/producto']);
       },
       (error: any) => {
         console.error('Error al guardar el producto:', error);
-        alert('Error al guardar el producto. Por favor, inténtalo de nuevo.');
-      }
+        Toastify({
+          text: "Error al guardar el producto. Inténtalo de nuevo.",
+          duration: 3000,
+          gravity: "top",
+          position: "right",
+          backgroundColor: "#ff5f6d",
+        }).showToast();      }
     );
   }
 

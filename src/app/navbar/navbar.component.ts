@@ -10,7 +10,8 @@ export class NavbarComponent {
   constructor(private router: Router) {}
 
   logout() {
-    // Aquí podrías agregar lógica para limpiar datos del usuario o cerrar sesión
-    this.router.navigate(['/login']); // Redirige a la página de login
+    // Aquí puedes agregar la lógica para cerrar sesión, como eliminar tokens, etc.
+    localStorage.removeItem('token'); // Ejemplo de eliminación de token
+    this.router.navigate(['/login']);
   }
 }
