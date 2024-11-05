@@ -122,6 +122,7 @@ import { EliminarOutgoingsComponent } from './delete/eliminar-outgoings/eliminar
     VisualizarOutgoingsComponent,
     EliminarOutgoingsComponent,
     AgregarOutgoingComponent,
+    RecuperarPwdComponent
 
 
 

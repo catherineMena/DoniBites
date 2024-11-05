@@ -20,7 +20,7 @@ export class HttpInterceptorService implements HttpInterceptor {
             this.router.navigate(['/login']);
         }
 
-        if (req.url.indexOf('basicauth') === -1) {
+        if (req.url.indexOf('basicauth') === -1 && req.url.indexOf('changepwd') === -1) {
             const authReq = req.clone({
                 headers: new HttpHeaders({
                     'Content-Type': 'application/json',
