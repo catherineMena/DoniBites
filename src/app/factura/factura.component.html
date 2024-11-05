@@ -37,8 +37,8 @@
             Descargar facturas
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#" (click)="descargarLista('pdf')">Descargar PDF</a></li>
-            <li><a class="dropdown-item" href="#" (click)="descargarLista('excel')">Descargar Excel</a></li>
+            <li><a class="dropdown-item" href="#" (click)="descargarPDF(); $event.preventDefault()">Descargar PDF</a></li>
+            <li><a class="dropdown-item" href="#" (click)="downloadExcel(); $event.preventDefault()">Descargar Excel</a></li>
           </ul>
         </div>
       </div>

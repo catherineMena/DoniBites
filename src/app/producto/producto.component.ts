@@ -59,11 +59,11 @@ export class ProductoComponent implements OnInit {
     const productsWithTotals = this.filteredProducts.map(product => {
       return {
         ...product,
-        totalParcial: (product.qty * product.unitPrice).toFixed(2)
+        totalParcial: `C$ ${(product.qty * product.unitPrice).toFixed(2)}`
       };
     });
 
-    const subtotal = productsWithTotals.reduce((acc, product) => acc + parseFloat(product.totalParcial), 0).toFixed(2);
+    const subtotal = productsWithTotals.reduce((acc, product) => acc + parseFloat(product.totalParcial.replace('C$ ', '')), 0).toFixed(2);
     const iva = (parseFloat(subtotal) * 0.15).toFixed(2);
     const total = (parseFloat(subtotal) + parseFloat(iva)).toFixed(2);
 
@@ -91,8 +91,8 @@ export class ProductoComponent implements OnInit {
           { content: 'Nombre', styles: { fillColor: [22, 160, 133], textColor: 255 } },
           { content: 'Descripción', styles: { fillColor: [22, 160, 133], textColor: 255 } },
           { content: 'Existencias', styles: { halign: 'center', fillColor: [22, 160, 133], textColor: 255 } },
-          { content: 'Precio', styles: { halign: 'center', fillColor: [22, 160, 133], textColor: 255 } },
-          { content: 'Total Parcial', styles: { halign: 'center', fillColor: [22, 160, 133], textColor: 255 } }
+          { content: 'Precio (C$)', styles: { halign: 'center', fillColor: [22, 160, 133], textColor: 255 } },
+          { content: 'Total Parcial (C$)', styles: { halign: 'center', fillColor: [22, 160, 133], textColor: 255 } }
         ],
         // Datos de los productos
         ...productsWithTotals.map(product => [
@@ -100,27 +100,28 @@ export class ProductoComponent implements OnInit {
           { content: product.name },
           { content: product.description },
           { content: product.qty.toString(), styles: { halign: 'center' } },
-          { content: product.unitPrice.toFixed(2), styles: { halign: 'center' } },
+          { content: `C$ ${product.unitPrice.toFixed(2)}`, styles: { halign: 'center' } },
           { content: product.totalParcial, styles: { halign: 'center' } }
         ]),
-        // Subtotales y totales
+        // Subtotales y totales con símbolo de córdoba
         [
           { content: 'Subtotal', colSpan: 5, styles: { halign: 'right', fontStyle: 'bold' } },
-          { content: subtotal, styles: { halign: 'center' } }
+          { content: `C$ ${subtotal}`, styles: { halign: 'center' } }
         ],
         [
           { content: 'IVA (15%)', colSpan: 5, styles: { halign: 'right', fontStyle: 'bold' } },
-          { content: iva, styles: { halign: 'center' } }
+          { content: `C$ ${iva}`, styles: { halign: 'center' } }
         ],
         [
           { content: 'Total', colSpan: 5, styles: { halign: 'right', fontStyle: 'bold' } },
-          { content: total, styles: { halign: 'center' } }
+          { content: `C$ ${total}`, styles: { halign: 'center' } }
         ]
       ]
     });
 
     doc.save('reporte_productos.pdf');
   }
+
 
   // Método para descargar en Excel
   downloadExcel() {
