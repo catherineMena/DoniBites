@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { RecuperarPwdService } from '../services/recuperar-pwd.service';
 import { Router } from '@angular/router';
 import Toastify from 'toastify-js';
+import { RecuperarPwdService } from '../services/recuperar-pwd.service';
 
 @Component({
   selector: 'app-recuperar-pwd',
@@ -41,7 +41,7 @@ export class RecuperarPwdComponent {
       (error: any) => {
         console.error('Error al enviar la contraseña', error);
         Toastify({
-          text: "Error al enviar la contraseña " + error,
+          text: "Error al enviar la contraseña ",
           duration: 3000,
           gravity: "top",
           position: "right",

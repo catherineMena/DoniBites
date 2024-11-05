@@ -1,13 +1,14 @@
 /* Estilos para el cuerpo */
 body {
-  background: linear-gradient(to right, #EE696B, #523A78); /* Fondo con gradiente */
+  background-color: rgb(45, 49, 66);
+  backdrop-filter: blur(10px);
   margin: 0; /* Eliminar márgenes predeterminados */
   display: flex; /* Usar Flexbox para centrar */
   justify-content: center; /* Centrar horizontalmente */
   align-items: center; /* Centrar verticalmente */
   min-height: 100vh; /* Establecer una altura mínima del 100% del viewport */
   overflow: hidden; /* Ocultar el desbordamiento vertical */
-  font-family: Arial, sans-serif; /* Fuente del texto */
+  font-family: "Raleway", sans-serif;
 }
 
 /* Contenedor principal centrado */
@@ -72,7 +73,7 @@ button {
 }
 
 button:hover {
-  background-color: #f04f84;
+  background-color: #1530a7;
 }
 
 /* Estilos para los hipervínculos */
