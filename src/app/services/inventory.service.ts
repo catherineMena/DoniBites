@@ -38,11 +38,8 @@ export class InventoryService {
     );
   }
 
-  deleteEntry(id: number): Observable<boolean> {
-    const headers = this.createAuthorizationHeader();
-    return this.http.delete<boolean>(`${this.apiUrl}/delete/${id}`, { headers }).pipe(
-      catchError(this.handleError)
-    );
+  deleteEntry(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
   }
 
   private createAuthorizationHeader(): HttpHeaders {

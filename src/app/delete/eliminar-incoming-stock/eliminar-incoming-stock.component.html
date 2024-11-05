@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eliminar Entrada</title>
+  <link rel="stylesheet" href="eliminar-incoming-stock.component.css">
+</head>
+<body>
+
+<div class="wrapper">
+  <form (ngSubmit)="eliminarIncomingStock()">
+    <h1 class="text-center">Eliminar Entrada de Stock</h1>
+
+    <div class="form-group mb-3">
+      <label for="idInput" class="form-label">ID de la entrada</label>
+      <input type="text" class="form-control" id="idInput" name="id" [value]="incomingStock?.id" readonly>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="ingredientName" class="form-label">Ingrediente</label>
+      <input type="text" class="form-control" id="ingredientName" [value]="incomingStock?.ingredient?.name" readonly>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn-delete">Eliminar</button>
+      <button type="button" class="btn-cancel" routerLink="/incoming-stock">Cancelar</button>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

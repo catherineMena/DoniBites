@@ -64,6 +64,8 @@ import { OutgoingsComponent } from './outgoings/outgoings.component';
 import { VisualizarOutgoingsComponent } from './read/visualizar-outgoings/visualizar-outgoings.component';
 import { ActualizarOutgoingsComponent } from './update/actualizar-outgoings/actualizar-outgoings.component';
 
+import { EliminarIncomingStockComponent } from './delete/eliminar-incoming-stock/eliminar-incoming-stock.component';
+import { ActualizarIncomingStockComponent } from './update/actualizar-incoming-stock/actualizar-incoming-stock.component';
 
 import { WidgetsComponent } from './widgets/widgets.component';
 
@@ -127,6 +129,8 @@ import { WidgetsComponent } from './widgets/widgets.component';
     AgregarOutgoingComponent,
     EliminarFacturaComponent,
     EliminarRolComponent,
+    ActualizarIncomingStockComponent,
+    EliminarIncomingStockComponent,
     WidgetsComponent,    RecuperarPwdComponent
 
 

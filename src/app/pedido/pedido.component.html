@@ -52,7 +52,7 @@
             <th>ID</th>
             <th>Descripción</th>
             <th>Fecha de Pedido</th>
-            <th>Fecha de Entrega Esperada</th>
+            <!-- <th>Fecha de Entrega Esperada</th> -->
             <th>Fecha de Entrega</th>
             <th>Estado</th>
             <th>Nombre del Producto</th>
@@ -68,7 +68,7 @@
             <td>{{pedido.id}}</td>
             <td>{{pedido.description}}</td>
             <td>{{pedido.orderDate | date: 'short'}}</td>
-            <td>{{pedido.expectedDeliverDate | date: 'short'}}</td>
+            <!-- <td>{{pedido.expectedDeliverDate | date: 'short'}}</td> -->
             <td>{{pedido.deliverDate ? (pedido.deliverDate | date: 'short') : 'Pendiente'}}</td>
             <td>{{pedido.status}}</td>
             <td>{{pedido.details[0]?.product.name}}</td>

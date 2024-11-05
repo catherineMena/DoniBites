@@ -47,15 +47,15 @@ import { UsuarioComponent } from './usuario/usuario.component';
 
 import { EliminarPedidoComponent } from './delete/eliminar-pedidos/eliminar-pedidos.component';
 
-// import { AgregarOutgoingComponent } from './Add/agregar-outgoing/agregar-outgoing.component';
 import { AgregarOutgoingComponent } from './Add/agregar-outgoings/agregar-outgoings.component';
 import { EliminarOutgoingsComponent } from './delete/eliminar-outgoings/eliminar-outgoings.component';
 import { OutgoingsComponent } from './outgoings/outgoings.component';
 import { VisualizarOutgoingsComponent } from './read/visualizar-outgoings/visualizar-outgoings.component';
 import { ActualizarOutgoingsComponent } from './update/actualizar-outgoings/actualizar-outgoings.component';
-// import { VisualizarOutgoingsComponent } from './read/visualizar-outgoings/visualizar-outgoings.component';
-// import { ActualizarOutgoingsComponent } from './update/actualizar-outgoings/actualizar-outgoings.component';
-// import { EliminarOutgoingsComponent } from './delete/eliminar-outgoings/eliminar-outgoings.component';
+
+import { EliminarIncomingStockComponent } from './delete/eliminar-incoming-stock/eliminar-incoming-stock.component';
+import { ActualizarIncomingStockComponent } from './update/actualizar-incoming-stock/actualizar-incoming-stock.component';
+
 
 
  export const appRoutes: Routes = [
@@ -145,6 +145,12 @@ import { ActualizarOutgoingsComponent } from './update/actualizar-outgoings/actu
 {path:'incoming-stock', component: IncomingStockComponent},
 {path:'view-stock/:id',component:ReadIncomingStockComponent},
 {path:'add-stock',component:AddIncomingStockComponent},
+{ path: 'visualizar-incoming-stock', component: VisualizarOutgoingsComponent},
+{ path: 'visualizar-incoming-stock/:id', component: VisualizarOutgoingsComponent},
+{ path: 'actualizar-incoming-stock', component: ActualizarIncomingStockComponent },
+{ path: 'eliminar-incoming-stock/:id', component: EliminarIncomingStockComponent },
+{ path: 'actualizar-incoming-stock/:id', component: ActualizarIncomingStockComponent },
+
 ///////////////////////////////////////////////////////////////////
 { path: 'outgoings', component: OutgoingsComponent },
 { path: 'agregar-outgoing', component: AgregarOutgoingComponent },

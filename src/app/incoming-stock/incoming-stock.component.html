@@ -50,7 +50,7 @@
           <th>Cantidad</th>
           <th>Proveedor</th>
           <th>Monto pagado</th>
-          <th>Usuario</th>
+          <!-- <th>Usuario</th> -->
           <th>Acciones</th>
         </tr>
       </thead>
@@ -62,16 +62,16 @@
           <td>{{stock.qty}}</td>
           <td>{{stock.provider.name}}</td>
           <td>{{stock.paidAmount | currency}}</td>
-          <td>{{stock.recordUser}}</td>
+          <!-- <td>{{stock.recordUser}}</td> -->
           <td>
             <div class="actions">
               <a [routerLink]="['/view-stock', stock.id]" class="btn btn-primary btn-visualize" title="Ver Entrada">
                 <i class="fa-solid fa-eye"></i>
               </a>
-              <a [routerLink]="['/update-stock', stock.id]"  class="btn btn-primary btn-update" title="Editar Entrada">
+              <a [routerLink]="['/actualizar-incoming-stock', stock.id]"  class="btn btn-primary btn-update" title="Editar Entrada">
                 <i class="fa-solid fa-pen"></i>
               </a>
-              <a [routerLink]="['/delete-stock', stock.id]"  class="btn btn-primary btn-delete" title="Eliminar Entrada">
+              <a [routerLink]="['/eliminar-incoming-stock', stock.id]"  class="btn btn-primary btn-delete" title="Eliminar Entrada">
                 <i class="fa-solid fa-trash"></i>
               </a>
             </div>
