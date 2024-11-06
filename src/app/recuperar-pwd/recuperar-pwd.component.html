@@ -8,14 +8,17 @@
 </head>
 <body>
   <div class="container">
-    <h1>Recuperar Contraseña</h1>
     <form #recuperarForm="ngForm" (ngSubmit)="enviarUsuario()" novalidate>
       <div class="form-group">
-        <label for="usuario">Ingrese su nombre de usuario</label>
+        <label for="usuario" class="form-label">Ingrese su nombre de usuario</label>
         <input type="text" class="form-control" id="usuarioInput" placeholder="Nombre de usuario" name="usuario" [(ngModel)]="usuario" required>
       </div>
       <button type="submit">Enviar</button>
     </form>
+    <div class="log2 text-center">
+      <br>
+      <a href="/login" routerLink="/login" class="link-light">Regresar al inicio de sesión</a>
+    </div>
   </div>
 </body>
 </html>
