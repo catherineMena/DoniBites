@@ -6,6 +6,7 @@ import { InventoryService } from '../services/inventory.service';
 import { OutgoingService } from '../services/outgoings.service';
 import { ProductoService } from '../services/producto.service';
 import { ProveedoresService } from '../services/proveedores.service';
+import { CategoriaService } from '../services/categoria.service'; // Importar el servicio de Categoría
 
 @Component({
   selector: 'app-widgets',
@@ -18,6 +19,9 @@ export class WidgetsComponent implements OnInit {
   totalProveedores: number = 0;
   totalEntradas: number = 0;
   totalSalidas: number = 0;
+  totalCategorias: number = 0; // Nueva propiedad para Categoría
+  totalIngredientesGrandes: number = 0; // Nueva propiedad para Ingredientes grandes
+
   errorMessage: string = '';
 
   constructor(
@@ -25,7 +29,8 @@ export class WidgetsComponent implements OnInit {
     private ingredientService: IngredientService,
     private proveedorService: ProveedoresService,
     private inventoryService: InventoryService,
-    private OutgoingService: OutgoingService
+    private OutgoingService: OutgoingService,
+    private categoriaService: CategoriaService // Inyecta el servicio de categorías
   ) {}
 
   ngOnInit(): void {
@@ -47,6 +52,7 @@ export class WidgetsComponent implements OnInit {
       })
     ).subscribe(ingredient => {
       this.totalIngredientes = ingredient.length;
+      this.totalIngredientesGrandes = ingredient.length; // Inicializa Ingredientes grandes con el mismo valor
     });
 
     this.proveedorService.getAllProviders().pipe(
@@ -77,6 +83,16 @@ export class WidgetsComponent implements OnInit {
       })
     ).subscribe(salidas => {
       this.totalSalidas = salidas.length;
+    });
+
+    this.categoriaService.getAllCategorias().pipe(
+      catchError(error => {
+        this.errorMessage = 'Error al obtener las categorías';
+        console.error('Error al obtener las categorías:', error);
+        return of([]);
+      })
+    ).subscribe(categorias => {
+      this.totalCategorias = categorias.length;
     });
   }
 }

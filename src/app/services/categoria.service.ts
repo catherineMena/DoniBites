@@ -12,8 +12,8 @@ export class CategoriaService {
 
   constructor(private http: HttpClient) { }
 
-   getAllCategorias() {
-    return this.http.get(this.apiUrl);
+  getAllCategorias(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
   }
 
   getCategoriaById(id: number): Observable<any> {
