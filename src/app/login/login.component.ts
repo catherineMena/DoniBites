@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
+import Toastify from 'toastify-js';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +28,5 @@ export class LoginComponent {
         console.error('Error de inicio de sesión', error);
       }
     );
-
-    this.router.navigate(['/menu']);
   }
 }

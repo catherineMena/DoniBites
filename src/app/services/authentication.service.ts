@@ -46,8 +46,12 @@ export class AuthenticationService {
   }
 
   isUserLoggedIn() {
-    if (this.autString  == 'Basic') return false
-    return true
+    if (this.autString  == 'Basic') {
+      return false
+    }else {
+      return true
+    }
+    
   }
 
   setAutString(val: string) {
